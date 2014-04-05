@@ -2,7 +2,6 @@
 /*
  * TODO
  * Anytime return, not just off-peak
- * Going for the day? (CDR <-> two CDS)
  */
 
 "use strict";
@@ -40,6 +39,42 @@ function price(n) {
     return printf('%.2f', n/100);
 }
 
+function parse_fare(from, to) {
+    return Pfetch('http://api.brfares.com/querysimple?orig=' + from + '&dest=' + to)
+    .then(function(body) {
+        var b = body.fares.filter(function(s) {
+            return 1 // s.category.desc == 'WALKUP'
+            //    && s.route.name == 'ANY PERMITTED'
+                && s.ticket.code.match(/SVR|SOR|CDR|SDR|CDS|SDS|SOS/);
+        });
+        var by_type = {};
+        b.forEach(function(s) { by_type[s.ticket.code] = s; });
+        var best = by_type.SVR || by_type.SOR;
+        var double = false;
+        if (!best) {
+            best = by_type.CDS || by_type.SDS || by_type.SOS;
+            double = true;
+        }
+        if (store.day) {
+            var best_day = by_type.CDR || by_type.SDR;
+            if (!best || (best_day && best_day.adult.fare < best.fare)) {
+                best = best_day;
+                double = false;
+            }
+        }
+        if (!best) {
+            console.log(chalk.gray('-'));
+            return;
+        }
+        var fare = best.adult.fare * (double?2:1);
+        store.data[from][to] = fare;
+        process.stdout.write(chalk.gray(price(fare)));
+        if (double) process.stdout.write(' (2 singles)');
+        process.stdout.write('\n');
+        return;
+    });
+}
+
 var store = { data: {} };
 
 // First, ask for from and to
@@ -48,10 +83,10 @@ var store = { data: {} };
 Pprompt([
     { name: "from", message: "From", },
     { name: "to", message: "To", },
-    // TIME
-    // SAME DAY RETURN
+    { name: "day", message: "For the day", type: "confirm" },
 ])
 .then(function(ans) {
+    store.day = ans.day;
     // Fetch the possibilities for those strings
     return [
         Pfetch('http://api.brfares.com/ac_loc?term=' + encodeURIComponent(ans.from)),
@@ -82,58 +117,45 @@ Pprompt([
     store.from = encodeURIComponent(from.from);
     store.to = encodeURIComponent(to.to);
 */
-Q({ from: 'BHM', to: 'BRI' })
+Q({ from: 'BRV', to: 'OXF' })
 .then(function(ans) {
     store.from = ans.from;
     store.to = ans.to;
+    store.day = false;
 })
 .then(function() {
+    store.data[store.from] = {};
     return [
-        Pfetch('http://api.brfares.com/querysimple?orig=' + store.from + '&dest=' + store.to),
+        parse_fare(store.from, store.to),
         Pfetch('http://traintimes.org.uk/' + store.from + '/' + store.to + '/10:00/monday'),
     ];
-}).spread(function(fares, stops) {
-    var re = /<a[^>]*href="(\/ajax-stoppingpoints[^"]*)">stops\/details/;
+}).spread(function(_, stops) {
+    console.log(chalk.black('Fetching stopping points...'));
+
+    var re = /<a[^>]*href="(\/ajax-stoppingpoints[^"]*)">stops/i;
     var m = stops.match(re);
     if (m) {
-        return [
-            fares.fares.filter(function(s){ return s.ticket.code == 'SVR'; }),
-            Pfetch('http://traintimes.org.uk' + m[1] + ';ajax=2'),
-        ];
+        return Pfetch('http://traintimes.org.uk' + m[1] + ';ajax=2');
     } else {
         console.log(chalk.red("Could not get stops"));
         process.exit(1);
     }
-}).spread(function(fares, stops) {
-    var fare_total = fares[0].adult.fare,
+}).then(function(stops) {
+    console.log(chalk.black('Looking up all the pairwise fares...'));
+
+    var fare_total = store.data[store.from][store.to],
         fare_total_s = chalk.blue(price(fare_total));
     console.log('Total fare is ' + fare_total_s);
 
- // var re = />.*? \[<abbr>[A-Z]{3}<\/abbr>/g;
-    var re = /<abbr>[A-Z]{3}<\/abbr>/g;
-    stops = stops.tables.reduce(function(a,b){ return a.concat(b.match(re)); }, []);
+    var dests = stops.destination.reduce(function(a,b){ return a.concat(b.match(/[A-Z]{3}/g)); }, []);
+    stops = stops.tables.reduce(function(a,b){ return a.concat(b.match(/<abbr>[A-Z]{3}/g)); }, []);
     stops = stops.map(function(x){ return x.substr(6, 3) });
 
-    var all_stops = [ store.from ].concat(stops, store.to);
+    var all_stops = [ store.from ].concat(stops, dests);
     all_stops.forEach(function(x){ store.data[x] = {}; });
-    store.data[store.from][store.to] = fare_total;
 
     var stop_pairs = itertools.combination(all_stops, 2);
     stop_pairs = stop_pairs.filter(function(x){ return x[0] != store.from || x[1] != store.to; });
-
-    function parse_fare(from, to) {
-        return Pfetch('http://api.brfares.com/querysimple?orig=' + from + '&dest=' + to)
-            .then(function(body) {
-                var b = body.fares.filter(function(s){ return s.ticket.code.match(/SVR|CDR/); });
-                if (!b.length) {
-                    console.log(chalk.gray('-'));
-                    return;
-                }
-                store.data[from][to] = b[0].adult.fare;
-                console.log(chalk.gray(price(b[0].adult.fare)));
-                return;
-            });
-    }
 
     var result = Q();
     stop_pairs.forEach(function(pair) {
@@ -145,6 +167,8 @@ Q({ from: 'BHM', to: 'BRI' })
     return result;
 }).then(function() {
     // Okay, have all the prices, now for the magic algorithm
+    console.log(chalk.black('Calculating shortest route...'));
+
     var graph = new dijkstra.Graph();
     Object.keys(store.data).forEach(function(x){
         graph.addVertex(x);
@@ -157,7 +181,6 @@ Q({ from: 'BHM', to: 'BRI' })
         });
     });
 
-    console.log(chalk.black('Calculating shortest route...'));
     var result = dijkstra.dijkstra(graph, store.from);
     var node = store.to;
     var nodes = [];
