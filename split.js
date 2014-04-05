@@ -37,7 +37,7 @@ function Pfetch(url) {
 }
 
 function price(n) {
-    return chalk.blue(printf('%.2f', n/100));
+    return printf('%.2f', n/100);
 }
 
 var store = { data: {} };
@@ -106,7 +106,7 @@ Q({ from: 'BHM', to: 'BRI' })
     }
 }).spread(function(fares, stops) {
     var fare_total = fares[0].adult.fare,
-        fare_total_s = price(fare_total);
+        fare_total_s = chalk.blue(price(fare_total));
     console.log('Total fare is ' + fare_total_s);
 
  // var re = />.*? \[<abbr>[A-Z]{3}<\/abbr>/g;
@@ -125,29 +125,25 @@ Q({ from: 'BHM', to: 'BRI' })
         return Pfetch('http://api.brfares.com/querysimple?orig=' + from + '&dest=' + to)
             .then(function(body) {
                 var b = body.fares.filter(function(s){ return s.ticket.code.match(/SVR|CDR/); });
-                if (!b.length) return [ from, to, -1 ];
+                if (!b.length) {
+                    console.log(chalk.gray('-'));
+                    return;
+                }
                 store.data[from][to] = b[0].adult.fare;
-                return [ from, to, b[0].adult.fare ];
+                console.log(chalk.gray(price(b[0].adult.fare)));
+                return;
             });
     }
 
     var result = Q();
     stop_pairs.forEach(function(pair) {
-        result = result.then(function(out) {
-            if (out) {
-                store.data[out[0]][out[1]] = out[2];
-                console.log(price(out[2]));
-            }
-
+        result = result.then(function() {
             process.stdout.write(chalk.gray('  Trying ' + pair[0] + '-' + pair[1]) + ': ');
             return parse_fare(pair[0], pair[1]);
         });
     });
     return result;
-}).then(function(out) {
-    store.data[out[0]][out[1]] = out[2];
-    console.log(price(out[2]));
-
+}).then(function() {
     // Okay, have all the prices, now for the magic algorithm
     var graph = new dijkstra.Graph();
     Object.keys(store.data).forEach(function(x){
@@ -170,11 +166,13 @@ Q({ from: 'BHM', to: 'BRI' })
         node = result[JSON.stringify(node)];
     }
     nodes.reverse();
+    var total = 0;
     for (i=0; i<nodes.length-1; i++) {
         var f = nodes[i], t = nodes[i+1];
         console.log(f + ' ' + chalk.black('->') + ' ' + t + chalk.black(': ') + price(store.data[f][t]));
+        total += store.data[f][t];
     }
-    console.log(chalk.green('END'));
+    console.log(chalk.green('Total: ' + price(total)));
 })
 .then(function(){
     // Otherwise it seems to hang since I added redis request caching
