@@ -11,8 +11,15 @@ var inquirer = require("inquirer"),
     chalk = require("chalk"),
     printf = require("printf"),
     request = require("request"),
+    RequestCaching = require("node-request-caching"),
+    dijkstra = require("dijkstra"),
     itertools = require("./itertools"),
     Q = require("q");
+
+var rc = new RequestCaching({
+    store: 'redis',
+    caching: { ttl: 86400, },
+});
 
 function Pprompt(qns) {
     var deferred = Q.defer();
@@ -22,7 +29,8 @@ function Pprompt(qns) {
 
 function Pfetch(url) {
     var deferred = Q.defer();
-    request({ url: url, json: true }, function(error, response, body) {
+    rc.request({ uri: url, }, function(error, response, body) {
+        try { body = JSON.parse(body) } catch (e) {}
         if (error) { deferred.reject(new Error(error)); }
         else { deferred.resolve(body); }
     });
@@ -131,5 +139,8 @@ Q({ from: 'BHM', to: 'BRI' })
     return result;
 }).then(function(x) {
     console.log(chalk.red(x[0]) + ' ' + chalk.blue(printf('%.2f', x[1]/100)) + ' + ' + chalk.blue(printf('%.2f', x[2]/100)));
+})
+.then(function(){
+    // Otherwise it seems to hang since I added redis request caching
+    process.exit();
 });
-;
