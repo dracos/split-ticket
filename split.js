@@ -139,11 +139,14 @@ Pprompt([
         console.log(chalk.red("Could not get stops"));
         process.exit(1);
     }
-}).then(function(stops) {
-    var dests = stops.destination.reduce(function(a,b){ return a.concat(b.match(/[A-Z]{3}/g)); }, []);
-    stops = stops.tables.reduce(function(a,b){ return a.concat(b.match(/<abbr>[A-Z]{3}/g)); }, []);
-    stops = stops.map(function(x){ return x.substr(6, 3) });
-    var all_stops = [ store.from ].concat(stops, dests);
+}).then(function(ints) {
+    var stops = [], c = 0;
+    ints.tables.forEach(function(x){
+        stops = stops.concat(x.match(/<abbr>[A-Z]{3}/g).map(function(x){ return x.substr(6,3); }));
+        stops.push( ints.destination[c++].match(/[A-Z]{3}/)[0] );
+    });
+
+    var all_stops = [ store.from ].concat(stops);
     console.log('Stations to consider:', chalk.gray(all_stops));
 
     console.log(chalk.black('Looking up all the pairwise fares...'));
@@ -190,7 +193,6 @@ Pprompt([
     for (i=0; i<nodes.length-1; i++) {
         var f = nodes[i], t = nodes[i+1],
             d = store.data[f][t];
-        if (!d) d = store.data[t][f];
         console.log(f + ' ' + chalk.gray('->') + ' ' + t + chalk.gray(': ') + price(d));
         total += d;
     }
