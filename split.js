@@ -51,27 +51,26 @@ function parse_fare(from, to) {
         b.forEach(function(s) { by_type[s.ticket.code] = s; });
         var best = by_type.SVR || by_type.SOR;
         var double = false;
+        if (store.day) {
+            var best_day = by_type.CDR || by_type.SDR;
+            if (!best || (best_day && best_day.adult.fare < best.adult.fare)) {
+                best = best_day;
+            }
+        }
         if (!best) {
             best = by_type.CDS || by_type.SDS || by_type.SOS;
             double = true;
         }
-        if (store.day) {
-            var best_day = by_type.CDR || by_type.SDR;
-            if (!best || (best_day && best_day.adult.fare < best.fare)) {
-                best = best_day;
-                double = false;
-            }
-        }
         if (!best) {
-            console.log(chalk.gray('-'));
-            return;
+            return '-';
         }
         var fare = best.adult.fare * (double?2:1);
+        if (!(from in store.data)) store.data[from] = {};
+        if (!(to in store.data)) store.data[to] = {};
         store.data[from][to] = fare;
-        process.stdout.write(chalk.gray(price(fare)));
-        if (double) process.stdout.write(' (2 singles)');
-        process.stdout.write('\n');
-        return;
+        var disp = price(fare);
+        if (double) disp += ' (2 singles)';
+        return disp;
     });
 }
 
@@ -129,7 +128,9 @@ Q({ from: 'BRV', to: 'OXF' })
         parse_fare(store.from, store.to),
         Pfetch('http://traintimes.org.uk/' + store.from + '/' + store.to + '/10:00/monday'),
     ];
-}).spread(function(_, stops) {
+}).spread(function(fare_total, stops) {
+    console.log('Total fare is', chalk.blue(fare_total));
+
     console.log(chalk.black('Fetching stopping points...'));
 
     var re = /<a[^>]*href="(\/ajax-stoppingpoints[^"]*)">stops/i;
@@ -141,16 +142,9 @@ Q({ from: 'BRV', to: 'OXF' })
         process.exit(1);
     }
 }).then(function(stops) {
-    console.log(chalk.black('Looking up all the pairwise fares...'));
-
-    var fare_total = store.data[store.from][store.to],
-        fare_total_s = chalk.blue(price(fare_total));
-    console.log('Total fare is ' + fare_total_s);
-
     var dests = stops.destination.reduce(function(a,b){ return a.concat(b.match(/[A-Z]{3}/g)); }, []);
     stops = stops.tables.reduce(function(a,b){ return a.concat(b.match(/<abbr>[A-Z]{3}/g)); }, []);
     stops = stops.map(function(x){ return x.substr(6, 3) });
-
     var all_stops = [ store.from ].concat(stops, dests);
     all_stops.forEach(function(x){ store.data[x] = {}; });
 
@@ -159,13 +153,16 @@ Q({ from: 'BRV', to: 'OXF' })
 
     var result = Q();
     stop_pairs.forEach(function(pair) {
-        result = result.then(function() {
-            process.stdout.write(chalk.gray('  Trying ' + pair[0] + '-' + pair[1]) + ': ');
+        result = result.then(function(out) {
+            if (out) console.log(chalk.gray(out));
+            process.stdout.write(chalk.gray('  Trying ' + pair[0] + '-' + pair[1] + ': '));
             return parse_fare(pair[0], pair[1]);
         });
     });
     return result;
-}).then(function() {
+}).then(function(out) {
+    if (out) console.log(chalk.gray(out));
+
     // Okay, have all the prices, now for the magic algorithm
     console.log(chalk.black('Calculating shortest route...'));
 
