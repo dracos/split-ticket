@@ -43,9 +43,8 @@ function parse_fare(from, to) {
     return Pfetch('http://api.brfares.com/querysimple?orig=' + from + '&dest=' + to)
     .then(function(body) {
         var b = body.fares.filter(function(s) {
-            return 1 // s.category.desc == 'WALKUP'
-            //    && s.route.name == 'ANY PERMITTED'
-                && s.ticket.code.match(/SVR|SOR|CDR|SDR|CDS|SDS|SOS/);
+            var test = s.ticket.code.match(/SVR|SOR|CDR|SDR|CDS|SDS|SOS/);
+            return test;
         });
         var by_type = {};
         b.forEach(function(s) { by_type[s.ticket.code] = s; });
@@ -67,9 +66,15 @@ function parse_fare(from, to) {
         var fare = best.adult.fare * (double?2:1);
         if (!(from in store.data)) store.data[from] = {};
         if (!(to in store.data)) store.data[to] = {};
-        store.data[from][to] = fare;
+        var route = prettify(best.route.name);
+        var restriction = best.restriction_code;
+        store.data[from][to] = { fare: fare, route: route };
         var disp = price(fare);
         if (double) disp += ' (2 singles)';
+        if (route != 'Any Permitted') disp += ' (' + route + ')';
+        if (restriction == '2V') {
+            disp += ' (0930+ M-F)';
+        }
         return disp;
     });
 }
@@ -175,8 +180,8 @@ Pprompt([
     });
     Object.keys(store.data).forEach(function(x){
         Object.keys(store.data[x]).forEach(function(y){
-            if (store.data[x][y] != -1) {
-                graph.addEdge(x, y, store.data[x][y]);
+            if (store.data[x][y].fare != -1) {
+                graph.addEdge(x, y, store.data[x][y].fare);
             }
         });
     });
@@ -193,8 +198,8 @@ Pprompt([
     for (i=0; i<nodes.length-1; i++) {
         var f = nodes[i], t = nodes[i+1],
             d = store.data[f][t];
-        console.log(f + ' ' + chalk.gray('->') + ' ' + t + chalk.gray(': ') + price(d));
-        total += d;
+        console.log(f + ' ' + chalk.gray('->') + ' ' + t + chalk.gray(': ') + price(d.fare) + ' (' + d.route + ')');
+        total += d.fare;
     }
     console.log(chalk.green('Total: ' + price(total)));
 })
@@ -202,3 +207,7 @@ Pprompt([
     // Otherwise it seems to hang since I added redis request caching
     process.exit();
 });
+
+function prettify(s) {
+    return s.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
