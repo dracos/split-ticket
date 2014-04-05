@@ -77,8 +77,6 @@ function parse_fare(from, to) {
 var store = { data: {} };
 
 // First, ask for from and to
-/*
- * THIS DOES THE NICE STATION LOOKUP
 Pprompt([
     { name: "from", message: "From", },
     { name: "to", message: "To", },
@@ -86,7 +84,13 @@ Pprompt([
 ])
 .then(function(ans) {
     store.day = ans.day;
-    // Fetch the possibilities for those strings
+    if (!ans.from || !ans.to) {
+        console.log(chalk.red("Please enter a From and a To"));
+        process.exit(1);
+    }
+
+    console.log(chalk.black('Looking up entered terms...'));
+
     return [
         Pfetch('http://api.brfares.com/ac_loc?term=' + encodeURIComponent(ans.from)),
         Pfetch('http://api.brfares.com/ac_loc?term=' + encodeURIComponent(ans.to))
@@ -115,15 +119,9 @@ Pprompt([
 .spread(function(from, to) {
     store.from = encodeURIComponent(from.from);
     store.to = encodeURIComponent(to.to);
-*/
-Q({ from: 'BRV', to: 'OXF' })
-.then(function(ans) {
-    store.from = ans.from;
-    store.to = ans.to;
-    store.day = false;
 })
 .then(function() {
-    store.data[store.from] = {};
+    console.log(chalk.black('Looking up journey as a whole...'));
     return [
         parse_fare(store.from, store.to),
         Pfetch('http://traintimes.org.uk/' + store.from + '/' + store.to + '/10:00/monday'),
@@ -146,7 +144,9 @@ Q({ from: 'BRV', to: 'OXF' })
     stops = stops.tables.reduce(function(a,b){ return a.concat(b.match(/<abbr>[A-Z]{3}/g)); }, []);
     stops = stops.map(function(x){ return x.substr(6, 3) });
     var all_stops = [ store.from ].concat(stops, dests);
-    all_stops.forEach(function(x){ store.data[x] = {}; });
+    console.log('Stations to consider:', chalk.gray(all_stops));
+
+    console.log(chalk.black('Looking up all the pairwise fares...'));
 
     var stop_pairs = itertools.combination(all_stops, 2);
     stop_pairs = stop_pairs.filter(function(x){ return x[0] != store.from || x[1] != store.to; });
@@ -188,9 +188,11 @@ Q({ from: 'BRV', to: 'OXF' })
     nodes.reverse();
     var total = 0;
     for (i=0; i<nodes.length-1; i++) {
-        var f = nodes[i], t = nodes[i+1];
-        console.log(f + ' ' + chalk.black('->') + ' ' + t + chalk.black(': ') + price(store.data[f][t]));
-        total += store.data[f][t];
+        var f = nodes[i], t = nodes[i+1],
+            d = store.data[f][t];
+        if (!d) d = store.data[t][f];
+        console.log(f + ' ' + chalk.gray('->') + ' ' + t + chalk.gray(': ') + price(d));
+        total += d;
     }
     console.log(chalk.green('Total: ' + price(total)));
 })
