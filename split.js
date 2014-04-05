@@ -78,16 +78,16 @@ var store = { data: {} };
 
 // First, ask for from and to
 Pprompt([
-    { name: "from", message: "From", },
-    { name: "to", message: "To", },
+    { name: "from", message: "From", validate: function(x) { if (x) return true; return false; } },
+    { name: "to", message: "To", validate: function(x) { if (x) return true; return false; } },
     { name: "day", message: "For the day", type: "confirm" },
+    { name: "time", message: "Departure time", default: "10:00",
+        validate: function(x) { if (x.match(/^\d\d:\d\d$/)) return true; return false; }
+    },
 ])
 .then(function(ans) {
     store.day = ans.day;
-    if (!ans.from || !ans.to) {
-        console.log(chalk.red("Please enter a From and a To"));
-        process.exit(1);
-    }
+    store.time = ans.time;
 
     console.log(chalk.black('Looking up entered terms...'));
 
@@ -124,7 +124,7 @@ Pprompt([
     console.log(chalk.black('Looking up journey as a whole...'));
     return [
         parse_fare(store.from, store.to),
-        Pfetch('http://traintimes.org.uk/' + store.from + '/' + store.to + '/10:00/monday'),
+        Pfetch('http://traintimes.org.uk/' + store.from + '/' + store.to + '/' + store.time + '/monday'),
     ];
 }).spread(function(fare_total, stops) {
     console.log('Total fare is', chalk.blue(fare_total));
