@@ -9,6 +9,7 @@
     "request": "~2.34.0",
     "chalk": "~0.4.0",
     "printf": "~0.2.0",
+    "dijkstra": "git://github.com/dracos/dijkstra",
     "node-request-caching": "0.0.1"
   },
   "devDependencies": {},

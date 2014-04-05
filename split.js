@@ -2,7 +2,6 @@
 /*
  * TODO
  * Anytime return, not just off-peak
- * Dijkstra of all the options...
  * Going for the day? (CDR <-> two CDS)
  */
 
@@ -37,7 +36,11 @@ function Pfetch(url) {
     return deferred.promise;
 }
 
-var store = {};
+function price(n) {
+    return chalk.blue(printf('%.2f', n/100));
+}
+
+var store = { data: {} };
 
 // First, ask for from and to
 /*
@@ -98,11 +101,12 @@ Q({ from: 'BHM', to: 'BRI' })
             Pfetch('http://traintimes.org.uk' + m[1] + ';ajax=2'),
         ];
     } else {
-        throw new Error("Could not get stops");
+        console.log(chalk.red("Could not get stops"));
+        process.exit(1);
     }
 }).spread(function(fares, stops) {
-    var fare_total = fares[0].adult.fare/100,
-        fare_total_s = chalk.blue(printf('%.2f', fare_total));
+    var fare_total = fares[0].adult.fare,
+        fare_total_s = price(fare_total);
     console.log('Total fare is ' + fare_total_s);
 
  // var re = />.*? \[<abbr>[A-Z]{3}<\/abbr>/g;
@@ -111,34 +115,66 @@ Q({ from: 'BHM', to: 'BRI' })
     stops = stops.map(function(x){ return x.substr(6, 3) });
 
     var all_stops = [ store.from ].concat(stops, store.to);
+    all_stops.forEach(function(x){ store.data[x] = {}; });
+    store.data[store.from][store.to] = fare_total;
+
     var stop_pairs = itertools.combination(all_stops, 2);
     stop_pairs = stop_pairs.filter(function(x){ return x[0] != store.from || x[1] != store.to; });
 
-    var result = Q([]);
-    stops.forEach(function(stop) {
-        result = result.then(function(x){
-            console.log(chalk.red(x[0]) + ' ' + chalk.blue(printf('%.2f', x[1]/100)) + ' + ' + chalk.blue(printf('%.2f', x[2]/100)));
-            console.log('Trying ' + stop);
-            return Q.all([
-                stop,
-                Pfetch('http://api.brfares.com/querysimple?orig=' + store.from + '&dest=' + stop)
-                    .then(function(body) {
-                        var b = body.fares.filter(function(s){ return s.ticket.code.match(/SVR|CDR/); });
-                        if (!b.length) return -1;
-                        return b[0].adult.fare;
-                    }),
-                Pfetch('http://api.brfares.com/querysimple?orig=' + stop + '&dest=' + store.to)
-                    .then(function(body) {
-                        var b = body.fares.filter(function(s){ return s.ticket.code.match(/SVR|CDR/); });
-                        if (!b.length) return -1;
-                        return b[0].adult.fare;
-                    }),
-            ]);
+    function parse_fare(from, to) {
+        return Pfetch('http://api.brfares.com/querysimple?orig=' + from + '&dest=' + to)
+            .then(function(body) {
+                var b = body.fares.filter(function(s){ return s.ticket.code.match(/SVR|CDR/); });
+                if (!b.length) return [ from, to, -1 ];
+                store.data[from][to] = b[0].adult.fare;
+                return [ from, to, b[0].adult.fare ];
+            });
+    }
+
+    var result = Q();
+    stop_pairs.forEach(function(pair) {
+        result = result.then(function(out) {
+            if (out) {
+                store.data[out[0]][out[1]] = out[2];
+                console.log(price(out[2]));
+            }
+
+            process.stdout.write(chalk.gray('  Trying ' + pair[0] + '-' + pair[1]) + ': ');
+            return parse_fare(pair[0], pair[1]);
         });
     });
     return result;
-}).then(function(x) {
-    console.log(chalk.red(x[0]) + ' ' + chalk.blue(printf('%.2f', x[1]/100)) + ' + ' + chalk.blue(printf('%.2f', x[2]/100)));
+}).then(function(out) {
+    store.data[out[0]][out[1]] = out[2];
+    console.log(price(out[2]));
+
+    // Okay, have all the prices, now for the magic algorithm
+    var graph = new dijkstra.Graph();
+    Object.keys(store.data).forEach(function(x){
+        graph.addVertex(x);
+    });
+    Object.keys(store.data).forEach(function(x){
+        Object.keys(store.data[x]).forEach(function(y){
+            if (store.data[x][y] != -1) {
+                graph.addEdge(x, y, store.data[x][y]);
+            }
+        });
+    });
+
+    console.log(chalk.black('Calculating shortest route...'));
+    var result = dijkstra.dijkstra(graph, store.from);
+    var node = store.to;
+    var nodes = [];
+    while (node) {
+        nodes.push(node);
+        node = result[JSON.stringify(node)];
+    }
+    nodes.reverse();
+    for (i=0; i<nodes.length-1; i++) {
+        var f = nodes[i], t = nodes[i+1];
+        console.log(f + ' ' + chalk.black('->') + ' ' + t + chalk.black(': ') + price(store.data[f][t]));
+    }
+    console.log(chalk.green('END'));
 })
 .then(function(){
     // Otherwise it seems to hang since I added redis request caching
