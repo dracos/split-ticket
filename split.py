@@ -59,7 +59,8 @@ store['station_times'][store['from']] = [ None, store['time'] ]
 # 2 Fare for entire journey
 
 print colored('Looking up journey as a whole...', 'grey')
-fare_total = fares.parse_fare(store, store['from'], store['to'])
+Fares = fares.Fares(store)
+fare_total = Fares.parse_fare(store['from'], store['to'])
 print '\nTotal fare is', colored(fare_total, 'blue')
 
 # ---
@@ -113,8 +114,8 @@ stop_pairs = filter(lambda x: x[0] != store['from'] or x[1] != store['to'], stop
 for pair in stop_pairs:
     print colored(pair[0] + '-' + pair[1] + ' (', 'white', attrs=['dark']),
     print colored(','.join(map(lambda x: x or '', store['station_times'][pair[0]])), 'grey'),
-    print colored('): ', 'white', attrs=['dark']),
-    out = fares.parse_fare(store, pair[0], pair[1])
+    print colored('):', 'white', attrs=['dark']),
+    out = Fares.parse_fare(pair[0], pair[1])
     print colored(out, 'grey')
 
 # ---

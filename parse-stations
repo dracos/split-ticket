@@ -1,0 +1,125 @@
+#!/usr/bin/env python
+
+"""
+The clusters file has lines of the following type:
+    R <4 NLC code> <4 NLC member> <8 end_date> <8 start_date>
+
+The locations file has lines of the following types:
+    RL <7 UIC code> <8 end_date> <8 start_date> <8 quote_date> <3 admin area code>
+        <4 NLC code> <16 desc> <3 CRS code> <5 resv code> <2 ERS country> <3 ERS code>
+        <6 fare group> <2 county> <2 PTE code> <4 zone NLC> <2 zone ind> <1 region>
+        <1 hierarchy> <41 cc desc out> <16 cc desc rtn> <60 ATB desc out> <30 ATB desc rtn>
+        <26 special facilities> <29 LUL things>
+    RA <7 UIC code> <8 end_date> <7 associated UIC code> <3 associated CRS code>
+    RR <7 UIC code> <3 railcard code> <8 end_date>
+    RG <7 UIC code> <8 end_date> <8 start_date> <8 quote_date> <16 desc> <2 ERS country> <3 ERS code>
+    RM <7 UIC code> <8 end_date> <7 UIC group member> <3 CRS group member>
+    RS <7 UIC code> <8 end_date> <8 start_date> <16 synonym>
+"""
+
+from datetime import date
+import json
+
+cnv_full_date = lambda x: date(int(x[4:8]), int(x[2:4]), int(x[0:2]))
+cnv_str = lambda x: x.rstrip()
+
+def unpack(row, *fields):
+    ptr = 0
+    data = {}
+    for f in fields:
+        fn = f[2] if len(f)==3 else cnv_str
+        r = row[ptr:ptr+f[1]]
+        data[f[0]] = fn(r)
+        ptr += f[1]
+    return data
+
+started = False
+data = {}
+for row in open('RJFAF273/RJFAF273.FSC'):
+    update_marker, row = row[0], row[1:].strip()
+    if update_marker == '/':
+        if not started: continue
+        if 'End of file' in row: continue
+    started = True
+    assert update_marker == 'R'
+
+    row = unpack(row,
+        ('cluster_id', 4), ('member_id', 4),
+        ('date_to', 8, cnv_full_date), ('date_from', 8, cnv_full_date)
+    )
+    assert row['date_to'] == date(2999, 12, 31)
+    assert row['date_from'] < date(2014, 5, 4)
+    del row['date_to'], row['date_from']
+    data.setdefault('clusters', {}).setdefault(row['member_id'], []).append(row['cluster_id'])
+
+started = False
+for row in open('RJFAF273/RJFAF273.RTE'):
+    update_marker, record_type, row = row[0], row[1], row[2:].strip()
+    if update_marker == '/':
+        if not started: continue
+        if 'End of file' in row: continue
+    started = True
+    assert update_marker == 'R'
+    if record_type != 'R': continue
+
+    row = unpack(row,
+        ('route_code', 5), ('end_date', 8, cnv_full_date), ('start_date', 8, cnv_full_date),
+        ('quote_date', 8, cnv_full_date), ('description', 16), ('atb', 35*4), ('cc_desc', 16),
+        ('aaa_desc', 41), ('uts', 1+6+3*4),
+    )
+    if row['end_date'] < date.today(): continue
+    data.setdefault('routes', {})[row['route_code']] = row['description']
+
+started = False
+for row in open('RJFAF273/RJFAF273.LOC'):
+    update_marker, record_type, row = row[0], row[1], row[2:].strip()
+    if update_marker == '/':
+        if not started: continue
+        if 'End of file' in row: continue
+    started = True
+    assert update_marker == 'R'
+
+    lookups = {
+        'L': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
+            ('start_date', 8, cnv_full_date), ('quote_date', 8, cnv_full_date),
+            ('admin_area_code', 3), ('nlc_code', 4), ('desc', 16), ('crs_code', 3),
+            ('resv_code', 5), ('ers_country', 2), ('ers_code', 3),
+            ('fare_group', 6), ('county', 2), ('pte_code', 2), ('zone_nlc', 4),
+            ('zone_ind', 2), ('region', 1), ('hierarchy', 1),
+            ('cc_desc_out', 41), ('cc_desc_rtn', 16), ('atb_desc_out', 60), ('atb_desc_rtn', 30),
+            ('special_facilities', 26), ('lul', 29) ),
+        'A': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
+            ('assoc_uic_code', 7), ('assoc_crs_code', 3) ),
+        'R': ( ('uic_code', 7), ('railcard', 3), ('end_date', 8, cnv_full_date) ),
+        'G': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
+            ('start_date', 8, cnv_full_date), ('quote_date', 8, cnv_full_date),
+            ('description', 16), ('ers_country', 2), ('ers_code', 3) ),
+        'M': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
+            ('group_member_uic_code', 7), ('group_member_crs_code', 3) ),
+        'S': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
+            ('start_date', 8, cnv_full_date), ('synonym', 16) ),
+    }
+    row = unpack(row, *lookups[record_type])
+
+    if record_type in ('G', 'R', 'S', 'M'): continue
+
+    if row['end_date'] < date.today(): continue
+
+    if record_type == 'L':
+        if row['admin_area_code'] != '70': continue
+        if not row['crs_code']: continue
+
+    # region 0 non-BR/LUL, 1 ER 2 LMR 3 SCR 4 SR 5 WR 6 LUL
+    for i in ('ers_country', 'ers_code', 'quote_date', 'start_date', 'end_date', 'special_facilities', 'lul', 'cc_desc_out', 'cc_desc_rtn', 'atb_desc_rtn', 'zone_ind', 'zone_code', 'admin_area_code', 'pte_code', 'county', 'desc', 'region', 'resv_code', 'hierarchy', 'zone_nlc'):
+        if i in row: del row[i]
+
+    if record_type == 'L':
+        codes = [ row['nlc_code'] ]
+        if row['fare_group'] != row['nlc_code']:
+            codes.append(row['fare_group'])
+        data.setdefault('stations', {})[row['crs_code']] = {
+            'description': row['atb_desc_out'].title(),
+            'codes': codes,
+        }
+
+print json.dumps(data)

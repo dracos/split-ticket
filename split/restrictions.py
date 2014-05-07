@@ -6,7 +6,7 @@ data_file = os.path.join(os.path.dirname(__file__), '..', 'data', 'restrictions.
 restrictions = json.load(open(data_file))
 
 def valid_journey(fro, to, dep, arr, code):
-    if code=='  ': return True
+    if not code.strip(): return True
     restriction = restrictions[code]['times']
     all_stations = restriction.get("")
     from_restriction = restriction.get(fro)
