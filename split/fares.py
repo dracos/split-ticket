@@ -14,6 +14,8 @@ TICKET_NAMES = {
 }
 
 class Fares(object):
+    excluded_routes = []
+
     def __init__(self, store):
         self.store = store
         data_file = os.path.join(os.path.dirname(__file__), '..', 'data', 'stations.json')
@@ -74,16 +76,21 @@ class Fares(object):
             s['restriction_code']
         )
 
+    def is_valid_route(self, s):
+        return s['route']['name'] not in self.excluded_routes
+
     def match_returns(self, s):
         ret = re.search('SVR|SOR', s['ticket']['code'])
         if self.store['day']:
             ret = ret or re.search('CDR|SDR', s['ticket']['code'])
         ret = ret and self.is_valid_journey(s)
+        ret = ret and self.is_valid_route(s)
         return ret
 
     def match_singles(self, s):
         ret = re.search('CDS|SDS|SOS', s['ticket']['code'])
         ret = ret and self.is_valid_journey(s)
+        ret = ret and self.is_valid_route(s)
         return ret
 
     def parse_fare(self, fro, to):
@@ -100,14 +107,14 @@ class Fares(object):
 
         double = False
         if best:
-            print ' | '.join(map(self.fare_list, returns)) + ' ',
+            pass # print ' | '.join(map(self.fare_list, returns)) + ' ',
         else:
             singles = filter(self.match_singles, price_data)
             for r in singles:
                 if not best or r['adult']['fare'] < best['adult']['fare']:
                     best = r
             if best:
-                print ' | '.join(map(self.fare_list, singles)) + ' ',
+                # print ' | '.join(map(self.fare_list, singles)) + ' ',
                 double = True
 
         if not best:
@@ -116,7 +123,7 @@ class Fares(object):
         fare = best['adult']['fare'] * (2 if double else 1)
         if fro not in self.store['data']: self.store['data'][fro] = {}
         if to not in self.store['data']: self.store['data'][to] = {}
-        self.store['data'][fro][to] = { 'fare': fare, 'desc': self.fare_list(best) }
-        disp = utils.price(fare)
+        self.store['data'][fro][to] = { 'fare': fare, 'obj': best, 'desc': self.fare_list(best) }
+        disp = self.fare_list(best)
         if double: disp += ' (2 singles)'
         return disp

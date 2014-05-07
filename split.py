@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import argparse
 import itertools
 import re
 import urllib
@@ -11,6 +12,15 @@ sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 from termcolor import colored
 
 from split import dijkstra, fares, prompt, utils
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--verbose', action='store_true')
+args = parser.parse_args()
+
+def verbose(s):
+    if args.verbose:
+        print colored(s, 'grey'),
 
 # ---
 # 0 Global data store
@@ -56,17 +66,9 @@ store['to'] = urllib.quote(to_stn['to'])
 store['station_times'][store['from']] = [ None, store['time'] ]
 
 # ---
-# 2 Fare for entire journey
+# 2 Work out stopping points
 
-print colored('Looking up journey as a whole...', 'grey')
-Fares = fares.Fares(store)
-fare_total = Fares.parse_fare(store['from'], store['to'])
-print '\nTotal fare is', colored(fare_total, 'blue')
-
-# ---
-# 3 Work out stopping points
-
-print colored('Fetching stopping points...', 'grey')
+verbose('Fetching stopping points...')
 
 stops = utils.fetch('http://traintimes.org.uk/' + store['from'] + '/' + store['to'] + '/' + store['time'] + '/monday')
 m = re.search('<li id="result0">[\s\S]*?<li id="result1">', stops)
@@ -101,50 +103,71 @@ for i in ints['parsed']:
     store['station_times'][i] = ints['parsed'][i]
 
 all_stops = [ store['from'] ] + stops
-print 'Stations to consider:', colored(', '.join(all_stops), 'grey')
-
-# ---
-# 4 Work out all possible intermediate fares
-
-print colored('Looking up all the pairwise fares...', 'grey')
+all_stops_with_depart = [ '%s(%s)' % (s, store['station_times'][s][1] or store['station_times'][s][0]) for s in all_stops ]
+print 'Stations to consider:', colored(', '.join(all_stops_with_depart), 'white', attrs=['dark'])
 
 stop_pairs = itertools.combinations(all_stops, 2)
 stop_pairs = filter(lambda x: x[0] != store['from'] or x[1] != store['to'], stop_pairs)
 
-for pair in stop_pairs:
-    print colored(pair[0] + '-' + pair[1] + ' (', 'white', attrs=['dark']),
-    print colored(','.join(map(lambda x: x or '', store['station_times'][pair[0]])), 'grey'),
-    print colored('):', 'white', attrs=['dark']),
-    out = Fares.parse_fare(pair[0], pair[1])
-    print colored(out, 'grey')
+Fares = fares.Fares(store)
 
-# ---
-# 5 Work out cheapest route
+while True:
+    # ---
+    # 3 Fare for entire journey
 
-print colored('Calculating shortest route...', 'grey')
+    verbose('Looking up journey as a whole...')
+    fare_total = Fares.parse_fare(store['from'], store['to'])
+    print 'Total fare is', colored(fare_total, 'blue')
 
-graph = dijkstra.Graph()
-for x in store['data'].keys():
-    graph.add_node(x)
+    # ---
+    # 4 Work out all possible intermediate fares
 
-for x in store['data'].keys():
-    for y in store['data'][x].keys():
-        if store['data'][x][y]['fare'] != -1:
-            graph.add_edge(x, y, store['data'][x][y]['fare'])
+    verbose('Looking up all the pairwise fares...')
+    store['data'] = {}
 
-result, path = dijkstra.dijkstra(graph, store['from'])
-node = store['to']
-nodes = [];
-while node:
-    nodes.append(node)
-    node = path.get(node)
+    for pair in stop_pairs:
+        verbose(pair[0] + '-' + pair[1] + ' (')
+        verbose(','.join(map(lambda x: x or '', store['station_times'][pair[0]])))
+        verbose('):')
+        out = Fares.parse_fare(pair[0], pair[1])
+        verbose(out + "\n")
 
-nodes.reverse()
-total = 0
-for i in range(0, len(nodes)-1):
-    f = nodes[i]
-    t = nodes[i+1]
-    d = store['data'][f][t]
-    print f, colored('->', 'grey'), t, colored(':', 'grey'), d['desc']
-    total += d['fare']
-print colored('Total: ' + utils.price(total), 'green')
+    # ---
+    # 5 Work out cheapest route
+
+    verbose('Calculating shortest route...')
+
+    graph = dijkstra.Graph()
+    for x in store['data'].keys():
+        graph.add_node(x)
+
+    for x in store['data'].keys():
+        for y in store['data'][x].keys():
+            if store['data'][x][y]['fare'] != -1:
+                graph.add_edge(x, y, store['data'][x][y]['fare'])
+
+    result, path = dijkstra.dijkstra(graph, store['from'])
+    node = store['to']
+    nodes = [];
+    while node:
+        nodes.append(node)
+        node = path.get(node)
+
+    nodes.reverse()
+    total = 0
+    routes = []
+    for i in range(0, len(nodes)-1):
+        f = nodes[i]
+        t = nodes[i+1]
+        d = store['data'][f][t]
+        print f, colored('->', 'grey'), t, colored(':', 'grey'), d['desc']
+        if d['obj']['route']['name'] != 'ANY PERMITTED':
+            n = d['obj']['route']['name']
+            routes.append( { 'name': 'Exclude %s' % n, 'value': n } )
+        total += d['fare']
+    print colored('Total: ' + utils.price(total), 'green')
+
+    if not routes: sys.exit()
+    qns = [ { 'type': "list", 'name': "action", 'message': "Action", 'choices': routes } ]
+    answer = prompt.pretty_prompt(qns)
+    Fares.excluded_routes.append(answer['action'])
