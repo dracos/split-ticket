@@ -43,10 +43,12 @@ class Fares(object):
         froms = filter(None, map(lambda x: self.all_fares.get(x), codes_fr))
         fares = []
         for f in froms:
-            fares += filter(None, map(lambda x: f.get(x), codes_to))
+            matches = filter(None, map(lambda x: f.get(x), codes_to))
+            fares.extend( [ p for m in matches for p in m ] )
         froms = filter(None, map(lambda x: self.all_fares.get(x), codes_to))
         for f in froms:
-            fares += filter(lambda x: x and x['direction'] == 'R', map(lambda x: f.get(x), codes_fr))
+            matches = filter(None, map(lambda x: f.get(x), codes_fr))
+            fares.extend( [ p for m in matches for p in m if p['direction'] == 'R' ] )
 
         data = []
         for f in fares:
@@ -91,13 +93,10 @@ class Fares(object):
 
         returns = filter(self.match_returns, price_data)
 
-        best_per_route = {}
         best = None
         for r in returns:
             if not best or r['adult']['fare'] < best['adult']['fare']:
                 best = r
-            if r['route']['name'] not in best_per_route or r['adult']['fare'] < best_per_route[r['route']['name']]['adult']['fare']:
-                best_per_route[r['route']['name']] = r
 
         double = False
         if best:

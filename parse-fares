@@ -51,13 +51,14 @@ for row in open('RJFAF273/RJFAF273.FFL'):
             'route': row['route'],
             'direction': row['direction'],
         }
-        data.setdefault(row['from'], {})[row['to']] = d
+        data.setdefault(row['from'], {}).setdefault(row['to'], []).append(d)
         data_by_id[row['id']] = d
         #print row['id'], row['from'], row['to'], d
 
 for fr, d1 in data.items():
     for to, d2 in d1.items():
-        if not d2['prices']:
-            del d1[to]
+        for i, d in enumerate(d2):
+            if not d['prices']:
+                del d2[i]
 
 print json.dumps(data)
