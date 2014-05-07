@@ -36,7 +36,7 @@ def pretty_prompt(qns):
 
         print "\033[1A%s: %s%s" % (
             q['message'], colored(value, 'blue'),
-            ' ' * max(len(value), len(q['default'])+3)
+            ' ' * max(len(value), len(q['default'])+4)
         )
 
     return out
