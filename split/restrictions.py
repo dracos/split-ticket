@@ -7,6 +7,7 @@ restrictions = json.load(open(data_file))
 
 def valid_journey(fro, to, dep, arr, code):
     if not code.strip(): return True
+    if 'times' not in restrictions[code]: return True
     restriction = restrictions[code]['times']
     all_stations = restriction.get("")
     from_restriction = restriction.get(fro)
