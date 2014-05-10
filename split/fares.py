@@ -57,12 +57,11 @@ class Fares(object):
                 })
         return data
 
-    def fare_list(self, s):
-        o = utils.price(s['adult']['fare'])
-        o += ' (' + s['ticket']['name']
+    def fare_desc(self, s):
+        o = s['ticket']['name']
         if s['route']['name'] != 'ANY PERMITTED': o += ', ' + self.prettify(s['route']['name'])
         # if s['restriction_code'] != '  ': o += ', ' + s['restriction_code']
-        o += ')'
+        if self.double: o += ' (2 singles)'
         return o
 
     def is_valid_journey(self, s):
@@ -102,25 +101,22 @@ class Fares(object):
             if not best or r['adult']['fare'] < best['adult']['fare']:
                 best = r
 
-        double = False
+        self.double = False
         if best:
-            pass # print ' | '.join(map(self.fare_list, returns)) + ' ',
+            pass
         else:
             singles = filter(self.match_singles, price_data)
             for r in singles:
                 if not best or r['adult']['fare'] < best['adult']['fare']:
                     best = r
             if best:
-                # print ' | '.join(map(self.fare_list, singles)) + ' ',
-                double = True
+                self.double = True
 
         if not best:
-            return '-'
+            return { 'fare': '-', 'obj': None, 'desc': '-' }
 
-        fare = best['adult']['fare'] * (2 if double else 1)
+        fare = best['adult']['fare'] * (2 if self.double else 1)
         if fro not in self.store['data']: self.store['data'][fro] = {}
         if to not in self.store['data']: self.store['data'][to] = {}
-        self.store['data'][fro][to] = { 'fare': fare, 'obj': best, 'desc': self.fare_list(best) }
-        disp = self.fare_list(best)
-        if double: disp += ' (2 singles)'
-        return disp
+        self.store['data'][fro][to] = { 'fare': fare, 'obj': best, 'desc': self.fare_desc(best) }
+        return self.store['data'][fro][to]

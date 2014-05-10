@@ -118,25 +118,31 @@ stop_pairs = filter(lambda x: x[0] != store['from'] or x[1] != store['to'], stop
 Fares = fares.Fares(store, data)
 
 while True:
+    routes = {}
+    store['data'] = {}
+
     # ---
     # 3 Fare for entire journey
 
     verbose('Looking up journey as a whole...')
     fare_total = Fares.parse_fare(store['from'], store['to'])
-    print 'Total fare is', colored(fare_total, 'blue')
+    print 'Total fare is', colored(utils.price(fare_total['fare']), 'blue'), fare_total['desc']
+    if fare_total['fare'] != '-':
+        d = store['data'][store['from']][store['to']]
+        if d['obj']['route']['name'] != 'ANY PERMITTED':
+            n = d['obj']['route']['name']
+            routes[n] = { 'name': 'Exclude %s' % n, 'value': n }
 
     # ---
     # 4 Work out all possible intermediate fares
 
     verbose('Looking up all the pairwise fares...')
-    store['data'] = {}
-
     for pair in stop_pairs:
         verbose(pair[0] + '-' + pair[1] + ' (')
         verbose(','.join(map(lambda x: x or '', store['station_times'][pair[0]])))
         verbose('):')
         out = Fares.parse_fare(pair[0], pair[1])
-        verbose(out + "\n")
+        verbose(utils.price(out['fare']) + ' ' + out['desc'] + "\n")
 
     # ---
     # 5 Work out cheapest route
@@ -161,19 +167,19 @@ while True:
 
     nodes.reverse()
     total = 0
-    routes = []
     for i in range(0, len(nodes)-1):
         f = nodes[i]
         t = nodes[i+1]
         d = store['data'][f][t]
-        print f, colored('->', 'grey'), t, colored(':', 'grey'), d['desc']
+        print f, colored('->', 'grey'), t, colored(':', 'grey'), utils.price(d['fare']), d['desc']
         if d['obj']['route']['name'] != 'ANY PERMITTED':
             n = d['obj']['route']['name']
-            routes.append( { 'name': 'Exclude %s' % n, 'value': n } )
+            routes[n] = { 'name': 'Exclude %s' % n, 'value': n }
         total += d['fare']
     print colored('Total: ' + utils.price(total), 'green')
 
     if not routes: sys.exit()
-    qns = [ { 'type': "list", 'name': "action", 'message': "Action", 'choices': routes } ]
+    qns = [ { 'type': "list", 'name': "action", 'message': "Action", 'choices': routes.values() } ]
     answer = prompt.pretty_prompt(qns)
     Fares.excluded_routes.append(answer['action'])
+    print

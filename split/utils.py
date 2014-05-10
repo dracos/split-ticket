@@ -12,4 +12,5 @@ def fetch(url):
         return r.text
 
 def price(n):
+    if n == '-': return '-'
     return (u'\xa3%.2f' % (n/100)).replace('.00', '')
