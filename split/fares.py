@@ -1,6 +1,6 @@
 import re
 
-from . import utils, restrictions
+from . import restrictions, dijkstra
 
 TICKET_NAMES = {
     'SOR': 'Anytime Return',
@@ -24,10 +24,6 @@ class Fares(object):
         s = re.sub(' R$', ' Return', s)
         s = re.sub(' S$', ' Single', s)
         return s
-
-    def get_fares_old(self):
-        data = utils.fetch('http://api.brfares.com/querysimple?orig=' + self.fro + '&dest=' + self.to)
-        return data['fares']
 
     def get_codes(self, stn):
         stn = self.data['stations'][stn]
@@ -120,3 +116,31 @@ class Fares(object):
         if to not in self.store['data']: self.store['data'][to] = {}
         self.store['data'][fro][to] = { 'fare': fare, 'obj': best, 'desc': self.fare_desc(best) }
         return self.store['data'][fro][to]
+
+    def find_cheapest(self):
+        graph = dijkstra.Graph()
+        for x in self.store['data'].keys():
+            graph.add_node(x)
+
+        for x in self.store['data'].keys():
+            for y in self.store['data'][x].keys():
+                if self.store['data'][x][y]['fare'] != -1:
+                    graph.add_edge(x, y, self.store['data'][x][y]['fare'])
+
+        result, path = dijkstra.dijkstra(graph, self.store['from'])
+        node = self.store['to']
+        nodes = [];
+        while node:
+            nodes.append(node)
+            node = path.get(node)
+
+        nodes.reverse()
+        total = 0
+        out = []
+        for i in range(0, len(nodes)-1):
+            f = nodes[i]
+            t = nodes[i+1]
+            d = self.store['data'][f][t]
+            out.append( (f,t,d) )
+            total += d['fare']
+        return out, total
