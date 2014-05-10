@@ -1,0 +1,21 @@
+{
+  "name": "split-ticket",
+  "version": "0.0.1",
+  "homepage": "https://github.com/dracos/split-ticket",
+  "authors": [
+    "Matthew Somerville <matthew@dracos.co.uk>"
+  ],
+  "description": "Tool for finding split tickets",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "select2": "~3.4.8"
+  }
+}
