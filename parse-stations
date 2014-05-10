@@ -120,12 +120,11 @@ for row in open('RJFAF273/RJFAF273.LOC'):
         if i in row: del row[i]
 
     if record_type == 'L':
-        codes = [ row['nlc_code'] ]
-        if row['fare_group'] != row['nlc_code']:
-            codes.append(row['fare_group'])
         data[row['crs_code']] = {
             'description': row['atb_desc_out'].title(),
-            'codes': codes,
+            'code': row['nlc_code'],
         }
+        if row['fare_group'] != row['nlc_code']:
+            data[row['crs_code']]['fare_group'] = row['fare_group']
 
 json.dump(data, open('data/stations.json', 'w'))

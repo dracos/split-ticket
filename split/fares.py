@@ -21,13 +21,16 @@ class Fares(object):
 
     def prettify(self, s):
         s = re.sub('\w\S*', lambda txt: txt.group().title(), s)
-        s = re.sub(' R$', ' Return', s)
-        s = re.sub(' S$', ' Single', s)
         return s
 
     def get_codes(self, stn):
+        # Return in this order so that override will function
         stn = self.data['stations'][stn]
-        stn_codes = stn['codes'] + sum([ self.data['clusters'][x] for x in stn['codes'] ], [])
+        stn_codes = []
+        stn_codes += self.data['clusters'].get(stn.get('fare_group'), [])
+        stn_codes += self.data['clusters'].get(stn['code'], [])
+        stn_codes += [ stn['fare_group'] ] if 'fare_group' in stn else []
+        stn_codes += [ stn['code'] ]
         return stn['description'], stn_codes
 
     def get_fares(self):
@@ -35,17 +38,23 @@ class Fares(object):
         name_to, codes_to = self.get_codes(self.to)
 
         froms = filter(None, map(lambda x: self.data['fares'].get(x), codes_fr))
-        fares = []
+        # Fares by ROUTE because for the same route, individual flow overrides
+        # fare_group which overrides cluster
+        fares = {}
         for f in froms:
             matches = filter(None, map(lambda x: f.get(x), codes_to))
-            fares.extend( [ p for m in matches for p in m ] )
+            for m in matches:
+                for p in m:
+                    fares[p['route']] = p
         froms = filter(None, map(lambda x: self.data['fares'].get(x), codes_to))
         for f in froms:
             matches = filter(None, map(lambda x: f.get(x), codes_fr))
-            fares.extend( [ p for m in matches for p in m if p['direction'] == 'R' ] )
+            for m in matches:
+                for p in m:
+                    if p['direction'] == 'R': fares[p['route']] = p
 
         data = []
-        for f in fares:
+        for f in fares.values():
             for t, p in f['prices'].items():
                 data.append({
                     'toc': f['toc'], 'route': { 'name': self.data['routes'][f['route']] },
