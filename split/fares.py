@@ -13,11 +13,10 @@ TICKET_NAMES = {
 }
 
 class Fares(object):
-    excluded_routes = []
-
     def __init__(self, store, data):
         self.store = store
         self.data = data
+        self.excluded_routes = []
 
     def prettify(self, s):
         s = re.sub('\w\S*', lambda txt: txt.group().title(), s)
@@ -57,7 +56,7 @@ class Fares(object):
         for f in fares.values():
             for t, p in f['prices'].items():
                 data.append({
-                    'toc': f['toc'], 'route': { 'name': self.data['routes'][f['route']] },
+                    'toc': f['toc'], 'route': { 'id': f['route'], 'name': self.data['routes'][f['route']] },
                     'ticket': { 'code': t, 'name': TICKET_NAMES[t] }, 'adult': { 'fare': int(p[0]) }, 'restriction_code': p[1],
                 })
         return data
@@ -78,7 +77,7 @@ class Fares(object):
         )
 
     def is_valid_route(self, s):
-        return s['route']['name'] not in self.excluded_routes
+        return s['route']['id'] not in self.excluded_routes
 
     def match_returns(self, s):
         ret = re.search('SVR|SOR', s['ticket']['code'])

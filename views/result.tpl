@@ -22,8 +22,8 @@ leaving around {{ time }}
 <p>Routes you might want to exclude, the above might not be the most obvious way:</p>
 % if routes:
 <ul>
-% for route in routes:
-<li><a href="">{{ route.title() }}</a>
+% for id, route in routes.items():
+<li><a href="?exclude={{ ','.join(set(exclude + [ id ])) }}">{{ route['name'].title() }}</a>
 % end
 </ul>
 % end

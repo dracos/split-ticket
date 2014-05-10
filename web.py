@@ -72,14 +72,19 @@ def split(fr, to, day, time):
     stop_pairs = itertools.combinations(all_stops, 2)
     stop_pairs = filter(lambda x: x[0] != store['from'] or x[1] != store['to'], stop_pairs)
     Fares = fares.Fares(store, data)
+
+    context['exclude'] = filter(None, request.query.exclude.split(','))
+    for route in context['exclude']:
+        Fares.excluded_routes.append(route)
+
     routes = {}
     fare_total = Fares.parse_fare(store['from'], store['to'])
     context['fare_total'] = fare_total
     if fare_total['fare'] != '-':
         d = store['data'][store['from']][store['to']]
         if d['obj']['route']['name'] != 'ANY PERMITTED':
-            n = d['obj']['route']['name']
-            routes[n] = { 'name': 'Exclude %s' % n, 'value': n }
+            n = d['obj']['route']
+            routes[n['id']] = { 'name': 'Exclude %s' % n['name'], 'value': n['id'] }
 
     output_pairwise = []
     for pair in stop_pairs:
@@ -93,14 +98,13 @@ def split(fr, to, day, time):
     for f, t, d in nodes:
         output_cheapest.append( (f,t,d) )
         if d['obj']['route']['name'] != 'ANY PERMITTED':
-            n = d['obj']['route']['name']
-            routes[n] = { 'name': 'Exclude %s' % n, 'value': n }
+            n = d['obj']['route']
+            routes[n['id']] = { 'name': 'Exclude %s' % n['name'], 'value': n['id'] }
     context['output_cheapest'] = output_cheapest
     context['total'] = total
 
     context['routes'] = routes
     return context
-    #Fares.excluded_routes.append(answer['action'])
 
 run(host='localhost', port=8080, debug=True)
 
