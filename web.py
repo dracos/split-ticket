@@ -5,28 +5,54 @@ import re
 import sys
 import urllib
 
-from bottle import route, run, view
+from bottle import route, run, request, view, static_file, redirect
 
 from split import fares, utils, times
+
+THIS_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Load data
 data_files = [ 'restrictions', 'stations', 'fares', 'routes', 'clusters' ]
 data = {}
 for d in data_files:
-    with open(os.path.join(os.path.dirname(__file__), 'data', d + '.json')) as fp:
+    with open(os.path.join(THIS_DIR, 'data', d + '.json')) as fp:
         data[d] = json.load(fp)
 
+@route('/bower/<path:path>')
+def server_static(path):
+        return static_file(path, root=os.path.join(THIS_DIR, 'bower_components'))
+
+@route('/ajax-station')
+def ajax():
+    q = request.query.q.lower()
+    matches = filter(lambda x: q in x.lower(), data['stations'])
+    matches += filter(lambda x: x not in matches and data['stations'][x]['description'].lower().startswith(q), data['stations'])
+    matches += filter(lambda x: x not in matches and q in data['stations'][x]['description'].lower(), data['stations'])
+    return {
+        'results': [ { 'id': m, 'text': data['stations'][m]['description'] } for m in matches ]
+    }
+
 @route('/')
+@view('home')
 def home():
-    return 'Home page'
+    if all(x in request.query and request.query[x] for x in ['from', 'to', 'time']):
+        request.query['day'] = request.query.get('day') or 'n'
+        redirect('/%(from)s/%(to)s/%(day)s/%(time)s' % request.query)
+
+    context = request.query
+    if 'from' in context and context['from'] in data['stations']:
+        context['from_desc'] = data['stations'][context['from']]['description']
+    if 'to' in context and context['to'] in data['stations']:
+        context['to_desc'] = data['stations'][context['to']]['description']
+    return context
 
 @route('/<fr>/<to>/<day>/<time>')
 @view('result')
 def split(fr, to, day, time):
     day = day == 'y'
     context = {
-        'fr': fr,
-        'to': to,
+        'fr': fr, 'fr_desc': data['stations'][fr]['description'],
+        'to': to, 'to_desc': data['stations'][to]['description'],
         'day': day,
         'time': time,
     }
@@ -49,7 +75,7 @@ def split(fr, to, day, time):
     routes = {}
     fare_total = Fares.parse_fare(store['from'], store['to'])
     context['fare_total'] = fare_total
-    if fare_total != '-':
+    if fare_total['fare'] != '-':
         d = store['data'][store['from']][store['to']]
         if d['obj']['route']['name'] != 'ANY PERMITTED':
             n = d['obj']['route']['name']

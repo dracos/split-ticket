@@ -1,11 +1,11 @@
 % rebase('base.tpl')
 % from split.utils import price
 
-<h2>{{ fr }} to {{ to }},
+<h2>{{ fr_desc }} to {{ to_desc }},
 % if day:
 for the day,
 % end
-leaving at {{ time }}
+leaving around {{ time }}
 </h2>
 
 <p><span style="font-size: 200%">The normal fare is <strong>{{ price(fare_total['fare']) }}</strong></span>
