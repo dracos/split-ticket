@@ -53,12 +53,6 @@ class Fares(object):
             for m in matches:
                 for p in m:
                     fares[p['route']] = p
-        froms = filter(None, map(lambda x: self.get_fare_entry(x), codes_to))
-        for f in froms:
-            matches = filter(None, map(lambda x: f.get(x), codes_fr))
-            for m in matches:
-                for p in m:
-                    if p['direction'] == 'R': fares[p['route']] = p
 
         data = []
         for f in fares.values():

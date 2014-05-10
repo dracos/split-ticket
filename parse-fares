@@ -49,9 +49,12 @@ for row in open('RJFAF273/RJFAF273.FFL'):
             'prices': {},
             'toc': row['toc'],
             'route': row['route'],
-            'direction': row['direction'],
+            #'direction': row['direction'],
         }
         data.setdefault(row['from'], {}).setdefault(row['to'], []).append(d)
+        if row['direction'] == 'R':
+            data.setdefault(row['to'], {}).setdefault(row['from'], []).append(d)
+
         data_by_id[row['id']] = d
         #print row['id'], row['from'], row['to'], d
 
