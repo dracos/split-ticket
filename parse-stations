@@ -50,8 +50,11 @@ for row in open('RJFAF273/RJFAF273.FSC'):
     assert row['date_to'] == date(2999, 12, 31)
     assert row['date_from'] < date(2014, 5, 4)
     del row['date_to'], row['date_from']
-    data.setdefault('clusters', {}).setdefault(row['member_id'], []).append(row['cluster_id'])
+    data.setdefault(row['member_id'], []).append(row['cluster_id'])
 
+json.dump(data, open('data/clusters.json', 'w'))
+
+data = {}
 started = False
 for row in open('RJFAF273/RJFAF273.RTE'):
     update_marker, record_type, row = row[0], row[1], row[2:].strip()
@@ -68,8 +71,11 @@ for row in open('RJFAF273/RJFAF273.RTE'):
         ('aaa_desc', 41), ('uts', 1+6+3*4),
     )
     if row['end_date'] < date.today(): continue
-    data.setdefault('routes', {})[row['route_code']] = row['description']
+    data[row['route_code']] = row['description']
 
+json.dump(data, open('data/routes.json', 'w'))
+
+data = {}
 started = False
 for row in open('RJFAF273/RJFAF273.LOC'):
     update_marker, record_type, row = row[0], row[1], row[2:].strip()
@@ -117,9 +123,9 @@ for row in open('RJFAF273/RJFAF273.LOC'):
         codes = [ row['nlc_code'] ]
         if row['fare_group'] != row['nlc_code']:
             codes.append(row['fare_group'])
-        data.setdefault('stations', {})[row['crs_code']] = {
+        data[row['crs_code']] = {
             'description': row['atb_desc_out'].title(),
             'codes': codes,
         }
 
-print json.dumps(data)
+json.dump(data, open('data/stations.json', 'w'))

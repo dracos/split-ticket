@@ -1,5 +1,4 @@
 import re
-import os, json
 
 from . import utils, restrictions
 
@@ -16,12 +15,9 @@ TICKET_NAMES = {
 class Fares(object):
     excluded_routes = []
 
-    def __init__(self, store):
+    def __init__(self, store, data):
         self.store = store
-        data_file = os.path.join(os.path.dirname(__file__), '..', 'data', 'stations.json')
-        self.stations_routes = json.load(open(data_file))
-        data_file = os.path.join(os.path.dirname(__file__), '..', 'data', 'fares.json')
-        self.all_fares = json.load(open(data_file))
+        self.data = data
 
     def prettify(self, s):
         s = re.sub('\w\S*', lambda txt: txt.group().title(), s)
@@ -34,20 +30,20 @@ class Fares(object):
         return data['fares']
 
     def get_codes(self, stn):
-        stn = self.stations_routes['stations'][stn]
-        stn_codes = stn['codes'] + sum([ self.stations_routes['clusters'][x] for x in stn['codes'] ], [])
+        stn = self.data['stations'][stn]
+        stn_codes = stn['codes'] + sum([ self.data['clusters'][x] for x in stn['codes'] ], [])
         return stn['description'], stn_codes
 
     def get_fares(self):
         name_fr, codes_fr = self.get_codes(self.fro)
         name_to, codes_to = self.get_codes(self.to)
 
-        froms = filter(None, map(lambda x: self.all_fares.get(x), codes_fr))
+        froms = filter(None, map(lambda x: self.data['fares'].get(x), codes_fr))
         fares = []
         for f in froms:
             matches = filter(None, map(lambda x: f.get(x), codes_to))
             fares.extend( [ p for m in matches for p in m ] )
-        froms = filter(None, map(lambda x: self.all_fares.get(x), codes_to))
+        froms = filter(None, map(lambda x: self.data['fares'].get(x), codes_to))
         for f in froms:
             matches = filter(None, map(lambda x: f.get(x), codes_fr))
             fares.extend( [ p for m in matches for p in m if p['direction'] == 'R' ] )
@@ -56,7 +52,7 @@ class Fares(object):
         for f in fares:
             for t, p in f['prices'].items():
                 data.append({
-                    'toc': f['toc'], 'route': { 'name': self.stations_routes['routes'][f['route']] },
+                    'toc': f['toc'], 'route': { 'name': self.data['routes'][f['route']] },
                     'ticket': { 'code': t, 'name': TICKET_NAMES[t] }, 'adult': { 'fare': int(p[0]) }, 'restriction_code': p[1],
                 })
         return data
@@ -71,6 +67,7 @@ class Fares(object):
 
     def is_valid_journey(self, s):
         return restrictions.valid_journey(
+            self.data['restrictions'],
             self.fro, self.to,
             self.store['station_times'].get(self.fro), self.store['station_times'].get(self.to),
             s['restriction_code']

@@ -2,10 +2,7 @@ import json
 import os
 import re
 
-data_file = os.path.join(os.path.dirname(__file__), '..', 'data', 'restrictions.json')
-restrictions = json.load(open(data_file))
-
-def valid_journey(fro, to, dep, arr, code):
+def valid_journey(restrictions, fro, to, dep, arr, code):
     if not code.strip(): return True
     if 'times' not in restrictions[code]: return True
     restriction = restrictions[code]['times']

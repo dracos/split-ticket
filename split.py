@@ -4,6 +4,7 @@ import argparse
 import itertools
 import re
 import urllib
+import os, json
 
 import codecs
 import sys
@@ -13,6 +14,11 @@ from termcolor import colored
 
 from split import dijkstra, fares, prompt, utils
 
+data_files = [ 'restrictions', 'stations', 'fares', 'routes', 'clusters' ]
+data = {}
+for d in data_files:
+    with open(os.path.join(os.path.dirname(__file__), 'data', d + '.json')) as fp:
+        data[d] = json.load(fp)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--verbose', action='store_true')
@@ -109,7 +115,7 @@ print 'Stations to consider:', colored(', '.join(all_stops_with_depart), 'white'
 stop_pairs = itertools.combinations(all_stops, 2)
 stop_pairs = filter(lambda x: x[0] != store['from'] or x[1] != store['to'], stop_pairs)
 
-Fares = fares.Fares(store)
+Fares = fares.Fares(store, data)
 
 while True:
     # ---
