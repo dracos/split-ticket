@@ -1,3 +1,4 @@
+import json
 import re
 
 from . import restrictions, dijkstra
@@ -32,11 +33,18 @@ class Fares(object):
         stn_codes += [ stn['code'] ]
         return stn['description'], stn_codes
 
+    def get_fare_entry(self, code):
+        try:
+            with open('data/fares/%s.json' % code) as fp:
+                return json.load(fp)
+        except IOError:
+            return None
+
     def get_fares(self):
         name_fr, codes_fr = self.get_codes(self.fro)
         name_to, codes_to = self.get_codes(self.to)
 
-        froms = filter(None, map(lambda x: self.data['fares'].get(x), codes_fr))
+        froms = filter(None, map(lambda x: self.get_fare_entry(x), codes_fr))
         # Fares by ROUTE because for the same route, individual flow overrides
         # fare_group which overrides cluster
         fares = {}
@@ -45,7 +53,7 @@ class Fares(object):
             for m in matches:
                 for p in m:
                     fares[p['route']] = p
-        froms = filter(None, map(lambda x: self.data['fares'].get(x), codes_to))
+        froms = filter(None, map(lambda x: self.get_fare_entry(x), codes_to))
         for f in froms:
             matches = filter(None, map(lambda x: f.get(x), codes_fr))
             for m in matches:

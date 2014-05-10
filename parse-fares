@@ -61,4 +61,6 @@ for fr, d1 in data.items():
             if not d['prices']:
                 del d2[i]
 
-print json.dumps(data)
+for fr, d1 in data.items():
+    with open('data/fares/%s.json' % fr, 'w') as fp:
+        json.dump(d1, fp)

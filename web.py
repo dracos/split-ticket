@@ -12,7 +12,7 @@ from split import fares, utils, times
 THIS_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Load data
-data_files = [ 'restrictions', 'stations', 'fares', 'routes', 'clusters' ]
+data_files = [ 'restrictions', 'stations', 'routes', 'clusters' ]
 data = {}
 for d in data_files:
     with open(os.path.join(THIS_DIR, 'data', d + '.json')) as fp:

@@ -14,7 +14,7 @@ from termcolor import colored
 
 from split import fares, prompt, utils, times
 
-data_files = [ 'restrictions', 'stations', 'fares', 'routes', 'clusters' ]
+data_files = [ 'restrictions', 'stations', 'routes', 'clusters' ]
 data = {}
 for d in data_files:
     with open(os.path.join(os.path.dirname(__file__), 'data', d + '.json')) as fp:
@@ -99,8 +99,8 @@ while True:
     if fare_total['fare'] != '-':
         d = store['data'][store['from']][store['to']]
         if d['obj']['route']['name'] != 'ANY PERMITTED':
-            n = d['obj']['route']['name']
-            routes[n] = { 'name': 'Exclude %s' % n, 'value': n }
+            n = d['obj']['route']
+            routes[n['id']] = { 'name': 'Exclude %s' % n['name'], 'value': n['id'] }
 
     # ---
     # 4 Work out all possible intermediate fares
@@ -123,8 +123,8 @@ while True:
     for f, t, d in out:
         print f, colored('->', 'grey'), t, colored(':', 'grey'), utils.price(d['fare']), d['desc']
         if d['obj']['route']['name'] != 'ANY PERMITTED':
-            n = d['obj']['route']['name']
-            routes[n] = { 'name': 'Exclude %s' % n, 'value': n }
+            n = d['obj']['route']
+            routes[n['id']] = { 'name': 'Exclude %s' % n['name'], 'value': n['id'] }
     print colored('Total: ' + utils.price(total), 'green')
 
     if not routes: sys.exit()
