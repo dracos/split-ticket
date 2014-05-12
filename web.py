@@ -5,7 +5,10 @@ import re
 import sys
 import urllib
 
-from bottle import route, run, request, view, static_file, redirect
+from bottle import route, run, request, view, static_file, redirect, auth_basic
+
+def alpha(user, pw):
+    return user == 'train' and pw == 'choochoo'
 
 from split import fares, utils, times
 
@@ -33,6 +36,7 @@ def ajax():
     }
 
 @route('/')
+@auth_basic(alpha)
 @view('home')
 def home():
     if all(x in request.query and request.query[x] for x in ['from', 'to', 'time']):
@@ -47,6 +51,7 @@ def home():
     return context
 
 @route('/<fr>/<to>/<day>/<time>')
+@auth_basic(alpha)
 @view('result')
 def split(fr, to, day, time):
     day = day == 'y'
@@ -105,6 +110,6 @@ def split(fr, to, day, time):
     context['routes'] = routes
     return context
 
-run(host='localhost', port=8080, debug=True)
+run(host='localhost', port=8080, debug=True, reloader=True)
 
 
