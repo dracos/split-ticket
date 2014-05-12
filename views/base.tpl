@@ -25,6 +25,7 @@
 <div id="content">
 {{ !base }}
 </div>
+<div style='clear:both'></div>
 <p id="footer">Kindly hosted by <a href="http://www.bytemark.co.uk/">Bytemark</a><br><a href="/terms"><small>Terms</small></a></p>
 
 </body>

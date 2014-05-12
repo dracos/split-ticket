@@ -30,7 +30,7 @@ leaving around {{ time }}
 </div>
 % end
 
-<div style="float: left; width: 50%">
+<div style="float: right; width: 50%">
 <p>I considered the following journey:</p>
 % for stop in all_stops_with_depart:
 <div style="float:left; width: 4em; height: 4em; text-align:center; background-color:#eeeeff; margin: 0.25em; padding: 0.25em;">
@@ -42,17 +42,16 @@ leaving around {{ time }}
 </div>
 % end
 </div>
-<div style="clear:both"></div>
 
-<h3 id="working-out" style="cursor:pointer">My working out</h3>
-<ul id="js-working-out">
+<p><a id='working-out-link' href='#working-out'>See the intermediate fares</a> used for the above calculation:</p>
+<ul id="working-out">
 % for pair in output_pairwise:
 <li>{{ pair[0] }}&ndash;{{ pair[1] }}, {{ price(pair[2]['fare']) }} {{ pair[2]['desc'] }}</li>
 % end
 </ul>
 <script>
 $(function(){
-    $('#working-out').click(function(){ $('#js-working-out').slideToggle(); });
-    $('#js-working-out').hide();
+    $('#working-out-link').click(function(){ $('#working-out').slideToggle(); return false; });
+    $('#working-out').hide();
 });
 </script>
