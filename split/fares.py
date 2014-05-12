@@ -1,7 +1,10 @@
+# vim: set fileencoding=utf-8 :
+
 import json
 import re
 
 from . import restrictions, dijkstra
+from .utils import price
 
 TICKET_NAMES = {
     'SOR': 'Anytime Return',
@@ -70,7 +73,7 @@ class Fares(object):
         o = s['ticket']['name']
         if s['route']['name'] != 'ANY PERMITTED': o += ', ' + self.prettify(s['route']['name'])
         # if s['restriction_code'] != '  ': o += ', ' + s['restriction_code']
-        if self.double: o += ' (2 singles)'
+        if self.double: o += u', 2 × ' + price(s['adult']['fare'])
         return o
 
     def is_valid_journey(self, s):
