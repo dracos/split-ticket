@@ -18,6 +18,7 @@ class Fares(object):
         self.store = store
         self.data = data
         self.excluded_routes = []
+        self.fares = {}
 
     def prettify(self, s):
         s = re.sub('\w\S*', lambda txt: txt.group().title(), s)
@@ -34,11 +35,13 @@ class Fares(object):
         return stn['description'], stn_codes
 
     def get_fare_entry(self, code):
-        try:
-            with open('data/fares/%s.json' % code) as fp:
-                return json.load(fp)
-        except IOError:
-            return None
+        if code not in self.fares:
+            try:
+                with open('data/fares/%s.json' % code) as fp:
+                    self.fares[code] = json.load(fp)
+            except IOError:
+                self.fares[code] = None
+        return self.fares[code]
 
     def get_fares(self):
         name_fr, codes_fr = self.get_codes(self.fro)
