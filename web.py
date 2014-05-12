@@ -72,7 +72,7 @@ def split(fr, to, day, time):
 
     store['station_times'][store['from']] = [ None, store['time'] ]
     all_stops = times.find_stopping_points(store)
-    context['all_stops_with_depart'] = [ (s, store['station_times'][s]) for s in all_stops ]
+    context['all_stops_with_depart'] = [ (s, data['stations'][s], store['station_times'][s]) for s in all_stops ]
 
     stop_pairs = itertools.combinations(all_stops, 2)
     stop_pairs = filter(lambda x: x[0] != store['from'] or x[1] != store['to'], stop_pairs)
@@ -89,7 +89,7 @@ def split(fr, to, day, time):
         d = store['data'][store['from']][store['to']]
         if d['obj']['route']['name'] != 'ANY PERMITTED':
             n = d['obj']['route']
-            routes[n['id']] = { 'name': 'Exclude %s' % n['name'], 'value': n['id'] }
+            routes[n['id']] = { 'name': n['name'], 'value': n['id'] }
 
     output_pairwise = []
     for pair in stop_pairs:
@@ -100,10 +100,13 @@ def split(fr, to, day, time):
     nodes, total = Fares.find_cheapest()
     output_cheapest = []
     for f, t, d in nodes:
-        output_cheapest.append( (f,t,d) )
+        output_cheapest.append( (
+            data['stations'][f]['description'],
+            data['stations'][t]['description'], d
+        ) )
         if d['obj']['route']['name'] != 'ANY PERMITTED':
             n = d['obj']['route']
-            routes[n['id']] = { 'name': 'Exclude %s' % n['name'], 'value': n['id'] }
+            routes[n['id']] = { 'name': n['name'], 'value': n['id'] }
     context['output_cheapest'] = output_cheapest
     context['total'] = total
 

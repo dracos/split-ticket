@@ -32,13 +32,13 @@ leaving around {{ time }}
 
 <div style="float: right; width: 50%">
 <p>I considered the following journey:</p>
-% for stop in all_stops_with_depart:
+% for code, stop, times in all_stops_with_depart:
 <div style="float:left; width: 4em; height: 4em; text-align:center; background-color:#eeeeff; margin: 0.25em; padding: 0.25em;">
-{{ stop[0] }}<br>
-% if stop[1][0] and stop[1][0] != stop[1][1]:
-{{ stop[1][0] }}a{{ ',' if stop[1][1] else '' }}
+<abbr title="{{ stop['description'] }}">{{ code }}</abbr><br>
+% if times[0] and times[0] != times[1]:
+{{ times[0] }}a{{ ',' if times[1] else '' }}
 % end
-{{ stop[1][1] or '' }}{{ 'd' if stop[1][1] and stop[1][0] and stop[1][0] != stop[1][1] else '' }}
+{{ times[1] or '' }}{{ 'd' if times[1] and times[0] and times[0] != times[1] else '' }}
 </div>
 % end
 </div>
