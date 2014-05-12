@@ -12,7 +12,7 @@ for the same journey on the same trains.
 
 </div>
 
-<form>
+<form action="/" method="get">
 <p>
     <label>From: <input id="from" type="text" name="from" value="{{ get('from', '') }}" data-desc="{{ get('from_desc', '') }}"></label>
     <label>To: <input id="to" type="text" name="to" value="{{ get('to', '') }}" data-desc="{{ get('to_desc', '') }}"></label>

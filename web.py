@@ -37,13 +37,14 @@ def ajax():
 
 @route('/')
 @auth_basic(alpha)
-@view('home')
 def home():
     if all(x in request.query and request.query[x] for x in ['from', 'to', 'time']):
         request.query['day'] = request.query.get('day') or 'n'
         redirect('/%(from)s/%(to)s/%(day)s/%(time)s' % request.query)
+    return form(request.query)
 
-    context = request.query
+@view('home')
+def form(context):
     if 'from' in context and context['from'] in data['stations']:
         context['from_desc'] = data['stations'][context['from']]['description']
     if 'to' in context and context['to'] in data['stations']:
@@ -54,6 +55,9 @@ def home():
 @auth_basic(alpha)
 @view('result')
 def split(fr, to, day, time):
+    if fr != fr.upper() or to != to.upper() or not re.match('^\d\d:\d\d', time):
+        return form({ 'from': fr, 'to': to, 'day': day, 'time': time })
+
     day = day == 'y'
     context = {
         'fr': fr, 'fr_desc': data['stations'][fr]['description'],
