@@ -8,16 +8,25 @@ for the day,
 leaving around {{ time }}
 </h2>
 
-<p><span style="font-size: 200%">The normal fare is <strong>{{ price(fare_total['fare']) }}</strong></span>
+<div style="margin-bottom: 2em; font-size:120%">
+
+<p><span style="font-size: 150%">The normal fare is <strong>{{ price(fare_total['fare']) }}</strong></span>
 ({{ fare_total['desc'] }})</p>
 
-<p style="font-size: 200%">But I&rsquo;ve found the same journey for&hellip; <strong>{{ price(total) }}</strong></p>
+% if total < fare_total['fare']:
+<p style="font-size: 150%">But I&rsquo;ve found the same journey for&hellip; <strong>{{ price(total) }}</strong></p>
 
-<ol style="font-size: 120%">
+<ol>
 % for step in output_cheapest:
 <li>{{ step[0] }} &rarr; {{ step[1] }} : {{ price(step[2]['fare']) }} ({{ step[2]['desc'] }})</li>
 % end
 </ol>
+% else:
+<p>And I&rsquo;m afraid I didn&rsquo;t find any split that made it cheaper.</p>
+% end
+
+</div>
+
 
 % if routes:
 <div style="float: left; width:40%; margin-right:10%">
