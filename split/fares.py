@@ -6,15 +6,25 @@ import re
 from . import restrictions, dijkstra
 from .utils import price
 
-TICKET_NAMES = {
-    'SOR': 'Anytime Return',
-    'SVR': 'Off-peak Return',
-    'SDR': 'Anytime Day Return',
-    'CDR': 'Off-peak Day Return',
-    'SOS': 'Anytime Single',
-    'SDS': 'Anytime Day Single',
-    'CDS': 'Cheap Day Single',
+TICKET_BY_TYPE = {
+    'Anytime Return': [ 'SOR', 'GTR' ],
+    'Anytime Day Return': [ 'SDR', 'GPR' ],
+    'Anytime Single': [ 'SOS', 'GTS' ],
+    'Anytime Day Single': [ 'SDS' ],
+
+    'Off-peak Return': [ 'SVR', 'G2R' ],
+    'Off-peak Day Return': [ 'CDR' ],
+    'Off-peak Single': [ 'SVS', 'SVH', 'G2S', 'CDS' ],
+
+    'Super off-peak Return': [ 'SSR', 'OPR', 'SOP' ],
+    'Super off-peak Single': [ 'SSS', 'OPS', 'CBB' ],
+    'Super off-peak Day Return': [ 'GDR', 'PDR', 'SOB', 'AM2', 'EGF', 'SRR', 'SWS', 'SCO', 'C1R', 'CBA' ],
+    'Super off-peak Day Single': [ 'GDS', 'PDS', 'SOA', 'AM1', 'EGS', 'OPD' ],
 }
+TICKET_NAMES = {}
+for name, types in TICKET_BY_TYPE.items():
+    for t in types:
+        TICKET_NAMES[t] = name
 
 class Fares(object):
     def __init__(self, store, data):
@@ -88,15 +98,15 @@ class Fares(object):
         return s['route']['id'] not in self.excluded_routes
 
     def match_returns(self, s):
-        ret = re.search('SVR|SOR', s['ticket']['code'])
+        ret = re.search('SOR|GTR|SVR|G2R|SSR|OPR|SOP', s['ticket']['code'])
         if self.store['day']:
-            ret = ret or re.search('CDR|SDR', s['ticket']['code'])
+            ret = ret or re.search('SDR|GPR|CDR|GDR|PDR|SOB|AM2|EGF|SCO|C1R|CBA|SRR|SWS', s['ticket']['code'])
         ret = ret and self.is_valid_journey(s)
         ret = ret and self.is_valid_route(s)
         return ret
 
     def match_singles(self, s):
-        ret = re.search('CDS|SDS|SOS', s['ticket']['code'])
+        ret = re.search('SOS|SDS|GTS|CDS|SVS|SVH|G2S|SSS|OPS|CBB|GDS|PDS|SOA|AM1|EGS|OPD', s['ticket']['code'])
         ret = ret and self.is_valid_journey(s)
         ret = ret and self.is_valid_route(s)
         return ret

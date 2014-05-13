@@ -3,6 +3,28 @@
 from datetime import date
 import json
 
+ticket_types = (
+    'SOS', 'SOR', # Anytime single/return
+    'SDS', 'SDR', # Anytime day
+    'GTS', 'GTR', # Anytime single/return
+    'GPR', # Anytime day return
+
+    'CDS', 'CDR', # Off-peak day
+    'SVS', 'SVR', 'SVH', # Off-peak
+    'G2S', 'G2R', # Offpeak
+
+    'SSS', 'SSR', 'OPS', 'OPR', # Super off-peak single/return
+    'CBB', # Super off-peak single
+    'SOP', # Super off-peak return
+    # Super off-peak day
+    'GDS', 'GDR', 'PDS', 'PDR',
+    'SOA', 'SOB',
+    'AM1', 'AM2',
+    'EGS', 'EGF',
+    'OPD',
+    'SRR', 'SWS', 'SCO', 'C1R', 'CBA',
+)
+
 cnv_full_date = lambda x: date(int(x[4:8]), int(x[2:4]), int(x[0:2]))
 cnv_str = lambda x: x.rstrip()
 
@@ -36,7 +58,7 @@ for row in open('RJFAF273/RJFAF273.FFL'):
 
     if record_type == 'T':
         if row['id'] not in data_by_id: continue
-        if row['type'] not in ('SVR', 'SOR', 'CDR', 'SDR', 'CDS', 'SDS', 'SOS'): continue
+        if row['type'] not in ticket_types: continue
         data_by_id[row['id']]['prices'][row['type']] = ( row['price'], row['restriction'] )
     else:
         if row['usage'] == 'C': continue
@@ -63,6 +85,10 @@ for fr, d1 in data.items():
         for i, d in enumerate(d2):
             if not d['prices']:
                 del d2[i]
+        if not d2:
+            del d1[to]
+    if not d1:
+        del data[fr]
 
 for fr, d1 in data.items():
     with open('data/fares/%s.json' % fr, 'w') as fp:
