@@ -39,13 +39,14 @@ class Fares(object):
 
     def get_codes(self, stn):
         # Return in this order so that override will function
+        if stn not in self.data['stations']: return []
         stn = self.data['stations'][stn]
         stn_codes = []
         stn_codes += self.data['clusters'].get(stn.get('fare_group'), [])
         stn_codes += self.data['clusters'].get(stn['code'], [])
         stn_codes += [ stn['fare_group'] ] if 'fare_group' in stn else []
         stn_codes += [ stn['code'] ]
-        return stn['description'], stn_codes
+        return stn_codes
 
     def get_fare_entry(self, code):
         if code not in self.fares:
@@ -57,8 +58,8 @@ class Fares(object):
         return self.fares[code]
 
     def get_fares(self):
-        name_fr, codes_fr = self.get_codes(self.fro)
-        name_to, codes_to = self.get_codes(self.to)
+        codes_fr = self.get_codes(self.fro)
+        codes_to = self.get_codes(self.to)
 
         froms = filter(None, map(lambda x: self.get_fare_entry(x), codes_fr))
         # Fares by ROUTE because for the same route, individual flow overrides
