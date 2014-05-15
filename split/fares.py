@@ -31,6 +31,7 @@ class Fares(object):
         self.store = store
         self.data = data
         self.excluded_routes = []
+        self.excluded_restrictions = []
         self.fares = {}
 
     def prettify(self, s):
@@ -82,12 +83,17 @@ class Fares(object):
 
     def fare_desc(self, s):
         o = s['ticket']['name']
-        if s['route']['name'] != 'ANY PERMITTED': o += ', ' + self.prettify(s['route']['name'])
-        # if s['restriction_code'] != '  ': o += ', ' + s['restriction_code']
-        if self.double: o += u', 2 × ' + price(s['adult']['fare'])
+        if s['route']['name'] != 'ANY PERMITTED':
+            o += ', ' + self.prettify(s['route']['name'])
+        if s['restriction_code']:
+            o += ', ' + self.data['restrictions'][s['restriction_code']]['info']['desc_out'].title()
+            o += ' (%s)' % s['restriction_code']
+        if self.double:
+            o += u', 2 × ' + price(s['adult']['fare'])
         return o
 
     def is_valid_journey(self, s):
+        if s['restriction_code'] in self.excluded_restrictions: return False
         return restrictions.valid_journey(
             self.data['restrictions'],
             self.fro, self.to,

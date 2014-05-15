@@ -84,10 +84,14 @@ def split(fr, to, day, time):
     Fares = fares.Fares(store, data)
 
     context['exclude'] = filter(None, request.query.exclude.split(','))
-    for route in context['exclude']:
-        Fares.excluded_routes.append(route)
+    for ex in context['exclude']:
+        if len(ex) == 2:
+            Fares.excluded_restrictions.append(ex)
+        else:
+            Fares.excluded_routes.append(ex)
 
     routes = {}
+    restrictions = {}
     fare_total = Fares.parse_fare(store['from'], store['to'])
     context['fare_total'] = fare_total
     if fare_total['fare'] != '-':
@@ -95,6 +99,9 @@ def split(fr, to, day, time):
         if d['obj']['route']['name'] != 'ANY PERMITTED':
             n = d['obj']['route']
             routes[n['id']] = { 'name': n['name'], 'value': n['id'] }
+        if d['obj']['restriction_code']:
+            n = d['obj']['restriction_code']
+            restrictions[n] = n
 
     output_pairwise = []
     for pair in stop_pairs:
@@ -112,10 +119,14 @@ def split(fr, to, day, time):
         if d['obj']['route']['name'] != 'ANY PERMITTED':
             n = d['obj']['route']
             routes[n['id']] = { 'name': n['name'], 'value': n['id'] }
+        if d['obj']['restriction_code']:
+            n = d['obj']['restriction_code']
+            restrictions[n] = n
     context['output_cheapest'] = output_cheapest
     context['total'] = total
 
     context['routes'] = routes
+    context['restrictions'] = restrictions
     return context
 
 if __name__ == "__main__":
