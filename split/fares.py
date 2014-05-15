@@ -124,14 +124,10 @@ class Fares(object):
                 best = r
 
         self.double = False
-        if best:
-            pass
-        else:
-            singles = filter(self.match_singles, price_data)
-            for r in singles:
-                if not best or r['adult']['fare'] < best['adult']['fare']:
-                    best = r
-            if best:
+        singles = filter(self.match_singles, price_data)
+        for r in singles:
+            if not best or r['adult']['fare']*2 < best['adult']['fare']:
+                best = r
                 self.double = True
 
         if not best:
