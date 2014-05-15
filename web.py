@@ -5,7 +5,8 @@ import re
 import sys
 import urllib
 
-from bottle import route, run, request, view, static_file, redirect, auth_basic
+import bottle
+from bottle import request
 
 def alpha(user, pw):
     return user == 'train' and pw == 'choochoo'
@@ -21,11 +22,11 @@ for d in data_files:
     with open(os.path.join(THIS_DIR, 'data', d + '.json')) as fp:
         data[d] = json.load(fp)
 
-@route('/bower/<path:path>')
+@bottle.route('/bower/<path:path>')
 def server_static(path):
-        return static_file(path, root=os.path.join(THIS_DIR, 'bower_components'))
+        return bottle.static_file(path, root=os.path.join(THIS_DIR, 'bower_components'))
 
-@route('/ajax-station')
+@bottle.route('/ajax-station')
 def ajax():
     q = request.query.q.lower()
     matches = filter(lambda x: q in x.lower(), data['stations'])
@@ -35,15 +36,15 @@ def ajax():
         'results': [ { 'id': m, 'text': data['stations'][m]['description'] } for m in matches ]
     }
 
-@route('/')
-@auth_basic(alpha)
+@bottle.route('/')
+@bottle.auth_basic(alpha)
 def home():
     if all(x in request.query and request.query[x] for x in ['from', 'to', 'time']):
         request.query['day'] = request.query.get('day') or 'n'
-        redirect('/%(from)s/%(to)s/%(day)s/%(time)s' % request.query)
+        bottle.redirect('/%(from)s/%(to)s/%(day)s/%(time)s' % request.query)
     return form(request.query)
 
-@view('home')
+@bottle.view('home')
 def form(context):
     if 'from' in context and context['from'] in data['stations']:
         context['from_desc'] = data['stations'][context['from']]['description']
@@ -51,9 +52,9 @@ def form(context):
         context['to_desc'] = data['stations'][context['to']]['description']
     return context
 
-@route('/<fr>/<to>/<day>/<time>')
-@auth_basic(alpha)
-@view('result')
+@bottle.route('/<fr>/<to>/<day>/<time>')
+@bottle.auth_basic(alpha)
+@bottle.view('result')
 def split(fr, to, day, time):
     if fr != fr.upper() or to != to.upper() or not re.match('^\d\d:\d\d', time):
         return form({ 'from': fr, 'to': to, 'day': day, 'time': time })
@@ -117,6 +118,6 @@ def split(fr, to, day, time):
     context['routes'] = routes
     return context
 
-run(host='localhost', port=8080, debug=True, reloader=True)
-
-
+if __name__ == "__main__":
+    bottle.run(host='localhost', port=8080, debug=True, reloader=True)
+app = bottle.default_app()
