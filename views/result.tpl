@@ -30,10 +30,13 @@ leaving around {{ time }}
 
 % if routes:
 <div style="float: left; width:40%; margin-right:10%">
-<p>The above may not be the most obvious route due to route selection, exclude a route using the links below:</p>
+
+<p>The above may not be the best route, it just picks the cheapest; exclude
+a particular route using the links below:</p>
+
 <ul>
 % for id, route in routes.items():
-<li><a href="?exclude={{ ','.join(set(exclude + [ id ])) }}">{{ route['name'].title() }}</a>
+<li><a href="?exclude={{ ','.join(set(exclude + [ id ])) }}">Exclude {{ route['name'].title() }}</a>
 % end
 </ul>
 </div>
@@ -51,6 +54,13 @@ leaving around {{ time }}
 </div>
 % end
 </div>
+
+<p>
+Please note that your train <strong>must stop</strong> at the stations on your
+tickets in order to be valid. This site only looks at Anytime and Off-peak
+returns and day returns.
+
+</p>
 
 <p><a id='working-out-link' href='#working-out'>See the intermediate fares</a> used for the above calculation:</p>
 <ul id="working-out">
