@@ -76,7 +76,7 @@ class Fares(object):
         for f in fares.values():
             for t, p in f['prices'].items():
                 data.append({
-                    'toc': f['toc'], 'route': { 'id': f['route'], 'name': self.data['routes'][f['route']] },
+                    'toc': f.get('toc'), 'route': { 'id': f['route'], 'name': self.data['routes'][f['route']] },
                     'ticket': { 'code': t, 'name': TICKET_NAMES[t] }, 'adult': { 'fare': int(p[0]) }, 'restriction_code': p[1],
                 })
         return data

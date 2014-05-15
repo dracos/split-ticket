@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+
+import json
+import os
+
+data = json.load(open('data/ndf.json'))
+
+for key, row in data.items():
+    fil = 'data/fares/%s.json' % row['from']
+
+    new_row = [ row['adult'], row['restriction'] ]
+    new_entry = [
+        {
+            "prices": {
+                row['ticket']: new_row
+            },
+            "route": row['route']
+        }
+    ]
+
+    if not os.path.exists(fil):
+        j = { row['to']: new_entry }
+    else:
+        j = json.load(open(fil))
+        if row['to'] in j:
+            for route in j[row['to']]:
+                if row['route'] == route['route']:
+                    route['prices'][row['ticket']] = new_row
+        else:
+            j[row['to']] = new_entry
+    json.dump(j, open(fil, 'w'))
+
+# ndf file contents:
+# { restriction, from, route, to, adult, ticket }
+
+# a fares file contents:
+# "TO": [
+#     {
+#         "prices": {
+#              ticket_type: [price, restriction],
+#         },
+#         "toc": toc,
+#         "route": route_code
+#     }
+# ],
