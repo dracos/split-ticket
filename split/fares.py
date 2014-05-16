@@ -75,9 +75,15 @@ class Fares(object):
         data = []
         for f in fares.values():
             for t, p in f['prices'].items():
+                restriction = None
+                if p[1]:
+                    restriction = { 'id': p[1], 'desc': self.data['restrictions'][p[1]]['info']['desc_out'].title() }
                 data.append({
-                    'toc': f.get('toc'), 'route': { 'id': f['route'], 'name': self.data['routes'][f['route']] },
-                    'ticket': { 'code': t, 'name': TICKET_NAMES[t] }, 'adult': { 'fare': int(p[0]) }, 'restriction_code': p[1],
+                    'toc': f.get('toc'),
+                    'route': { 'id': f['route'], 'name': self.data['routes'][f['route']] },
+                    'ticket': { 'code': t, 'name': TICKET_NAMES[t] },
+                    'adult': { 'fare': int(p[0]) },
+                    'restriction_code': restriction,
                 })
         return data
 
@@ -86,19 +92,21 @@ class Fares(object):
         if s['route']['name'] != 'ANY PERMITTED':
             o += ', ' + self.prettify(s['route']['name'])
         if s['restriction_code']:
-            o += ', ' + self.data['restrictions'][s['restriction_code']]['info']['desc_out'].title()
-            o += ' (%s)' % s['restriction_code']
+            o += ', ' + s['restriction_code']['desc']
+            o += ' (%s)' % s['restriction_code']['id']
         if self.double:
             o += u', 2 × ' + price(s['adult']['fare'])
         return o
 
     def is_valid_journey(self, s):
-        if s['restriction_code'] in self.excluded_restrictions: return False
+        restriction_code = s['restriction_code']['id'] if s['restriction_code'] else ''
+        if restriction_code in self.excluded_restrictions:
+            return False
         return restrictions.valid_journey(
             self.data['restrictions'],
             self.fro, self.to,
             self.store['station_times'].get(self.fro), self.store['station_times'].get(self.to),
-            s['restriction_code']
+            restriction_code
         )
 
     def is_valid_route(self, s):

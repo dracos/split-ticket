@@ -98,10 +98,10 @@ def split(fr, to, day, time):
         d = store['data'][store['from']][store['to']]
         if d['obj']['route']['name'] != 'ANY PERMITTED':
             n = d['obj']['route']
-            routes[n['id']] = { 'name': n['name'], 'value': n['id'] }
+            routes[n['id']] = n['name']
         if d['obj']['restriction_code']:
             n = d['obj']['restriction_code']
-            restrictions[n] = n
+            restrictions[n['id']] = n['desc']
 
     output_pairwise = []
     for pair in stop_pairs:
@@ -118,10 +118,10 @@ def split(fr, to, day, time):
         ) )
         if d['obj']['route']['name'] != 'ANY PERMITTED':
             n = d['obj']['route']
-            routes[n['id']] = { 'name': n['name'], 'value': n['id'] }
+            routes[n['id']] = n['name']
         if d['obj']['restriction_code']:
             n = d['obj']['restriction_code']
-            restrictions[n] = n
+            restrictions[n['id']] = n['desc']
     context['output_cheapest'] = output_cheapest
     context['total'] = total
 

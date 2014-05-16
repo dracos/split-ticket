@@ -33,20 +33,31 @@ leaving around {{ time }}
 <div style="float: left; width:40%; margin-right:10%">
 
 <p>The above may not be the best route, I just pick the cheapest. I also don't
-account for return times, so you may need to adjust if you're returning in a peak period. Exclude
-a particular route or restriction using the links below:</p>
+account for return times, so you may need to adjust if you're returning in a
+peak period. Exclude a particular route or restriction using the links
+below:</p>
 
 <ul>
 % for id, route in routes.items():
-<li><a href="?exclude={{ ','.join(set(exclude + [ id ])) }}">Exclude {{ route['name'].title() }}</a>
+<li><a href="?exclude={{ ','.join(set(exclude + [ id ])) }}">Exclude {{ route.title() }}</a>
 % end
 </ul>
 
+<p>Ignore tickets with time restriction:
 <ul>
-% for r in restrictions.keys():
-<li><a href="?exclude={{ ','.join(set(exclude + [ r ])) }}">Ignore {{ r }} restricted tickets</a>
+% for id, text in restrictions.items():
+<li><a href="?exclude={{ ','.join(set(exclude + [ id ])) }}">({{ id}}) {{ text }}</a>
 % end
 </ul>
+
+<p>
+Please note that your train <strong>must stop</strong> at the stations on your
+tickets in order to be valid. This site does not look at Advance tickets,
+rovers, or anything odd or special. E&amp;OE, <strong>check your tickets and
+their restrictions</strong> before purchasing. The source code is
+<a href="https://github.com/dracos/split-ticket">on GitHub</a>.
+</p>
+
 </div>
 % end
 
@@ -63,13 +74,6 @@ a particular route or restriction using the links below:</p>
 <div style="float:left; padding: 1.5em 0 0;"> &rarr; </div>
 % end
 </div>
-
-<p>
-Please note that your train <strong>must stop</strong> at the stations on your
-tickets in order to be valid. This site does not look at Advance tickets, rovers,
-or anything odd or special. E&amp;OE, source code is
-<a href="https://github.com/dracos/split-ticket">on GitHub</a>.
-</p>
 
 <p><a id='working-out-link' href='#working-out'>See the intermediate fares</a> used for the above calculation:</p>
 <ul id="working-out">
