@@ -42,3 +42,13 @@ search('#from', 'Choose a station');
 search('#to', 'Choose a station');
 </script>
 
+% if latest:
+<h2>Latest findings</h2>
+<ul>
+%   for l in latest:
+%     if l:
+<li>{{ !l }}
+%     end
+%   end
+</ul>
+% end

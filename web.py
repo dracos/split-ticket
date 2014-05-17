@@ -1,9 +1,15 @@
+from __future__ import division
+
 import itertools
 import json
 import os
 import re
 import sys
+from time import time as unix_time
 import urllib
+
+import redis
+R = redis.Redis()
 
 import bottle
 from bottle import request
@@ -50,6 +56,7 @@ def form(context):
         context['from_desc'] = data['stations'][context['from']]['description']
     if 'to' in context and context['to'] in data['stations']:
         context['to_desc'] = data['stations'][context['to']]['description']
+    context['latest'] = R.zrevrange('split-ticket-latest', 0, -1)
     return context
 
 @bottle.route('/<fr>/<to>/<day>/<time>')
@@ -122,11 +129,23 @@ def split(fr, to, day, time):
         if d['obj']['restriction_code']:
             n = d['obj']['restriction_code']
             restrictions[n['id']] = n['desc']
+
     context['output_cheapest'] = output_cheapest
     context['total'] = total
-
     context['routes'] = routes
     context['restrictions'] = restrictions
+
+    if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude']:
+        line = "<a href='%s'>%s to %s, %s%s</a>, %s instead of %s (%d%% saving)" % (
+	    request.path, context['fr_desc'], context['to_desc'],
+            'for the day, ' if day else '', time, utils.price(total),
+            utils.price(fare_total['fare']), 100-round(total/fare_total['fare']*100)
+        )
+        pipe = R.pipeline()
+        pipe.zadd( 'split-ticket-latest', line, unix_time() )
+        pipe.zremrangebyrank( 'split-ticket-latest', 0, -11 )
+        pipe.execute()
+
     return context
 
 if __name__ == "__main__":
