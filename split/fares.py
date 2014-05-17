@@ -77,7 +77,13 @@ class Fares(object):
             for t, p in f['prices'].items():
                 restriction = None
                 if p[1]:
-                    restriction = { 'id': p[1], 'desc': self.data['restrictions'][p[1]]['info']['desc_out'].title() }
+                    desc_out = self.data['restrictions'][p[1]]['info']['desc_out'].title()
+                    desc_rtn = self.data['restrictions'][p[1]]['info']['desc_rtn'].title()
+                    if desc_out == desc_rtn:
+                        desc = desc_out
+                    else:
+                        desc = 'Out: %s, Return: %s' % (desc_out, desc_rtn)
+                    restriction = { 'id': p[1], 'desc': desc }
                 data.append({
                     'toc': f.get('toc'),
                     'route': { 'id': f['route'], 'name': self.data['routes'][f['route']] },
