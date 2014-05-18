@@ -146,9 +146,10 @@ def split(fr, to, day, time):
     context['restrictions'] = restrictions
 
     if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude']:
-        line = "<a href='%s'>%s to %s, %s%s</a>, %s instead of %s (%d%% saving)" % (
-	    request.path, context['fr_desc'], context['to_desc'],
-            'for the day, ' if day else '', time, utils.price(total),
+        line = "%s to %s%s, around %s &ndash; <a href='%s'>%s</a> instead of %s (<strong>%d%%</strong> saving)" % (
+	    context['fr_desc'], context['to_desc'],
+            ' for the day' if day else '', time,
+            request.path, utils.price(total),
             utils.price(fare_total['fare']), 100-round(total/fare_total['fare']*100)
         )
         pipe = R.pipeline()
