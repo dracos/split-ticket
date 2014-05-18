@@ -37,7 +37,7 @@ def server_static(path):
 @bottle.route('/ajax-station')
 def ajax():
     q = request.query.query.lower()
-    matches = filter(lambda x: q in x.lower(), data['stations'])
+    matches = filter(lambda x: x.lower().startswith(q), data['stations'])
     matches += filter(lambda x: x not in matches and data['stations'][x]['description'].lower().startswith(q), data['stations'])
     matches += filter(lambda x: x not in matches and q in data['stations'][x]['description'].lower(), data['stations'])
     return {
