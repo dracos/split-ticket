@@ -3,6 +3,8 @@
 <head><title>{{ get('title', 'Split Ticket') }} - Accessible UK Train Timetables</title>
 <link rel="stylesheet" href="http://traintimes.org.uk/railway2.css">
 <style>
+label { white-space: nowrap; }
+
 .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
 .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; cursor: pointer; }
 .autocomplete-selected { background: #eeeeff; }

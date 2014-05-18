@@ -18,7 +18,8 @@ for the same journey on the same trains.
     <label>To: <input id="to" type="text" name="to" value="{{ get('to', '') }}" data-desc="{{ get('to_desc', '') }}"></label>
 <p>
     <label>Departure time: <input type="text" name="time" placeholder="hh:mm" value="{{ get('time', '') }}"></label>
-    <label><input type="checkbox" name="day" value="y"{{ ' checked' if get('day')=='y' else '' }}> For the day</label>
+    For the day: <label><input type="radio" name="day" value="y"{{ ' checked' if get('day')=='y' else '' }}> Yes</label>
+    <label><input type="radio" name="day" value="n"{{ ' checked' if get('day')=='n' else '' }}> No</label>
     <input type="submit" value="Search" style="font-size:1.5em;color:#000;background-color:#eee">
 </form>
 <script>
