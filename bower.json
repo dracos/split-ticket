@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "select2": "~3.4.8"
+    "devbridge-autocomplete": "~1.2.9",
+    "jquery": "^1.11.1"
   }
 }

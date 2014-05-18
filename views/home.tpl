@@ -18,28 +18,20 @@ for the same journey on the same trains.
     <label>To: <input id="to" type="text" name="to" value="{{ get('to', '') }}" data-desc="{{ get('to_desc', '') }}"></label>
 <p>
     <label>Departure time: <input type="text" name="time" placeholder="hh:mm" value="{{ get('time', '') }}"></label>
-    <label><input type="checkbox" name="day" value="y"{{ ' checked' if get('day') else '' }}> For the day</label>
+    <label><input type="checkbox" name="day" value="y"{{ ' checked' if get('day')=='y' else '' }}> For the day</label>
     <input type="submit" value="Search" style="font-size:1.5em;color:#000;background-color:#eee">
 </form>
 <script>
 function search(id, placeholder) {
-    $(id).select2({
-        minimumInputLength: 2,
-        placeholder: placeholder,
-        width: '40%',
-        ajax: {
-            url: '/ajax-station',
-            dataType: 'json',
-            data: function(term, page) { return { q: term }; },
-            results: function(data, page) { return data; }
-        },
-        initSelection: function(element, callback) {
-            callback({ id: element.val(), text: element.data('desc') || element.val() });
-        }
+    $(id).autocomplete({
+        serviceUrl: '/ajax-station',
+        minChars: 2
     });
 }
-search('#from', 'Choose a station');
-search('#to', 'Choose a station');
+$(function(){
+    search('#from');
+    search('#to');
+});
 </script>
 
 % if latest:

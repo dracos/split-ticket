@@ -2,10 +2,14 @@
 <html lang="en">
 <head><title>{{ get('title', 'Split Ticket') }} - Accessible UK Train Timetables</title>
 <link rel="stylesheet" href="http://traintimes.org.uk/railway2.css">
-<link rel="stylesheet" href="/bower/select2/select2.css">
+<style>
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; cursor: pointer; }
+.autocomplete-selected { background: #eeeeff; }
+</style>
 
 <script src='/bower/jquery/dist/jquery.min.js'></script>
-<script src='/bower/select2/select2.js'></script>
+<script src='/bower/devbridge-autocomplete/dist/jquery.autocomplete.min.js'></script>
 
 <link rel="shortcut icon" href="http://traintimes.org.uk/favicon.ico">
 

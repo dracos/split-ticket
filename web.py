@@ -28,18 +28,20 @@ for d in data_files:
     with open(os.path.join(THIS_DIR, 'data', d + '.json')) as fp:
         data[d] = json.load(fp)
 
+data['stations_by_name'] = dict( (v['description'], dict(v.items()+[('code',k)])) for k, v in data['stations'].items() )
+
 @bottle.route('/bower/<path:path>')
 def server_static(path):
         return bottle.static_file(path, root=os.path.join(THIS_DIR, 'bower_components'))
 
 @bottle.route('/ajax-station')
 def ajax():
-    q = request.query.q.lower()
+    q = request.query.query.lower()
     matches = filter(lambda x: q in x.lower(), data['stations'])
     matches += filter(lambda x: x not in matches and data['stations'][x]['description'].lower().startswith(q), data['stations'])
     matches += filter(lambda x: x not in matches and q in data['stations'][x]['description'].lower(), data['stations'])
     return {
-        'results': [ { 'id': m, 'text': data['stations'][m]['description'] } for m in matches ]
+        'suggestions': [ data['stations'][m]['description'] for m in matches ]
     }
 
 @bottle.route('/')
@@ -63,8 +65,16 @@ def form(context):
 @bottle.auth_basic(alpha)
 @bottle.view('result')
 def split(fr, to, day, time):
-    if fr != fr.upper() or to != to.upper() or not re.match('^\d\d:\d\d', time):
+    if not re.match('^\d\d:\d\d', time):
         return form({ 'from': fr, 'to': to, 'day': day, 'time': time })
+    if fr not in data['stations_by_name'] and fr not in data['stations']:
+        return form({ 'from': fr, 'to': to, 'day': day, 'time': time })
+    if to not in data['stations_by_name'] and to not in data['stations']:
+        return form({ 'from': fr, 'to': to, 'day': day, 'time': time })
+    if fr in data['stations_by_name'] or to in data['stations_by_name']:
+        if fr in data['stations_by_name']: fr = data['stations_by_name'][fr]['code']
+        if to in data['stations_by_name']: to = data['stations_by_name'][to]['code']
+        bottle.redirect('/%s/%s/%s/%s' % (fr, to, day, time))
 
     day = day == 'y'
     context = {
