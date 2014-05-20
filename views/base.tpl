@@ -3,7 +3,22 @@
 <head><title>{{ get('title', 'Split Ticket') }} - Accessible UK Train Timetables</title>
 <link rel="stylesheet" href="/static/railway2.css">
 <style>
-label { white-space: nowrap; }
+/* Home */
+input[type=text] {
+    width: 80%;
+}
+.front-col {
+    width: 45%;
+    padding: 1em 2.5%;
+    float: left;
+}
+.front-col > h2 {
+    margin-top: 0;
+}
+label {
+    display: block;
+}
+label.n { display: inline; }
 
 .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
 .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; cursor: pointer; }
@@ -23,6 +38,10 @@ label { white-space: nowrap; }
 </head>
 
 <body bgcolor="#ffffff" text="#000066" link="#0000ff" alink="#ff0000" vlink="#660066">
+<div style="position:fixed; top:0; left:0; right:0; background-color:#f00; color:#fff; padding:0.5em">
+<em>&alpha;</em> &mdash; Not workable yet (it doesn't know the 08:55 Banbury&ndash;Reading off-peak return is off-peak!)
+</div>
+
 <div id="heading"><a id="home" href="/">sp<i>l</i>it.traintimes.org.uk</a>
 <p id="credit"><em>by</em> <a href="http://www.dracos.co.uk/">Matthew</a>
 &middot;&nbsp; <a id="donate" href="/donate">Donate</a></p>

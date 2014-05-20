@@ -158,7 +158,7 @@ def split(fr, to, day, time):
         )
         pipe = R.pipeline()
         pipe.zadd( 'split-ticket-latest', line, unix_time() )
-        pipe.zremrangebyrank( 'split-ticket-latest', 0, -11 )
+        pipe.zremrangebyrank( 'split-ticket-latest', 0, -6 )
         pipe.execute()
 
     return context
