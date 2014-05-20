@@ -1,0 +1,345 @@
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: "Gill Sans", "Gill Sans MT", Helvetica, Arial, sans-serif;
+    padding: 0; margin: 0 0 1em 0;
+    line-height: 1.25;
+}
+
+label {
+    cursor: pointer;
+    cursor: hand;
+    padding-right: 0.5em;
+}
+#journeyPlannerForm label {
+    float: left;
+    text-align: right;
+    width: 2.5em;
+}
+
+ul.results label {
+    padding-right: 0;
+}
+
+label.long, #journeyPlannerForm label.long {
+    float: none;
+    padding-right: 0em;
+}
+
+.tooltip {
+    cursor: help;
+    border-bottom: dotted 1px black;
+}
+
+p {
+    margin: 0 0 0.5em;
+}
+
+ul {
+    margin: 1em 0 1em 1em;
+    padding: 0;
+}
+
+li {
+    padding-bottom: 0.5em;
+}
+
+img {
+    border: none;
+}
+
+a:link { color: #0000cc; }
+a:visited { color: #000066; }
+a:active, a:hover, a:focus { color: #ff0000; }
+
+input:focus, input:active {
+    color: #000000 !important;
+    background-color: #ffff99 !important;
+}
+input {
+    font-size: 1em;
+}
+
+#heading, h1 {
+    background-image: url("/static/train3.gif");
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+    color: #000066;
+    background-color: #eeeeff;
+    border-bottom: solid 2px #9999ff;
+    padding: 5px 0 5px 61px;
+    font-size: 150%;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    min-height: 33px;
+}
+a#home, a#home:link, a#home:visited, a#home:active, a#home:hover {
+    text-decoration: none;
+    color: #000066;
+    background-color: #eeeeff;
+}
+
+#content {
+    padding: 0 10px;
+    max-width: 42em;
+}
+#column {
+    margin: 0.5em 1.5em 1em 10px;
+    float: left;
+    width: 19em;
+}
+
+.multi-col {
+    float: left;
+    width: 31%;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+
+.news-bit {
+    float: right;
+    width: 30%;
+    margin-right: 5%;
+    margin-bottom: 1em;
+}
+.news-bit:first-child {
+    margin-right: 0;
+}
+#news-bittwo {
+    clear: right;
+}
+
+#latestnews {
+    /* clear: right; */
+    padding: 0 1em 0 21em;
+}
+
+#latestnews li {
+    padding-bottom: 0.5em;
+    margin-top: 0.25em;
+}
+#latestnews p.item {
+    padding-bottom: 0.5em;
+    margin-top: 0.25em;
+}
+#latestnews ul {
+    list-style-type: disc;
+}
+
+#footer {
+    text-align: right;
+    margin-right: 1em;
+}
+
+#credit {
+    float: right;
+    margin-right: 0.5em;
+}
+#heading #credit {
+    font-size: 70%;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+label { margin: 0; }
+
+.hidden { display: none; }
+
+.v {
+    position: absolute;
+    left: -999em;
+    width: 1em;
+    overflow: hidden;
+}
+
+#advert, #warning, .advert, .warning, #livedep, .error-message {
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    padding: 0.5em;
+}
+
+#advert, .advert {
+    text-align: center;
+    margin: 0 auto 0.5em;
+    background-color: #ffcc66;
+    clear: right;
+}
+
+#warning, .warning {
+    margin: 0 auto 0.5em;
+    background-color: #ffcccc;
+}
+
+#warning li, #livedep li {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+}
+
+.success {
+    background-color: #ccffcc;
+}
+
+#livedep {
+    margin: 0 auto 0.5em;
+    background-color: #ffee99;
+    clear: both;
+}
+
+#timeOut, #timeRet {
+    /* margin-left: 6em; */
+}
+
+.error-message {
+    border: solid 1px #990000;
+    background-color: #ffeeee;
+    margin-bottom: 1em;
+}
+.error-message h2 {
+    margin-top: 0;
+}
+
+#journeyPlannerForm {
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    border: solid 1px #9999ff;
+    padding: 0.5em;
+}
+
+h2 {
+    font-size: 120%;
+}
+
+h2 span.n, h2 a {
+    font-weight: normal;
+}
+
+.alt {
+    background-color: #eeeeff;
+}
+
+.callingpoints, .fares {
+    margin: 0.5em 0;
+    font-size: 83%;
+}
+
+.changestext {
+    margin: 0.5em 0;
+    font-size: 83%;
+}
+.changestext table, .callingpoints table, .calling table {
+    margin: 0 auto;
+    border: none;
+}
+.changestext td, .changestext th, .callingpoints td, .callingpoints th, .calling td, .calling th {
+    padding: 3px;
+    border: none;
+}
+
+.statustext {
+    margin: 0.5em 0 0.5em 3em;
+    border: solid 1px #ff9999;
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    padding: 4px;
+}
+
+.statustext div:first-child h4 {
+    margin-top: 0;
+}
+
+.pdf {
+    background: url("http://traintimes.org.uk/file_acrobat.gif") no-repeat;
+    padding-left: 20px;
+}
+
+.ical {
+    font-size: 83%;
+    background: url("http://traintimes.org.uk/calendar.gif") no-repeat;
+    padding-left: 20px;
+}
+
+.farecol {
+    float: left;
+    width: 30%;
+}
+
+.branch td {
+    background-color: #eeeeee;
+    padding-left: 2em;
+}
+
+.active {
+    background-color: #ffffcc;
+}
+
+.placeholder {
+    color: #999999;
+}
+
+.faded {
+    color: #666666;
+}
+
+.important {
+    font-weight: bold;
+    color: #993333;
+}
+
+.interest {
+    background-color: #ffff99;
+}
+
+.earlierlater {
+    text-align: center;
+}
+h2 + p.earlierlater {
+    float: right;
+    width: 5em;
+    margin-right: -10px;
+    background-color: #eeeeff;
+    -moz-border-radius-topleft: 0.5em;
+    -moz-border-radius-bottomleft: 0.5em;
+    -webkit-border-radius: 0.5em 0 0 0.5em;
+    border-radius: 0.5em 0 0 0.5em;
+}
+
+@media all and (max-width: 45em) {
+.news-bit {
+    float: none;
+    width: auto;
+    margin-left: 0;
+}
+}
+
+@media all and (max-width: 40em) {
+    #latestnews {
+        padding: 0 1em;
+    }
+}
+@media all and (max-width: 30em) {
+    #latestnews {
+        clear: left;
+    }
+}
+
+@media all and (max-width: 320px) {
+    #heading {
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 120%;
+    }
+    #credit {
+        float: none;
+    }
+    h2 {
+        font-size: 100%;
+    }
+}
+
+#donate {
+    background-color: #ffff33;
+    padding: 0 4px;
+}

@@ -30,6 +30,10 @@ for d in data_files:
 
 data['stations_by_name'] = dict( (v['description'], dict(v.items()+[('code',k)])) for k, v in data['stations'].items() )
 
+@bottle.route('/static/<path:path>')
+def server_static(path):
+        return bottle.static_file(path, root=os.path.join(THIS_DIR, 'static'))
+
 @bottle.route('/bower/<path:path>')
 def server_static(path):
         return bottle.static_file(path, root=os.path.join(THIS_DIR, 'bower_components'))

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><title>{{ get('title', 'Split Ticket') }} - Accessible UK Train Timetables</title>
-<link rel="stylesheet" href="http://traintimes.org.uk/railway2.css">
+<link rel="stylesheet" href="/static/railway2.css">
 <style>
 label { white-space: nowrap; }
 
