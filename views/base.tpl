@@ -39,7 +39,7 @@ label.n { display: inline; }
 
 <body bgcolor="#ffffff" text="#000066" link="#0000ff" alink="#ff0000" vlink="#660066">
 <div style="position:fixed; top:0; left:0; right:0; background-color:#f00; color:#fff; padding:0.5em">
-<em>&alpha;</em> &mdash; Not workable yet (it doesn't know the 08:55 Banbury&ndash;Reading off-peak return is off-peak!)
+<em>&beta;</em> &mdash; In testing (it does now know the 08:55 Banbury&ndash;Reading off-peak return is off-peak)
 </div>
 
 <div id="heading"><a id="home" href="/">sp<i>l</i>it.traintimes.org.uk</a>
