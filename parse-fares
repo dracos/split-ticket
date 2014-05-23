@@ -3,6 +3,8 @@
 from datetime import date
 import json
 
+from split.parse import unpack, cnv_full_date, loop
+
 ticket_types = (
     'SOS', 'SOR', # Anytime single/return
     'SDS', 'SDR', # Anytime day
@@ -25,36 +27,16 @@ ticket_types = (
     'SRR', 'SWS', 'SCO', 'C1R', 'CBA',
 )
 
-cnv_full_date = lambda x: date(int(x[4:8]), int(x[2:4]), int(x[0:2]))
-cnv_str = lambda x: x.rstrip()
+lookups = {
+    'F': ( ('from', 4), ('to', 4), ('route', 5), ('status', 3), ('usage', 1), ('direction', 1), ('todate', 8, cnv_full_date), ('fromdate', 8, cnv_full_date), ('toc', 3), ('london', 1), ('nsd', 1), ('pub', 1), ('id', 7) ),
+    'T': ( ('id', 7), ('type', 3), ('price', 8), ('restriction', 2) ),
+}
 
-def unpack(row, *fields):
-    ptr = 0
-    data = {}
-    for f in fields:
-        fn = f[2] if len(f)==3 else cnv_str
-        r = row[ptr:ptr+f[1]]
-        data[f[0]] = fn(r)
-        ptr += f[1]
-    return data
-
-started = False
 data = {}
 data_by_id = {}
-for row in open('RJFAF273/RJFAF273.FFL'):
-    update_marker, record_type, row = row[0], row[1], row[2:].strip()
-
-    if update_marker == '/' and record_type == '!':
-        if not started: continue
-        if 'End of file' in row: continue
-    started = True
-    assert update_marker == 'R'
-
-    lookups = {
-        'F': ( ('from', 4), ('to', 4), ('route', 5), ('status', 3), ('usage', 1), ('direction', 1), ('todate', 8, cnv_full_date), ('fromdate', 8, cnv_full_date), ('toc', 3), ('london', 1), ('nsd', 1), ('pub', 1), ('id', 7) ),
-        'T': ( ('id', 7), ('type', 3), ('price', 8), ('restriction', 2) ),
-    }
-    row = unpack(row, *lookups[record_type])
+for row in loop('fare-data-273/RJFAF273.FFL'):
+    record_type = row[0]
+    row = unpack(row[1:], *lookups[record_type])
 
     if record_type == 'T':
         if row['id'] not in data_by_id: continue

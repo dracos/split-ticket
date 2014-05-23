@@ -20,29 +20,10 @@ The locations file has lines of the following types:
 from datetime import date
 import json
 
-cnv_full_date = lambda x: date(int(x[4:8]), int(x[2:4]), int(x[0:2]))
-cnv_str = lambda x: x.rstrip()
+from split.parse import unpack, cnv_full_date, loop
 
-def unpack(row, *fields):
-    ptr = 0
-    data = {}
-    for f in fields:
-        fn = f[2] if len(f)==3 else cnv_str
-        r = row[ptr:ptr+f[1]]
-        data[f[0]] = fn(r)
-        ptr += f[1]
-    return data
-
-started = False
 data = {}
-for row in open('RJFAF273/RJFAF273.FSC'):
-    update_marker, row = row[0], row[1:].strip()
-    if update_marker == '/':
-        if not started: continue
-        if 'End of file' in row: continue
-    started = True
-    assert update_marker == 'R'
-
+for row in loop('fare-data-273/RJFAF273.FSC'):
     row = unpack(row,
         ('cluster_id', 4), ('member_id', 4),
         ('date_to', 8, cnv_full_date), ('date_from', 8, cnv_full_date)
@@ -55,17 +36,11 @@ for row in open('RJFAF273/RJFAF273.FSC'):
 json.dump(data, open('data/clusters.json', 'w'))
 
 data = {}
-started = False
-for row in open('RJFAF273/RJFAF273.RTE'):
-    update_marker, record_type, row = row[0], row[1], row[2:].strip()
-    if update_marker == '/':
-        if not started: continue
-        if 'End of file' in row: continue
-    started = True
-    assert update_marker == 'R'
+for row in loop('fare-data-273/RJFAF273.RTE'):
+    record_type = row[0]
     if record_type != 'R': continue
 
-    row = unpack(row,
+    row = unpack(row[1:],
         ('route_code', 5), ('end_date', 8, cnv_full_date), ('start_date', 8, cnv_full_date),
         ('quote_date', 8, cnv_full_date), ('description', 16), ('atb', 35*4), ('cc_desc', 16),
         ('aaa_desc', 41), ('uts', 1+6+3*4),
@@ -75,37 +50,31 @@ for row in open('RJFAF273/RJFAF273.RTE'):
 
 json.dump(data, open('data/routes.json', 'w'))
 
-data = {}
-started = False
-for row in open('RJFAF273/RJFAF273.LOC'):
-    update_marker, record_type, row = row[0], row[1], row[2:].strip()
-    if update_marker == '/':
-        if not started: continue
-        if 'End of file' in row: continue
-    started = True
-    assert update_marker == 'R'
+lookups = {
+    'L': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
+        ('start_date', 8, cnv_full_date), ('quote_date', 8, cnv_full_date),
+        ('admin_area_code', 3), ('nlc_code', 4), ('desc', 16), ('crs_code', 3),
+        ('resv_code', 5), ('ers_country', 2), ('ers_code', 3),
+        ('fare_group', 6), ('county', 2), ('pte_code', 2), ('zone_nlc', 4),
+        ('zone_ind', 2), ('region', 1), ('hierarchy', 1),
+        ('cc_desc_out', 41), ('cc_desc_rtn', 16), ('atb_desc_out', 60), ('atb_desc_rtn', 30),
+        ('special_facilities', 26), ('lul', 29) ),
+    'A': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
+        ('assoc_uic_code', 7), ('assoc_crs_code', 3) ),
+    'R': ( ('uic_code', 7), ('railcard', 3), ('end_date', 8, cnv_full_date) ),
+    'G': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
+        ('start_date', 8, cnv_full_date), ('quote_date', 8, cnv_full_date),
+        ('description', 16), ('ers_country', 2), ('ers_code', 3) ),
+    'M': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
+        ('group_member_uic_code', 7), ('group_member_crs_code', 3) ),
+    'S': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
+        ('start_date', 8, cnv_full_date), ('synonym', 16) ),
+}
 
-    lookups = {
-        'L': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
-            ('start_date', 8, cnv_full_date), ('quote_date', 8, cnv_full_date),
-            ('admin_area_code', 3), ('nlc_code', 4), ('desc', 16), ('crs_code', 3),
-            ('resv_code', 5), ('ers_country', 2), ('ers_code', 3),
-            ('fare_group', 6), ('county', 2), ('pte_code', 2), ('zone_nlc', 4),
-            ('zone_ind', 2), ('region', 1), ('hierarchy', 1),
-            ('cc_desc_out', 41), ('cc_desc_rtn', 16), ('atb_desc_out', 60), ('atb_desc_rtn', 30),
-            ('special_facilities', 26), ('lul', 29) ),
-        'A': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
-            ('assoc_uic_code', 7), ('assoc_crs_code', 3) ),
-        'R': ( ('uic_code', 7), ('railcard', 3), ('end_date', 8, cnv_full_date) ),
-        'G': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
-            ('start_date', 8, cnv_full_date), ('quote_date', 8, cnv_full_date),
-            ('description', 16), ('ers_country', 2), ('ers_code', 3) ),
-        'M': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
-            ('group_member_uic_code', 7), ('group_member_crs_code', 3) ),
-        'S': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
-            ('start_date', 8, cnv_full_date), ('synonym', 16) ),
-    }
-    row = unpack(row, *lookups[record_type])
+data = {}
+for row in loop('fare-data-273/RJFAF273.LOC'):
+    record_type = row[0]
+    row = unpack(row[1:], *lookups[record_type])
 
     if record_type in ('G', 'R', 'S', 'M'): continue
 

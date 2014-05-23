@@ -1,74 +1,49 @@
 #!/usr/bin/env python
 
-"""
-The restrictions file has lines of one of the following types:
-
-"""
-
-from datetime import date
 import json
 
-cnv_full_date = lambda x: date(int(x[4:8]), int(x[2:4]), int(x[0:2]))
-cnv_str = lambda x: x.rstrip()
+from split.parse import unpack, cnv_full_date, loop
 
-def unpack(row, *fields):
-    ptr = 0
-    data = {}
-    for f in fields:
-        fn = f[2] if len(f)==3 else cnv_str
-        r = row[ptr:ptr+f[1]]
-        data[f[0]] = fn(r)
-        ptr += f[1]
-    return data
+# No HCs
+lookups = {
+    # Dates when C/F rows are valid
+    #'RD': ( ('start', 8, cnv_full_date), ('end', 8, cnv_full_date) ),
+    # Description of restriction code
+    'RH': ( ('code', 2), ('desc', 30), ('desc_out', 50), ('desc_rtn', 50), ('type_out', 1), ('type_rtn', 1), ('change_ind', 1) ),
+    # Dates/days when code is in operation
+    'HD': ( ('code', 2), ('date_from', 4), ('date_to', 4), ('days', 7) ),
+    # Stations code is in operation
+    #"HL": ( ('code', 2), ('crs_code', 3) ), # restriction applies to from/to/changing here
+    #"HC": ( ('code', 2), ('crs_code', 3) ), # allowed to change if restriction applies
+    # Times/location code is in operation
+    "TR": ( ('code', 2), ('seq_no', 4), ('out_ret', 1), ('time_from', 4), ('time_to', 4), ('arr_dep_via', 1), ('location', 3), ('type', 1), ('train_type', 1), ('min_fare', 1) ), # type always T
+    # Dates/days particular time restricions of this code are in operation
+    "TD": ( ('code', 2), ('seq_no', 4), ('out_ret', 1), ('date_from', 4), ('date_to', 4), ('days', 7) ),
+    # TOCs particular time restrictions of this code apply to
+    "TT": ( ('code', 2), ('seq_no', 4), ('out_ret', 1), ('toc_code', 2) ),
+    # Particular trains this code applies to
+    "SR": ( ('code', 2), ('id', 6), ('dir', 1), ('quota', 1), ('sleeping_ind', 1) ),
+    #"SD": ( ('code', 2), ('train_id', 6), ('out_ret', 1), ('date_from', 4), ('date_to', 4), ('days', 7) ),
+    #"SQ": ( ('code', 2), ('train_id', 6), ('out_ret', 1), ('location', 3), ('quota_restriction', 1), ('arr_dep', 1) ),
+    # Particular railcard restrictions
+    #"RR": ( ('railcard_code', 3), ('seq_no', 4), ('ticket', 3), ('route', 5), ('location', 3), ('code', 2), ('total_ban', 1) ),
+    #'EC': ( ('exception_code', 1), ('exception_desc', 50) ),
+    # Ticket Calendar record
+    #'CA': ( ('ticket_code', 3), ('cal_type', 1), ('route_code', 5), ('country_code', 1), ('date_from', 4), ('date_to', 4), ('days', 7) ),
+}
 
-started = False
 data = {}
-for row in open('RJFAF273/RJFAF273.RST'):
-    update_marker, record_type, cf_mkr = row[0], row[1:3], row[3]
-    row = row[4:].strip()
-
-    if update_marker == '/' and record_type == '!!':
-        if not started: continue
-        if 'End of file' in row: continue
-    started = True
-    assert update_marker == 'R'
-    if record_type in ('TP', 'TE', 'SP', 'SE'): continue
+for row in loop('fare-data-273/RJFAF273.RST'):
+    record_type, cf_mkr = row[0:2], row[2]
 
     if cf_mkr == 'C': continue
-
+    if record_type in ('TP', 'TE', 'SP', 'SE'): continue
     if record_type in ('RD',): continue
     if record_type in ('CA', 'EC', 'RR'): continue
     if record_type in ('SQ', 'SD'): continue
     if record_type in ('HD', 'TD', 'TT'): continue
 
-    # No HCs
-    lookups = {
-        # Dates when C/F rows are valid
-        #'RD': ( ('start', 8, cnv_full_date), ('end', 8, cnv_full_date) ),
-        # Description of restriction code
-        'RH': ( ('code', 2), ('desc', 30), ('desc_out', 50), ('desc_rtn', 50), ('type_out', 1), ('type_rtn', 1), ('change_ind', 1) ),
-        # Dates/days when code is in operation
-        'HD': ( ('code', 2), ('date_from', 4), ('date_to', 4), ('days', 7) ),
-        # Stations code is in operation
-        #"HL": ( ('code', 2), ('crs_code', 3) ), # restriction applies to from/to/changing here
-        #"HC": ( ('code', 2), ('crs_code', 3) ), # allowed to change if restriction applies
-        # Times/location code is in operation
-        "TR": ( ('code', 2), ('seq_no', 4), ('out_ret', 1), ('time_from', 4), ('time_to', 4), ('arr_dep_via', 1), ('location', 3), ('type', 1), ('train_type', 1), ('min_fare', 1) ), # type always T
-        # Dates/days particular time restricions of this code are in operation
-        "TD": ( ('code', 2), ('seq_no', 4), ('out_ret', 1), ('date_from', 4), ('date_to', 4), ('days', 7) ),
-        # TOCs particular time restrictions of this code apply to
-        "TT": ( ('code', 2), ('seq_no', 4), ('out_ret', 1), ('toc_code', 2) ),
-        # Particular trains this code applies to
-        "SR": ( ('code', 2), ('id', 6), ('dir', 1), ('quota', 1), ('sleeping_ind', 1) ),
-        #"SD": ( ('code', 2), ('train_id', 6), ('out_ret', 1), ('date_from', 4), ('date_to', 4), ('days', 7) ),
-        #"SQ": ( ('code', 2), ('train_id', 6), ('out_ret', 1), ('location', 3), ('quota_restriction', 1), ('arr_dep', 1) ),
-        # Particular railcard restrictions
-        #"RR": ( ('railcard_code', 3), ('seq_no', 4), ('ticket', 3), ('route', 5), ('location', 3), ('code', 2), ('total_ban', 1) ),
-        #'EC': ( ('exception_code', 1), ('exception_desc', 50) ),
-        # Ticket Calendar record
-        #'CA': ( ('ticket_code', 3), ('cal_type', 1), ('route_code', 5), ('country_code', 1), ('date_from', 4), ('date_to', 4), ('days', 7) ),
-    }
-    row = unpack(row, *lookups[record_type])
+    row = unpack(row[3:], *lookups[record_type])
     code = row['code']
     del row['code']
 
@@ -104,4 +79,4 @@ for code, types in data.items():
         lll.setdefault(l, {})[key] = info
     types['times'] = lll
 
-print json.dumps(data)
+json.dump(data, open('data/restrictions.json', 'w'))
