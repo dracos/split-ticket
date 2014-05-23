@@ -38,7 +38,8 @@ for row in open('RJFAF273/RJFAF273.RST'):
 
     if record_type in ('RD',): continue
     if record_type in ('CA', 'EC', 'RR'): continue
-    if record_type in ('SQ', 'SD', 'SR'): continue
+    if record_type in ('SQ', 'SD'): continue
+    if record_type in ('HD', 'TD', 'TT'): continue
 
     # No HCs
     lookups = {
@@ -58,7 +59,7 @@ for row in open('RJFAF273/RJFAF273.RST'):
         # TOCs particular time restrictions of this code apply to
         "TT": ( ('code', 2), ('seq_no', 4), ('out_ret', 1), ('toc_code', 2) ),
         # Particular trains this code applies to
-        #"SR": ( ('code', 2), ('train_id', 6), ('out_ret', 1), ('quota', 1), ('sleeping_ind', 1) ),
+        "SR": ( ('code', 2), ('id', 6), ('dir', 1), ('quota', 1), ('sleeping_ind', 1) ),
         #"SD": ( ('code', 2), ('train_id', 6), ('out_ret', 1), ('date_from', 4), ('date_to', 4), ('days', 7) ),
         #"SQ": ( ('code', 2), ('train_id', 6), ('out_ret', 1), ('location', 3), ('quota_restriction', 1), ('arr_dep', 1) ),
         # Particular railcard restrictions
@@ -73,7 +74,7 @@ for row in open('RJFAF273/RJFAF273.RST'):
 
     data.setdefault(code, {})
     if record_type == 'RH':
-        del row['type_out'], row['type_rtn'], row['change_ind']
+        del row['change_ind']
         data[code]['info'] = row
     elif record_type == 'HD':
         data[code].setdefault('days', []).append(row)
@@ -88,8 +89,11 @@ for row in open('RJFAF273/RJFAF273.RST'):
         key = row['seq_no'] + row['out_ret']
         del row['seq_no'], row['out_ret']
         data[code].setdefault('times', {}).setdefault(key, {}).setdefault('dates', []).append(row)
+    elif record_type == 'SR':
+        del row['sleeping_ind'], row['quota']
+        data[code].setdefault('trains', []).append(row)
     else:
-        data[code].setdefault(record_type, []).append(row)
+        raise Exception, record_type
 
 for code, types in data.items():
     if 'times' not in types: continue
