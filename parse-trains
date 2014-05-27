@@ -64,4 +64,4 @@ for line in open('timetable-data-449/ttisf449.mca'):
         else:
             raise Exception
 
-json.dump(data, open('data/trains.json', 'w'))
+json.dump(data, open('data/trains.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)

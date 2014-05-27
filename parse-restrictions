@@ -79,4 +79,4 @@ for code, types in data.items():
         lll.setdefault(l, {})[key] = info
     types['times'] = lll
 
-json.dump(data, open('data/restrictions.json', 'w'))
+json.dump(data, open('data/restrictions.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)

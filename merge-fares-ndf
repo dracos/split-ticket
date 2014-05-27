@@ -28,7 +28,7 @@ for key, row in data.items():
                     route['prices'][row['ticket']] = new_row
         else:
             j[row['to']] = new_entry
-    json.dump(j, open(fil, 'w'))
+    json.dump(j, open(fil, 'w'), separators=(',', ': '), indent=2, sort_keys=True)
 
 # ndf file contents:
 # { restriction, from, route, to, adult, ticket }

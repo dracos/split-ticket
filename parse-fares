@@ -74,4 +74,4 @@ for fr, d1 in data.items():
 
 for fr, d1 in data.items():
     with open('data/fares/%s.json' % fr, 'w') as fp:
-        json.dump(d1, fp)
+        json.dump(d1, fp, separators=(',', ': '), indent=2, sort_keys=True)

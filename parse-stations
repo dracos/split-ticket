@@ -33,7 +33,7 @@ for row in loop('fare-data-273/RJFAF273.FSC'):
     del row['date_to'], row['date_from']
     data.setdefault(row['member_id'], []).append(row['cluster_id'])
 
-json.dump(data, open('data/clusters.json', 'w'))
+json.dump(data, open('data/clusters.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)
 
 data = {}
 for row in loop('fare-data-273/RJFAF273.RTE'):
@@ -48,7 +48,7 @@ for row in loop('fare-data-273/RJFAF273.RTE'):
     if row['end_date'] < date.today(): continue
     data[row['route_code']] = row['description']
 
-json.dump(data, open('data/routes.json', 'w'))
+json.dump(data, open('data/routes.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)
 
 lookups = {
     'L': ( ('uic_code', 7), ('end_date', 8, cnv_full_date),
@@ -96,4 +96,4 @@ for row in loop('fare-data-273/RJFAF273.LOC'):
         if row['fare_group'] != row['nlc_code']:
             data[row['crs_code']]['fare_group'] = row['fare_group']
 
-json.dump(data, open('data/stations.json', 'w'))
+json.dump(data, open('data/stations.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)
