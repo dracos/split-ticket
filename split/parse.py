@@ -1,4 +1,6 @@
 from datetime import date
+import glob
+import sys
 
 cnv_full_date = lambda x: date(int(x[4:8]), int(x[2:4]), int(x[0:2]))
 cnv_str = lambda x: x.rstrip()
@@ -25,3 +27,16 @@ def loop(f):
         assert update_marker == 'R'
 
         yield row
+
+try:
+    fares_dir = sys.argv[1]
+    fares_files = glob.glob(fares_dir + '/*')
+except IndexError:
+    print >>sys.stderr, "Specify the fares directory as the first parameter"
+    sys.exit(1)
+
+def fare_file(ext):
+    ext = '.%s' % ext
+    match = filter(lambda x: ext in x, fares_files)
+    assert len(match) == 1
+    return match[0]

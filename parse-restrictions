@@ -2,7 +2,7 @@
 
 import json
 
-from split.parse import unpack, cnv_full_date, loop
+from split.parse import unpack, cnv_full_date, loop, fare_file
 
 # No HCs
 lookups = {
@@ -33,7 +33,7 @@ lookups = {
 }
 
 data = {}
-for row in loop('fare-data-273/RJFAF273.RST'):
+for row in loop(fare_file('RST')):
     record_type, cf_mkr = row[0:2], row[2]
 
     if cf_mkr == 'C': continue

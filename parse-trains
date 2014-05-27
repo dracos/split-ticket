@@ -2,7 +2,7 @@
 
 import json
 
-from split.parse import unpack, loop
+from split.parse import unpack, loop, fare_file
 
 lookups = {
     "SR": ( ('code', 2), ('id', 6), ('dir', 1), ('quota', 1), ('sleeping_ind', 1) ),
@@ -20,7 +20,7 @@ lookups = {
 }
 
 TRAINS = set()
-for row in loop('fare-data-273/RJFAF273.RST'):
+for row in loop(fare_file('RST')):
     record_type, cf_mkr = row[0:2], row[2]
 
     if cf_mkr == 'C': continue

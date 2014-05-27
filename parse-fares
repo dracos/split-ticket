@@ -3,7 +3,7 @@
 from datetime import date
 import json
 
-from split.parse import unpack, cnv_full_date, loop
+from split.parse import unpack, cnv_full_date, loop, fare_file
 
 ticket_types = (
     'SOS', 'SOR', # Anytime single/return
@@ -34,7 +34,7 @@ lookups = {
 
 data = {}
 data_by_id = {}
-for row in loop('fare-data-273/RJFAF273.FFL'):
+for row in loop(fare_file('FFL')):
     record_type = row[0]
     row = unpack(row[1:], *lookups[record_type])
 

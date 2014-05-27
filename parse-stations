@@ -20,10 +20,10 @@ The locations file has lines of the following types:
 from datetime import date
 import json
 
-from split.parse import unpack, cnv_full_date, loop
+from split.parse import unpack, cnv_full_date, loop, fare_file
 
 data = {}
-for row in loop('fare-data-273/RJFAF273.FSC'):
+for row in loop(fare_file('FSC')):
     row = unpack(row,
         ('cluster_id', 4), ('member_id', 4),
         ('date_to', 8, cnv_full_date), ('date_from', 8, cnv_full_date)
@@ -36,7 +36,7 @@ for row in loop('fare-data-273/RJFAF273.FSC'):
 json.dump(data, open('data/clusters.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)
 
 data = {}
-for row in loop('fare-data-273/RJFAF273.RTE'):
+for row in loop(fare_file('RTE')):
     record_type = row[0]
     if record_type != 'R': continue
 
@@ -72,7 +72,7 @@ lookups = {
 }
 
 data = {}
-for row in loop('fare-data-273/RJFAF273.LOC'):
+for row in loop(fare_file('LOC')):
     record_type = row[0]
     row = unpack(row[1:], *lookups[record_type])
 
