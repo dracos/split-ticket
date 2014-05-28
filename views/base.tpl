@@ -20,6 +20,10 @@ label {
 }
 label.n { display: inline; }
 
+.error {
+    color: #990000;
+}
+
 .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
 .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; cursor: pointer; }
 .autocomplete-selected { background: #eeeeff; }
@@ -52,9 +56,10 @@ label.n { display: inline; }
 </div>
 <div style='clear:both'></div>
 <p id="footer">
-Timetable and Fares data available under a Creative Commons Attribution licence from RSP
-(thanks <a href="http://www.atoc.org/">ATOC</a>).
-Kindly hosted by <a href="http://www.bytemark.co.uk/">Bytemark</a>
+Timetable and Fares data available<br>
+under a Creative Commons Attribution<br>
+licence from RSP (thanks <a href="http://www.atoc.org/">ATOC</a>).<br>
+Kindly hosted by <a href="http://www.bytemark.co.uk/">Bytemark</a>.
 
 </p>
 

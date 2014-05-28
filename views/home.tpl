@@ -14,17 +14,21 @@ for the <em>same</em> journey on the <em>same</em> trains.
 
 <div class="front-col">
 <form action="/" method="get" style="margin: -1em 0 0; border: solid 0px #006; border-top: none; padding: 1em; background-color: #eef;">
-<p>
-    <label for="from">From:</label> <input id="from" type="text" name="from" value="{{ get('from', '') }}" data-desc="{{ get('from_desc', '') }}">
+
+<p{{ !' class="error"' if errors.get('from') else '' }}>
+    <label for="from">{{ errors.get('from', 'From') }}:</label>
+    <input id="from" type="text" name="from" value="{{ get('from', '') }}">
 </p>
-<p>
-    <label for="to">To:</label> <input id="to" type="text" name="to" value="{{ get('to', '') }}" data-desc="{{ get('to_desc', '') }}">
+<p{{ !' class="error"' if errors.get('to') else '' }}>
+    <label for="to">{{ errors.get('to', 'To') }}:</label>
+    <input id="to" type="text" name="to" value="{{ get('to', '') }}">
 </p>
-<p>
-    <label for="time">Leave at:</label> <input id="time" type="text" name="time" placeholder="hh:mm" value="{{ get('time', '') }}">
+<p{{ !' class="error"' if errors.get('time') else '' }}>
+    <label for="time">{{ errors.get('time', 'Leave at') }}:</label>
+    <input id="time" type="text" name="time" placeholder="hh:mm" value="{{ get('time', '') }}">
 </p>
-<p>
-    <label>For the day:</label>
+<p{{ !' class="error"' if errors.get('day') else '' }}>
+    <label>{{ errors.get('day', 'For the day') }}:</label>
     <label class="n"><input type="radio" name="day" value="y"{{ ' checked' if get('day')=='y' else '' }}> Yes</label>
     <label class="n"><input type="radio" name="day" value="n"{{ ' checked' if get('day')=='n' else '' }}> No</label>
 </p>

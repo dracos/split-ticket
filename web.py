@@ -51,34 +51,47 @@ def ajax():
 @bottle.route('/')
 @bottle.auth_basic(alpha)
 def home():
-    if all(x in request.query and request.query[x] for x in ['from', 'to', 'time']):
-        request.query['day'] = request.query.get('day') or 'n'
+    if all(x in request.query and request.query[x] for x in ['from', 'to', 'time', 'day']):
         bottle.redirect('/%(from)s/%(to)s/%(day)s/%(time)s' % request.query)
     return form(request.query)
 
 @bottle.view('home')
 def form(context):
-    if 'from' in context and context['from'] in data['stations']:
-        context['from_desc'] = data['stations'][context['from']]['description']
-    if 'to' in context and context['to'] in data['stations']:
-        context['to_desc'] = data['stations'][context['to']]['description']
+    context['errors'] = clean(context)
     context['latest'] = R.zrevrange('split-ticket-latest', 0, -1)
     return context
+
+def clean(form):
+    errors = {}
+    if not form: return errors
+    if not form.get('from'):
+        errors['from'] = 'Please enter an origin'
+    elif form['from'] not in data['stations_by_name'] and form['from'] not in data['stations']:
+        errors['from'] = 'Please select a valid origin'
+    if not form.get('to'):
+        errors['to'] = 'Please enter a destination'
+    elif form['to'] not in data['stations_by_name'] and form['to'] not in data['stations']:
+        errors['to'] = 'Please select a valid destination'
+    if not form.get('day'):
+        errors['day'] = 'Please say whether you are travelling for the day'
+    if not form.get('time') or not re.match('\d\d:\d\d', form['time']):
+        errors['time'] = 'Please enter a time'
+    return errors
 
 @bottle.route('/<fr>/<to>/<day>/<time>')
 @bottle.auth_basic(alpha)
 @bottle.view('result')
 def split(fr, to, day, time):
-    if not re.match('^\d\d:\d\d', time):
-        return form({ 'from': fr, 'to': to, 'day': day, 'time': time })
-    if fr not in data['stations_by_name'] and fr not in data['stations']:
-        return form({ 'from': fr, 'to': to, 'day': day, 'time': time })
-    if to not in data['stations_by_name'] and to not in data['stations']:
-        return form({ 'from': fr, 'to': to, 'day': day, 'time': time })
+    errors = clean({ 'from': fr, 'to': to, 'day': day, 'time': time })
+    if errors:
+        return form({ 'from': fr, 'to': to, 'day': day, 'time': time, 'errors': errors })
+
     if fr in data['stations_by_name'] or to in data['stations_by_name']:
         if fr in data['stations_by_name']: fr = data['stations_by_name'][fr]['code']
         if to in data['stations_by_name']: to = data['stations_by_name'][to]['code']
-        bottle.redirect('/%s/%s/%s/%s' % (fr, to, day, time))
+        qs = bottle.request.query_string
+        if qs: qs = '?' + qs
+        bottle.redirect('/%s/%s/%s/%s%s' % (fr, to, day, time, qs))
 
     day = day == 'y'
     context = {
