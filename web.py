@@ -1,3 +1,5 @@
+# vim: set fileencoding=utf-8 :
+
 from __future__ import division
 
 import itertools
@@ -54,6 +56,12 @@ def home():
     if all(x in request.query and request.query[x] for x in ['from', 'to', 'time', 'day']):
         bottle.redirect('/%(from)s/%(to)s/%(day)s/%(time)s' % request.query)
     return form(request.query)
+
+@bottle.route('/ajax-latest')
+def ajax_latest():
+    return {
+        'latest': R.zrevrange('split-ticket-latest', 0, -1)
+    }
 
 @bottle.view('home')
 def form(context):
@@ -163,7 +171,7 @@ def split(fr, to, day, time):
     context['restrictions'] = restrictions
 
     if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude']:
-        line = "%s to %s%s, around %s &ndash; <a href='%s'>%s</a> instead of %s (<strong>%d%%</strong> saving)" % (
+        line = u'%s to %s%s, around %s – <a href="%s">%s</a> instead of %s (<strong>%d%%</strong> saving)' % (
 	    context['fr_desc'], context['to_desc'],
             ' for the day' if day else '', time,
             request.path, utils.price(total),

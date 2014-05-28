@@ -53,12 +53,34 @@ $(function(){
 <div class="front-col">
 % if latest:
 <h2>Latest findings</h2>
-<ul>
+<ul id='latest'>
 %   for l in latest:
 %     if l:
-<li>{{ !l }}
+<li>{{ !l }}</li>
 %     end
 %   end
 </ul>
+<script>
+$(function(){
+    function fetchLatest() {
+        $.get('/ajax-latest', function(data) {
+            var a = data.latest,
+                el = $('#latest'),
+                existing = el.find('li').map(function(i, el) { return $(el).html(); }).get(),
+                i, n;
+            for (i=0; i<a.length; i++) {
+                if ($.inArray(a[i], existing) === -1) {
+                    n = $('<li/>').html(a[i]);
+                    el.prepend(n);
+                    n.css({backgroundColor: '#ffc'}).animate({backgroundColor:'#fff'}, 1500);
+                    el.find('li').last().remove();
+                }
+            }
+            setTimeout(fetchLatest, 5000);
+        });
+    }
+    setTimeout(fetchLatest, 5000);
+});
+</script>
 % end
 </div>
