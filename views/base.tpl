@@ -38,8 +38,8 @@ label.n { display: inline; }
 </head>
 
 <body bgcolor="#ffffff" text="#000066" link="#0000ff" alink="#ff0000" vlink="#660066">
-<div style="position:fixed; top:0; left:0; right:0; background-color:#f00; color:#fff; padding:0.5em">
-<em>&beta;</em> &mdash; In testing (it does now know the 08:55 Banbury&ndash;Reading off-peak return is off-peak)
+<div style="position:fixed; top:0; left:0; background-color:#f00; color:#fff; padding:0.5em">
+<em>&beta;</em>
 </div>
 
 <div id="heading"><a id="home" href="/">sp<i>l</i>it.traintimes.org.uk</a>
@@ -51,7 +51,12 @@ label.n { display: inline; }
 {{ !base }}
 </div>
 <div style='clear:both'></div>
-<p id="footer">Kindly hosted by <a href="http://www.bytemark.co.uk/">Bytemark</a><br><a href="/terms"><small>Terms</small></a></p>
+<p id="footer">
+Timetable and Fares data available under a Creative Commons Attribution licence from RSP
+(thanks <a href="http://www.atoc.org/">ATOC</a>).
+Kindly hosted by <a href="http://www.bytemark.co.uk/">Bytemark</a>
+
+</p>
 
 </body>
 </html>

@@ -33,7 +33,7 @@ leaving around {{ time }}
 <div style="float: left; width:40%; margin-right:10%">
 
 <p>The above may not be the best route, I just pick the cheapest. I also don't
-account for return times, so you may need to adjust if you're returning in a
+account for return times, so you may need to adjust if you&rsquo;re returning in a
 peak period. Exclude a particular route or restriction using the links
 below:</p>
 
@@ -71,7 +71,9 @@ their restrictions</strong> before purchasing. The source code is
 % end
 {{ times[1] or '' }}{{ 'd' if times[1] and times[0] and times[0] != times[1] else '' }}
 </div>
+%     if times[1]:
 <div style="float:left; padding: 1.5em 0 0;"> &rarr; </div>
+%     end
 % end
 </div>
 
