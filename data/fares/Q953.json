@@ -1,1 +1,14 @@
-{"M190": [{"prices": {}, "toc": "RWB", "route": "00854"}, {"prices": {}, "toc": "RWB", "route": "00856"}]}
+{
+  "M190": [
+    {
+      "prices": {},
+      "route": "00854",
+      "toc": "RWB"
+    },
+    {
+      "prices": {},
+      "route": "00856",
+      "toc": "RWB"
+    }
+  ]
+}

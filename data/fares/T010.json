@@ -1,1 +1,23 @@
-{"T017": [{"prices": {}, "toc": "IEC", "route": "00481"}], "1072": [{"prices": {}, "toc": "IEC", "route": "00481"}], "8649": [{"prices": {}, "toc": "IEC", "route": "00481"}]}
+{
+  "1072": [
+    {
+      "prices": {},
+      "route": "00481",
+      "toc": "IEC"
+    }
+  ],
+  "8649": [
+    {
+      "prices": {},
+      "route": "00481",
+      "toc": "IEC"
+    }
+  ],
+  "T017": [
+    {
+      "prices": {},
+      "route": "00481",
+      "toc": "IEC"
+    }
+  ]
+}

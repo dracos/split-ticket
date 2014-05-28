@@ -1,1 +1,58 @@
-{"H584": [{"prices": {}, "toc": "GWA", "route": "00820"}], "0790": [{"prices": {}, "toc": "GWA", "route": "00820"}], "0791": [{"prices": {}, "toc": "GWA", "route": "00820"}], "0792": [{"prices": {}, "toc": "GWA", "route": "00820"}], "0065": [{"prices": {}, "toc": "GWA", "route": "00820"}], "0786": [{"prices": {}, "toc": "GWA", "route": "00820"}], "0785": [{"prices": {}, "toc": "GWA", "route": "00820"}], "S301": [{"prices": {}, "toc": "GWA", "route": "00820"}]}
+{
+  "0065": [
+    {
+      "prices": {},
+      "route": "00820",
+      "toc": "GWA"
+    }
+  ],
+  "0785": [
+    {
+      "prices": {},
+      "route": "00820",
+      "toc": "GWA"
+    }
+  ],
+  "0786": [
+    {
+      "prices": {},
+      "route": "00820",
+      "toc": "GWA"
+    }
+  ],
+  "0790": [
+    {
+      "prices": {},
+      "route": "00820",
+      "toc": "GWA"
+    }
+  ],
+  "0791": [
+    {
+      "prices": {},
+      "route": "00820",
+      "toc": "GWA"
+    }
+  ],
+  "0792": [
+    {
+      "prices": {},
+      "route": "00820",
+      "toc": "GWA"
+    }
+  ],
+  "H584": [
+    {
+      "prices": {},
+      "route": "00820",
+      "toc": "GWA"
+    }
+  ],
+  "S301": [
+    {
+      "prices": {},
+      "route": "00820",
+      "toc": "GWA"
+    }
+  ]
+}

@@ -1,1 +1,30 @@
-{"T012": [{"prices": {}, "toc": "IEC", "route": "00423"}], "6133": [{"prices": {}, "toc": "IEC", "route": "00481"}], "7791": [{"prices": {}, "toc": "IEC", "route": "00481"}], "6092": [{"prices": {}, "toc": "IEC", "route": "00481"}]}
+{
+  "6092": [
+    {
+      "prices": {},
+      "route": "00481",
+      "toc": "IEC"
+    }
+  ],
+  "6133": [
+    {
+      "prices": {},
+      "route": "00481",
+      "toc": "IEC"
+    }
+  ],
+  "7791": [
+    {
+      "prices": {},
+      "route": "00481",
+      "toc": "IEC"
+    }
+  ],
+  "T012": [
+    {
+      "prices": {},
+      "route": "00423",
+      "toc": "IEC"
+    }
+  ]
+}

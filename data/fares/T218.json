@@ -1,1 +1,23 @@
-{"T242": [{"prices": {}, "toc": "IWC", "route": "00452"}], "T243": [{"prices": {}, "toc": "IWC", "route": "00452"}], "T241": [{"prices": {}, "toc": "IWC", "route": "00452"}]}
+{
+  "T241": [
+    {
+      "prices": {},
+      "route": "00452",
+      "toc": "IWC"
+    }
+  ],
+  "T242": [
+    {
+      "prices": {},
+      "route": "00452",
+      "toc": "IWC"
+    }
+  ],
+  "T243": [
+    {
+      "prices": {},
+      "route": "00452",
+      "toc": "IWC"
+    }
+  ]
+}

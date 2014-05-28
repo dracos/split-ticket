@@ -34,7 +34,7 @@ lookups = (
 
 def parse_file(file, type):
     for row in loop(file):
-        row = unpack(row, *lookup)
+        row = unpack(row, *lookups)
         assert row['type'] == type
         if row['railcard'].strip(): continue
         if row['end_date'] < date.today(): continue
@@ -58,9 +58,9 @@ print >>sys.stderr, "%d rows from NDF file" % len(data)
 removed = 0
 for key, row in parse_file(fare_file('NFO'), 'O'):
     if row['suppress'] == 'Y':
-        assert key in data
-        del data[key]
-        removed += 1
+        if key in data:
+            del data[key]
+            removed += 1
     else:
         assert row['suppress'] == 'N'
         del row['suppress']
@@ -68,4 +68,4 @@ for key, row in parse_file(fare_file('NFO'), 'O'):
 
 print >>sys.stderr, "%d rows after NFO file, %d removed" % (len(data), removed)
 
-print json.dumps(data, separators=(',', ': '), indent=2, sort_keys=True)
+json.dump(data, open('data/ndf.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)
