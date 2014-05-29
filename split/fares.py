@@ -111,7 +111,8 @@ class Fares(object):
         return restrictions.valid_journey(
             self.data['restrictions'],
             self.fro, self.to,
-            self.store['station_times'].get(self.fro), self.store['station_times'].get(self.to),
+            self.store['all_stops'],
+            self.store['station_times'],
             restriction_code
         )
 

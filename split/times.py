@@ -27,14 +27,14 @@ def find_stopping_points(store):
     c = 0
 
     for x in ints['tables']:
-        stops += re.findall('<abbr>([A-Z]{3})', x)
-        stops.append( re.search('[A-Z]{3}', ints['destination'][c]).group() )
+        stops += map(lambda x: (x, False), re.findall('<abbr>([A-Z]{3})', x))
+        stops.append( (re.search('[A-Z]{3}', ints['destination'][c]).group(), True) )
         c += 1
 
     for i in ints['parsed']:
         store['station_times'][i] = ints['parsed'][i]
 
-    all_stops = [ store['from'] ] + stops
+    all_stops = [ (store['from'], True) ] + stops
     return all_stops
 
 
