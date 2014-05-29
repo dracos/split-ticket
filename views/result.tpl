@@ -8,18 +8,18 @@ for the day,
 leaving around {{ time }}
 </h2>
 
-<div style="margin-bottom: 1em; font-size:120%">
+<div class="results">
 
-<p><span style="font-size: 150%">The normal fare is <strong>{{ price(fare_total['fare']) }}</strong></span>
-<span style="color:#999">{{ fare_total['desc'] }}</span></p>
+<p><span class="imp">The normal fare is <strong>{{ price(fare_total['fare']) }}</strong></span>
+<span class="faded">{{ fare_total['desc'] }}</span></p>
 
 % if total < fare_total['fare']:
-<p style="font-size: 150%">But I&rsquo;ve found the same journey for&hellip; <strong>{{ price(total) }}</strong></p>
+<p class="imp">But I&rsquo;ve found the same journey for&hellip; <strong>{{ price(total) }}</strong></p>
 
 <ol>
 % for step in output_cheapest:
 <li>{{ step[0] }} &rarr; {{ step[1] }} : {{ price(step[2]['fare']) }}
-<br><small style="color:#999">{{ step[2]['desc'] }}</small></li>
+<br><small class="faded">{{ step[2]['desc'] }}</small></li>
 % end
 </ol>
 % else:
@@ -30,7 +30,7 @@ leaving around {{ time }}
 
 
 % if routes or restrictions:
-<div style="float: left; width:40%; margin-right:10%">
+<div class="results-text">
 
 <p>The above may not be the best route, I just pick the cheapest. I also don't
 account for return times, so you may need to adjust if you&rsquo;re returning in a
@@ -68,10 +68,10 @@ their restrictions</strong> before purchasing. <!-- The source code is
 </div>
 % end
 
-<div style="float: right; width: 50%">
+<div class="stop-list">
 <p>I considered the following journey:</p>
 % for code, stop, times in all_stops_with_depart:
-<div style="float:left; width: 4em; height: 4em; text-align:center; background-color:#eeeeff; margin: 0.25em; padding: 0.25em;">
+<div class="stop">
 <abbr title="{{ stop['description'] }}">{{ code }}</abbr><br>
 % if times[0] and times[0] != times[1]:
 {{ times[0] }}a{{ ',' if times[1] else '' }}
@@ -79,7 +79,7 @@ their restrictions</strong> before purchasing. <!-- The source code is
 {{ times[1] or '' }}{{ 'd' if times[1] and times[0] and times[0] != times[1] else '' }}
 </div>
 %     if times[1]:
-<div style="float:left; padding: 1.5em 0 0;"> &rarr; </div>
+<div class="stop-arrow"> &rarr; </div>
 %     end
 % end
 </div>
@@ -88,7 +88,7 @@ their restrictions</strong> before purchasing. <!-- The source code is
 <ul id="working-out">
 % for pair in output_pairwise:
 <li>{{ pair[0] }}&ndash;{{ pair[1] }}, {{ price(pair[2]['fare']) }}
-<small><span style="color:#999">{{ pair[2]['desc'] }}</span></small></li>
+<small><span class="faded">{{ pair[2]['desc'] }}</span></small></li>
 % end
 </ul>
 <script>

@@ -1,0 +1,97 @@
+.faded {
+    color: #999;
+}
+
+#warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f00;
+    color: #fff;
+    padding: 0.5em;
+}
+
+.front-col {
+    width: 45%;
+    padding: 1em 2.5%;
+    float: left;
+}
+.front-col.right {
+    float: right;
+}
+.front-col > h2 {
+    margin-top: 0;
+}
+
+label { display: block; }
+label.n { display: inline; }
+
+.error { color: #990000; }
+
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; cursor: pointer; }
+.autocomplete-selected { background: #eeeeff; }
+
+.hero {
+    line-height: 1.4;
+    font-size: 120%;
+    padding: 1em;
+    background-color: #006;
+    color: #eef;
+}
+.hero a {
+    color: #ccf;
+}
+
+form {
+    margin: -1em 0 0;
+    border: solid 0px #006;
+    border-top: none;
+    padding: 1em;
+    background-color: #eef;
+}
+
+input[type=text] {
+    width: 80%;
+}
+
+input[type=submit] {
+    font-size: 1.5em;
+    color: #000;
+    background-color: #eee;
+}
+
+/* Results */
+
+.results {
+    margin-bottom: 1em;
+    font-size: 120%;
+}
+.imp {
+    font-size: 150%;
+}
+
+.results-text {
+    float: left;
+    width: 40%;
+    margin-right: 10%;
+}
+
+.stop-list {
+    float: right;
+    width: 50%;
+}
+
+.stop {
+    float: left;
+    width: 4em;
+    height: 4em;
+    text-align: center;
+    background-color: #eeeeff;
+    margin: 0.25em;
+    padding: 0.25em;
+}
+.stop-arrow {
+    float: left;
+    padding: 1.5em 0 0;
+}

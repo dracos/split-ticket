@@ -2,18 +2,18 @@
 
 <h2>Split ticket finder</h2>
 
-<div class="hero" style="font-size:120%; padding:1em; background-color: #006; color: #eef;">
+<div class="hero">
 
 <p>Say you&rsquo;re travelling from Bournville to Reading for the day, leaving
 around 8am. If you just turned up and bought a ticket for that journey, it
 would cost you &pound;103. Following this website,
-<a style="color: #ccf" href='/BRV/RDG/y/08:00?exclude=00046'>it would only cost you <strong>&pound;32.70</strong></a>,
+<a href='/BRV/RDG/y/08:00?exclude=00046'>it would only cost you <strong>&pound;32.70</strong></a>,
 for the <em>same</em> journey on the <em>same</em> trains.
 
 </div>
 
 <div class="front-col">
-<form action="/" method="get" style="margin: -1em 0 0; border: solid 0px #006; border-top: none; padding: 1em; background-color: #eef;">
+<form action="/" method="get">
 
 <p{{ !' class="error"' if errors.get('from') else '' }}>
     <label for="from">{{ errors.get('from', 'From') }}:</label>
@@ -33,7 +33,7 @@ for the <em>same</em> journey on the <em>same</em> trains.
     <label class="n"><input type="radio" name="day" value="n"{{ ' checked' if get('day')=='n' else '' }}> No</label>
 </p>
 <p align="center">
-    <input type="submit" value="Search" style="font-size:1.5em;color:#000;background-color:#eee">
+    <input type="submit" value="Search">
 </p>
 </form>
 <script>
