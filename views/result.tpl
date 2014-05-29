@@ -61,8 +61,7 @@ below:</p>
 Please note that your train <strong>must stop</strong> at the stations on your
 tickets in order to be valid. This site does not look at Advance tickets,
 rovers, or anything odd or special. E&amp;OE, <strong>check your tickets and
-their restrictions</strong> before purchasing. <!-- The source code is
-<a href="https://github.com/dracos/split-ticket">on GitHub</a>. -->
+their restrictions</strong> before purchasing. <a href="/about">More information</a>
 </p>
 
 </div>

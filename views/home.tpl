@@ -9,6 +9,7 @@ around 8am. If you just turned up and bought a ticket for that journey, it
 would cost you &pound;103. Following this website,
 <a href='/BRV/RDG/y/08:00?exclude=00046'>it would only cost you <strong>&pound;32.70</strong></a>,
 for the <em>same</em> journey on the <em>same</em> trains.
+<a href="/about">More information...</a>
 
 </div>
 

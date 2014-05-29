@@ -40,6 +40,11 @@ def server_static(path):
 def server_static(path):
         return bottle.static_file(path, root=os.path.join(THIS_DIR, 'bower_components'))
 
+@bottle.route('/about')
+@bottle.view('about')
+def about():
+    pass
+
 @bottle.route('/ajax-station')
 def ajax():
     q = request.query.query.lower()
