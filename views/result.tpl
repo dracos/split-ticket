@@ -34,7 +34,11 @@ leaving around {{ time }}
 
 <p>The above may not be the best route, I just pick the cheapest. I also don't
 account for return times, so you may need to adjust if you&rsquo;re returning in a
-peak period. Exclude a particular route or restriction using the links
+peak period.
+
+% if routes:
+
+Exclude a particular route or restriction using the links
 below:</p>
 
 <ul>
@@ -42,20 +46,23 @@ below:</p>
 <li><a href="?exclude={{ ','.join(set(exclude + [ id ])) }}">Exclude {{ route.title() }}</a>
 % end
 </ul>
+% end
 
+% if restrictions:
 <p>Ignore tickets with time restriction:
 <ul>
 % for id, text in restrictions.items():
 <li><a href="?exclude={{ ','.join(set(exclude + [ id ])) }}">({{ id}}) {{ text }}</a>
 % end
 </ul>
+% end
 
 <p>
 Please note that your train <strong>must stop</strong> at the stations on your
 tickets in order to be valid. This site does not look at Advance tickets,
 rovers, or anything odd or special. E&amp;OE, <strong>check your tickets and
-their restrictions</strong> before purchasing. The source code is
-<a href="https://github.com/dracos/split-ticket">on GitHub</a>.
+their restrictions</strong> before purchasing. <!-- The source code is
+<a href="https://github.com/dracos/split-ticket">on GitHub</a>. -->
 </p>
 
 </div>

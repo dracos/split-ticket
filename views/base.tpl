@@ -49,7 +49,7 @@ label.n { display: inline; }
 
 <div id="heading"><a id="home" href="/">sp<i>l</i>it.traintimes.org.uk</a>
 <p id="credit"><em>by</em> <a href="http://www.dracos.co.uk/">Matthew</a>
-&middot;&nbsp; <a id="donate" href="/donate">Donate</a></p>
+&middot;&nbsp; <a id="donate" href="http://traintimes.org.uk/donate">Donate</a></p>
 </div>
 
 <div id="content">
