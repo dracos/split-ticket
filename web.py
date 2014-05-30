@@ -125,8 +125,8 @@ def split(fr, to, day, time):
     store['station_times'][store['from']] = [ None, store['time'] ]
     all_stops_with_changes = times.find_stopping_points(store)
     store['all_stops'] = all_stops_with_changes
+    context['all_stops_with_depart'] = [ (s, chg, data['stations'].get(s, { 'description': s }), store['station_times'][s]) for s,chg in all_stops_with_changes ]
     all_stops = [ s for s,_ in all_stops_with_changes ]
-    context['all_stops_with_depart'] = [ (s, data['stations'].get(s, { 'description': s }), store['station_times'][s]) for s in all_stops ]
 
     stop_pairs = itertools.combinations(all_stops, 2)
     stop_pairs = filter(lambda x: x[0] != store['from'] or x[1] != store['to'], stop_pairs)

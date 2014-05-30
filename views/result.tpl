@@ -68,16 +68,18 @@ their restrictions</strong> before purchasing. <a href="/about">More information
 % end
 
 <div class="stop-list">
-<p>I considered the following journey:</p>
-% for code, stop, times in all_stops_with_depart:
-<div class="stop">
-<abbr title="{{ stop['description'] }}">{{ code }}</abbr><br>
+<p>I considered the following journey
+(<a href="http://traintimes.org.uk/{{ fr }}/{{ to }}/{{ time }}/next-tuesday">check
+on traintimes.org.uk</a> to adjust search time):</p>
+% for code, chg, stop, times in all_stops_with_depart:
+<div class="stop{{ ' chg' if chg else '' }}">
+<abbr title="{{ stop['description'] }}{{ ', changing' if chg else '' }}">{{ code }}</abbr><br>
 % if times[0] and times[0] != times[1]:
 {{ times[0] }}a{{ ',' if times[1] else '' }}
 % end
 {{ times[1] or '' }}{{ 'd' if times[1] and times[0] and times[0] != times[1] else '' }}
 </div>
-%     if times[1]:
+%     if stop != all_stops_with_depart[-1][2]:
 <div class="stop-arrow"> &rarr; </div>
 %     end
 % end

@@ -91,6 +91,9 @@ input[type=submit] {
     margin: 0.25em;
     padding: 0.25em;
 }
+.stop.chg {
+    background-color: #ccccff;
+}
 .stop-arrow {
     float: left;
     padding: 1.5em 0 0;
