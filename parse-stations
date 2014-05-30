@@ -19,6 +19,7 @@ The locations file has lines of the following types:
 
 from datetime import date
 import json
+import re
 
 from split.parse import unpack, cnv_full_date, loop, fare_file
 
@@ -89,8 +90,9 @@ for row in loop(fare_file('LOC')):
         if i in row: del row[i]
 
     if record_type == 'L':
+        name = re.sub('([a-z])\.$', r'\1', row['atb_desc_out'].title())
         data[row['crs_code']] = {
-            'description': row['atb_desc_out'].title(),
+            'description': name,
             'code': row['nlc_code'],
         }
         if row['fare_group'] != row['nlc_code']:
