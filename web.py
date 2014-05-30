@@ -175,6 +175,8 @@ def split(fr, to, day, time):
     context['output_cheapest'] = output_cheapest
     context['total'] = total
     context['routes'] = routes
+
+    restrictions = dict( (k,v) for k,v in restrictions.items() if k not in ('8A', '4C') )
     context['restrictions'] = restrictions
 
     if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude']:
