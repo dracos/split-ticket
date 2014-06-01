@@ -14,7 +14,7 @@ def considered_stops(all_stops, fro, to):
     """Origin, destination, and anywhere we change"""
     stops = [ fro, to ]
     started = False
-    for stop, chg in all_stops:
+    for stop, chg, op in all_stops:
         if stop == fro: started = True
         elif stop == to: break
         elif started and chg:

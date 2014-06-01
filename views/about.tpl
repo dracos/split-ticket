@@ -83,10 +83,13 @@ available, will probably be cheaper. But note you can try splitting Advance
 tickets too! Try looking up between major stations rather than your entire route;
 again, RailUK has <a
 href="http://www.railforums.co.uk/showpost.php?p=1179552&postcount=7">more
-information on Advance quotas</a>.
+information on Advance quotas</a>. Also consider special tickets such as
+<a href="http://megatrain.com/">MegaTrain</a>.
 
-<li>Journeys other than the one given for the time specified – I
-might add a via option, as that would be straightforward to do.
+<li>Journeys other than the one given for the time specified – I might add a
+via option, as that would hopefully be straightforward to do.  You may need to
+tweak the time to get the journey you want (e.g. from Birmingham to Edinburgh
+whether you want to try splitting along the west or east coast lines).
 
 <li>The time restrictions of your return journey – I thought it simplest to
 deal with the morning restrictions, and then leave it to you to check your

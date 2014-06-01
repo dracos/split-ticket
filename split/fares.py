@@ -96,7 +96,15 @@ class Fares(object):
     def fare_desc(self, s):
         o = s['ticket']['name']
         if s['route']['name'] != 'ANY PERMITTED':
-            o += ', ' + self.prettify(s['route']['name'])
+            ops = self.operators()
+            rte = self.prettify(s['route']['name'])
+            if self.data['routes.extra'].get(s['route']['id']):
+                extra = self.data['routes.extra'][s['route']['id']]
+                if len(ops) > 1 or (len(ops) ==1 and extra.get('operator') and extra['operator'] != list(ops)[0]):
+                    rte = '<strong>' + rte + '</strong> (considered train is %s)' % '/'.join(ops)
+            else:
+                rte = '<strong>' + rte + '</strong>'
+            o += ', ' + rte
         if s['restriction_code']:
             o += ', ' + s['restriction_code']['desc']
             o += ' (%s)' % s['restriction_code']['id']
@@ -188,3 +196,21 @@ class Fares(object):
             out.append( (f,t,d) )
             total += d['fare']
         return out, total
+
+    def inbetween_stops(self):
+        stops = []
+        started = False
+        for stop, chg, op in self.store['all_stops']:
+            if stop == self.fro:
+                started = True
+                continue
+            if started:
+                stops.append((stop, chg, op))
+            if stop == self.to:
+                started = False
+        return stops
+
+    def operators(self):
+        stops = self.inbetween_stops()
+        stops = ( s[2] for s in stops if s[2] is not None )
+        return set(stops)

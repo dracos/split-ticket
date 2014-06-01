@@ -1,6 +1,9 @@
 .faded {
     color: #999;
 }
+.faded strong {
+    color: #900;
+}
 
 #warning {
     position: fixed;

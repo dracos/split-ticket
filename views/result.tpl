@@ -11,7 +11,7 @@ leaving around {{ time }}
 <div class="results">
 
 <p><span class="imp">The normal fare is <strong>{{ price(fare_total['fare']) }}</strong></span>
-<span class="faded">{{ fare_total['desc'] }}</span></p>
+<span class="faded">{{ !fare_total['desc'] }}</span></p>
 
 % if total < fare_total['fare']:
 <p class="imp">But I&rsquo;ve found the same journey for&hellip; <strong>{{ price(total) }}</strong></p>
@@ -19,7 +19,7 @@ leaving around {{ time }}
 <ol>
 % for step in output_cheapest:
 <li>{{ step[0] }} &rarr; {{ step[1] }} : {{ price(step[2]['fare']) }}
-<br><small class="faded">{{ step[2]['desc'] }}</small></li>
+<br><small class="faded">{{ !step[2]['desc'] }}</small></li>
 % end
 </ol>
 % else:
@@ -32,9 +32,10 @@ leaving around {{ time }}
 % if routes or restrictions:
 <div class="results-text">
 
-<p>The above may not be the best route, I just pick the cheapest. I also don't
-account for return times, so you may need to adjust if you&rsquo;re returning in a
-peak period.
+<p>The above may not be the best route for you, and in fact <strong>may not be
+valid for this journey</strong> (my lookup doesn’t account for via or all operator
+restrictions). I also don’t account for return times, so you may need to adjust
+if you’re returning in a peak period.
 
 % if routes:
 
@@ -89,7 +90,7 @@ on traintimes.org.uk</a> to adjust search time):</p>
 <ul id="working-out">
 % for pair in output_pairwise:
 <li>{{ pair[0] }}&ndash;{{ pair[1] }}, {{ price(pair[2]['fare']) }}
-<small><span class="faded">{{ pair[2]['desc'] }}</span></small></li>
+<small><span class="faded">{{ !pair[2]['desc'] }}</span></small></li>
 % end
 </ul>
 <script>
