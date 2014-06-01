@@ -41,7 +41,7 @@ for row in loop(fare_file('RST')):
     if record_type in ('RD',): continue
     if record_type in ('CA', 'EC', 'RR'): continue
     if record_type in ('SQ', 'SD'): continue
-    if record_type in ('HD', 'TD', 'TT'): continue
+    if record_type in ('HD', 'TD'): continue
 
     row = unpack(row[3:], *lookups[record_type])
     code = row['code']
