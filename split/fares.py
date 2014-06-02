@@ -84,9 +84,11 @@ class Fares(object):
                     else:
                         desc = 'Out: %s, Return: %s' % (desc_out, desc_rtn)
                     restriction = { 'id': p[1], 'desc': desc }
+                route = self.data['routes'][f['route']]
+                route['id'] = f['route']
                 data.append({
                     'toc': f.get('toc'),
-                    'route': { 'id': f['route'], 'name': self.data['routes'][f['route']] },
+                    'route': route,
                     'ticket': { 'code': t, 'name': TICKET_NAMES[t] },
                     'adult': { 'fare': int(p[0]) },
                     'restriction_code': restriction,
@@ -95,9 +97,9 @@ class Fares(object):
 
     def fare_desc(self, s):
         o = s['ticket']['name']
-        if s['route']['name'] != 'ANY PERMITTED':
+        if s['route']['desc'] != 'ANY PERMITTED':
             ops = self.operators()
-            rte = self.prettify(s['route']['name'])
+            rte = self.prettify(s['route']['desc'])
             if self.data['routes.extra'].get(s['route']['id']):
                 extra = self.data['routes.extra'][s['route']['id']]
                 if len(ops) > 1 or (len(ops) ==1 and extra.get('operator') and extra['operator'] != list(ops)[0]):

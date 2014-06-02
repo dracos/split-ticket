@@ -145,9 +145,9 @@ def split(fr, to, day, time):
     context['fare_total'] = fare_total
     if fare_total['fare'] != '-':
         d = store['data'][store['from']][store['to']]
-        if d['obj']['route']['name'] != 'ANY PERMITTED':
+        if d['obj']['route']['desc'] != 'ANY PERMITTED':
             n = d['obj']['route']
-            routes[n['id']] = n['name']
+            routes[n['id']] = n['desc']
         if d['obj']['restriction_code']:
             n = d['obj']['restriction_code']
             restrictions[n['id']] = n['desc']
@@ -165,9 +165,9 @@ def split(fr, to, day, time):
             data['stations'][f]['description'],
             data['stations'][t]['description'], d
         ) )
-        if d['obj']['route']['name'] != 'ANY PERMITTED':
+        if d['obj']['route']['desc'] != 'ANY PERMITTED':
             n = d['obj']['route']
-            routes[n['id']] = n['name']
+            routes[n['id']] = n['desc']
         if d['obj']['restriction_code']:
             n = d['obj']['restriction_code']
             restrictions[n['id']] = n['desc']
