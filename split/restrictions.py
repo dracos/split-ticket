@@ -12,14 +12,24 @@ for d in data_files:
 
 def considered_stops(all_stops, fro, to):
     """Origin, destination, and anywhere we change"""
-    stops = [ fro, to ]
+    stops = []
     started = False
     for stop, chg, op in all_stops:
-        if stop == fro: started = True
-        elif stop == to: break
-        elif started and chg:
-            stops.append(stop)
+        if stop == fro or stop == to:
+            started = chg = True
+        if started and chg:
+            stops.append((stop, op))
+        if stop == to:
+            break
     return stops
+
+def next_op(all_stops, stop):
+    found = False
+    for s in all_stops:
+        if found == True:
+            return s[2]
+        if s[0] == stop:
+            found = True
 
 class Times(object):
     def __init__(self, station_times):
@@ -58,12 +68,13 @@ def valid_journey(restrictions, fro, to, all_stops, station_times, code):
     if 'times' in restrictions[code]:
         restriction = Restriction(restrictions[code]['times'])
         all_restriction = restriction.lookup("")
-        for stop in considered_stops(all_stops, fro, to):
+        for stop, op in considered_stops(all_stops, fro, to):
+            op_next = next_op(all_stops, stop)
             stop_arr = times.get_time(stop, 0)
             stop_dep = times.get_time(stop, 1)
             for a in restriction.lookup(stop) + all_restriction:
-                if a['adv'] == 'D' and stop_dep >= a['f'] and stop_dep <= a['t']: return False
-                if a['adv'] == 'A' and stop_arr >= a['f'] and stop_arr <= a['t']: return False
+                if a['adv'] == 'D' and stop_dep >= a['f'] and stop_dep <= a['t'] and ('tocs' not in a or op_next in a['tocs']): return False
+                if a['adv'] == 'A' and stop_arr >= a['f'] and stop_arr <= a['t'] and ('tocs' not in a or op in a['tocs']): return False
 
     if 'trains' in restrictions[code] and restrictions[code]['info']['type_out'] == 'N':
         trains = restrictions[code]['trains']
