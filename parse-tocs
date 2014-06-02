@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+import json
+
+from split.parse import unpack, loop, fare_file
+
+data = {}
+for row in open(fare_file('TOC')):
+    row = unpack(row, ('record_type', 1), ('toc_id', 2), ('toc_name', 30), ('dummy', 8), ('active', 1) )
+    if row['record_type'] != 'T' or row['active'] == 'N': continue
+    name = row['toc_name']
+    if name == name.upper() and len(name)>3: name = name.title()
+    data[row['toc_id']] = name
+
+#def loop(f):
+#    started = False
+#        update_marker, row = row[0], row[1:].strip()
+#        if update_marker == '/':
+#            if not started: continue
+ #           if 'End of file' in row: continue
+#        started = True
+#        assert update_marker == 'R'
+#
+#        yield row
+
+
+json.dump(data, open('data/tocs.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)

@@ -101,6 +101,7 @@ class Fares(object):
             if self.data['routes.extra'].get(s['route']['id']):
                 extra = self.data['routes.extra'][s['route']['id']]
                 if len(ops) > 1 or (len(ops) ==1 and extra.get('operator') and extra['operator'] != list(ops)[0]):
+                    ops = map(lambda x: self.data['tocs'].get(x, x), ops)
                     rte = '<strong>' + rte + '</strong> (considered train is %s)' % '/'.join(ops)
             else:
                 rte = '<strong>' + rte + '</strong>'
