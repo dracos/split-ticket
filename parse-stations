@@ -36,18 +36,26 @@ for row in loop(fare_file('FSC')):
 
 json.dump(data, open('data/clusters.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)
 
+lookups = {
+    'R': (
+        ('route_code', 5), ('end_date', 8, cnv_full_date), ('start_date', 8, cnv_full_date),
+        ('quote_date', 8, cnv_full_date), ('description', 16), ('atb', 35*4), ('cc_desc', 16),
+        ('aaa_desc', 41), ('uts', 1+6+3*4) ),
+    'L': ( ('route_code', 5), ('end_date', 8, cnv_full_date), ('admin_area', 3),
+        ('nlc_code', 4), ('crs_code', 3), ('incl_excl', 1) ),
+}
+
 data = {}
 for row in loop(fare_file('RTE')):
     record_type = row[0]
-    if record_type != 'R': continue
 
-    row = unpack(row[1:],
-        ('route_code', 5), ('end_date', 8, cnv_full_date), ('start_date', 8, cnv_full_date),
-        ('quote_date', 8, cnv_full_date), ('description', 16), ('atb', 35*4), ('cc_desc', 16),
-        ('aaa_desc', 41), ('uts', 1+6+3*4),
-    )
+    row = unpack(row[1:], *lookups[record_type])
     if row['end_date'] < date.today(): continue
-    data[row['route_code']] = row['description']
+
+    if record_type == 'L':
+        data.setdefault(row['route_code'], {}).setdefault(row['incl_excl'], []).append(row['crs_code'])
+    else:
+        data.setdefault(row['route_code'], {})['desc'] = row['description']
 
 json.dump(data, open('data/routes.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)
 

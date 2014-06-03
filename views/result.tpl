@@ -32,10 +32,13 @@ leaving around {{ time }}
 % if routes or restrictions:
 <div class="results-text">
 
-<p>The above may not be the best route for you, and in fact <strong>may not be
-valid for this journey</strong> (my lookup doesn’t account for via or all operator
-restrictions). I also don’t account for return times, so you may need to adjust
-if you’re returning in a peak period.
+<p>The above may not be the best route <strong>for you</strong>, and in fact
+<strong style='color:#900'>may not be valid</strong> for this particular
+journey (my lookup doesn’t account for all via/operator restrictions), but I
+show the cheapest possibility so you know what is available.
+
+<p>I also don’t account for return times, so you may need to adjust if you’re
+returning in a peak period.
 
 % if routes:
 
