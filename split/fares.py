@@ -105,10 +105,12 @@ class Fares(object):
                 if len(ops) > 1 or (len(ops) ==1 and extra.get('operator') and extra['operator'] != list(ops)[0]):
                     ops = map(lambda x: self.data['tocs'].get(x, x), ops)
                     rte = '<strong>' + rte + '</strong> (train is %s)' % '/'.join(ops)
+                    s['route']['problem'] = True
             ibs = set([ i[0] for i in self.inbetween_stops() ]) | set(self.fro)
             if ('E' in s['route'] and set(s['route']['E']) & ibs) or \
                ('I' in s['route'] and not set(s['route']['I']) & ibs):
                 rte = '<strong>' + rte + '</strong> (station requirement not met)'
+                s['route']['problem'] = True
             o += ', ' + rte
         if s['restriction_code']:
             o += ', ' + s['restriction_code']['desc']

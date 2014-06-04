@@ -32,13 +32,16 @@ leaving around {{ time }}
 % if routes or restrictions:
 <div class="results-text">
 
-<p>The above may not be the best route <strong>for you</strong>, and in fact
-<strong style='color:#900'>may not be valid</strong> for this particular
-journey (my lookup doesn’t account for all via/operator restrictions), but I
-show the cheapest possibility so you know what is available.
+% if get('skipped_problem_routes'):
+<p class="info">There are cheaper options available, but would involve you
+taking a different route. <a href="?all=1">See all options</a>, starting with
+the cheapest.</p>
+% end
 
-<p>I also don’t account for return times, so you may need to adjust if you’re
-returning in a peak period.
+<p>The above may not be the best route <strong>for you</strong>, and in fact
+<strong>may not be valid</strong> (my lookup doesn’t account for all
+via/operator restrictions). <strong>Check.</strong> I also don’t account for
+return times, so you may need to adjust if you’re returning in a peak period.
 
 % if routes:
 
@@ -46,8 +49,8 @@ Exclude a particular route or restriction using the links
 below:</p>
 
 <ul>
-% for id, route in routes.items():
-<li><a href="?exclude={{ ','.join(set(exclude + [ id ])) }}">Exclude {{ route.title() }}</a>
+% for route in routes:
+<li><a href="?{{ 'all=1;' if all else '' }}exclude={{ ','.join(set(exclude + [ route['id'] ])) }}">Exclude {{ route['desc'].title() }}</a>
 % end
 </ul>
 % end
@@ -56,7 +59,7 @@ below:</p>
 <p>Ignore tickets with time restriction:
 <ul>
 % for id, text in restrictions.items():
-<li><a href="?exclude={{ ','.join(set(exclude + [ id ])) }}">({{ id}}) {{ text }}</a>
+<li><a href="?{{ 'all=1;' if all else '' }}exclude={{ ','.join(set(exclude + [ id ])) }}">({{ id}}) {{ text }}</a>
 % end
 </ul>
 % end

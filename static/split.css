@@ -31,6 +31,12 @@ label.n { display: inline; }
 
 .error { color: #990000; }
 
+.info {
+    border: solid 1px #996;
+    background-color: #ffffcc;
+    padding:0.25em;
+}
+
 .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
 .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; cursor: pointer; }
 .autocomplete-selected { background: #eeeeff; }

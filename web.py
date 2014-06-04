@@ -139,7 +139,36 @@ def split(fr, to, day, time):
         else:
             Fares.excluded_routes.append(ex)
 
-    routes = {}
+    context = split_journey(store, Fares, context, stop_pairs)
+    context['all'] = request.query.all
+    if not request.query.all:
+        problem_routes = [ r for r in context['routes'] if r.get('problem') ]
+        old_total = (0, 0)
+        while problem_routes and old_total != (context['total'], context['fare_total']['fare']):
+            context['skipped_problem_routes'] = True
+            Fares.excluded_routes.append(problem_routes[0]['id'])
+            old_total = (context['total'], context['fare_total']['fare'])
+            context = split_journey(store, Fares, context, stop_pairs)
+            problem_routes = [ r for r in context['routes'] if r.get('problem') ]
+
+    fare_total = context['fare_total']
+    total = context['total']
+    if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude']:
+        line = u'%s to %s%s, around %s – <a href="%s">%s</a> instead of %s (<strong>%d%%</strong> saving)' % (
+	    context['fr_desc'], context['to_desc'],
+            ' for the day' if store['day'] else '', store['time'],
+            request.path, utils.price(total),
+            utils.price(fare_total['fare']), 100-round(total/fare_total['fare']*100)
+        )
+        pipe = R.pipeline()
+        pipe.zadd( 'split-ticket-latest', line, unix_time() )
+        pipe.zremrangebyrank( 'split-ticket-latest', 0, -6 )
+        pipe.execute()
+
+    return context
+
+def split_journey(store, Fares, context, stop_pairs):
+    routes = []
     restrictions = {}
     fare_total = Fares.parse_fare(store['from'], store['to'])
     context['fare_total'] = fare_total
@@ -147,7 +176,7 @@ def split(fr, to, day, time):
         d = store['data'][store['from']][store['to']]
         if d['obj']['route']['desc'] != 'ANY PERMITTED':
             n = d['obj']['route']
-            routes[n['id']] = n['desc']
+            if n not in routes: routes.append(n)
         if d['obj']['restriction_code']:
             n = d['obj']['restriction_code']
             restrictions[n['id']] = n['desc']
@@ -167,7 +196,7 @@ def split(fr, to, day, time):
         ) )
         if d['obj']['route']['desc'] != 'ANY PERMITTED':
             n = d['obj']['route']
-            routes[n['id']] = n['desc']
+            if n not in routes: routes.append(n)
         if d['obj']['restriction_code']:
             n = d['obj']['restriction_code']
             restrictions[n['id']] = n['desc']
@@ -178,18 +207,6 @@ def split(fr, to, day, time):
 
     restrictions = dict( (k,v) for k,v in restrictions.items() if k not in ('8A', '4C') )
     context['restrictions'] = restrictions
-
-    if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude']:
-        line = u'%s to %s%s, around %s – <a href="%s">%s</a> instead of %s (<strong>%d%%</strong> saving)' % (
-	    context['fr_desc'], context['to_desc'],
-            ' for the day' if day else '', time,
-            request.path, utils.price(total),
-            utils.price(fare_total['fare']), 100-round(total/fare_total['fare']*100)
-        )
-        pipe = R.pipeline()
-        pipe.zadd( 'split-ticket-latest', line, unix_time() )
-        pipe.zremrangebyrank( 'split-ticket-latest', 0, -6 )
-        pipe.execute()
 
     return context
 
