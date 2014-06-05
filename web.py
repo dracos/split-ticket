@@ -59,7 +59,10 @@ def ajax():
 @bottle.auth_basic(alpha)
 def home():
     if all(x in request.query and request.query[x] for x in ['from', 'to', 'time', 'day']):
-        bottle.redirect('/%(from)s/%(to)s/%(day)s/%(time)s' % request.query)
+        path = '/%(from)s/%(to)s/%(day)s/%(time)s' % request.query
+        if request.query.get('via'):
+            path += '?via=' + urllib.quote(request.query['via'])
+        bottle.redirect(path)
     return form(request.query)
 
 @bottle.route('/ajax-latest')
@@ -85,6 +88,8 @@ def clean(form):
         errors['to'] = 'Please enter a destination'
     elif form['to'] not in data['stations_by_name'] and form['to'] not in data['stations']:
         errors['to'] = 'Please select a valid destination'
+    if form.get('via') and form['via'] not in data['stations_by_name'] and form['via'] not in data['stations']:
+        errors['via'] = 'Please select a valid via'
     if not form.get('day'):
         errors['day'] = 'Please say whether you are travelling for the day'
     if not form.get('time') or not re.match('\d\d:\d\d', form['time']):
@@ -95,9 +100,11 @@ def clean(form):
 @bottle.auth_basic(alpha)
 @bottle.view('result')
 def split(fr, to, day, time):
-    errors = clean({ 'from': fr, 'to': to, 'day': day, 'time': time })
+    via = request.query.get('via', '')
+
+    errors = clean({ 'from': fr, 'to': to, 'day': day, 'time': time, 'via': via })
     if errors:
-        return form({ 'from': fr, 'to': to, 'day': day, 'time': time, 'errors': errors })
+        return form({ 'from': fr, 'to': to, 'day': day, 'time': time, 'via': via, 'errors': errors })
 
     if fr in data['stations_by_name'] or to in data['stations_by_name']:
         if fr in data['stations_by_name']: fr = data['stations_by_name'][fr]['code']
@@ -112,12 +119,14 @@ def split(fr, to, day, time):
         'to': to, 'to_desc': data['stations'][to]['description'],
         'day': day,
         'time': time,
+        'via': via,
     }
     store = {
         'data': {},
         'station_times': {},
         'from': urllib.quote(fr),
         'to': urllib.quote(to),
+        'via': urllib.quote(via),
         'day': day,
         'time': time,
     }

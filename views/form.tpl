@@ -8,6 +8,10 @@
     <label for="to">{{ errors.get('to', 'To') }}:</label>
     <input id="to" type="text" name="to" value="{{ get('to', '') }}">
 </p>
+<p{{ !' class="error"' if errors.get('via') else '' }}>
+    <label for="via">{{ errors.get('via', 'Via') }}: (optional)</label>
+    <input id="via" type="text" name="via" value="{{ get('via', '') }}">
+</p>
 <p{{ !' class="error"' if errors.get('time') else '' }}>
     <label for="time">{{ errors.get('time', 'Leave at') }}:</label>
     <input id="time" type="text" name="time" placeholder="hh:mm" value="{{ get('time', '') }}">
@@ -31,5 +35,6 @@ function search(id, placeholder) {
 $(function(){
     search('#from');
     search('#to');
+    search('#via');
 });
 </script>

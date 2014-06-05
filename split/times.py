@@ -3,7 +3,10 @@ import re
 from . import utils
 
 def find_stopping_points(store):
-    stops = utils.fetch('http://traintimes.org.uk/' + store['from'] + '/' + store['to'] + '/' + store['time'] + '/next+tuesday')
+    url = 'http://traintimes.org.uk/' + store['from'] + '/' + store['to'] + '/' + store['time'] + '/next+tuesday'
+    if store['via']:
+        url += '?via=' + store['via']
+    stops = utils.fetch(url)
     m = re.search('<li id="result0">[\s\S]*?<li id="result1">', stops)
     if m:
         res1 = m.group()
