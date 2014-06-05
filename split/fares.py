@@ -114,7 +114,7 @@ class Fares(object):
             o += ', ' + rte
         if s['restriction_code']:
             o += ', ' + s['restriction_code']['desc']
-            o += ' (%s)' % s['restriction_code']['id']
+            o += ' (code %s)' % s['restriction_code']['id']
         if self.double:
             o += u', 2 × ' + price(s['adult']['fare'])
         return o

@@ -19,6 +19,12 @@ leaving around {{ time }}
 % if total < fare_total['fare']:
 <p class="imp">But I&rsquo;ve found the same journey for&hellip; <strong>{{ price(total) }}</strong></p>
 
+% if get('skipped_problem_routes'):
+<p class="info">I also found cheaper options, that involve you taking a
+different route. <a href="?all=1">See all options</a>, starting with the
+cheapest.</p>
+% end
+
 <ol>
 % for step in output_cheapest:
 <li>{{ step[0] }} &rarr; {{ step[1] }} : {{ price(step[2]['fare']) }}
@@ -31,20 +37,12 @@ leaving around {{ time }}
 
 </div>
 
-
 % if routes or restrictions:
 <div class="results-text">
 
-% if get('skipped_problem_routes'):
-<p class="info">There are cheaper options available, but would involve you
-taking a different route. <a href="?all=1">See all options</a>, starting with
-the cheapest.</p>
-% end
-
-<p>The above may not be the best route <strong>for you</strong>, and in fact
-<strong>may not be valid</strong> (my lookup doesn’t account for all
-via/operator restrictions). <strong>Check.</strong> I also don’t account for
-return times, so you may need to adjust if you’re returning in a peak period.
+<p>The above may not be the best route, and may not be valid (I might not have
+understood a particular restriction). I also don’t account for return times, so
+you may need to adjust if you’re returning in a peak period.
 
 % if routes:
 
@@ -62,22 +60,23 @@ below:</p>
 <p>Ignore tickets with time restriction:
 <ul>
 % for id, text in restrictions.items():
-<li><a href="?{{ 'all=1;' if all else '' }}exclude={{ ','.join(set(exclude + [ id ])) }}">({{ id}}) {{ text }}</a>
+<li><a href="?{{ 'all=1;' if all else '' }}exclude={{ ','.join(set(exclude + [ id ])) }}">(code {{ id }}) {{ text }}</a>
 % end
 </ul>
 % end
-
-<p>
-Please note that your train <strong>must stop</strong> at the stations on your
-tickets in order to be valid. This site does not look at Advance tickets,
-rovers, or anything odd or special. E&amp;OE, <strong>check your tickets and
-their restrictions</strong> before purchasing. <a href="/about">More information</a>
-</p>
 
 </div>
 % end
 
 <div class="stop-list">
+<p>
+Your train <strong>must stop</strong> at the stations on your tickets in order
+to be valid. Check your tickets and their restrictions!
+<a href="/about">More information</a>
+</p>
+
+<hr>
+
 <p>I considered the following journey
 (<a href="http://traintimes.org.uk/{{ fr }}/{{ to }}/{{ time }}/next-tuesday">check
 on traintimes.org.uk</a> to adjust search time):</p>

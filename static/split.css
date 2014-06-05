@@ -1,3 +1,9 @@
+hr {
+    border: 0;
+    border-bottom: 1px solid #999;
+    width: 80%;
+}
+
 .faded {
     color: #999;
 }
@@ -32,9 +38,14 @@ label.n { display: inline; }
 .error { color: #990000; }
 
 .info {
+    float: right;
+    width: 30%;
+    font-size: 80%;
     border: solid 1px #996;
     background-color: #ffffcc;
-    padding:0.25em;
+    padding: 0.25em;
+    margin: 0.5em 0 0.5em 0.5em;
+    text-align: center;
 }
 
 .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
@@ -82,13 +93,13 @@ input[type=submit] {
 
 .results-text {
     float: left;
-    width: 40%;
-    margin-right: 10%;
+    width: 47%;
+    margin-right: 6%;
 }
 
 .stop-list {
     float: right;
-    width: 50%;
+    width: 47%;
 }
 
 .stop {
