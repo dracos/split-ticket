@@ -1,8 +1,27 @@
 {
+  "00020": { "operator": "LE" },
+  "00022": { "operator": "SR" },
   "00023": { "operator": "LM" },
   "00024": { "operator": "XC" },
+  "00025": { "operator": "EM" },
+  "00027": { "operator": "GR" },
+  "00028": { "operator": "FC" },
+  "00029": { "operator": "GR" },
+  "00031": { "operator": "FC" },
   "00042": { "operator": "LM" },
   "00043": { "operator": "VT" },
+  "00044": { "operator": "AW" },
   "00046": { "operator": "CH" },
-  "00047": { "operator": "LM" }
+  "00047": { "operator": "LM" },
+  "00049": { "operator": "GC" },
+  "00071": { "operator": "HT" },
+  "00083": { "operator": "NT" },
+  "00085": { "operator": "TP" },
+  "00127": { "operator": "SW" },
+  "00472": { "operator": "EM" },
+  "00474": { "operator": "VT" },
+  "00724": { "operator": "GX" },
+  "00820": { "operator": "GW" },
+  "00777": { "operator": "SN" },
+  "02008": { "operator": "CC" }
 }
