@@ -189,10 +189,12 @@ def split(fr, to, day, time):
     fare_total = context['fare_total']
     total = context['total']
     if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude']:
-        line = u'%s to %s%s, around %s – <a href="%s">%s</a> instead of %s (<strong>%d%%</strong> saving)' % (
+        qs = bottle.request.query_string
+        if qs: qs = '?' + qs
+        line = u'%s to %s%s, around %s – <a href="%s%s">%s</a> instead of %s (<strong>%d%%</strong> saving)' % (
 	    context['fr_desc'], context['to_desc'],
             ' for the day' if store['day'] else '', store['time'],
-            request.path, utils.price(total),
+            request.path, qs, utils.price(total),
             utils.price(fare_total['fare']), 100-round(total/fare_total['fare']*100)
         )
         pipe = R.pipeline()
