@@ -1,12 +1,19 @@
 import re
 
+import requests
+
 from . import utils
 
 def find_stopping_points(store):
     url = 'http://traintimes.org.uk/' + store['from'] + '/' + store['to'] + '/' + store['time'] + '/next+tuesday'
     if store['via']:
         url += '?via=' + store['via']
-    stops = utils.fetch(url)
+    for i in range(0,2):
+        stops = utils.fetch(url)
+        if 'result0' in stops:
+            break
+        else:
+            requests.Session().cache.delete_url(url)
     m = re.search('<li id="result0">[\s\S]*?(?:<li id="result1">|</ul>)', stops)
     if m:
         res1 = m.group()
@@ -25,7 +32,14 @@ def find_stopping_points(store):
     if not m:
         raise Exception, 'Could not get stops'
 
-    ints = utils.fetch('http://traintimes.org.uk' + m.group(1).replace('stage=', '') + ';ajax=2')
+    url = 'http://traintimes.org.uk' + m.group(1).replace('stage=', '') + ';ajax=2'
+    for i in range(0,2):
+        ints = utils.fetch(url)
+        if ints['tables']:
+            break
+        else:
+            requests.Session().cache.delete_url(url)
+
     stops = []
     c = 0
 
