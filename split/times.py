@@ -7,7 +7,7 @@ def find_stopping_points(store):
     if store['via']:
         url += '?via=' + store['via']
     stops = utils.fetch(url)
-    m = re.search('<li id="result0">[\s\S]*?<li id="result1">', stops)
+    m = re.search('<li id="result0">[\s\S]*?(?:<li id="result1">|</ul>)', stops)
     if m:
         res1 = m.group()
         m = re.search('<strong>.*?(\d\d:\d\d) &ndash; (\d\d:\d\d)', res1)
