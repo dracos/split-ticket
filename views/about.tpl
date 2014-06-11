@@ -68,4 +68,13 @@ result that isn’t actually possible (it gives you a ticket which isn’t actua
 valid for that train when you check), or it’s missing a cheaper result than
 what it says, do let me know.
 
+<li>One type of thing it doesn't understand is e.g. the Via Hereford routing.
+This is encoded in the fares database as a route which must exclude Gloucester.
+So two things, I don't understand why it's not encoded in the database as, umm,
+a route which must include Hereford, and I don't understand how it knows not to
+allow journeys that e.g. go BHM-CNM-BPW-&hellip; without passing Gloucester.
+This means that in this instance, looking up e.g. Aberystwyth to Taunton will
+show you a via Hereford ticket first off, because it doesn't realise it should
+exclude it...  Enlightenment welcome as to where I have messed up!
+
 </ul>

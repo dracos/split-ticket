@@ -9,6 +9,8 @@ via {{ via }},
 for the day,
 % end
 leaving around {{ time }}
+<br>
+<a href="/">Enter new journey</a>
 </h2>
 
 <div class="results">
@@ -19,7 +21,7 @@ leaving around {{ time }}
 % if total < fare_total['fare']:
 <p class="imp">But I&rsquo;ve found the same journey for&hellip; <strong>{{ price(total) }}</strong></p>
 
-% if get('skipped_problem_routes'):
+% if get('skipped_problem_routes') and not exclude:
 <p class="info">I also found cheaper options, that involve you taking a
 different route. <a href="?all=1">See all options</a>, starting with the
 cheapest.</p>
