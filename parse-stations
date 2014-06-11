@@ -106,4 +106,5 @@ for row in loop(fare_file('LOC')):
         if row['fare_group'] != row['nlc_code']:
             data[row['crs_code']]['fare_group'] = row['fare_group']
 
+del data['SPX']
 json.dump(data, open('data/stations.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)
