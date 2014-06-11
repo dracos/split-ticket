@@ -16,10 +16,30 @@ R = redis.Redis()
 import bottle
 from bottle import request
 
+from split import fares, utils, times
+
+def cache(s):
+    """Decorator to set a cache-control header."""
+    def decorator(func):
+        def wrapper(*a, **ka):
+            bottle.response.set_header('Cache-Control', 'max-age=%d' % s)
+            return func(*a, **ka)
+        return wrapper
+    return decorator
+
+def auth_basic(check):
+    """Wrapper around bottle.auth_basic to strip any cache-control header."""
+    orig = bottle.auth_basic(check)
+    def decorator(func):
+        def wrapper(*a, **ka):
+            if 'Cache-Control' in bottle.response.headers:
+                del bottle.response.headers['Cache-Control']
+            return orig(func)(*a, **ka)
+        return wrapper
+    return decorator
+
 def alpha(user, pw):
     return user == 'train' and pw == 'choochoo'
-
-from split import fares, utils, times
 
 THIS_DIR = os.path.abspath(os.path.dirname(__file__))
 
@@ -33,19 +53,23 @@ for d in data_files:
 data['stations_by_name'] = dict( (v['description'], dict(v.items()+[('code',k)])) for k, v in data['stations'].items() )
 
 @bottle.route('/static/<path:path>')
+@cache(60*15)
 def server_static(path):
         return bottle.static_file(path, root=os.path.join(THIS_DIR, 'static'))
 
 @bottle.route('/bower/<path:path>')
+@cache(60*15)
 def server_static(path):
         return bottle.static_file(path, root=os.path.join(THIS_DIR, 'bower_components'))
 
 @bottle.route('/about')
 @bottle.view('about')
+@cache(60*15)
 def about():
     pass
 
 @bottle.route('/ajax-station')
+@cache(60*15)
 def ajax():
     q = request.query.query.lower()
     matches = filter(lambda x: x.lower().startswith(q), data['stations'])
@@ -56,7 +80,8 @@ def ajax():
     }
 
 @bottle.route('/')
-@bottle.auth_basic(alpha)
+@cache(60*15)
+@auth_basic(alpha)
 def home():
     if all(x in request.query and request.query[x] for x in ['from', 'to', 'time', 'day']):
         path = '/%(from)s/%(to)s/%(day)s/%(time)s' % request.query
@@ -97,8 +122,9 @@ def clean(form):
     return errors
 
 @bottle.route('/<fr>/<to>/<day>/<time>')
-@bottle.auth_basic(alpha)
 @bottle.view('result')
+@cache(60*15)
+@auth_basic(alpha)
 def split(fr, to, day, time):
     via = request.query.get('via', '')
 
