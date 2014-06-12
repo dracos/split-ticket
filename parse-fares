@@ -4,28 +4,7 @@ from datetime import date
 import json
 
 from split.parse import unpack, cnv_full_date, loop, fare_file
-
-ticket_types = (
-    'SOS', 'SOR', # Anytime single/return
-    'SDS', 'SDR', # Anytime day
-    'GTS', 'GTR', # Anytime single/return
-    'GPR', # Anytime day return
-
-    'CDS', 'CDR', # Off-peak day
-    'SVS', 'SVR', 'SVH', # Off-peak
-    'G2S', 'G2R', # Offpeak
-
-    'SSS', 'SSR', 'OPS', 'OPR', # Super off-peak single/return
-    'CBB', # Super off-peak single
-    'SOP', # Super off-peak return
-    # Super off-peak day
-    'GDS', 'GDR', 'PDS', 'PDR',
-    'SOA', 'SOB',
-    'AM1', 'AM2',
-    'EGS', 'EGF',
-    'OPD',
-    'SRR', 'SWS', 'SCO', 'C1R', 'CBA',
-)
+from split.utils import ticket_types
 
 lookups = {
     'F': ( ('from', 4), ('to', 4), ('route', 5), ('status', 3), ('usage', 1), ('direction', 1), ('todate', 8, cnv_full_date), ('fromdate', 8, cnv_full_date), ('toc', 3), ('london', 1), ('nsd', 1), ('pub', 1), ('id', 7) ),
