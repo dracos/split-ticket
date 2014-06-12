@@ -1,13 +1,14 @@
 import re
+import urllib
 
 import requests
 
 from . import utils
 
 def find_stopping_points(store):
-    url = 'http://traintimes.org.uk/' + store['from'] + '/' + store['to'] + '/' + store['time'] + '/next+tuesday'
+    url = 'http://traintimes.org.uk/' + urllib.quote(store['from']) + '/' + urllib.quote(store['to']) + '/' + store['time'] + '/next+tuesday'
     if store['via']:
-        url += '?via=' + store['via']
+        url += '?via=' + urllib.quote(store['via'])
     for i in range(0,2):
         stops = utils.fetch(url)
         if 'result0' in stops:

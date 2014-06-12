@@ -80,7 +80,7 @@ to be valid. Check your tickets and their restrictions!
 <hr>
 
 <p>I considered the following journey
-(<a href="http://traintimes.org.uk/{{ fr }}/{{ to }}/{{ time }}/next-tuesday">check
+(<a href="http://traintimes.org.uk/{{ get('from') }}/{{ to }}/{{ time }}/next-tuesday">check
 on traintimes.org.uk</a> to adjust search time):</p>
 % for code, chg, stop, times in all_stops_with_depart:
 <div class="stop{{ ' chg' if chg else '' }}">

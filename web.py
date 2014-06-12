@@ -2,11 +2,8 @@
 
 from __future__ import division
 
-import itertools
-import json
 import os
 import re
-import sys
 from time import time as unix_time
 import urllib
 
@@ -16,7 +13,8 @@ R = redis.Redis()
 import bottle
 from bottle import request
 
-from split import fares, utils, times
+from split import utils, work
+from split.data import data
 
 def cache(s):
     """Decorator to set a cache-control header."""
@@ -42,15 +40,6 @@ def alpha(user, pw):
     return user == 'train' and pw == 'choochoo'
 
 THIS_DIR = os.path.abspath(os.path.dirname(__file__))
-
-# Load data
-data_files = [ 'restrictions', 'stations', 'routes', 'routes.extra', 'clusters', 'tocs' ]
-data = {}
-for d in data_files:
-    with open(os.path.join(THIS_DIR, 'data', d + '.json')) as fp:
-        data[d] = json.load(fp)
-
-data['stations_by_name'] = dict( (v['description'], dict(v.items()+[('code',k)])) for k, v in data['stations'].items() )
 
 @bottle.route('/static/<path:path>')
 @cache(60*15)
@@ -140,51 +129,8 @@ def split(fr, to, day, time):
         bottle.redirect('/%s/%s/%s/%s%s' % (fr, to, day, time, qs))
 
     day = day == 'y'
-    context = {
-        'fr': fr, 'fr_desc': data['stations'][fr]['description'],
-        'to': to, 'to_desc': data['stations'][to]['description'],
-        'day': day,
-        'time': time,
-        'via': via,
-    }
-    store = {
-        'data': {},
-        'station_times': {},
-        'from': urllib.quote(fr),
-        'to': urllib.quote(to),
-        'via': urllib.quote(via),
-        'day': day,
-        'time': time,
-    }
 
-    store['station_times'][store['from']] = [ None, store['time'] ]
-    all_stops_with_changes = times.find_stopping_points(store)
-    store['all_stops'] = all_stops_with_changes
-    context['all_stops_with_depart'] = [ (s, chg, data['stations'].get(s, { 'description': s }), store['station_times'][s]) for s,chg,op in all_stops_with_changes ]
-    all_stops = [ s for s,_,_ in all_stops_with_changes ]
-
-    stop_pairs = itertools.combinations(all_stops, 2)
-    stop_pairs = filter(lambda x: x[0] != store['from'] or x[1] != store['to'], stop_pairs)
-    Fares = fares.Fares(store, data)
-
-    context['exclude'] = filter(None, request.query.exclude.split(','))
-    for ex in context['exclude']:
-        if len(ex) == 2:
-            Fares.excluded_restrictions.append(ex)
-        else:
-            Fares.excluded_routes.append(ex)
-
-    context = split_journey(store, Fares, context, stop_pairs)
-    context['all'] = request.query.all
-    if not request.query.all:
-        problem_routes = [ r for r in context['routes'] if r.get('problem') ]
-        old_total = (0, 0)
-        while problem_routes and old_total != (context['total'], context['fare_total']['fare']):
-            context['skipped_problem_routes'] = True
-            Fares.excluded_routes.append(problem_routes[0]['id'])
-            old_total = (context['total'], context['fare_total']['fare'])
-            context = split_journey(store, Fares, context, stop_pairs)
-            problem_routes = [ r for r in context['routes'] if r.get('problem') ]
+    context = work.do_split(fr, to, day, time, via, request.query.exclude, request.query.all)
 
     fare_total = context['fare_total']
     total = context['total']
@@ -193,7 +139,7 @@ def split(fr, to, day, time):
         if qs: qs = '?' + qs
         line = u'%s to %s%s, around %s – <a href="%s%s">%s</a> instead of %s (<strong>%d%%</strong> saving)' % (
 	    context['fr_desc'], context['to_desc'],
-            ' for the day' if store['day'] else '', store['time'],
+            ' for the day' if day else '', time,
             request.path, qs, utils.price(total),
             utils.price(fare_total['fare']), 100-round(total/fare_total['fare']*100)
         )
@@ -201,49 +147,6 @@ def split(fr, to, day, time):
         pipe.zadd( 'split-ticket-latest', line, unix_time() )
         pipe.zremrangebyrank( 'split-ticket-latest', 0, -6 )
         pipe.execute()
-
-    return context
-
-def split_journey(store, Fares, context, stop_pairs):
-    routes = []
-    restrictions = {}
-    fare_total = Fares.parse_fare(store['from'], store['to'])
-    context['fare_total'] = fare_total
-    if fare_total['fare'] != '-':
-        d = store['data'][store['from']][store['to']]
-        if d['obj']['route']['desc'] != 'ANY PERMITTED':
-            n = d['obj']['route']
-            if n not in routes: routes.append(n)
-        if d['obj']['restriction_code']:
-            n = d['obj']['restriction_code']
-            restrictions[n['id']] = n['desc']
-
-    output_pairwise = []
-    for pair in stop_pairs:
-        out = Fares.parse_fare(pair[0], pair[1])
-        output_pairwise.append( (pair[0], pair[1], out) )
-    context['output_pairwise'] = output_pairwise
-
-    nodes, total = Fares.find_cheapest()
-    output_cheapest = []
-    for f, t, d in nodes:
-        output_cheapest.append( (
-            data['stations'][f]['description'],
-            data['stations'][t]['description'], d
-        ) )
-        if d['obj']['route']['desc'] != 'ANY PERMITTED':
-            n = d['obj']['route']
-            if n not in routes: routes.append(n)
-        if d['obj']['restriction_code']:
-            n = d['obj']['restriction_code']
-            restrictions[n['id']] = n['desc']
-
-    context['output_cheapest'] = output_cheapest
-    context['total'] = total
-    context['routes'] = routes
-
-    restrictions = dict( (k,v) for k,v in restrictions.items() if k not in ('8A', '4C') )
-    context['restrictions'] = restrictions
 
     return context
 

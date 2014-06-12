@@ -5,6 +5,7 @@ import re
 
 from . import restrictions, dijkstra
 from .utils import price
+from .data import data
 
 TICKET_BY_TYPE = {
     'Anytime Return': [ 'SOR', 'GTR' ],
@@ -27,7 +28,7 @@ for name, types in TICKET_BY_TYPE.items():
         TICKET_NAMES[t] = name
 
 class Fares(object):
-    def __init__(self, store, data):
+    def __init__(self, store):
         self.store = store
         self.data = data
         self.excluded_routes = []

@@ -2,13 +2,7 @@ import json
 import os
 import re
 
-# Load data
-THIS_DIR = os.path.abspath(os.path.dirname(__file__))
-data_files = [ 'trains' ]
-data = {}
-for d in data_files:
-    with open(os.path.join(THIS_DIR, '..', 'data', d + '.json')) as fp:
-        data[d] = json.load(fp)
+from split.data import data
 
 def considered_stops(all_stops, fro, to):
     """Origin, destination, and anywhere we change"""
