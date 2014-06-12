@@ -156,12 +156,15 @@ def split(fr, to, day, time):
 
     q = MyQueue(connection=R)
     job = q.fetch_job(job_id)
+    include_me = 0
     if job and job.result:
         return split_finished(job.result)
-    if not job:
+    if job:
+        include_me = 1
+    else:
         job = q.enqueue('split.work.do_split', fr, to, day, time, via, request.query.exclude, request.query.all)
 
-    busy_workers = len([ w for w in Worker.all(connection=R) if w.get_state() == 'busy' ])
+    busy_workers = len([ w for w in Worker.all(connection=R) if w.get_state() == 'busy' ]) - include_me
     busy_workers += q.count
     qs = request.query_string
     if qs: qs = '?' + qs
@@ -176,7 +179,7 @@ def split(fr, to, day, time):
         'to_desc': data['stations'][to]['description'],
         'url_job': url_job,
         'refresh': max(2, busy_workers),
-        'queue_size': busy_workers,
+        'queue_size': max(0, busy_workers),
     }
     return please_wait(context)
 
