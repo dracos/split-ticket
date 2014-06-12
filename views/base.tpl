@@ -3,6 +3,9 @@
 <head><title>{{ get('title', 'Split Ticket') }} - Accessible UK Train Timetables</title>
 <link rel="stylesheet" href="/static/railway2.css">
 <link rel="stylesheet" href="/static/split.css">
+% if get('refresh'):
+<meta http-equiv="refresh" content="{{ refresh }}; url={{ url_job }}">
+% end
 
 <script src='/bower/jquery/dist/jquery.min.js'></script>
 <script src='/bower/devbridge-autocomplete/dist/jquery.autocomplete.min.js'></script>

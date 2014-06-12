@@ -9,6 +9,7 @@ import urllib
 
 import redis
 R = redis.Redis()
+from rq import Queue
 
 import bottle
 from bottle import request
@@ -124,22 +125,49 @@ def split(fr, to, day, time):
     if fr in data['stations_by_name'] or to in data['stations_by_name']:
         if fr in data['stations_by_name']: fr = data['stations_by_name'][fr]['code']
         if to in data['stations_by_name']: to = data['stations_by_name'][to]['code']
-        qs = bottle.request.query_string
+        qs = request.query_string
         if qs: qs = '?' + qs
         bottle.redirect('/%s/%s/%s/%s%s' % (fr, to, day, time, qs))
 
     day = day == 'y'
 
-    context = work.do_split(fr, to, day, time, via, request.query.exclude, request.query.all)
+    q = Queue(connection=R)
+    job = None
+    if request.query.job:
+        job = q.fetch_job(request.query.job)
+        if job and job.result:
+            return split_finished(job.result)
 
+    if not job:
+        job = q.enqueue(work.do_split, fr, to, day, time, via, request.query.exclude, request.query.all)
+
+    key = job.key.replace('rq:job:', '')
+    qs = request.query
+    qs['job'] = key
+    url_job = '%s?%s' % (request.path, urllib.urlencode(qs))
+    context = {
+        'from': fr,
+        'to': to,
+        'day': day,
+        'time': time,
+        'via': via,
+        'fr_desc': data['stations'][fr]['description'],
+        'to_desc': data['stations'][to]['description'],
+        'url_job': url_job,
+        'refresh': 2,
+    }
+    return please_wait(context)
+
+#context = work.do_split(fr, to, day, time, via, request.query.exclude, request.query.all)
+def split_finished(context):
     fare_total = context['fare_total']
     total = context['total']
     if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude']:
-        qs = bottle.request.query_string
+        qs = request.query_string
         if qs: qs = '?' + qs
         line = u'%s to %s%s, around %s – <a href="%s%s">%s</a> instead of %s (<strong>%d%%</strong> saving)' % (
 	    context['fr_desc'], context['to_desc'],
-            ' for the day' if day else '', time,
+            ' for the day' if context['day'] else '', context['time'],
             request.path, qs, utils.price(total),
             utils.price(fare_total['fare']), 100-round(total/fare_total['fare']*100)
         )
@@ -148,6 +176,10 @@ def split(fr, to, day, time):
         pipe.zremrangebyrank( 'split-ticket-latest', 0, -6 )
         pipe.execute()
 
+    return context
+
+@bottle.view('please_wait')
+def please_wait(context):
     return context
 
 if __name__ == "__main__":

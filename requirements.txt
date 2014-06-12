@@ -1,4 +1,5 @@
-redis==2.0.0
+bottle==0.12.7
+redis==2.10.1
 requests==2.2.1
 requests-cache==0.4.4
-termcolor==1.1.0
+rq==0.4.6
