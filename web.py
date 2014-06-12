@@ -2,6 +2,7 @@
 
 from __future__ import division
 
+import json
 import os
 import re
 from time import time as unix_time
@@ -10,12 +11,33 @@ import urllib
 import redis
 R = redis.Redis()
 from rq import Queue
+from rq.job import Job
+
+class MyJob(Job):
+    @classmethod
+    def create(cls, *args, **kwargs):
+        job = super(MyJob, cls).create(*args, **kwargs)
+        # Yuck
+        args = [ a for a in args[1] ]
+        args[2] = 'y' if args[2] else 'n'
+        job.id = '/'.join(args)
+        return job
+
+class MyQueue(Queue):
+    job_class = MyJob
 
 import bottle
 from bottle import request
 
-from split import utils, work
-from split.data import data
+from split import utils
+
+# Only need stations data here
+THIS_DIR = os.path.abspath(os.path.dirname(__file__))
+data = {}
+for d in [ 'stations' ]:
+    with open(os.path.join(THIS_DIR, 'data', d + '.json')) as fp:
+        data[d] = json.load(fp)
+data['stations_by_name'] = dict( (v['description'], dict(v.items()+[('code',k)])) for k, v in data['stations'].items() )
 
 def cache(s):
     """Decorator to set a cache-control header."""
@@ -129,22 +151,19 @@ def split(fr, to, day, time):
         if qs: qs = '?' + qs
         bottle.redirect('/%s/%s/%s/%s%s' % (fr, to, day, time, qs))
 
+    job_id = '/'.join((fr, to, day, time, via, request.query.exclude, request.query.all))
     day = day == 'y'
 
-    q = Queue(connection=R)
-    job = None
-    if request.query.job:
-        job = q.fetch_job(request.query.job)
-        if job and job.result:
-            return split_finished(job.result)
-
+    q = MyQueue(connection=R)
+    job = q.fetch_job(job_id)
+    if job and job.result:
+        return split_finished(job.result)
     if not job:
-        job = q.enqueue(work.do_split, fr, to, day, time, via, request.query.exclude, request.query.all)
+        job = q.enqueue('split.work.do_split', fr, to, day, time, via, request.query.exclude, request.query.all)
 
-    key = job.key.replace('rq:job:', '')
-    qs = request.query
-    qs['job'] = key
-    url_job = '%s?%s' % (request.path, urllib.urlencode(qs))
+    qs = request.query_string
+    if qs: qs = '?' + qs
+    url_job = '%s%s' % (request.path, qs)
     context = {
         'from': fr,
         'to': to,

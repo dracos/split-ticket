@@ -27,13 +27,14 @@ for name, types in TICKET_BY_TYPE.items():
     for t in types:
         TICKET_NAMES[t] = name
 
+FARES = {}
+
 class Fares(object):
     def __init__(self, store):
         self.store = store
         self.data = data
         self.excluded_routes = []
         self.excluded_restrictions = []
-        self.fares = {}
 
     def prettify(self, s):
         s = re.sub('\w\S*', lambda txt: txt.group().title(), s)
@@ -51,13 +52,13 @@ class Fares(object):
         return stn_codes
 
     def get_fare_entry(self, code):
-        if code not in self.fares:
+        if code not in FARES:
             try:
                 with open('data/fares/%s.json' % code) as fp:
-                    self.fares[code] = json.load(fp)
+                    FARES[code] = json.load(fp)
             except IOError:
-                self.fares[code] = None
-        return self.fares[code]
+                FARES[code] = None
+        return FARES[code]
 
     def get_fares(self):
         codes_fr = self.get_codes(self.fro)

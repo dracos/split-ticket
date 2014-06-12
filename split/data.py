@@ -10,5 +10,3 @@ data = {}
 for d in data_files:
     with open(os.path.join(THIS_DIR, '..', 'data', d + '.json')) as fp:
         data[d] = json.load(fp)
-
-data['stations_by_name'] = dict( (v['description'], dict(v.items()+[('code',k)])) for k, v in data['stations'].items() )
