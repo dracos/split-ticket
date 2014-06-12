@@ -11,13 +11,11 @@ hr {
     color: #900;
 }
 
-#warning {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #f00;
-    color: #fff;
-    padding: 0.5em;
+#heading em {
+    font-style: normal;
+    font-size: smaller;
+    font-weight: normal;
+    color: #900;
 }
 
 .front-col {

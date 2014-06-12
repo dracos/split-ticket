@@ -78,3 +78,10 @@ show you a via Hereford ticket first off, because it doesn't realise it should
 exclude it...  Enlightenment welcome as to where I have messed up!
 
 </ul>
+
+<h3>Useful links</h3>
+
+<ul>
+<li><a href="http://www.brfares.com/">BRFares</a> is a very handy site for
+looking up all the possible tickets between two stations.
+</ul>
