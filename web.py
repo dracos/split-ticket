@@ -10,7 +10,7 @@ import urllib
 
 import redis
 R = redis.Redis()
-from rq import Queue
+from rq import Queue, Worker
 from rq.job import Job
 
 class MyJob(Job):
@@ -161,6 +161,8 @@ def split(fr, to, day, time):
     if not job:
         job = q.enqueue('split.work.do_split', fr, to, day, time, via, request.query.exclude, request.query.all)
 
+    busy_workers = len([ w for w in Worker.all(connection=R) if w.get_state() == 'busy' ])
+    busy_workers += q.count
     qs = request.query_string
     if qs: qs = '?' + qs
     url_job = '%s%s' % (request.path, qs)
@@ -173,7 +175,8 @@ def split(fr, to, day, time):
         'fr_desc': data['stations'][fr]['description'],
         'to_desc': data['stations'][to]['description'],
         'url_job': url_job,
-        'refresh': 2,
+        'refresh': max(2, busy_workers),
+        'queue_size': busy_workers,
     }
     return please_wait(context)
 
