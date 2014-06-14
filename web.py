@@ -130,7 +130,7 @@ def clean(form):
     return errors
 
 @bottle.route('/<fr>/<to>/<day>/<time>')
-@bottle.view('result')
+@bottle.view('please_wait')
 def split(fr, to, day, time):
     via = request.query.get('via', '')
 
@@ -158,6 +158,7 @@ def split(fr, to, day, time):
     include_me = 0
 
     if job and (job.is_finished or job.is_failed):
+        if 'error' in job.result: return error(job.result)
         return split_finished(job.result)
     if job:
         include_me = 1
@@ -181,9 +182,9 @@ def split(fr, to, day, time):
         'refresh': max(2, busy_workers),
         'queue_size': max(0, busy_workers),
     }
-    return please_wait(context)
+    return context
 
-#context = work.do_split(fr, to, day, time, via, request.query.exclude, request.query.all)
+@bottle.view('result')
 def split_finished(context):
     bottle.response.set_header('Cache-Control', 'max-age=900')
     fare_total = context['fare_total']
@@ -204,8 +205,8 @@ def split_finished(context):
 
     return context
 
-@bottle.view('please_wait')
-def please_wait(context):
+@bottle.view('error')
+def error(context):
     return context
 
 if __name__ == "__main__":

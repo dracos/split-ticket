@@ -20,6 +20,9 @@ def do_split(fr, to, day, time, via, exclude='', all_opts=''):
 
     store['station_times'][store['from']] = [ None, store['time'] ]
     all_stops_with_changes = times.find_stopping_points(store)
+    if not all_stops_with_changes:
+        context.update( error = True )
+        return context
     store['all_stops'] = all_stops_with_changes
     context['all_stops_with_depart'] = [ (s, chg, data['stations'].get(s, { 'description': s }), store['station_times'][s]) for s,chg,op in all_stops_with_changes ]
     all_stops = [ s for s,_,_ in all_stops_with_changes ]

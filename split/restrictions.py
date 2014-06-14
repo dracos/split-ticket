@@ -55,6 +55,8 @@ def valid_journey(restrictions, fro, to, all_stops, station_times, code):
         trains = ( train['id'] for train in trains if train['dir'] == 'O' )
         trains = ( train for train in trains if train in data['trains'] )
         for train in trains:
+            if train not in data['trains']: continue
+            if 'stops' not in data['trains'][train]: continue
             journey = data['trains'][train]['stops']
             if fro in journey and to in journey and journey[fro][1] == dep and journey[to][0] == arr:
                 return True
@@ -75,6 +77,8 @@ def valid_journey(restrictions, fro, to, all_stops, station_times, code):
         trains = ( train['id'] for train in trains if train['dir'] == 'O' )
         trains = ( train for train in trains if train in data['trains'] )
         for train in trains:
+            if train not in data['trains']: continue
+            if 'stops' not in data['trains'][train]: continue
             journey = data['trains'][train]['stops']
             if fro in journey and to in journey and journey[fro][1] == dep and journey[to][0] == arr:
                 return False

@@ -31,7 +31,7 @@ def find_stopping_points(store):
 
     m = re.search('<a[^>]*href="(/ajax-stoppingpoints[^"]*)">stops(?i)', stops)
     if not m:
-        raise Exception, 'Could not get stops'
+        return None
 
     url = 'http://traintimes.org.uk' + m.group(1).replace('stage=', '') + ';ajax=2'
     for i in range(0,2):
