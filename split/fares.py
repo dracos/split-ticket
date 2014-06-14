@@ -10,17 +10,17 @@ from .data import data
 TICKET_BY_TYPE = {
     'Anytime Return': [ 'SOR', 'GTR' ],
     'Anytime Day Return': [ 'SDR', 'GPR' ],
-    'Anytime Single': [ 'SOS', 'GTS' ],
-    'Anytime Day Single': [ 'SDS' ],
+    'Anytime Singles': [ 'SOS', 'GTS' ],
+    'Anytime Day Singles': [ 'SDS' ],
 
     'Off-peak Return': [ 'SVR', 'G2R' ],
     'Off-peak Day Return': [ 'CDR' ],
-    'Off-peak Single': [ 'SVS', 'SVH', 'G2S', 'CDS' ],
+    'Off-peak Singles': [ 'SVS', 'SVH', 'G2S', 'CDS' ],
 
     'Super off-peak Return': [ 'SSR', 'OPR', 'SOP' ],
-    'Super off-peak Single': [ 'SSS', 'OPS', 'CBB' ],
+    'Super off-peak Singles': [ 'SSS', 'OPS', 'CBB' ],
     'Super off-peak Day Return': [ 'GDR', 'PDR', 'SOB', 'AM2', 'EGF', 'SRR', 'SWS', 'SCO', 'C1R', 'CBA' ],
-    'Super off-peak Day Single': [ 'GDS', 'PDS', 'SOA', 'AM1', 'EGS', 'OPD' ],
+    'Super off-peak Day Singles': [ 'GDS', 'PDS', 'SOA', 'AM1', 'EGS', 'OPD' ],
 }
 TICKET_NAMES = {}
 for name, types in TICKET_BY_TYPE.items():
