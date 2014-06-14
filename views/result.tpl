@@ -27,7 +27,7 @@ leaving around {{ time }}
 
 % if get('skipped_problem_routes') and not exclude:
 <p class="info">I also found cheaper options, that involve you taking a
-different route. <a href="?{{ 'via=' + via + '&amp;' if via else '' }}all=1">See all options</a>, starting with the
+different route. <a href="?{{ 'via=' + via + ';' if via else '' }}all=1">See all options</a>, starting with the
 cheapest.</p>
 % end
 
@@ -57,7 +57,7 @@ below:</p>
 
 <ul>
 % for route in routes:
-<li><a href="?{{ 'all=1;' if all else '' }}exclude={{ ','.join(set(exclude + [ route['id'] ])) }}">Exclude {{ route['desc'].title() }}</a>
+<li><a href="?{{ 'all=1;' if all else '' }}{{ 'via=' + via + ';' if via else '' }}exclude={{ ','.join(set(exclude + [ route['id'] ])) }}">Exclude {{ route['desc'].title() }}</a>
 % end
 </ul>
 % end
@@ -66,7 +66,7 @@ below:</p>
 <p>Ignore tickets with time restriction:
 <ul>
 % for id, text in restrictions.items():
-<li><a href="?{{ 'all=1;' if all else '' }}exclude={{ ','.join(set(exclude + [ id ])) }}">(code {{ id }}) {{ text }}</a>
+<li><a href="?{{ 'all=1;' if all else '' }}{{ 'via=' + via + ';' if via else '' }}exclude={{ ','.join(set(exclude + [ id ])) }}">(code {{ id }}) {{ text }}</a>
 % end
 </ul>
 % end
@@ -84,7 +84,7 @@ to be valid. Check your tickets and their restrictions!
 <hr>
 
 <p>I considered the following journey
-(<a href="http://traintimes.org.uk/{{ get('from') }}/{{ to }}/{{ time }}/next-tuesday">check
+(<a href="http://traintimes.org.uk/{{ get('from') }}/{{ to }}/{{ time }}/next-tuesday{{ '?via=' + via if via else '' }}">check
 on traintimes.org.uk</a> to adjust search time):</p>
 % for code, chg, stop, times in all_stops_with_depart:
 <div class="stop{{ ' chg' if chg else '' }}">
