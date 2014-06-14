@@ -134,6 +134,11 @@ def clean(form):
 def split(fr, to, day, time):
     via = request.query.get('via', '')
 
+    if (fr.upper() in data['stations'] and fr not in data['stations']) or (to.upper() in data['stations'] and to not in data['stations']):
+        qs = request.query_string
+        if qs: qs = '?' + qs
+        bottle.redirect('/%s/%s/%s/%s%s' % (fr.upper(), to.upper(), day, time, qs))
+
     errors = clean({ 'from': fr, 'to': to, 'day': day, 'time': time, 'via': via })
     if errors:
         return form({ 'from': fr, 'to': to, 'day': day, 'time': time, 'via': via, 'errors': errors })
