@@ -151,7 +151,8 @@ def split(fr, to, day, time):
     q = MyQueue(connection=R)
     job = q.fetch_job(job_id)
     include_me = 0
-    if job and job.result:
+
+    if job and (job.is_finished or job.is_failed):
         return split_finished(job.result)
     if job:
         include_me = 1
