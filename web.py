@@ -59,9 +59,6 @@ def auth_basic(check):
         return wrapper
     return decorator
 
-def alpha(user, pw):
-    return user == 'train' and pw == 'choochoo'
-
 THIS_DIR = os.path.abspath(os.path.dirname(__file__))
 
 @bottle.route('/static/<path:path>')
@@ -93,7 +90,6 @@ def ajax():
 
 @bottle.route('/')
 @cache(60*15)
-@auth_basic(alpha)
 def home():
     if all(x in request.query and request.query[x] for x in ['from', 'to', 'time', 'day']):
         path = '/%(from)s/%(to)s/%(day)s/%(time)s' % request.query
@@ -135,8 +131,6 @@ def clean(form):
 
 @bottle.route('/<fr>/<to>/<day>/<time>')
 @bottle.view('result')
-@cache(60*15)
-@auth_basic(alpha)
 def split(fr, to, day, time):
     via = request.query.get('via', '')
 
@@ -185,6 +179,7 @@ def split(fr, to, day, time):
 
 #context = work.do_split(fr, to, day, time, via, request.query.exclude, request.query.all)
 def split_finished(context):
+    bottle.response.set_header('Cache-Control', 'max-age=900')
     fare_total = context['fare_total']
     total = context['total']
     if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude']:
