@@ -29,6 +29,9 @@
 function search(id, placeholder) {
     $(id).autocomplete({
         serviceUrl: '/ajax-station',
+        beforeRender: function(c) {
+            c.width('auto');
+        },
         minChars: 2
     });
 }
