@@ -99,6 +99,8 @@ class Fares(object):
 
     def fare_desc(self, s):
         o = s['ticket']['name']
+        if 'Anytime' in o and 'Single' in o:
+            o += '<sup><a href="/about#peak-single">&dagger;</a></sup>'
         if s['route']['desc'] != 'ANY PERMITTED':
             ops = self.operators()
             rte = self.prettify(s['route']['desc'])

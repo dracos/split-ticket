@@ -56,9 +56,13 @@ information on Advance quotas</a>. Also consider special tickets such as
 tweak the time to get the journey you want (e.g. from Birmingham to Edinburgh
 whether you want to try splitting along the west or east coast lines).
 
-<li>The time restrictions of your return journey – I thought it simplest to
-deal with the morning restrictions, and then leave it to you to check your
-return requirements based upon that.
+<li id="peak-single">Different single tickets in each direction – if it offers
+you two anytime singles for a leg of the journey, do check whether e.g. you
+could actually use an off-peak single on the return journey.
+
+<li>More generally, the time restrictions of your return journey – I thought it
+simplest to deal with the morning restrictions, and then leave it to you to
+check your return requirements based upon that.
 
 <li>Definitely get everything right – it is more than likely that I
 have miscoded something in my parsing of the national fares and timetable
