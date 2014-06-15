@@ -61,15 +61,20 @@ def auth_basic(check):
 
 THIS_DIR = os.path.abspath(os.path.dirname(__file__))
 
+@bottle.route('/robots.txt')
+@cache(60*15)
+def robots():
+    return bottle.static_file('robots.txt', root=os.path.join(THIS_DIR, 'static'))
+
 @bottle.route('/static/<path:path>')
 @cache(60*15)
 def server_static(path):
-        return bottle.static_file(path, root=os.path.join(THIS_DIR, 'static'))
+    return bottle.static_file(path, root=os.path.join(THIS_DIR, 'static'))
 
 @bottle.route('/bower/<path:path>')
 @cache(60*15)
 def server_static(path):
-        return bottle.static_file(path, root=os.path.join(THIS_DIR, 'bower_components'))
+    return bottle.static_file(path, root=os.path.join(THIS_DIR, 'bower_components'))
 
 @bottle.route('/about')
 @bottle.view('about')

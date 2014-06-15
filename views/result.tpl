@@ -1,4 +1,4 @@
-% rebase('base.tpl')
+% rebase('base.tpl', nofollow=True)
 % from split.utils import price
 
 <h2>{{ fr_desc }} to {{ to_desc }},
@@ -18,7 +18,7 @@ leaving around {{ time }}
 % if fare_total['fare'] == '-':
 <p><span class="imp">I couldn’t find a valid through ticket for this journey; perhaps try a different time?</span></p>
 % else:
-<p><span class="imp">The normal fare is <strong>{{ price(fare_total['fare']) }}</strong></span>
+<p><span class="imp">The normal weekday fare is <strong>{{ price(fare_total['fare']) }}</strong></span>
 <span class="faded">{{ !fare_total['desc'] }}</span></p>
 % end
 

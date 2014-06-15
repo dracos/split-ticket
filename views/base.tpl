@@ -6,6 +6,9 @@
 % if get('refresh'):
 <meta http-equiv="refresh" content="{{ refresh }}; url={{ url_job }}">
 % end
+% if get('nofollow'):
+<meta name="robots" content="nofollow">
+% end
 
 <script src='/bower/jquery/dist/jquery.min.js'></script>
 <script src='/bower/devbridge-autocomplete/dist/jquery.autocomplete.min.js'></script>
