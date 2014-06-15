@@ -27,11 +27,14 @@ def do_split(fr, to, day, time, via, exclude='', all_opts=''):
     context['all_stops_with_depart'] = [ (s, chg, data['stations'].get(s, { 'description': s }), store['station_times'][s]) for s,chg,op in all_stops_with_changes ]
     all_stops = [ s for s,_,_ in all_stops_with_changes ]
 
+    context['exclude'] = filter(None, exclude.split(','))
+    for ex in [ e for e in context['exclude'] if len(e) == 3 ]:
+        while ex in all_stops: all_stops.remove(ex)
+
     stop_pairs = itertools.combinations(all_stops, 2)
     stop_pairs = filter(lambda x: x[0] != store['from'] or x[1] != store['to'], stop_pairs)
     Fares = fares.Fares(store)
 
-    context['exclude'] = filter(None, exclude.split(','))
     for ex in context['exclude']:
         if len(ex) == 2:
             Fares.excluded_restrictions.append(ex)

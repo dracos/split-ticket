@@ -71,6 +71,18 @@ below:</p>
 </ul>
 % end
 
+<p>Don’t try and split at a particular station (if e.g. you
+know return trains are unlikely to stop there):
+<ul>
+% for i, row in enumerate(all_stops_with_depart):
+%   code, chg, stop, times = row
+%   if i == 0 or i == len(all_stops_with_depart)-1 or code in exclude:
+%     continue
+%   end
+<li><a href="?{{ 'all=1;' if all else '' }}{{ 'via=' + via + ';' if via else '' }}exclude={{ ','.join(set(exclude + [ code ])) }}">Exclude {{ stop['description'] }}</a>
+% end
+</ul>
+
 </div>
 % end
 
