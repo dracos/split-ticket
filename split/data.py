@@ -10,3 +10,8 @@ data = {}
 for d in data_files:
     with open(os.path.join(THIS_DIR, '..', 'data', d + '.json')) as fp:
         data[d] = json.load(fp)
+
+for k,v in data['routes.extra'].items():
+    data['routes'][k].update(v)
+
+del data['routes.extra']

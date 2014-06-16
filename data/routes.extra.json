@@ -18,11 +18,14 @@
   "00083": { "operator": [ "NT" ] },
   "00085": { "operator": [ "TP" ] },
   "00127": { "operator": [ "SW" ] },
+  "00200": { "I": [ "BFR", "CST", "CHX", "CTK", "EUS", "FST", "KGX", "LST", "LBG", "MYB", "MOG", "OLD", "PAD", "STP", "VXH", "VIC", "WAT", "WAE" ] },
+  "00371": { "operator": [ "AW", "LM" ] },
   "00472": { "operator": [ "EM" ] },
   "00474": { "operator": [ "VT" ] },
   "00595": { "operator": [ "HT", "FC" ] },
   "00724": { "operator": [ "GX" ] },
   "00820": { "operator": [ "GW" ] },
   "00777": { "operator": [ "SN" ] },
+  "00822": { "I": [ "HFD" ] },
   "02008": { "operator": [ "CC" ] }
 }

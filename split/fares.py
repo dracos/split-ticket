@@ -104,12 +104,11 @@ class Fares(object):
         if s['route']['desc'] != 'ANY PERMITTED':
             ops = self.operators()
             rte = self.prettify(s['route']['desc'])
-            if self.data['routes.extra'].get(s['route']['id']):
-                extra = self.data['routes.extra'][s['route']['id']]['operator']
-                if ops != set(extra):
-                    ops = map(lambda x: self.data['tocs'].get(x, x), ops)
-                    rte = '<strong>' + rte + '</strong> (train is %s)' % '/'.join(ops)
-                    s['route']['problem'] = True
+            extra = self.data['routes'][s['route']['id']].get('operator')
+            if extra and ops != set(extra):
+                ops = map(lambda x: self.data['tocs'].get(x, x), ops)
+                rte = '<strong>' + rte + '</strong> (train is %s)' % '/'.join(ops)
+                s['route']['problem'] = True
             ibs = set([ i[0] for i in self.inbetween_stops() ]) | set(self.fro)
             if ('E' in s['route'] and set(s['route']['E']) & ibs) or \
                ('I' in s['route'] and not set(s['route']['I']) & ibs):
