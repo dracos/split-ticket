@@ -15,6 +15,12 @@ leaving around {{ time }}
 
 <div class="results">
 
+% if get('skipped_problem_routes') and not exclude and total >= fare_total['fare']:
+<p class="info">I also found cheaper options, that involve you taking a
+different route. <a href="?{{ 'via=' + via + ';' if via else '' }}all=1">See all options</a>, starting with the
+cheapest.</p>
+% end
+
 % if fare_total['fare'] == '-':
 <p><span class="imp">I couldn’t find a valid through ticket for this journey; perhaps try a different time?</span></p>
 % else:
