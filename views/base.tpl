@@ -4,7 +4,9 @@
 <link rel="stylesheet" href="/static/railway2.css">
 <link rel="stylesheet" href="/static/split.css">
 % if get('refresh'):
+<noscript>
 <meta http-equiv="refresh" content="{{ refresh }}; url={{ url_job }}">
+</noscript>
 % end
 % if get('nofollow'):
 <meta name="robots" content="nofollow">

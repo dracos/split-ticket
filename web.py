@@ -124,6 +124,24 @@ def clean(form):
         errors['time'] = 'Please enter a time'
     return errors
 
+@bottle.route('/ajax-job/<fr>/<to>/<day>/<time>')
+def split_ajax(fr, to, day, time):
+    bottle.response.set_header('Cache-Control', 'max-age=0')
+
+    job_id = '/'.join((fr, to, day, time, request.query.via, request.query.exclude, request.query.all))
+    q = MyQueue(connection=R)
+    job = q.fetch_job(job_id)
+
+    done = job and (job.is_finished or job.is_failed)
+    include_me = 1 if job else 0
+    busy_workers = len([ w for w in Worker.all(connection=R) if w.get_state() == 'busy' ]) - include_me
+    busy_workers += q.count
+    return {
+        'done': done,
+        'refresh': max(1, busy_workers),
+        'queue_size': max(0, busy_workers),
+    }
+
 @bottle.route('/<fr>/<to>/<day>/<time>')
 @bottle.view('please_wait')
 def split(fr, to, day, time):
@@ -159,6 +177,8 @@ def split(fr, to, day, time):
     else:
         job = q.enqueue('split.work.do_split', fr, to, day, time, via, request.query.exclude, request.query.all)
 
+    bottle.response.set_header('Cache-Control', 'max-age=0')
+
     busy_workers = len([ w for w in Worker.all(connection=R) if w.get_state() == 'busy' ]) - include_me
     busy_workers += q.count
     qs = request.query_string
@@ -173,7 +193,7 @@ def split(fr, to, day, time):
         'fr_desc': data['stations'][fr]['description'],
         'to_desc': data['stations'][to]['description'],
         'url_job': url_job,
-        'refresh': max(2, busy_workers),
+        'refresh': max(1, busy_workers),
         'queue_size': max(0, busy_workers),
     }
     return context
