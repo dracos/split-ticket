@@ -109,4 +109,5 @@ for row in loop(fare_file('LOC')):
 
 del data['SPX']
 del data['RMZ']
+del data['MCZ']
 json.dump(data, open('data/stations.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)

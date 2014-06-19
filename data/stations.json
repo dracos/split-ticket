@@ -6867,10 +6867,6 @@
     "description": "Manchester Victoria",
     "fare_group": "0438"
   },
-  "MCZ": {
-    "code": "0451",
-    "description": "Manchester Central Zone"
-  },
   "MDB": {
     "code": "5237",
     "description": "Maidstone Barracks",
