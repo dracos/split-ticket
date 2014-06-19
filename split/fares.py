@@ -10,17 +10,17 @@ from .data import data
 TICKET_BY_TYPE = {
     'Anytime Return': [ 'SOR', 'GTR' ],
     'Anytime Day Return': [ 'SDR', 'GPR' ],
-    'Anytime Singles': [ 'SOS', 'GTS' ],
-    'Anytime Day Singles': [ 'SDS' ],
+    'Anytime Single': [ 'SOS', 'GTS' ],
+    'Anytime Day Single': [ 'SDS' ],
 
     'Off-peak Return': [ 'SVR', 'G2R' ],
     'Off-peak Day Return': [ 'CDR' ],
-    'Off-peak Singles': [ 'SVS', 'SVH', 'G2S', 'CDS' ],
+    'Off-peak Single': [ 'SVS', 'SVH', 'G2S', 'CDS' ],
 
     'Super off-peak Return': [ 'SSR', 'OPR', 'SOP' ],
-    'Super off-peak Singles': [ 'SSS', 'OPS', 'CBB' ],
+    'Super off-peak Single': [ 'SSS', 'OPS', 'CBB' ],
     'Super off-peak Day Return': [ 'GDR', 'PDR', 'SOB', 'AM2', 'EGF', 'SRR', 'SWS', 'SCO', 'C1R', 'CBA' ],
-    'Super off-peak Day Singles': [ 'GDS', 'PDS', 'SOA', 'AM1', 'EGS', 'OPD' ],
+    'Super off-peak Day Single': [ 'GDS', 'PDS', 'SOA', 'AM1', 'EGS', 'OPD' ],
 }
 TICKET_NAMES = {}
 for name, types in TICKET_BY_TYPE.items():
@@ -99,8 +99,10 @@ class Fares(object):
 
     def fare_desc(self, s):
         o = s['ticket']['name']
-        if 'Anytime' in o and 'Single' in o:
-            o += '<sup><a href="/about#peak-single">&dagger;</a></sup>'
+        if 'Single' in o and self.double:
+            o += 's'
+            if 'Anytime' in o:
+                o += '<sup><a href="/about#peak-single">&dagger;</a></sup>'
         if s['route']['desc'] != 'ANY PERMITTED':
             ops = self.operators()
             rte = self.prettify(s['route']['desc'])
@@ -138,8 +140,10 @@ class Fares(object):
         return s['route']['id'] not in self.excluded_routes
 
     def match_returns(self, s):
+        if self.store['day'] == 's':
+            return False
         ret = re.search('SOR|GTR|SVR|G2R|SSR|OPR|SOP', s['ticket']['code'])
-        if self.store['day']:
+        if self.store['day'] == 'y':
             ret = ret or re.search('SDR|GPR|CDR|GDR|PDR|SOB|AM2|EGF|SCO|C1R|CBA|SRR|SWS', s['ticket']['code'])
         ret = ret and self.is_valid_journey(s)
         ret = ret and self.is_valid_route(s)
@@ -166,9 +170,10 @@ class Fares(object):
         self.double = False
         singles = filter(self.match_singles, price_data)
         for r in singles:
-            if not best or r['adult']['fare']*2 < best['adult']['fare']*(2 if self.double else 1):
+            if not best or r['adult']['fare']*2 < best['adult']['fare']*(2 if self.double or self.store['day']=='s' else 1):
                 best = r
-                self.double = True
+                if self.store['day'] != 's':
+                    self.double = True
 
         if not best:
             return { 'fare': '-', 'obj': None, 'desc': '-' }

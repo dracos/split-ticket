@@ -17,10 +17,7 @@ class MyJob(Job):
     @classmethod
     def create(cls, *args, **kwargs):
         job = super(MyJob, cls).create(*args, **kwargs)
-        # Yuck
-        args = [ a for a in args[1] ]
-        args[2] = 'y' if args[2] else 'n'
-        job.id = '/'.join(args)
+        job.id = '/'.join(args[1])
         return job
 
 class MyQueue(Queue):
@@ -129,7 +126,7 @@ def clean(form):
     if form.get('via') and form['via'] not in data['stations_by_name'] and form['via'] not in data['stations']:
         errors['via'] = 'Please select a valid via'
     if not form.get('day'):
-        errors['day'] = 'Please say whether you are travelling for the day'
+        errors['day'] = 'Please say whether you want a single, day return, or return'
     if not form.get('time') or not re.match('\d\d:\d\d', form['time']):
         errors['time'] = 'Please enter a time'
     return errors
@@ -156,7 +153,6 @@ def split(fr, to, day, time):
         bottle.redirect('/%s/%s/%s/%s%s' % (fr, to, day, time, qs))
 
     job_id = '/'.join((fr, to, day, time, via, request.query.exclude, request.query.all))
-    day = day == 'y'
 
     q = MyQueue(connection=R)
     job = q.fetch_job(job_id)
@@ -197,9 +193,14 @@ def split_finished(context):
     if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude']:
         qs = request.query_string
         if qs: qs = '?' + qs
+        typ = ''
+        if context['day'] == 'y':
+            typ = ' for the day'
+        elif context['day'] == 'n':
+            typ = ' return'
         line = u'%s to %s%s, around %s – <a href="%s%s">%s</a> instead of %s (<strong>%d%%</strong> saving)' % (
 	    context['fr_desc'], context['to_desc'],
-            ' for the day' if context['day'] else '', context['time'],
+            typ, context['time'],
             request.path, qs, utils.price(total),
             utils.price(fare_total['fare']), 100-round(total/fare_total['fare']*100)
         )

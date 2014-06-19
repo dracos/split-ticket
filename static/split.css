@@ -35,7 +35,7 @@ hr {
 }
 
 label { display: block; }
-label.n { display: inline; }
+label.n { display: inline; white-space: nowrap; }
 
 .error { color: #990000; }
 

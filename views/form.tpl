@@ -17,9 +17,10 @@
     <input id="time" type="text" name="time" placeholder="hh:mm" value="{{ get('time', '') }}">
 </p>
 <p{{ !' class="error"' if errors.get('day') else '' }}>
-    <label>{{ errors.get('day', 'For the day') }}:</label>
-    <label class="n"><input type="radio" name="day" value="y"{{ ' checked' if get('day')=='y' else '' }}> Yes</label>
-    <label class="n"><input type="radio" name="day" value="n"{{ ' checked' if get('day')=='n' else '' }}> No</label>
+    <label>{{ errors.get('day', 'Type of journey') }}:</label>
+    <label class="n"><input type="radio" name="day" value="s"{{ ' checked' if get('day')=='s' else '' }}> Single</label>
+    <label class="n"><input type="radio" name="day" value="y"{{ ' checked' if get('day')=='y' else '' }}> Return same day</label>
+    <label class="n"><input type="radio" name="day" value="n"{{ ' checked' if get('day')=='n' else '' }}> Return</label>
 </p>
 <p align="center">
     <input type="submit" value="Search">
