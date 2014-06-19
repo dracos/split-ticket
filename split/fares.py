@@ -151,6 +151,8 @@ class Fares(object):
 
     def match_singles(self, s):
         ret = re.search('SOS|SDS|GTS|CDS|SVS|SVH|G2S|SSS|OPS|CBB|GDS|PDS|SOA|AM1|EGS|OPD', s['ticket']['code'])
+        if self.store['day'] == 's' and s['ticket']['code'] == 'SVH':
+            return False
         ret = ret and self.is_valid_journey(s)
         ret = ret and self.is_valid_route(s)
         return ret
