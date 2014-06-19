@@ -106,7 +106,7 @@ to be valid. Check your tickets and their restrictions!
 on traintimes.org.uk</a> to adjust search time):</p>
 % for code, chg, stop, times in all_stops_with_depart:
 <div class="stop{{ ' chg' if chg else '' }}">
-<abbr title="{{ stop['description'] }}{{ ', changing' if chg else '' }}">{{ code }}</abbr><br>
+<abbr title="{{ stop['description'] }}{{ ', changing' if chg and stop != all_stops_with_depart[0][2] and stop != all_stops_with_depart[-1][2] else '' }}">{{ code }}</abbr><br>
 % if times[0] and times[0] != times[1]:
 {{ times[0] }}a{{ ',' if times[1] else '' }}
 % end
