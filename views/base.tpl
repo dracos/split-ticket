@@ -10,8 +10,8 @@
 <meta name="robots" content="nofollow">
 % end
 
-<script src='/bower/jquery/dist/jquery.min.js'></script>
-<script src='/bower/devbridge-autocomplete/dist/jquery.autocomplete.min.js'></script>
+<script src='/bower_components/jquery/dist/jquery.min.js'></script>
+<script src='/bower_components/devbridge-autocomplete/dist/jquery.autocomplete.min.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js'></script>
 
 <link rel="shortcut icon" href="http://traintimes.org.uk/favicon.ico">

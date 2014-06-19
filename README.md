@@ -21,9 +21,9 @@ Installation
 
 I used bower to install the JavaScript required, so you can either install
 bower and then run bower install, or if that’s too much effort stick
-http://split.traintimes.org.uk/bower/jquery/dist/jquery.min.js in
+http://split.traintimes.org.uk/bower_components/jquery/dist/jquery.min.js in
 bower_components/jquery/dist/ and
-http://split.traintimes.org.uk/bower/devbridge-autocomplete/dist/jquery.autocomplete.min.js
+http://split.traintimes.org.uk/bower_components/devbridge-autocomplete/dist/jquery.autocomplete.min.js
 in bower_components/devbridge-autocomplete/dist/ :)
 
 web.py is the WSGI application, you can run this directly with:
