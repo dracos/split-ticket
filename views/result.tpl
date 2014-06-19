@@ -49,7 +49,6 @@ cheapest.</p>
 
 </div>
 
-% if routes or restrictions:
 <div class="results-text">
 
 <p>The above may not be the best route, and may not be valid (I might not have
@@ -90,7 +89,6 @@ know return trains are unlikely to stop there):
 </ul>
 
 </div>
-% end
 
 <div class="stop-list">
 <p>
