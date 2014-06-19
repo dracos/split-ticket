@@ -98,7 +98,7 @@ for row in loop(fare_file('LOC')):
         if i in row: del row[i]
 
     if record_type == 'L':
-        if row['crs_code'][0] in ('X', 'Z'): continue
+        if row['crs_code'][0] in ('X', 'Z') and row['crs_code'] != 'ZFD': continue
         name = re.sub('([a-z])\.$', r'\1', row['atb_desc_out'].title())
         data[row['crs_code']] = {
             'description': name,

@@ -25,6 +25,7 @@
   "00595": { "operator": [ "HT", "FC" ] },
   "00724": { "operator": [ "GX" ] },
   "00820": { "operator": [ "GW" ] },
+  "00774": { "operator": [ "SN", "LM" ] },
   "00777": { "operator": [ "SN" ] },
   "00822": { "I": [ "HFD" ] },
   "02008": { "operator": [ "CC" ] }
