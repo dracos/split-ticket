@@ -175,7 +175,8 @@ def split(fr, to, day, time):
     if job:
         include_me = 1
     else:
-        job = q.enqueue('split.work.do_split', fr, to, day, time, via, request.query.exclude, request.query.all)
+        if 'Googlebot' not in request.headers.get('User-Agent', ''):
+            job = q.enqueue('split.work.do_split', fr, to, day, time, via, request.query.exclude, request.query.all)
 
     bottle.response.set_header('Cache-Control', 'max-age=0')
 
@@ -226,6 +227,7 @@ def split_finished(context):
 
 @bottle.view('error')
 def error(context):
+    bottle.response.status = 500
     return context
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-% rebase('base.tpl')
+% rebase('base.tpl', noindex=True)
 
 % include('heading.tpl', new_journey=False)
 

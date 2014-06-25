@@ -11,6 +11,9 @@
 % if get('nofollow'):
 <meta name="robots" content="nofollow">
 % end
+% if get('noindex'):
+<meta name="robots" content="noindex,nofollow">
+% end
 
 <script src='/bower_components/jquery/dist/jquery.min.js'></script>
 <script src='/bower_components/devbridge-autocomplete/dist/jquery.autocomplete.min.js'></script>
@@ -22,6 +25,7 @@
 <link rel="apple-touch-icon" href="http://traintimes.org.uk/traintimes-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="google-site-verification" content="UTtqZo2AeTn8Cq6meBghyrJeIJN7C7E9uuAZbB7LZ5Q">
 
 </head>
 
@@ -32,6 +36,13 @@
 <p id="credit"><i>by</i> <a href="http://dracos.co.uk/">Matthew</a>
 &middot;&nbsp; <a id="donate" href="http://traintimes.org.uk/donate">Donate</a></p>
 </div>
+
+<!--
+<div id="advert">
+I&rsquo;m afraid this site is currently not working, due to issues
+with traintimes.org.uk.
+</div>
+-->
 
 <div id="content">
 {{ !base }}

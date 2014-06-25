@@ -1,4 +1,4 @@
-% rebase('base.tpl')
+% rebase('base.tpl', noindex=True)
 % from split.utils import price
 
 % include('heading.tpl', new_journey=True)
