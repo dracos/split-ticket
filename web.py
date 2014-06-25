@@ -204,7 +204,7 @@ def split_finished(context):
     bottle.response.set_header('Cache-Control', 'max-age=900')
     fare_total = context['fare_total']
     total = context['total']
-    if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude']:
+    if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude'] and not request.query.all:
         qs = request.query_string
         if qs: qs = '?' + qs
         typ = ''
