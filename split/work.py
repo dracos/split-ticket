@@ -3,19 +3,12 @@ import itertools
 from split import fares, times
 from split.data import data
 
-def do_split(fr, to, day, time, via, exclude='', all_opts=''):
-    context = {
-        'from': fr,
-        'to': to,
-        'day': day,
-        'time': time,
-        'via': via,
-    }
+def do_split(context):
     store = context.copy()
     store.update( data={}, station_times={} )
     context.update(
-        fr_desc = data['stations'][fr]['description'],
-        to_desc = data['stations'][to]['description'],
+        fr_desc = data['stations'][context['from']]['description'],
+        to_desc = data['stations'][context['to']]['description'],
     )
 
     store['station_times'][store['from']] = [ None, store['time'] ]
@@ -27,7 +20,7 @@ def do_split(fr, to, day, time, via, exclude='', all_opts=''):
     context['all_stops_with_depart'] = [ (s, chg, data['stations'].get(s, { 'description': s }), store['station_times'][s]) for s,chg,op in all_stops_with_changes ]
     all_stops = [ s for s,_,_ in all_stops_with_changes ]
 
-    context['exclude'] = filter(None, exclude.split(','))
+    context['exclude'] = filter(None, context['exclude'].split(','))
     for ex in [ e for e in context['exclude'] if len(e) == 3 ]:
         while ex in all_stops: all_stops.remove(ex)
 
@@ -42,8 +35,7 @@ def do_split(fr, to, day, time, via, exclude='', all_opts=''):
             Fares.excluded_routes.append(ex)
 
     context = split_journey(store, Fares, context, stop_pairs)
-    context['all'] = all_opts
-    if not all_opts:
+    if not context['all']:
         problem_routes = [ r for r in context['routes'] if r.get('problem') ]
         old_total = (0, 0)
         while problem_routes and old_total != (context['total'], context['fare_total']['fare']):

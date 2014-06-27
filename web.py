@@ -13,11 +13,14 @@ R = redis.Redis()
 from rq import Queue, Worker
 from rq.job import Job
 
+def get_job_id(context):
+    return '%(from)s/%(to)s/%(day)s/%(time)s/%(time_ret)s/%(via)s/%(exclude)s/%(all)s' % context
+
 class MyJob(Job):
     @classmethod
     def create(cls, *args, **kwargs):
         job = super(MyJob, cls).create(*args, **kwargs)
-        job.id = '/'.join(args[1])
+        job.id = get_job_id(args[1][0])
         return job
 
 class MyQueue(Queue):
@@ -88,6 +91,8 @@ def ajax():
 def home():
     if all(x in request.query and request.query[x] for x in ['from', 'to', 'time', 'day']):
         path = '/%(from)s/%(to)s/%(day)s/%(time)s' % request.query
+        if request.query.get('time_ret'):
+            path += '/%(time_ret)s' % request.query
         if request.query.get('via'):
             path += '?via=' + urllib.quote(request.query['via'])
         bottle.redirect(path)
@@ -122,15 +127,42 @@ def clean(form):
         errors['day'] = 'Please say whether you want a single, day return, or return'
     if not form.get('time') or not re.match('\d\d:\d\d', form['time']):
         errors['time'] = 'Please enter a time'
+    if form.get('time_ret') and not re.match('\d\d:\d\d', form['time_ret']):
+        errors['time_ret'] = 'Please enter a valid time'
     return errors
 
-@bottle.route('/ajax-job/<fr>/<to>/<day>/<time>')
-def split_ajax(fr, to, day, time):
-    bottle.response.set_header('Cache-Control', 'max-age=0')
+def make_url(fr=None, to=None):
+    path = request.path.split('/')
+    if fr: path[1] = fr
+    if to: path[2] = to
+    path = '/'.join(path)
+    qs = request.query_string
+    if qs: qs = '?' + qs
+    return path + qs
 
-    job_id = '/'.join((fr, to, day, time, request.query.via, request.query.exclude, request.query.all))
+def context_init(fr, to, day, time, time_ret):
+    return {
+        'from': fr,
+        'to': to,
+        'day': day,
+        'time': time,
+        'time_ret': time_ret,
+        'via': request.query.via,
+        'exclude': request.query.exclude,
+        'all': request.query.all,
+    }
+
+@bottle.route('/ajax-job/<fr>/<to>/<day>/<time>')
+def split_ajax_no_ret(fr, to, day, time):
+    return split_ajax(fr, to, day, time, '')
+
+@bottle.route('/ajax-job/<fr>/<to>/<day>/<time>/<time_ret>')
+def split_ajax(fr, to, day, time, time_ret):
+    bottle.response.set_header('Cache-Control', 'max-age=0')
+    context = context_init(fr, to, day, time, time_ret)
+
     q = MyQueue(connection=R)
-    job = q.fetch_job(job_id)
+    job = q.fetch_job(get_job_id(context))
 
     done = job and (job.is_finished or job.is_failed)
     include_me = 1 if job else 0
@@ -143,30 +175,28 @@ def split_ajax(fr, to, day, time):
     }
 
 @bottle.route('/<fr>/<to>/<day>/<time>')
-@bottle.view('please_wait')
 def split(fr, to, day, time):
-    via = request.query.get('via', '')
+    return _split(fr, to, day, time, '')
+
+@bottle.route('/<fr>/<to>/<day>/<time>/<time_ret>')
+@bottle.view('please_wait')
+def _split(fr, to, day, time, time_ret):
+    context = context_init(fr, to, day, time, time_ret)
 
     if (fr.upper() in data['stations'] and fr not in data['stations']) or (to.upper() in data['stations'] and to not in data['stations']):
-        qs = request.query_string
-        if qs: qs = '?' + qs
-        bottle.redirect('/%s/%s/%s/%s%s' % (fr.upper(), to.upper(), day, time, qs))
+        bottle.redirect(make_url(fr=fr.upper(), to=to.upper()))
 
-    errors = clean({ 'from': fr, 'to': to, 'day': day, 'time': time, 'via': via })
-    if errors:
-        return form({ 'from': fr, 'to': to, 'day': day, 'time': time, 'via': via, 'errors': errors })
+    context['errors'] = clean(context)
+    if context['errors']:
+        return form(context)
 
     if fr in data['stations_by_name'] or to in data['stations_by_name']:
         if fr in data['stations_by_name']: fr = data['stations_by_name'][fr]['code']
         if to in data['stations_by_name']: to = data['stations_by_name'][to]['code']
-        qs = request.query_string
-        if qs: qs = '?' + qs
-        bottle.redirect('/%s/%s/%s/%s%s' % (fr, to, day, time, qs))
-
-    job_id = '/'.join((fr, to, day, time, via, request.query.exclude, request.query.all))
+        bottle.redirect(make_url(fr=fr, to=to))
 
     q = MyQueue(connection=R)
-    job = q.fetch_job(job_id)
+    job = q.fetch_job(get_job_id(context))
     include_me = 0
 
     if job and (job.is_finished or job.is_failed):
@@ -176,27 +206,19 @@ def split(fr, to, day, time):
         include_me = 1
     else:
         if 'Googlebot' not in request.headers.get('User-Agent', ''):
-            job = q.enqueue('split.work.do_split', fr, to, day, time, via, request.query.exclude, request.query.all)
+            job = q.enqueue('split.work.do_split', context)
 
     bottle.response.set_header('Cache-Control', 'max-age=0')
 
     busy_workers = len([ w for w in Worker.all(connection=R) if w.get_state() == 'busy' ]) - include_me
     busy_workers += q.count
-    qs = request.query_string
-    if qs: qs = '?' + qs
-    url_job = '%s%s' % (request.path, qs)
-    context = {
-        'from': fr,
-        'to': to,
-        'day': day,
-        'time': time,
-        'via': via,
+    context.update({
         'fr_desc': data['stations'][fr]['description'],
         'to_desc': data['stations'][to]['description'],
-        'url_job': url_job,
+        'url_job': make_url(),
         'refresh': max(1, busy_workers),
         'queue_size': max(0, busy_workers),
-    }
+    })
     return context
 
 @bottle.view('result')
@@ -205,17 +227,15 @@ def split_finished(context):
     fare_total = context['fare_total']
     total = context['total']
     if fare_total['fare'] != '-' and total < fare_total['fare'] and not context['exclude'] and not request.query.all:
-        qs = request.query_string
-        if qs: qs = '?' + qs
         typ = ''
         if context['day'] == 'y':
             typ = ' for the day'
         elif context['day'] == 'n':
             typ = ' return'
-        line = u'%s to %s%s, around %s – <a href="%s%s">%s</a> instead of %s (<strong>%d%%</strong> saving)' % (
+        line = u'%s to %s%s, around %s – <a href="%s">%s</a> instead of %s (<strong>%d%%</strong> saving)' % (
 	    context['fr_desc'], context['to_desc'],
             typ, context['time'],
-            request.path, qs, utils.price(total),
+            make_url(), utils.price(total),
             utils.price(fare_total['fare']), 100-round(total/fare_total['fare']*100)
         )
         pipe = R.pipeline()

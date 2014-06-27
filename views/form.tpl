@@ -18,9 +18,13 @@
 </p>
 <p{{ !' class="error"' if errors.get('day') else '' }}>
     <label>{{ errors.get('day', 'Type of journey') }}:</label>
-    <label class="n"><input type="radio" name="day" value="s"{{ ' checked' if get('day')=='s' else '' }}> Single</label>
-    <label class="n"><input type="radio" name="day" value="y"{{ ' checked' if get('day')=='y' else '' }}> Return same day</label>
-    <label class="n"><input type="radio" name="day" value="n"{{ ' checked' if get('day')=='n' else '' }}> Return</label>
+    <label class="n"><input type="radio" class="day_single" name="day" value="s"{{ ' checked' if get('day')=='s' else '' }}> Single</label>
+    <label class="n"><input type="radio" class="day_ret" name="day" value="y"{{ ' checked' if get('day')=='y' else '' }}> Return same day</label>
+    <label class="n"><input type="radio" class="day_ret" name="day" value="n"{{ ' checked' if get('day')=='n' else '' }}> Return</label>
+</p>
+<p id="time_ret_row"{{ !' class="error"' if errors.get('time_ret') else '' }}>
+    <label for="time_ret">{{ errors.get('time_ret', 'Return at') }}: (optional)</label>
+    <input id="time_ret" type="text" name="time_ret" placeholder="hh:mm" value="{{ get('time_ret', '') }}">
 </p>
 <p align="center">
     <input type="submit" value="Search">
@@ -37,6 +41,15 @@ function search(id, placeholder) {
     });
 }
 $(function(){
+    if (!$('.day_ret:checked').length) {
+        $('#time_ret_row').hide();
+    }
+    $('.day_ret').click(function(){
+        $('#time_ret_row').slideDown();
+    });
+    $('.day_single').click(function(){
+        $('#time_ret_row').slideUp();
+    });
     search('#from');
     search('#to');
     search('#via');
