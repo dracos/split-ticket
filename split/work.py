@@ -67,6 +67,7 @@ def add_opts(fares, routes, restrictions):
             restrictions[n['id']] = n['desc']
 
 def split_journey(store, Fares, context, stop_pairs):
+    store['data'] = {}
     routes = []
     restrictions = {}
     fare_total = Fares.parse_fare(store['from'], store['to'], split_singles=False)
@@ -75,11 +76,8 @@ def split_journey(store, Fares, context, stop_pairs):
         d = store['data'][store['from']][store['to']]
         add_opts(d['obj'], routes, restrictions)
 
-    output_pairwise = []
     for pair in stop_pairs:
-        out = Fares.parse_fare(pair[0], pair[1])
-        output_pairwise.append( (pair[0], pair[1], out) )
-    context['output_pairwise'] = output_pairwise
+        Fares.parse_fare(pair[0], pair[1])
 
     nodes, total = Fares.find_cheapest()
     output_cheapest = []

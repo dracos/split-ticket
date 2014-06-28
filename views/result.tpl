@@ -116,30 +116,17 @@ on traintimes.org.uk</a> to adjust search time):</p>
 And the following return journey
 (<a href="http://traintimes.org.uk/{{ to }}/{{ get('from') }}/{{ time_ret }}/{{ 'next-tuesday' if day == 'y' else 'next-wednesday' }}{{ '?via=' + via if via else '' }}">check
 on traintimes.org.uk</a>):</p>
-% for stop in stops_ret:
+%   for stop in stops_ret:
 <div class="stop{{ ' chg' if stop.change else '' }}">
 <abbr title="{{ stop.desc }}{{ ', changing' if stop.change and stop != stops_ret[0] and stop != stops_ret[-1] else '' }}">{{ stop.code }}</abbr><br>
-% if stop.times[0] and stop.times[0] != stop.times[1]:
+%     if stop.times[0] and stop.times[0] != stop.times[1]:
 {{ stop.times[0] }}a{{ ',' if stop.times[1] else '' }}
-% end
+%     end
 {{ stop.times[1] or '' }}{{ 'd' if stop.times[1] and stop.times[0] and stop.times[0] != stop.times[1] else '' }}
 </div>
 %     if stop != stops_ret[-1]:
 <div class="stop-arrow"> &rarr; </div>
 %     end
+%   end
 % end
 </div>
-
-<p><a id='working-out-link' href='#working-out'>See the intermediate fares</a> used for the above calculation:</p>
-<ul id="working-out">
-% for pair in output_pairwise:
-<li>{{ pair[0] }}&ndash;{{ pair[1] }}, {{ price(pair[2]['fare']) }}
-<small><span class="faded">{{ !pair[2]['desc'] }}</span></small></li>
-% end
-</ul>
-<script>
-$(function(){
-    $('#working-out-link').click(function(){ $('#working-out').slideToggle(); return false; });
-    $('#working-out').hide();
-});
-</script>

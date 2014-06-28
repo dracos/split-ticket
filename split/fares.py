@@ -37,7 +37,6 @@ class Fares(object):
         self.excluded_routes = []
         self.excluded_restrictions = []
         self.restrictions = restrictions.Restriction(stops, stops_ret)
-        self.store['data'] = {}
 
     def prettify(self, s):
         s = re.sub('\w\S*', lambda txt: txt.group().title(), s)
