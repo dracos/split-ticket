@@ -98,16 +98,19 @@ def home():
         bottle.redirect(path)
     return form(request.query)
 
+def get_latest():
+    latest = R.zrevrange('split-ticket-latest', 0, -1)
+    latest = filter(None, R.hmget('split-ticket-lines', latest))
+    return latest
+
 @bottle.route('/ajax-latest')
 def ajax_latest():
-    return {
-        'latest': R.zrevrange('split-ticket-latest', 0, -1)
-    }
+    return { 'latest': get_latest() }
 
 @bottle.view('home')
 def form(context):
     context['errors'] = clean(context)
-    context['latest'] = R.zrevrange('split-ticket-latest', 0, -1)
+    context['latest'] = get_latest()
     return context
 
 def clean(form):
@@ -233,14 +236,16 @@ def split_finished(context):
         elif context['day'] == 'n':
             typ = ' return'
         line = u'%s to %s%s, around %s – <a href="%s">%s</a> instead of %s (<strong>%d%%</strong> saving)' % (
-	    context['fr_desc'], context['to_desc'],
+            context['fr_desc'], context['to_desc'],
             typ, context['time'],
             make_url(), utils.price(total),
             utils.price(fare_total['fare']), 100-round(total/fare_total['fare']*100)
         )
+        key = '%s%s' % (context['from'], context['to'])
         pipe = R.pipeline()
-        pipe.zadd( 'split-ticket-latest', line, unix_time() )
-        pipe.zremrangebyrank( 'split-ticket-latest', 0, -6 )
+        pipe.hset( 'split-ticket-lines', key, line )
+        pipe.zadd( 'split-ticket-latest', key, unix_time() )
+        pipe.zremrangebyrank( 'split-ticket-latest', 0, -11 )
         pipe.execute()
 
     return context

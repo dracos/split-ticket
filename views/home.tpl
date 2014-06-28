@@ -40,7 +40,7 @@ $(function(){
                     n = $('<li/>').html(a[i]);
                     el.prepend(n);
                     n.css({backgroundColor: '#ffc'}).animate({backgroundColor:'#fff'}, 1500);
-                    if (el.find('li').length > 5) {
+                    if (el.find('li').length > 10) {
                         el.find('li').last().remove();
                     }
                 }
