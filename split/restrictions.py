@@ -42,18 +42,14 @@ class Restriction(object):
             if s == stop:
                 found = True
 
-    def valid_journey(self, fro, to, code):
+    def valid_journey(self, fro, to, code, dir):
         if not code.strip(): return True
-        valid = self.valid_journey_out(fro, to, code)
-        if self.stops['R']:
-            valid &= self.valid_journey_ret(fro, to, code)
+        valid = True
+        if dir in ('O', 'B') or not self.stops['R']:
+            valid &= self._valid_journey(fro, to, code, 'O')
+        if dir in ('R', 'B') and self.stops['R']:
+            valid &= self._valid_journey(to, fro, code, 'R')
         return valid
-
-    def valid_journey_ret(self, fro, to, code):
-        return self._valid_journey(to, fro, code, 'R')
-
-    def valid_journey_out(self, fro, to, code):
-        return self._valid_journey(fro, to, code, 'O')
 
     def _valid_journey(self, fro, to, code, ret):
         dep = self.get_time(self.stops[ret][fro], 1)

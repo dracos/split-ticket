@@ -63,9 +63,9 @@ class Fares(object):
                 FARES[code] = None
         return FARES[code]
 
-    def get_fares(self):
-        codes_fr = self.get_codes(self.fro)
-        codes_to = self.get_codes(self.to)
+    def get_fares(self, fro, to):
+        codes_fr = self.get_codes(fro)
+        codes_to = self.get_codes(to)
 
         froms = filter(None, map(lambda x: self.get_fare_entry(x), codes_fr))
         # Fares by ROUTE because for the same route, individual flow overrides
@@ -88,7 +88,7 @@ class Fares(object):
                         desc = desc_out
                     else:
                         desc = 'Out: %s, Return: %s' % (desc_out, desc_rtn)
-                    restriction = { 'id': p[1], 'desc': desc }
+                    restriction = { 'id': p[1], 'desc': desc, 'desc_out': desc_out, 'desc_rtn': desc_rtn }
                 route = data['routes'][f['route']]
                 route['id'] = f['route']
                 fares_data.append({
@@ -100,12 +100,15 @@ class Fares(object):
                 })
         return fares_data
 
-    def fare_desc(self, s):
+    def fare_desc(self, fares):
+        out = []
+        n = len(fares)
+        for fare in fares:
+            out.append(self._fare_desc(fare, n))
+        return ' / '.join(out)
+
+    def _fare_desc(self, s, n):
         o = s['ticket']['name']
-        if 'Single' in o and self.double:
-            o += 's'
-            if 'Anytime' in o:
-                o += '<sup><a href="/about#peak-single">&dagger;</a></sup>'
         if s['route']['desc'] != 'ANY PERMITTED':
             ops = self.operators()
             rte = self.prettify(s['route']['desc'])
@@ -121,63 +124,73 @@ class Fares(object):
                 s['route']['problem'] = True
             o += ', ' + rte
         if s['restriction_code']:
-            o += ', ' + s['restriction_code']['desc']
+            desc = 'desc_out' if n>1 else 'desc'
+            o += ', ' + s['restriction_code'][desc]
             o += ' (code %s)' % s['restriction_code']['id']
-        if self.double:
-            o += u', 2 × ' + price(s['adult']['fare'])
+        if 'Single' in o:
+            o += u', ' + price(s['adult']['fare'])
         return o
 
-    def is_valid_journey(self, s):
+    def is_valid_journey(self, s, dir):
         restriction_code = s['restriction_code']['id'] if s['restriction_code'] else ''
         if restriction_code in self.excluded_restrictions:
             return False
-        return self.restrictions.valid_journey(self.fro, self.to, restriction_code)
+        return self.restrictions.valid_journey(self.fro, self.to, restriction_code, dir)
 
     def is_valid_route(self, s):
         return s['route']['id'] not in self.excluded_routes
 
     def match_returns(self, s):
-        if self.store['day'] == 's':
-            return False
         ret = re.search('SOR|GTR|SVR|G2R|SSR|OPR|SOP', s['ticket']['code'])
         if self.store['day'] == 'y':
             ret = ret or re.search('SDR|GPR|CDR|GDR|PDR|SOB|AM2|EGF|SCO|C1R|CBA|SRR|SWS', s['ticket']['code'])
-        ret = ret and self.is_valid_journey(s)
+        ret = ret and self.is_valid_journey(s, 'B')
         ret = ret and self.is_valid_route(s)
         return ret
 
-    def match_singles(self, s):
-        ret = re.search('SOS|SDS|GTS|CDS|SVS|SVH|G2S|SSS|OPS|CBB|GDS|PDS|SOA|AM1|EGS|OPD', s['ticket']['code'])
-        if self.store['day'] == 's' and s['ticket']['code'] == 'SVH':
-            return False
-        ret = ret and self.is_valid_journey(s)
+    def match_singles_out(self, s):
+        return self._match_singles(s, 'O')
+
+    def match_singles_ret(self, s):
+        return self._match_singles(s, 'R')
+
+    def _match_singles(self, s, dir):
+        ret = re.search('SOS|SDS|GTS|CDS|SVS|G2S|SSS|OPS|CBB|GDS|PDS|SOA|AM1|EGS|OPD', s['ticket']['code'])
+        ret = ret and self.is_valid_journey(s, dir)
         ret = ret and self.is_valid_route(s)
         return ret
 
-    def parse_fare(self, fro, to):
+    def parse_fare(self, fro, to, split_singles=True):
         self.fro = fro
         self.to = to
-        price_data = self.get_fares()
+        price_data_ret = price_data = self.get_fares(fro, to)
+        if self.stops_ret and split_singles:
+            price_data_ret = self.get_fares(to, fro)
 
-        returns = filter(self.match_returns, price_data)
+        best = ()
+        singles = filter(self.match_singles_out, price_data)
+        if self.store['day'] == 's':
+            for r in singles:
+                if not best or r['adult']['fare'] < best[0]['adult']['fare']:
+                    best = (r,)
+        else:
+            returns = filter(self.match_returns, price_data)
+            for r in returns:
+                if not best or r['adult']['fare'] < best[0]['adult']['fare']:
+                    best = (r,)
 
-        best = None
-        for r in returns:
-            if not best or r['adult']['fare'] < best['adult']['fare']:
-                best = r
-
-        self.double = False
-        singles = filter(self.match_singles, price_data)
-        for r in singles:
-            if not best or r['adult']['fare']*2 < best['adult']['fare']*(2 if self.double or self.store['day']=='s' else 1):
-                best = r
-                if self.store['day'] != 's':
-                    self.double = True
+            match = self.match_singles_ret if split_singles else self.match_singles_out
+            singles_ret = filter(match, price_data_ret)
+            for i in singles:
+                for j in singles_ret:
+                    curr_best_fare = sum( f['adult']['fare'] for f in best )
+                    if not best or i['adult']['fare']+j['adult']['fare'] < curr_best_fare:
+                        best = (i,j)
 
         if not best:
             return { 'fare': '-', 'obj': None, 'desc': '-' }
 
-        fare = best['adult']['fare'] * (2 if self.double else 1)
+        fare = sum( f['adult']['fare'] for f in best )
         if fro not in self.store['data']: self.store['data'][fro] = {}
         if to not in self.store['data']: self.store['data'][to] = {}
         self.store['data'][fro][to] = { 'fare': fare, 'obj': best, 'desc': self.fare_desc(best) }

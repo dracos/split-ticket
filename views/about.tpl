@@ -56,10 +56,6 @@ information on Advance quotas</a>. Also consider special tickets such as
 tweak the time to get the journey you want (e.g. from Birmingham to Edinburgh
 whether you want to try splitting along the west or east coast lines).
 
-<li id="peak-single">Different single tickets in each direction – if it offers
-you two anytime singles for a leg of the journey, do check whether e.g. you
-could actually use an off-peak single on the return journey.
-
 <li>Definitely get everything right – it is more than likely that I
 have miscoded something in my parsing of the national fares and timetable
 databases, or misunderstood something in how ticket restrictions work. It has

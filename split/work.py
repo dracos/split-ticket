@@ -57,19 +57,23 @@ def do_split(context):
 
     return context
 
+def add_opts(fares, routes, restrictions):
+    for fare in fares:
+        if fare['route']['desc'] != 'ANY PERMITTED':
+            n = fare['route']
+            if n not in routes: routes.append(n)
+        if fare['restriction_code']:
+            n = fare['restriction_code']
+            restrictions[n['id']] = n['desc']
+
 def split_journey(store, Fares, context, stop_pairs):
     routes = []
     restrictions = {}
-    fare_total = Fares.parse_fare(store['from'], store['to'])
+    fare_total = Fares.parse_fare(store['from'], store['to'], split_singles=False)
     context['fare_total'] = fare_total
     if fare_total['fare'] != '-':
         d = store['data'][store['from']][store['to']]
-        if d['obj']['route']['desc'] != 'ANY PERMITTED':
-            n = d['obj']['route']
-            if n not in routes: routes.append(n)
-        if d['obj']['restriction_code']:
-            n = d['obj']['restriction_code']
-            restrictions[n['id']] = n['desc']
+        add_opts(d['obj'], routes, restrictions)
 
     output_pairwise = []
     for pair in stop_pairs:
@@ -84,12 +88,7 @@ def split_journey(store, Fares, context, stop_pairs):
             data['stations'][f]['description'],
             data['stations'][t]['description'], d
         ) )
-        if d['obj']['route']['desc'] != 'ANY PERMITTED':
-            n = d['obj']['route']
-            if n not in routes: routes.append(n)
-        if d['obj']['restriction_code']:
-            n = d['obj']['restriction_code']
-            restrictions[n['id']] = n['desc']
+        add_opts(d['obj'], routes, restrictions)
 
     context['output_cheapest'] = output_cheapest
     context['total'] = total
