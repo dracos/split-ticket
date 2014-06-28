@@ -127,7 +127,7 @@ class Fares(object):
             desc = 'desc_out' if n>1 else 'desc'
             o += ', ' + s['restriction_code'][desc]
             o += ' (code %s)' % s['restriction_code']['id']
-        if 'Single' in o:
+        if 'Single' in o and n>1:
             o += u', ' + price(s['adult']['fare'])
         return o
 
