@@ -36,7 +36,7 @@ data = {}
 for row in loop(fare_file('RST')):
     record_type, cf_mkr = row[0:2], row[2]
 
-    if cf_mkr == 'C': continue
+    if cf_mkr == 'F': continue
     if record_type in ('TP', 'TE', 'SP', 'SE'): continue
     if record_type in ('RD',): continue
     if record_type in ('CA', 'EC', 'RR'): continue

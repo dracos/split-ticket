@@ -23,7 +23,7 @@ TRAINS = set()
 for row in loop(fare_file('RST')):
     record_type, cf_mkr = row[0:2], row[2]
 
-    if cf_mkr == 'C': continue
+    if cf_mkr == 'F': continue
     if record_type != 'SR': continue
     row = unpack(row[3:], *lookups[record_type])
     TRAINS.add(row['id'])

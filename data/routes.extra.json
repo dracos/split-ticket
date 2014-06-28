@@ -32,6 +32,7 @@
   "00085": { "operator": [ "TP" ] },
   "00127": { "operator": [ "SW" ] },
   "00200": { "I": [ "BFR", "CST", "CHX", "CTK", "EUS", "FST", "KGX", "LST", "LBG", "MYB", "MOG", "OLD", "PAD", "STP", "VXH", "VIC", "WAT", "WAE" ] },
+  "00305": { "I": [ "HWY" ] },
   "00371": { "operator": [ "AW", "LM" ] },
   "00472": { "operator": [ "EM" ] },
   "00474": { "operator": [ "VT" ] },
