@@ -25,6 +25,9 @@
 <p id="time_ret_row"{{ !' class="error"' if errors.get('time_ret') else '' }}>
     <label for="time_ret">{{ errors.get('time_ret', 'Return at') }}: (optional)</label>
     <input id="time_ret" type="text" name="time_ret" placeholder="hh:mm" value="{{ get('time_ret', '') }}">
+<br><small>(Providing a return time means I can take account of return time
+restrictions and what stations the return journey calls at, but may give you a
+dearer option.)</small>
 </p>
 <p align="center">
     <input type="submit" value="Search">

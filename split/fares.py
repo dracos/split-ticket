@@ -30,13 +30,14 @@ for name, types in TICKET_BY_TYPE.items():
 FARES = {}
 
 class Fares(object):
-    def __init__(self, store):
+    def __init__(self, store, stops, stops_ret):
         self.store = store
-        self.data = data
+        self.stops = stops
+        self.stops_ret = stops_ret
         self.excluded_routes = []
         self.excluded_restrictions = []
-
-        self.restrictions = restrictions.Restriction(self.store['stops'])
+        self.restrictions = restrictions.Restriction(stops, stops_ret)
+        self.store['data'] = {}
 
     def prettify(self, s):
         s = re.sub('\w\S*', lambda txt: txt.group().title(), s)
@@ -44,11 +45,11 @@ class Fares(object):
 
     def get_codes(self, stn):
         # Return in this order so that override will function
-        if stn not in self.data['stations']: return []
-        stn = self.data['stations'][stn]
+        if stn not in data['stations']: return []
+        stn = data['stations'][stn]
         stn_codes = []
-        stn_codes += self.data['clusters'].get(stn.get('fare_group'), [])
-        stn_codes += self.data['clusters'].get(stn['code'], [])
+        stn_codes += data['clusters'].get(stn.get('fare_group'), [])
+        stn_codes += data['clusters'].get(stn['code'], [])
         stn_codes += [ stn['fare_group'] ] if 'fare_group' in stn else []
         stn_codes += [ stn['code'] ]
         return stn_codes
@@ -76,28 +77,28 @@ class Fares(object):
                 for p in m:
                     fares[p['route']] = p
 
-        data = []
+        fares_data = []
         for f in fares.values():
             for t, p in f['prices'].items():
                 restriction = None
                 if p[1]:
-                    desc_out = self.data['restrictions'][p[1]]['info']['desc_out'].title()
-                    desc_rtn = self.data['restrictions'][p[1]]['info']['desc_rtn'].title()
+                    desc_out = data['restrictions'][p[1]]['info']['desc_out'].title()
+                    desc_rtn = data['restrictions'][p[1]]['info']['desc_rtn'].title()
                     if desc_out == desc_rtn:
                         desc = desc_out
                     else:
                         desc = 'Out: %s, Return: %s' % (desc_out, desc_rtn)
                     restriction = { 'id': p[1], 'desc': desc }
-                route = self.data['routes'][f['route']]
+                route = data['routes'][f['route']]
                 route['id'] = f['route']
-                data.append({
+                fares_data.append({
                     'toc': f.get('toc'),
                     'route': route,
                     'ticket': { 'code': t, 'name': TICKET_NAMES[t] },
                     'adult': { 'fare': int(p[0]) },
                     'restriction_code': restriction,
                 })
-        return data
+        return fares_data
 
     def fare_desc(self, s):
         o = s['ticket']['name']
@@ -108,9 +109,9 @@ class Fares(object):
         if s['route']['desc'] != 'ANY PERMITTED':
             ops = self.operators()
             rte = self.prettify(s['route']['desc'])
-            extra = self.data['routes'][s['route']['id']].get('operator')
+            extra = data['routes'][s['route']['id']].get('operator')
             if extra and ops != set(extra):
-                ops = map(lambda x: self.data['tocs'].get(x, x), ops)
+                ops = map(lambda x: data['tocs'].get(x, x), ops)
                 rte = '<strong>' + rte + '</strong> (train is %s)' % '/'.join(ops)
                 s['route']['problem'] = True
             ibs = set([ i.code for i in self.inbetween_stops() ]) | set((self.fro,))
@@ -213,7 +214,7 @@ class Fares(object):
     def inbetween_stops(self):
         stops = []
         started = False
-        for stop in self.store['stops']:
+        for stop in self.stops:
             if stop.code == self.fro:
                 started = True
                 continue

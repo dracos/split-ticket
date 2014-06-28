@@ -17,6 +17,12 @@ class Stop(object):
         except:
             self.desc = code
 
+    def __repr__(self):
+        return '%s %s %s %s' % (self.code, self.times, self.change, self.operator)
+
+    def __eq__(self, other):
+        return self.code == other.code
+
 class Times(object):
     def __init__(self, stops, station_times):
         self.stops = []
@@ -40,11 +46,24 @@ class Times(object):
         else:
             return self.by_stop[stop]
 
-def find_stopping_points(context):
+def find_stopping_points(context, ret=False):
+    if ret:
+        fr = context['to']
+        to = context['from']
+        time = context['time_ret']
+    else:
+        fr = context['from']
+        to = context['to']
+        time = context['time']
+
     station_times = {
-        context['from']: [ None, context['time'] ]
+        fr: [ None, time ]
     }
-    url = 'http://traintimes.org.uk/' + urllib.quote(context['from']) + '/' + urllib.quote(context['to']) + '/' + context['time'] + '/next+tuesday'
+    url = 'http://traintimes.org.uk/' + urllib.quote(fr) + '/' + urllib.quote(to) + '/' + time
+    if ret and context['day'] == 'n':
+        url += '/next-wednesday'
+    else:
+        url += '/next-tuesday'
     if context['via']:
         url += '?via=' + urllib.quote(context['via'])
     for i in range(0,2):
@@ -58,8 +77,8 @@ def find_stopping_points(context):
         res1 = m.group()
         m = re.search('<strong>.*?(\d\d:\d\d) &ndash; (\d\d:\d\d)', res1)
         if m:
-            station_times[context['from']] = [ None, m.group(1) ]
-            station_times[context['to']] = [ m.group(2), None ]
+            station_times[fr] = [ None, m.group(1) ]
+            station_times[to] = [ m.group(2), None ]
         m = re.findall('<td>(\d\d:\d\d)</td>\s*<td class="origin">.*?<abbr>([A-Z]{3})[\s\S]*?<td class="destination">.*?<abbr>([A-Z]{3})[\s\S]*?<td>(\d\d:\d\d)', res1)
         for q in m:
             if q[2] not in station_times: station_times[q[2]] = [ None, None ]
@@ -91,6 +110,6 @@ def find_stopping_points(context):
     for i in ints['parsed']:
         station_times[i] = ints['parsed'][i]
 
-    all_stops = [ (context['from'], True, None) ] + stops
+    all_stops = [ (fr, True, None) ] + stops
 
     return Times(all_stops, station_times)

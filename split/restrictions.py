@@ -12,19 +12,19 @@ class SingleRestriction(object):
         return resp
 
 class Restriction(object):
-    def __init__(self, stops):
-        self.stops = stops
+    def __init__(self, stops, stops_ret):
+        self.stops = { 'O': stops, 'R': stops_ret }
 
     def get_time(self, stop, dir):
         t = stop.times[dir]
         if t: t = t.replace(':', '')
         return t
 
-    def considered_stops(self, fro, to):
+    def considered_stops(self, fro, to, dir):
         """Origin, destination, and anywhere we change"""
         stops = []
         started = False
-        for stop in self.stops:
+        for stop in self.stops[dir]:
             chg = stop.change
             if stop.code == fro or stop.code == to:
                 started = chg = True
@@ -34,9 +34,9 @@ class Restriction(object):
                 break
         return stops
 
-    def next_stop(self, stop):
+    def next_stop(self, stop, dir):
         found = False
-        for s in self.stops:
+        for s in self.stops[dir]:
             if found == True:
                 return s
             if s == stop:
@@ -44,14 +44,25 @@ class Restriction(object):
 
     def valid_journey(self, fro, to, code):
         if not code.strip(): return True
+        valid = self.valid_journey_out(fro, to, code)
+        if self.stops['R']:
+            valid &= self.valid_journey_ret(fro, to, code)
+        return valid
 
-        dep = self.get_time(self.stops[fro], 1)
-        arr = self.get_time(self.stops[to], 0)
+    def valid_journey_ret(self, fro, to, code):
+        return self._valid_journey(to, fro, code, 'R')
+
+    def valid_journey_out(self, fro, to, code):
+        return self._valid_journey(fro, to, code, 'O')
+
+    def _valid_journey(self, fro, to, code, ret):
+        dep = self.get_time(self.stops[ret][fro], 1)
+        arr = self.get_time(self.stops[ret][to], 0)
 
         restrictions = data['restrictions']
         if 'trains' in restrictions[code] and restrictions[code]['info']['type_out'] == 'P':
             trains = restrictions[code]['trains']
-            trains = ( train['id'] for train in trains if train['dir'] == 'O' )
+            trains = ( train['id'] for train in trains if train['dir'] == ret )
             trains = ( train for train in trains if train in data['trains'] )
             for train in trains:
                 if train not in data['trains']: continue
@@ -63,8 +74,8 @@ class Restriction(object):
         if 'times' in restrictions[code]:
             restriction = SingleRestriction(restrictions[code]['times'])
             all_restriction = restriction.lookup("")
-            for stop in self.considered_stops(fro, to):
-                stop_next = self.next_stop(stop)
+            for stop in self.considered_stops(fro, to, ret):
+                stop_next = self.next_stop(stop, ret)
                 stop_arr = self.get_time(stop, 0)
                 stop_dep = self.get_time(stop, 1)
                 for a in restriction.lookup(stop.code) + all_restriction:
@@ -73,7 +84,7 @@ class Restriction(object):
 
         if 'trains' in restrictions[code] and restrictions[code]['info']['type_out'] == 'N':
             trains = restrictions[code]['trains']
-            trains = ( train['id'] for train in trains if train['dir'] == 'O' )
+            trains = ( train['id'] for train in trains if train['dir'] == ret )
             trains = ( train for train in trains if train in data['trains'] )
             for train in trains:
                 if train not in data['trains']: continue

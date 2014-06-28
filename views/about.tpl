@@ -52,17 +52,13 @@ href="http://www.railforums.co.uk/showpost.php?p=1179552&postcount=7">more
 information on Advance quotas</a>. Also consider special tickets such as
 <a href="http://megatrain.com/">MegaTrain</a>.
 
-<li>Journeys other than the one given for the time specified. You may need to
+<li>Journeys other than the ones given for the time specified. You may well need to
 tweak the time to get the journey you want (e.g. from Birmingham to Edinburgh
 whether you want to try splitting along the west or east coast lines).
 
 <li id="peak-single">Different single tickets in each direction – if it offers
 you two anytime singles for a leg of the journey, do check whether e.g. you
 could actually use an off-peak single on the return journey.
-
-<li>More generally, the time restrictions of your return journey – I thought it
-simplest to deal with the morning restrictions, and then leave it to you to
-check your return requirements based upon that.
 
 <li>Definitely get everything right – it is more than likely that I
 have miscoded something in my parsing of the national fares and timetable
@@ -77,18 +73,6 @@ the final destination of a train you travel on, even if you get off before then
 – this appears to mostly apply to restrictions that are of the form "valid on
 trains arriving London Marylebone after 13:00" which means the site may give
 you e.g. a Super Off-peak Return for a time that it's not valid, sorry.
-
-<li><s>One type of thing it doesn't understand is e.g. the Via Hereford routing.
-This is encoded in the fares database as a route which must exclude Gloucester.
-So two things, I don't understand why it's not encoded in the database as, umm,
-a route which must include Hereford, and I don't understand how it knows not to
-allow journeys that e.g. go BHM-CNM-BPW-&hellip; without passing Gloucester.
-This means that in this instance, looking up e.g. Aberystwyth to Taunton will
-show you a via Hereford ticket first off, because it doesn't realise it should
-exclude it...  Enlightenment welcome as to where I have messed up!</s>
-Correct information for this is in the National Routeing Guide, which I don't have.
-I've added some restrictions, I'll manually add any incorrect restrictions you
-come across, just get in touch.
 
 </ul>
 

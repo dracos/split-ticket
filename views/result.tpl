@@ -42,8 +42,15 @@ cheapest.</p>
 <div class="results-text">
 
 <p>The above may not be the best route, and may not be valid (I might not have
-understood a particular restriction). I also don’t account for return times, so
-you may need to adjust if you’re returning in a peak period.
+understood a particular restriction).
+% if time_ret:
+Adjusting your times may give cheaper results,
+as different trains stop at different stations
+offering different splitting options.
+% else:
+It doesn’t account for return times, so you may need to adjust the result if
+you’re returning in a peak period.
+% end
 
 % if routes:
 
@@ -69,8 +76,8 @@ below:</p>
 <p>Don’t try and split at a particular station (if e.g. you
 know return trains are unlikely to stop there):
 <ul>
-% for i, stop in enumerate(stops):
-%   if i == 0 or i == len(stops)-1 or stop.code in exclude:
+% for i, stop in enumerate(stops_joint):
+%   if i == 0 or i == len(stops_joint)-1:
 %     continue
 %   end
 <li><a href="?{{ 'all=1;' if all else '' }}{{ 'via=' + via + ';' if via else '' }}exclude={{ ','.join(set(exclude + [ stop.code ])) }}">Exclude {{ stop.desc }}</a>
@@ -100,6 +107,24 @@ on traintimes.org.uk</a> to adjust search time):</p>
 {{ stop.times[1] or '' }}{{ 'd' if stop.times[1] and stop.times[0] and stop.times[0] != stop.times[1] else '' }}
 </div>
 %     if stop != stops[-1]:
+<div class="stop-arrow"> &rarr; </div>
+%     end
+% end
+
+% if time_ret:
+<br clear="both">
+And the following return journey
+(<a href="http://traintimes.org.uk/{{ to }}/{{ get('from') }}/{{ time_ret }}/{{ 'next-tuesday' if day == 'y' else 'next-wednesday' }}{{ '?via=' + via if via else '' }}">check
+on traintimes.org.uk</a>):</p>
+% for stop in stops_ret:
+<div class="stop{{ ' chg' if stop.change else '' }}">
+<abbr title="{{ stop.desc }}{{ ', changing' if stop.change and stop != stops_ret[0] and stop != stops_ret[-1] else '' }}">{{ stop.code }}</abbr><br>
+% if stop.times[0] and stop.times[0] != stop.times[1]:
+{{ stop.times[0] }}a{{ ',' if stop.times[1] else '' }}
+% end
+{{ stop.times[1] or '' }}{{ 'd' if stop.times[1] and stop.times[0] and stop.times[0] != stop.times[1] else '' }}
+</div>
+%     if stop != stops_ret[-1]:
 <div class="stop-arrow"> &rarr; </div>
 %     end
 % end
