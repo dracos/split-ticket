@@ -4,11 +4,49 @@ import urllib
 import requests
 
 from . import utils
+from .data import data
 
-def find_stopping_points(store):
-    url = 'http://traintimes.org.uk/' + urllib.quote(store['from']) + '/' + urllib.quote(store['to']) + '/' + store['time'] + '/next+tuesday'
-    if store['via']:
-        url += '?via=' + urllib.quote(store['via'])
+class Stop(object):
+    def __init__(self, code, chg, op, times):
+        self.code = code
+        self.change = chg
+        self.operator = op
+        self.times = times
+        try:
+            self.desc = data['stations'][code]['description']
+        except:
+            self.desc = code
+
+class Times(object):
+    def __init__(self, stops, station_times):
+        self.stops = []
+        self.by_stop = {}
+        for code, chg, op in stops:
+            times = station_times.get(code)
+            stop = Stop(code, chg, op, times)
+            self.by_stop[code] = stop
+            self.stops.append(stop)
+
+    def __iter__(self):
+        for stop in self.stops:
+            yield(stop)
+
+    def __len__(self):
+        return len(self.stops)
+
+    def __getitem__(self, stop):
+        if isinstance(stop, int):
+            return self.stops[stop]
+        else:
+            return self.by_stop[stop]
+
+def find_stopping_points(context):
+    station_times = {
+        context['from']: [ None, context['time'] ]
+    }
+    url = 'http://traintimes.org.uk/' + urllib.quote(context['from']) + '/' + urllib.quote(context['to']) + '/' + context['time'] + '/next+tuesday'
+    if context['via']:
+        url += '?via=' + urllib.quote(context['via'])
     for i in range(0,2):
         stops = utils.fetch(url)
         if 'result0' in stops:
@@ -20,14 +58,14 @@ def find_stopping_points(store):
         res1 = m.group()
         m = re.search('<strong>.*?(\d\d:\d\d) &ndash; (\d\d:\d\d)', res1)
         if m:
-            store['station_times'][store['from']] = [ None, m.group(1) ]
-            store['station_times'][store['to']] = [ m.group(2), None ]
+            station_times[context['from']] = [ None, m.group(1) ]
+            station_times[context['to']] = [ m.group(2), None ]
         m = re.findall('<td>(\d\d:\d\d)</td>\s*<td class="origin">.*?<abbr>([A-Z]{3})[\s\S]*?<td class="destination">.*?<abbr>([A-Z]{3})[\s\S]*?<td>(\d\d:\d\d)', res1)
         for q in m:
-            if q[2] not in store['station_times']: store['station_times'][q[2]] = [ None, None ]
-            store['station_times'][q[2]][0] = q[3]
-            if q[1] not in store['station_times']: store['station_times'][q[1]] = [ None, None ]
-            store['station_times'][q[1]][1] = q[0]
+            if q[2] not in station_times: station_times[q[2]] = [ None, None ]
+            station_times[q[2]][0] = q[3]
+            if q[1] not in station_times: station_times[q[1]] = [ None, None ]
+            station_times[q[1]][1] = q[0]
 
     m = re.search('<a[^>]*href="(/ajax-stoppingpoints[^"]*)">stops(?i)', stops)
     if not m:
@@ -51,7 +89,8 @@ def find_stopping_points(store):
         c += 1
 
     for i in ints['parsed']:
-        store['station_times'][i] = ints['parsed'][i]
+        station_times[i] = ints['parsed'][i]
 
-    all_stops = [ (store['from'], True, None) ] + stops
-    return all_stops
+    all_stops = [ (context['from'], True, None) ] + stops
+
+    return Times(all_stops, station_times)

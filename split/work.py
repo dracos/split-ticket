@@ -4,27 +4,27 @@ from split import fares, times
 from split.data import data
 
 def do_split(context):
-    store = context.copy()
-    store.update( data={}, station_times={} )
     context.update(
         fr_desc = data['stations'][context['from']]['description'],
         to_desc = data['stations'][context['to']]['description'],
     )
 
-    store['station_times'][store['from']] = [ None, store['time'] ]
-    all_stops_with_changes = times.find_stopping_points(store)
-    if not all_stops_with_changes:
+    stops = times.find_stopping_points(context)
+    if not stops:
         context.update( error = True )
         return context
-    store['all_stops'] = all_stops_with_changes
-    context['all_stops_with_depart'] = [ (s, chg, data['stations'].get(s, { 'description': s }), store['station_times'][s]) for s,chg,op in all_stops_with_changes ]
-    all_stops = [ s for s,_,_ in all_stops_with_changes ]
+    context['stops'] = stops
+
+    store = context.copy()
 
     context['exclude'] = filter(None, context['exclude'].split(','))
-    for ex in [ e for e in context['exclude'] if len(e) == 3 ]:
-        while ex in all_stops: all_stops.remove(ex)
 
-    stop_pairs = itertools.combinations(all_stops, 2)
+    # Make a copy of the stops, to potentially exclude some
+    stops = [ s.code for s in stops ]
+    for ex in [ e for e in context['exclude'] if len(e) == 3 ]:
+        while ex in stops: stops.remove(ex)
+
+    stop_pairs = itertools.combinations(stops, 2)
     stop_pairs = filter(lambda x: x[0] != store['from'] or x[1] != store['to'], stop_pairs)
     Fares = fares.Fares(store)
 
@@ -34,6 +34,7 @@ def do_split(context):
         else:
             Fares.excluded_routes.append(ex)
 
+    store['data'] = {}
     context = split_journey(store, Fares, context, stop_pairs)
     if not context['all']:
         problem_routes = [ r for r in context['routes'] if r.get('problem') ]

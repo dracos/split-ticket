@@ -36,6 +36,8 @@ class Fares(object):
         self.excluded_routes = []
         self.excluded_restrictions = []
 
+        self.restrictions = restrictions.Restriction(self.store['stops'])
+
     def prettify(self, s):
         s = re.sub('\w\S*', lambda txt: txt.group().title(), s)
         return s
@@ -111,7 +113,7 @@ class Fares(object):
                 ops = map(lambda x: self.data['tocs'].get(x, x), ops)
                 rte = '<strong>' + rte + '</strong> (train is %s)' % '/'.join(ops)
                 s['route']['problem'] = True
-            ibs = set([ i[0] for i in self.inbetween_stops() ]) | set(self.fro)
+            ibs = set([ i.code for i in self.inbetween_stops() ]) | set((self.fro,))
             if ('E' in s['route'] and set(s['route']['E']) & ibs) or \
                ('I' in s['route'] and not set(s['route']['I']) & ibs):
                 rte = '<strong>' + rte + '</strong> (station requirement not met)'
@@ -128,13 +130,7 @@ class Fares(object):
         restriction_code = s['restriction_code']['id'] if s['restriction_code'] else ''
         if restriction_code in self.excluded_restrictions:
             return False
-        return restrictions.valid_journey(
-            self.data['restrictions'],
-            self.fro, self.to,
-            self.store['all_stops'],
-            self.store['station_times'],
-            restriction_code
-        )
+        return self.restrictions.valid_journey(self.fro, self.to, restriction_code)
 
     def is_valid_route(self, s):
         return s['route']['id'] not in self.excluded_routes
@@ -217,17 +213,17 @@ class Fares(object):
     def inbetween_stops(self):
         stops = []
         started = False
-        for stop, chg, op in self.store['all_stops']:
-            if stop == self.fro:
+        for stop in self.store['stops']:
+            if stop.code == self.fro:
                 started = True
                 continue
             if started:
-                stops.append((stop, chg, op))
-            if stop == self.to:
+                stops.append(stop)
+            if stop.code == self.to:
                 started = False
         return stops
 
     def operators(self):
         stops = self.inbetween_stops()
-        stops = ( s[2] for s in stops if s[2] is not None )
+        stops = ( s.operator for s in stops if s.operator is not None )
         return set(stops)

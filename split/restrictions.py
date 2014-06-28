@@ -1,40 +1,8 @@
-import json
-import os
 import re
 
 from split.data import data
 
-def considered_stops(all_stops, fro, to):
-    """Origin, destination, and anywhere we change"""
-    stops = []
-    started = False
-    for stop, chg, op in all_stops:
-        if stop == fro or stop == to:
-            started = chg = True
-        if started and chg:
-            stops.append((stop, op))
-        if stop == to:
-            break
-    return stops
-
-def next_op(all_stops, stop):
-    found = False
-    for s in all_stops:
-        if found == True:
-            return s[2]
-        if s[0] == stop:
-            found = True
-
-class Times(object):
-    def __init__(self, station_times):
-        self.station_times = station_times
-
-    def get_time(self, s, dir):
-        t = self.station_times[s][dir]
-        if t: t = t.replace(':', '')
-        return t
-
-class Restriction(object):
+class SingleRestriction(object):
     def __init__(self, restriction):
         self.restriction = restriction
 
@@ -43,44 +11,75 @@ class Restriction(object):
         resp = [ v for k,v in resp.items() if not re.search('R$', k) ]
         return resp
 
-def valid_journey(restrictions, fro, to, all_stops, station_times, code):
-    if not code.strip(): return True
+class Restriction(object):
+    def __init__(self, stops):
+        self.stops = stops
 
-    times = Times(station_times)
-    dep = times.get_time(fro, 1)
-    arr = times.get_time(to, 0)
+    def get_time(self, stop, dir):
+        t = stop.times[dir]
+        if t: t = t.replace(':', '')
+        return t
 
-    if 'trains' in restrictions[code] and restrictions[code]['info']['type_out'] == 'P':
-        trains = restrictions[code]['trains']
-        trains = ( train['id'] for train in trains if train['dir'] == 'O' )
-        trains = ( train for train in trains if train in data['trains'] )
-        for train in trains:
-            if train not in data['trains']: continue
-            if 'stops' not in data['trains'][train]: continue
-            journey = data['trains'][train]['stops']
-            if fro in journey and to in journey and journey[fro][1] == dep and journey[to][0] == arr:
-                return True
+    def considered_stops(self, fro, to):
+        """Origin, destination, and anywhere we change"""
+        stops = []
+        started = False
+        for stop in self.stops:
+            chg = stop.change
+            if stop.code == fro or stop.code == to:
+                started = chg = True
+            if started and chg:
+                stops.append(stop)
+            if stop.code == to:
+                break
+        return stops
 
-    if 'times' in restrictions[code]:
-        restriction = Restriction(restrictions[code]['times'])
-        all_restriction = restriction.lookup("")
-        for stop, op in considered_stops(all_stops, fro, to):
-            op_next = next_op(all_stops, stop)
-            stop_arr = times.get_time(stop, 0)
-            stop_dep = times.get_time(stop, 1)
-            for a in restriction.lookup(stop) + all_restriction:
-                if a['adv'] == 'D' and stop_dep >= a['f'] and stop_dep <= a['t'] and ('tocs' not in a or op_next in a['tocs']): return False
-                if a['adv'] == 'A' and stop_arr >= a['f'] and stop_arr <= a['t'] and ('tocs' not in a or op in a['tocs']): return False
+    def next_stop(self, stop):
+        found = False
+        for s in self.stops:
+            if found == True:
+                return s
+            if s == stop:
+                found = True
 
-    if 'trains' in restrictions[code] and restrictions[code]['info']['type_out'] == 'N':
-        trains = restrictions[code]['trains']
-        trains = ( train['id'] for train in trains if train['dir'] == 'O' )
-        trains = ( train for train in trains if train in data['trains'] )
-        for train in trains:
-            if train not in data['trains']: continue
-            if 'stops' not in data['trains'][train]: continue
-            journey = data['trains'][train]['stops']
-            if fro in journey and to in journey and journey[fro][1] == dep and journey[to][0] == arr:
-                return False
+    def valid_journey(self, fro, to, code):
+        if not code.strip(): return True
 
-    return True
+        dep = self.get_time(self.stops[fro], 1)
+        arr = self.get_time(self.stops[to], 0)
+
+        restrictions = data['restrictions']
+        if 'trains' in restrictions[code] and restrictions[code]['info']['type_out'] == 'P':
+            trains = restrictions[code]['trains']
+            trains = ( train['id'] for train in trains if train['dir'] == 'O' )
+            trains = ( train for train in trains if train in data['trains'] )
+            for train in trains:
+                if train not in data['trains']: continue
+                if 'stops' not in data['trains'][train]: continue
+                journey = data['trains'][train]['stops']
+                if fro in journey and to in journey and journey[fro][1] == dep and journey[to][0] == arr:
+                    return True
+
+        if 'times' in restrictions[code]:
+            restriction = SingleRestriction(restrictions[code]['times'])
+            all_restriction = restriction.lookup("")
+            for stop in self.considered_stops(fro, to):
+                stop_next = self.next_stop(stop)
+                stop_arr = self.get_time(stop, 0)
+                stop_dep = self.get_time(stop, 1)
+                for a in restriction.lookup(stop.code) + all_restriction:
+                    if a['adv'] == 'D' and stop_dep >= a['f'] and stop_dep <= a['t'] and ('tocs' not in a or stop_next.operator in a['tocs']): return False
+                    if a['adv'] == 'A' and stop_arr >= a['f'] and stop_arr <= a['t'] and ('tocs' not in a or stop.operator in a['tocs']): return False
+
+        if 'trains' in restrictions[code] and restrictions[code]['info']['type_out'] == 'N':
+            trains = restrictions[code]['trains']
+            trains = ( train['id'] for train in trains if train['dir'] == 'O' )
+            trains = ( train for train in trains if train in data['trains'] )
+            for train in trains:
+                if train not in data['trains']: continue
+                if 'stops' not in data['trains'][train]: continue
+                journey = data['trains'][train]['stops']
+                if fro in journey and to in journey and journey[fro][1] == dep and journey[to][0] == arr:
+                    return False
+
+        return True

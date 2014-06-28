@@ -69,12 +69,11 @@ below:</p>
 <p>Don’t try and split at a particular station (if e.g. you
 know return trains are unlikely to stop there):
 <ul>
-% for i, row in enumerate(all_stops_with_depart):
-%   code, chg, stop, times = row
-%   if i == 0 or i == len(all_stops_with_depart)-1 or code in exclude:
+% for i, stop in enumerate(stops):
+%   if i == 0 or i == len(stops)-1 or stop.code in exclude:
 %     continue
 %   end
-<li><a href="?{{ 'all=1;' if all else '' }}{{ 'via=' + via + ';' if via else '' }}exclude={{ ','.join(set(exclude + [ code ])) }}">Exclude {{ stop['description'] }}</a>
+<li><a href="?{{ 'all=1;' if all else '' }}{{ 'via=' + via + ';' if via else '' }}exclude={{ ','.join(set(exclude + [ stop.code ])) }}">Exclude {{ stop.desc }}</a>
 % end
 </ul>
 
@@ -92,15 +91,15 @@ to be valid. Check your tickets and their restrictions!
 <p>I considered the following journey
 (<a href="http://traintimes.org.uk/{{ get('from') }}/{{ to }}/{{ time }}/next-tuesday{{ '?via=' + via if via else '' }}">check
 on traintimes.org.uk</a> to adjust search time):</p>
-% for code, chg, stop, times in all_stops_with_depart:
-<div class="stop{{ ' chg' if chg else '' }}">
-<abbr title="{{ stop['description'] }}{{ ', changing' if chg and stop != all_stops_with_depart[0][2] and stop != all_stops_with_depart[-1][2] else '' }}">{{ code }}</abbr><br>
-% if times[0] and times[0] != times[1]:
-{{ times[0] }}a{{ ',' if times[1] else '' }}
+% for stop in stops:
+<div class="stop{{ ' chg' if stop.change else '' }}">
+<abbr title="{{ stop.desc }}{{ ', changing' if stop.change and stop != stops[0] and stop != stops[-1] else '' }}">{{ stop.code }}</abbr><br>
+% if stop.times[0] and stop.times[0] != stop.times[1]:
+{{ stop.times[0] }}a{{ ',' if stop.times[1] else '' }}
 % end
-{{ times[1] or '' }}{{ 'd' if times[1] and times[0] and times[0] != times[1] else '' }}
+{{ stop.times[1] or '' }}{{ 'd' if stop.times[1] and stop.times[0] and stop.times[0] != stop.times[1] else '' }}
 </div>
-%     if stop != all_stops_with_depart[-1][2]:
+%     if stop != stops[-1]:
 <div class="stop-arrow"> &rarr; </div>
 %     end
 % end
