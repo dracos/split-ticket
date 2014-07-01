@@ -66,9 +66,15 @@ what it says, do let me know.
 
 <li>One thing it doesn't understand is that time restrictions also apply to
 the final destination of a train you travel on, even if you get off before then
-– this appears to mostly apply to restrictions that are of the form "valid on
-trains arriving London Marylebone after 13:00" which means the site may give
+– this appears to mostly apply to restrictions that are of the form “valid on
+trains arriving London Marylebone after 13:00” which means the site may give
 you e.g. a Super Off-peak Return for a time that it's not valid, sorry.
+
+<li id="passing-through">As it only goes on stations stopped at, it may not
+by default give you e.g. a “via High Wycombe” ticket for a train that passes
+through (but doesn’t stop at) High Wycombe, though that ticket would be
+perfectly valid. The ticket will show up as normal if you view all tickets
+starting with the cheapest.
 
 </ul>
 

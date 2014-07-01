@@ -6,9 +6,10 @@
 <div class="results">
 
 % if get('skipped_problem_routes') and not exclude and total >= fare_total['fare']:
-<p class="info">I also found cheaper options, that involve you taking a
-different route. <a href="?{{ 'via=' + via + ';' if via else '' }}all=1">See all options</a>, starting with the
-cheapest.</p>
+<p class="info">I also found cheaper options, that <em>might</em> (but might
+not) involve you taking a different route.
+<a href="?{{ 'via=' + via + ';' if via else '' }}all=1">See all options</a>,
+starting with the cheapest.</p>
 % end
 
 % if fare_total['fare'] == '-':
@@ -22,9 +23,10 @@ cheapest.</p>
 <p class="imp">But I&rsquo;ve found the same journey for&hellip; <strong>{{ price(total) }}</strong></p>
 
 % if get('skipped_problem_routes') and not exclude:
-<p class="info">I also found cheaper options, that involve you taking a
-different route. <a href="?{{ 'via=' + via + ';' if via else '' }}all=1">See all options</a>, starting with the
-cheapest.</p>
+<p class="info">I also found cheaper options, that <em>might</em> (but might
+not) involve you taking a different route.
+<a href="?{{ 'via=' + via + ';' if via else '' }}all=1">See all options</a>,
+starting with the cheapest.</p>
 % end
 
 <ol>

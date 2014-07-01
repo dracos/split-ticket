@@ -119,7 +119,7 @@ class Fares(object):
             ibs = set([ i.code for i in self.inbetween_stops() ]) | set((self.fro,))
             if ('E' in s['route'] and set(s['route']['E']) & ibs) or \
                ('I' in s['route'] and not set(s['route']['I']) & ibs):
-                rte = '<strong>' + rte + '</strong> (station requirement not met)'
+                rte = '<strong>' + rte + '</strong> (station requirement may not be met<sup><a href="/about#passing-through">*</a></sup>)'
                 s['route']['problem'] = True
             o += ', ' + rte
         if s['restriction_code']:
