@@ -109,6 +109,8 @@ class Fares(object):
         return ' / '.join(out)
 
     def _fare_desc(self, s, n, dir):
+        dir_split = 'B'
+        if n>1: dir_split = dir
         o = s['ticket']['name']
         if s['route']['desc'] != 'ANY PERMITTED':
             ops = self.operators(dir)
@@ -117,7 +119,7 @@ class Fares(object):
             if extra and ops != set(extra):
                 ops = map(lambda x: data['tocs'].get(x, x), ops)
                 rte = '<strong>' + rte + '</strong> (train is %s)' % '/'.join(ops)
-                s['route']['problem'] = True
+                s['route']['problem'] = dir_split
             ibs = set([ i.code for i in self.inbetween_stops(dir) ])
             if dir == 'R' and self.stops_ret:
                 ibs = ibs | set((self.to,))
@@ -126,7 +128,7 @@ class Fares(object):
             if ('E' in s['route'] and set(s['route']['E']) & ibs) or \
                ('I' in s['route'] and not set(s['route']['I']) & ibs):
                 rte = '<strong>' + rte + '</strong> (station requirement may not be met<sup><a href="/about#passing-through">*</a></sup>)'
-                s['route']['problem'] = True
+                s['route']['problem'] = dir_split
             o += ', ' + rte
         if s['restriction_code']:
             desc = 'desc_out' if n>1 else 'desc'
@@ -142,15 +144,23 @@ class Fares(object):
             return False
         return self.restrictions.valid_journey(self.fro, self.to, restriction_code, dir)
 
-    def is_valid_route(self, s):
-        return s['route']['id'] not in self.excluded_routes
+    def is_valid_route(self, s, dir):
+        if not self.split_singles:
+            routes = [ re.sub('[or]$', '', r) for r in self.excluded_routes ]
+        elif dir == 'R':
+            routes = [ re.sub('r$', '', r) for r in self.excluded_routes ]
+        elif dir == 'O':
+            routes = [ re.sub('o$', '', r) for r in self.excluded_routes ]
+        else:
+            routes = self.excluded_routes
+        return s['route']['id'] not in routes
 
     def match_returns(self, s):
         ret = re.search('SOR|GTR|SVR|G2R|SSR|OPR|SOP', s['ticket']['code'])
         if self.store['day'] == 'y':
             ret = ret or re.search('SDR|GPR|CDR|GDR|PDR|SOB|AM2|EGF|SCO|C1R|CBA|SRR|SWS', s['ticket']['code'])
         ret = ret and self.is_valid_journey(s, 'B')
-        ret = ret and self.is_valid_route(s)
+        ret = ret and self.is_valid_route(s, 'B')
         return ret
 
     def match_singles_out(self, s):
@@ -162,12 +172,13 @@ class Fares(object):
     def _match_singles(self, s, dir):
         ret = re.search('SOS|SDS|GTS|CDS|SVS|G2S|SSS|OPS|CBB|GDS|PDS|SOA|AM1|EGS|OPD', s['ticket']['code'])
         ret = ret and self.is_valid_journey(s, dir)
-        ret = ret and self.is_valid_route(s)
+        ret = ret and self.is_valid_route(s, dir)
         return ret
 
     def parse_fare(self, fro, to, split_singles=True):
         self.fro = fro
         self.to = to
+        self.split_singles = split_singles
         price_data_ret = price_data = self.get_fares(fro, to)
         if self.stops_ret and split_singles:
             price_data_ret = self.get_fares(to, fro)

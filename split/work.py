@@ -50,7 +50,10 @@ def do_split(context):
         old_total = (0, 0)
         while problem_routes and old_total != (context['total'], context['fare_total']['fare']):
             context['skipped_problem_routes'] = True
-            Fares.excluded_routes.append(problem_routes[0]['id'])
+            route_id = problem_routes[0]['id']
+            if problem_routes[0]['problem'] != 'B':
+                route_id += problem_routes[0]['problem'].lower()
+            Fares.excluded_routes.append(route_id)
             old_total = (context['total'], context['fare_total']['fare'])
             context = split_journey(store, Fares, context, stop_pairs)
             problem_routes = [ r for r in context['routes'] if r.get('problem') ]
