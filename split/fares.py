@@ -102,21 +102,27 @@ class Fares(object):
     def fare_desc(self, fares):
         out = []
         n = len(fares)
+        dir = 'O'
         for fare in fares:
-            out.append(self._fare_desc(fare, n))
+            out.append(self._fare_desc(fare, n, dir))
+            dir = 'R'
         return ' / '.join(out)
 
-    def _fare_desc(self, s, n):
+    def _fare_desc(self, s, n, dir):
         o = s['ticket']['name']
         if s['route']['desc'] != 'ANY PERMITTED':
-            ops = self.operators()
+            ops = self.operators(dir)
             rte = self.prettify(s['route']['desc'])
             extra = data['routes'][s['route']['id']].get('operator')
             if extra and ops != set(extra):
                 ops = map(lambda x: data['tocs'].get(x, x), ops)
                 rte = '<strong>' + rte + '</strong> (train is %s)' % '/'.join(ops)
                 s['route']['problem'] = True
-            ibs = set([ i.code for i in self.inbetween_stops() ]) | set((self.fro,))
+            ibs = set([ i.code for i in self.inbetween_stops(dir) ])
+            if dir == 'R' and self.stops_ret:
+                ibs = ibs | set((self.to,))
+            else:
+                ibs = ibs | set((self.fro,))
             if ('E' in s['route'] and set(s['route']['E']) & ibs) or \
                ('I' in s['route'] and not set(s['route']['I']) & ibs):
                 rte = '<strong>' + rte + '</strong> (station requirement may not be met<sup><a href="/about#passing-through">*</a></sup>)'
@@ -223,20 +229,28 @@ class Fares(object):
             total += d['fare']
         return out, total
 
-    def inbetween_stops(self):
+    def inbetween_stops(self, dir):
+        if dir == 'R' and self.stops_ret:
+            dir_stops = self.stops_ret
+            fro = self.to
+            to = self.fro
+        else:
+            dir_stops = self.stops
+            fro = self.fro
+            to = self.to
         stops = []
         started = False
-        for stop in self.stops:
-            if stop.code == self.fro:
+        for stop in dir_stops:
+            if stop.code == fro:
                 started = True
                 continue
             if started:
                 stops.append(stop)
-            if stop.code == self.to:
+            if stop.code == to:
                 started = False
         return stops
 
-    def operators(self):
-        stops = self.inbetween_stops()
+    def operators(self, dir):
+        stops = self.inbetween_stops(dir)
         stops = ( s.operator for s in stops if s.operator is not None )
         return set(stops)
