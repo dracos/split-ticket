@@ -31,7 +31,7 @@ starting with the cheapest.</p>
 
 <ol>
 % for step in output_cheapest:
-<li>{{ step[0] }} &rarr; {{ step[1] }} : {{ price(step[2]['fare']) }}
+<li>{{ step[0] }} {{ ! '&rarr;' if day == 's' else '&harr;' }} {{ step[1] }} : {{ price(step[2]['fare']) }}
 <br><small class="faded">{{ !step[2]['desc'] }}</small></li>
 % end
 </ol>
