@@ -100,13 +100,14 @@ class Fares(object):
         return fares_data
 
     def fare_desc(self, fares):
-        out = []
-        n = len(fares)
-        dir = 'O'
-        for fare in fares:
-            out.append(self._fare_desc(fare, n, dir))
-            dir = 'R'
-        return ' / '.join(out)
+        if len(fares)>1:
+            out = '<ul>'
+            out += '<li>Out: ' + self._fare_desc(fares[0], 2, 'O')
+            out += '<li>Return: ' + self._fare_desc(fares[1], 2, 'R')
+            out += '</ul>'
+            return out
+        else:
+            return self._fare_desc(fares[0], 1, 'O')
 
     def _fare_desc(self, s, n, dir):
         dir_split = 'B'
