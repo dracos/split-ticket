@@ -50,6 +50,7 @@ label.n { display: inline; white-space: nowrap; }
 
 .info {
     float: right;
+    clear: right;
     width: 30%;
     font-size: 80%;
     border: solid 1px #996;
