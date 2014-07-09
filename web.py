@@ -246,6 +246,9 @@ def split_finished(context):
         pipe.hset( 'split-ticket-lines', key, line )
         pipe.zadd( 'split-ticket-latest', key, unix_time() )
         pipe.zremrangebyrank( 'split-ticket-latest', 0, -11 )
+        pipe.incrby( 'split-ticket-total-saved', int(fare_total['fare'] - total) )
+        pipe.incrby( 'split-ticket-total-orig', int(fare_total['fare']) )
+        pipe.incrby( 'split-ticket-total-split', int(total) )
         pipe.execute()
 
     return context
