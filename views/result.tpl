@@ -15,8 +15,9 @@ starting with the cheapest.</p>
 % if fare_total['fare'] == '-':
 <p><span class="imp">I couldn’t find a valid through ticket for this journey; perhaps try a different time?</span></p>
 % else:
-<p><span class="imp">The normal weekday fare is <strong>{{ price(fare_total['fare']) }}</strong></span>
-<span class="faded">{{ !fare_total['desc'] }}</span></p>
+<div><span class="imp">The normal weekday fare is <strong>{{ price(fare_total['fare']) }}</strong></span>
+<div class="faded">{{ !fare_total['desc'] }}</div>
+</div>
 % end
 
 % if total < fare_total['fare']:
@@ -35,7 +36,7 @@ starting with the cheapest.</p>
 <ol>
 % for step in output_cheapest:
 <li>{{ step[0] }} {{ ! '&rarr;' if day == 's' else '&harr;' }} {{ step[1] }} : {{ price(step[2]['fare']) }}
-<br><small class="faded">{{ !step[2]['desc'] }}</small></li>
+<div class="faded">{{ !step[2]['desc'] }}</div></li>
 % end
 </ol>
 % else:

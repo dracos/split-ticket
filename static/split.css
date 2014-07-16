@@ -14,6 +14,11 @@ hr {
 
 .faded {
     color: #999;
+    display: inline;
+}
+ol .faded {
+    font-size: smaller;
+    display: block;
 }
 .faded strong {
     color: #900;
@@ -98,6 +103,9 @@ input[type=submit] {
 .results {
     margin-bottom: 1em;
     font-size: 120%;
+}
+.results div:first-child {
+    margin-bottom: 0.5em;
 }
 .imp {
     font-size: 150%;
