@@ -102,32 +102,31 @@ class Fares(object):
     def fare_desc(self, fares):
         if len(fares)>1:
             out = '<ul>'
-            out += '<li>Out: ' + self._fare_desc(fares[0], 2, 'O')
-            out += '<li>Return: ' + self._fare_desc(fares[1], 2, 'R')
+            out += '<li>Out: ' + self._fare_desc(fares[0], 'O')
+            out += '<li>Return: ' + self._fare_desc(fares[1], 'R')
             out += '</ul>'
             return out
         else:
-            return self._fare_desc(fares[0], 1, 'O')
+            return self._fare_desc(fares[0], 'B')
 
-    def _fare_desc(self, s, n, dir):
-        dir_split = 'B'
-        if n>1: dir_split = dir
+    def _fare_desc(self, s, dir_split):
+        n = 1 if dir_split == 'B' else 2
         o = s['ticket']['name']
         if s['route']['desc'] != 'ANY PERMITTED':
-            ops = self.operators(dir)
+            # 'R' will be same as 'O' if no return time
+            ops = self.operators('O') | self.operators('R')
             rte = self.prettify(s['route']['desc'])
             extra = data['routes'][s['route']['id']].get('operator')
-            if extra and ops != set(extra):
+            if extra and not ops <= set(extra):
                 ops = map(lambda x: data['tocs'].get(x, x), ops)
                 rte = '<strong>' + rte + '</strong> (train is %s)' % '/'.join(ops)
                 s['route']['problem'] = dir_split
-            ibs = set([ i.code for i in self.inbetween_stops(dir) ])
-            if dir == 'R' and self.stops_ret:
-                ibs = ibs | set((self.to,))
-            else:
-                ibs = ibs | set((self.fro,))
-            if ('E' in s['route'] and set(s['route']['E']) & ibs) or \
-               ('I' in s['route'] and not set(s['route']['I']) & ibs):
+            ibs_out = set([ i.code for i in self.inbetween_stops('O', include_from=True) ])
+            ibs_ret = set([ i.code for i in self.inbetween_stops('R', include_from=True) ])
+            ibs_both = ibs_out & ibs_ret
+            ibs_either = ibs_out | ibs_ret
+            if ('E' in s['route'] and set(s['route']['E']) & ibs_either) or \
+               ('I' in s['route'] and not set(s['route']['I']) & ibs_both):
                 rte = '<strong>' + rte + '</strong> (station requirement may not be met<sup><a href="/about#passing-through">*</a></sup>)'
                 s['route']['problem'] = dir_split
             o += ', ' + rte
@@ -241,7 +240,7 @@ class Fares(object):
             total += d['fare']
         return out, total
 
-    def inbetween_stops(self, dir):
+    def inbetween_stops(self, dir, include_from=False):
         if dir == 'R' and self.stops_ret:
             dir_stops = self.stops_ret
             fro = self.to
@@ -255,7 +254,7 @@ class Fares(object):
         for stop in dir_stops:
             if stop.code == fro:
                 started = True
-                continue
+                if not include_from: continue
             if started:
                 stops.append(stop)
             if stop.code == to:
