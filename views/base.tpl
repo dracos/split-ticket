@@ -27,6 +27,34 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="google-site-verification" content="UTtqZo2AeTn8Cq6meBghyrJeIJN7C7E9uuAZbB7LZ5Q">
 
+% if get('fare_total') and fare_total['fare'] != '-' and total < fare_total['fare']:
+% import re
+<meta property="twitter:card" content="summary">
+<meta property="twitter:site" content="@dracos">
+<meta property="twitter:title" content="Split ticket finder, {{ fr_desc }} to {{ to_desc }}">
+<meta property="twitter:description" content="The normal weekday fare is {{ price(fare_total['fare']) }} ({{ re.sub('<[^>]*>', '', fare_total['desc']) }}), but I’ve found the same journey for {{ price(total) }}.
+% if day == 's':
+One way,
+% elif day == 'y':
+Going for the day,
+% elif day == 'n':
+Return,
+% end
+% if via:
+via {{ via }},
+% end
+leaving around {{ time }}
+% if time_ret and day != 's':
+and returning around {{ time_ret }}
+% end
+">
+% elif get('latest'):
+<meta property="twitter:card" content="summary">
+<meta property="twitter:site" content="@dracos">
+<meta property="twitter:title" content="Split ticket finder">
+<meta property="twitter:description" content="Bournville to Reading for the day, leaving at 8am, costs £103 on the day. Buy two tickets, still on the day, and it’s only £32.70 – same journey, same trains.">
+% end
+
 </head>
 
 <body bgcolor="#ffffff" text="#000066" link="#0000ff" alink="#ff0000" vlink="#660066">
