@@ -38,6 +38,7 @@
   "00472": { "operator": [ "EM" ] },
   "00474": { "operator": [ "VT" ] },
   "00595": { "operator": [ "HT", "FC" ] },
+  "00700": { "E": [ "BFR", "CST", "CHX", "CTK", "EUS", "FST", "KGX", "LST", "LBG", "MYB", "MOG", "OLD", "PAD", "STP", "VXH", "VIC", "WAT", "WAE" ] },
   "00724": { "operator": [ "GX" ] },
   "00820": { "operator": [ "GW" ] },
   "00774": { "operator": [ "SN", "LM" ] },
