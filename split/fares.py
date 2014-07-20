@@ -114,17 +114,19 @@ class Fares(object):
         o = s['ticket']['name']
         if s['route']['desc'] != 'ANY PERMITTED':
             # 'R' will be same as 'O' if no return time
-            ops = self.operators('O') | self.operators('R')
+            ops = self.operators('O') | self.operators('R') if dir_split == 'B' else self.operators(dir_split)
             rte = self.prettify(s['route']['desc'])
             extra = data['routes'][s['route']['id']].get('operator')
             if extra and not ops <= set(extra):
                 ops = map(lambda x: data['tocs'].get(x, x), ops)
                 rte = '<strong>' + rte + '</strong> (train is %s)' % '/'.join(ops)
                 s['route']['problem'] = dir_split
-            ibs_out = set([ i.code for i in self.inbetween_stops('O', include_from=True) ])
-            ibs_ret = set([ i.code for i in self.inbetween_stops('R', include_from=True) ])
-            ibs_both = ibs_out & ibs_ret
-            ibs_either = ibs_out | ibs_ret
+            ibs = {
+                'O': set([ i.code for i in self.inbetween_stops('O', include_from=True) ]),
+                'R': set([ i.code for i in self.inbetween_stops('R', include_from=True) ]),
+            }
+            ibs_both = ibs['O'] & ibs['R'] if dir_split == 'B' else ibs[dir_split]
+            ibs_either = ibs['O'] | ibs['R'] if dir_split == 'B' else ibs[dir_split]
             if ('E' in s['route'] and set(s['route']['E']) & ibs_either) or \
                ('I' in s['route'] and not set(s['route']['I']) & ibs_both):
                 rte = '<strong>' + rte + '</strong> (station requirement may not be met<sup><a href="/about#passing-through">*</a></sup>)'
