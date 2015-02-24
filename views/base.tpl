@@ -52,7 +52,7 @@ and returning around {{ time_ret }}
 <meta property="twitter:card" content="summary">
 <meta property="twitter:site" content="@dracos">
 <meta property="twitter:title" content="Split ticket finder">
-<meta property="twitter:description" content="Bournville to Reading for the day, leaving at 8am, costs £103 on the day. Buy two tickets, still on the day, and it’s only £32.70 – same journey, same trains.">
+<meta property="twitter:description" content="Bournville to Reading for the day, leaving at 8am, costs £106.60 on the day. Buy two tickets, still on the day, and it’s only £33.50 – same journey, same trains.">
 % end
 
 </head>
