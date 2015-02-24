@@ -21,14 +21,16 @@ class Restriction(object):
         return t
 
     def considered_stops(self, fro, to, dir):
-        """Origin, destination, and anywhere we change"""
+        """Origin, destination, and anywhere we change. Exclude
+        changes without operator though as that means we
+        tubed/walked."""
         stops = []
         started = False
         for stop in self.stops[dir]:
             chg = stop.change
             if stop.code == fro or stop.code == to:
                 started = chg = True
-            if started and chg:
+            if started and chg and (stop.operator or stop.code == fro or stop.code == to):
                 stops.append(stop)
             if stop.code == to:
                 break
