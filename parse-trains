@@ -31,7 +31,7 @@ for row in loop(fare_file('RST')):
 stations = {}
 started = None
 data = {}
-for line in open('timetable-data-449/ttisf449.mca'):
+for line in open('timetable-data-730/ttisf730.mca'):
     if line.startswith('TI'):
         tiploc = line[2:9].strip()
         crs = line[53:56].strip()

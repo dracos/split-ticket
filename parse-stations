@@ -30,7 +30,7 @@ for row in loop(fare_file('FSC')):
         ('date_to', 8, cnv_full_date), ('date_from', 8, cnv_full_date)
     )
     assert row['date_to'] == date(2999, 12, 31)
-    assert row['date_from'] <= date(2014, 5, 18)
+    assert row['date_from'] <= date(2015, 1, 2)
     del row['date_to'], row['date_from']
     data.setdefault(row['member_id'], []).append(row['cluster_id'])
 

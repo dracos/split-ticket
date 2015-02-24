@@ -381,7 +381,7 @@
   },
   "ARP": {
     "code": "0942",
-    "description": "Alvcrlp"
+    "description": "Alvechurch Red Lion Pub"
   },
   "ARR": {
     "code": "8045",
@@ -2107,7 +2107,7 @@
   },
   "CEM": {
     "code": "G070",
-    "description": "Centrl Park Mtkl"
+    "description": "Centrl Park Mtlk"
   },
   "CES": {
     "code": "6837",
@@ -2126,6 +2126,10 @@
     "code": "5047",
     "description": "Catford Bridge",
     "fare_group": "0258"
+  },
+  "CFC": {
+    "code": "7765",
+    "description": "Corfe Castle"
   },
   "CFD": {
     "code": "8359",
@@ -3063,8 +3067,8 @@
     "description": "Deal"
   },
   "DEB": {
-    "code": "L064",
-    "description": "Dereham (Coach)"
+    "code": "7371",
+    "description": "Dereham Market Place"
   },
   "DED": {
     "code": "0388",
@@ -3104,7 +3108,7 @@
   },
   "DFP": {
     "code": "H010",
-    "description": "Dublin Fypt I.F."
+    "description": "Dublin Fypt I.F"
   },
   "DFR": {
     "code": "9967",
@@ -3184,6 +3188,10 @@
     "code": "5297",
     "description": "Dorking West",
     "fare_group": "0416"
+  },
+  "DLE": {
+    "code": "7646",
+    "description": "Duloe(Causeland)"
   },
   "DLG": {
     "code": "2538",
@@ -4508,8 +4516,8 @@
     "description": "Goole"
   },
   "GOP": {
-    "code": "0289",
-    "description": "Gosport"
+    "code": "J530",
+    "description": "Gosport Ferry"
   },
   "GOR": {
     "code": "3033",
@@ -8467,6 +8475,10 @@
     "code": "3850",
     "description": "Pontyclun"
   },
+  "PYE": {
+    "code": "1663",
+    "description": "Pye Corner"
+  },
   "PYG": {
     "code": "9683",
     "description": "Paisley Gilmour Street"
@@ -8491,9 +8503,17 @@
     "code": "2874",
     "description": "Poynton"
   },
+  "QAS": {
+    "code": "I444",
+    "description": "Any Southern Train"
+  },
   "QBR": {
     "code": "5176",
     "description": "Queenborough"
+  },
+  "QBU": {
+    "code": "I058",
+    "description": "Brighton Unizone"
   },
   "QDF": {
     "code": "K706",
@@ -8502,18 +8522,6 @@
   "QFA": {
     "code": "I060",
     "description": "Fairford Air"
-  },
-  "QMA": {
-    "code": "I259",
-    "description": "Mrail All Areas"
-  },
-  "QMB": {
-    "code": "I237",
-    "description": "Mrail Area B"
-  },
-  "QMC": {
-    "code": "I061",
-    "description": "Mrail Zone B1"
   },
   "QPK": {
     "code": "9822",
@@ -8538,6 +8546,10 @@
   "QUI": {
     "code": "3531",
     "description": "Quintrell Downs"
+  },
+  "QWU": {
+    "code": "I057",
+    "description": "Worthing Unizone"
   },
   "QXD": {
     "code": "I231",
@@ -9512,6 +9524,10 @@
   "SKS": {
     "code": "7513",
     "description": "Stocksfield"
+  },
+  "SKV": {
+    "code": "7639",
+    "description": "St Keyne Village"
   },
   "SKW": {
     "code": "6934",
@@ -11756,6 +11772,6 @@
   },
   "ZFD": {
     "code": "0577",
-    "description": "Farringdon Und"
+    "description": "Farringdon"
   }
 }

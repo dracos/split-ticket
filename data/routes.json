@@ -101,7 +101,7 @@
     "desc": "VIA HARROGATE"
   },
   "00020": {
-    "desc": "GRT ANG TRNSONLY"
+    "desc": "AGA TRAINS ONLY"
   },
   "00021": {
     "desc": "GRT ANG PROMO"
@@ -133,16 +133,16 @@
     "desc": "EC ONLY"
   },
   "00028": {
-    "desc": "FCC  ONLY"
+    "desc": "GT NORTHERN ONLY"
   },
   "00029": {
     "desc": "EC TRAINS ONLY"
   },
   "00030": {
-    "desc": "FCC & CONNCTNS"
+    "desc": "GTNORTHRN&CONCTS"
   },
   "00031": {
-    "desc": "FIRST CAP C ONLY"
+    "desc": "GTNRTHRN&THMLINK"
   },
   "00032": {
     "desc": "NOT TO BE USED"
@@ -365,8 +365,11 @@
   "00080": {
     "desc": "PETERBORO COACH"
   },
+  "00081": {
+    "desc": "LM ONLY MON-THUR"
+  },
   "00082": {
-    "desc": "FGW WEEKENDFIRST"
+    "desc": "FGW FIRSTUPGRADE"
   },
   "00083": {
     "desc": "NORTHERN TRAINS"
@@ -382,6 +385,12 @@
   },
   "00086": {
     "desc": "VIA YRK TPE ONLY"
+  },
+  "00087": {
+    "I": [
+      "BGH"
+    ],
+    "desc": "VIA BRIGHOUSE"
   },
   "00088": {
     "E": [
@@ -399,6 +408,15 @@
       "RDG"
     ],
     "desc": "DMF RAILAIR RDNG"
+  },
+  "00090": {
+    "E": [
+      "AFK",
+      "CBW",
+      "DVP",
+      "CBE"
+    ],
+    "desc": "HS1 VIA HERNEBAY"
   },
   "00091": {
     "E": [
@@ -556,11 +574,20 @@
     ],
     "desc": "NOT VIA TYSELEY"
   },
+  "00121": {
+    "desc": "BUS & TRAM ONLY"
+  },
   "00122": {
     "desc": "NTH WALES 2 ZNE"
   },
   "00123": {
     "desc": "NTH WALES 3 ZNE"
+  },
+  "00124": {
+    "desc": "NORFOLK & CAMBS"
+  },
+  "00125": {
+    "desc": "CAMBRIDGESHIRE"
   },
   "00126": {
     "I": [
@@ -598,9 +625,6 @@
   },
   "00131": {
     "desc": "PLUS HIGH SPEED"
-  },
-  "00132": {
-    "desc": "UPGRADE + HS"
   },
   "00133": {
     "E": [
@@ -800,7 +824,7 @@
     "desc": "ATW & XC ONLY"
   },
   "00218": {
-    "desc": "ATW NTH RMS ONLY"
+    "desc": "ATW AND ME ONLY"
   },
   "00222": {
     "desc": "FLEXITIME"
@@ -809,15 +833,27 @@
     "desc": "VIA TGM X5/X22"
   },
   "00250": {
+    "E": [
+      "EUS"
+    ],
     "desc": "VIA TRAMLINK 1"
   },
   "00251": {
+    "E": [
+      "EUS"
+    ],
     "desc": "VIA TRAMLINK 2"
   },
   "00252": {
+    "E": [
+      "EUS"
+    ],
     "desc": "VIA TRAMLINK 3"
   },
   "00253": {
+    "E": [
+      "EUS"
+    ],
     "desc": "VIA TRAMLINK 4"
   },
   "00264": {
@@ -1329,6 +1365,15 @@
     ],
     "desc": "RAILR WF VT ONLY"
   },
+  "00362": {
+    "desc": "VIA HIGH WYC&SHR"
+  },
+  "00363": {
+    "desc": "VIA H WYC & BIRM"
+  },
+  "00364": {
+    "desc": "CH  & ATW ONLY"
+  },
   "00366": {
     "I": [
       "PTH"
@@ -1403,6 +1448,9 @@
       "KPA"
     ],
     "desc": "AP LONDON"
+  },
+  "00402": {
+    "desc": "CH  &CONNECTIONS"
   },
   "00403": {
     "E": [
@@ -1575,6 +1623,9 @@
     "desc": "EC  &CONNECTNS"
   },
   "00424": {
+    "E": [
+      "NOT"
+    ],
     "desc": "AP HULTRNS & EMT"
   },
   "00425": {
@@ -1613,6 +1664,9 @@
   "00431": {
     "desc": "AP HULTRNS & TPE"
   },
+  "00432": {
+    "desc": "CH  &CON VIA SHR"
+  },
   "00433": {
     "E": [
       "BHM"
@@ -1631,6 +1685,9 @@
       "GCR"
     ],
     "desc": "AP TELFORD RUGBY"
+  },
+  "00435": {
+    "desc": "AP CH & ATW ONLY"
   },
   "00436": {
     "E": [
@@ -1922,7 +1979,7 @@
       "CLJ",
       "PBO"
     ],
-    "desc": "AP EMT&FCC ONLY"
+    "desc": "AP EMT&TLGN ONLY"
   },
   "00478": {
     "E": [
@@ -1942,7 +1999,7 @@
       "EUS",
       "RDG"
     ],
-    "desc": "AP ATW CT & CONN"
+    "desc": "AP ATW LM + CONN"
   },
   "00480": {
     "E": [
@@ -1974,6 +2031,7 @@
     "E": [
       "NUN",
       "BHM",
+      "CRE",
       "HUN"
     ],
     "desc": "AP EMT& CONNECT"
@@ -2007,7 +2065,7 @@
     "desc": "AP NEWBURY"
   },
   "00495": {
-    "desc": "AP HULTRNS & FCC"
+    "desc": "AP HULTRNS &TLGN"
   },
   "00498": {
     "desc": "AP ATW ONLY"
@@ -2177,7 +2235,7 @@
     "desc": "NOT VIA SUTTON"
   },
   "00595": {
-    "desc": "HULLTRNS & FCC"
+    "desc": "HULLTRNS & TLGN"
   },
   "00598": {
     "I": [
@@ -2792,6 +2850,9 @@
     ],
     "desc": "VIA ELEPHNT&CSTL"
   },
+  "00789": {
+    "desc": "THAMESLINK ONLY"
+  },
   "00790": {
     "E": [
       "WFJ",
@@ -3332,6 +3393,7 @@
     "E": [
       "EUS",
       "RDG",
+      "FEL",
       "KNG",
       "RMD",
       "VIR"
@@ -3543,7 +3605,7 @@
     "desc": "LUFTHANSA"
   },
   "02007": {
-    "desc": "EMT & FCC ONLY"
+    "desc": "EMT & TLGN ONLY"
   },
   "02008": {
     "desc": "C2C RAIL ONLY"
@@ -3575,24 +3637,6 @@
   "03001": {
     "desc": "GW  & AW ONLY"
   },
-  "03002": {
-    "desc": "AW GW & FCC ONLY"
-  },
-  "03003": {
-    "desc": "GW FCC & HT ONLY"
-  },
-  "03004": {
-    "desc": "GW  & FCC ONLY"
-  },
-  "03006": {
-    "desc": "GW FCC ONLY"
-  },
-  "03007": {
-    "desc": "GW FC HT&TP ONLY"
-  },
-  "03008": {
-    "desc": "HT  & FCC ONLY"
-  },
   "03010": {
     "desc": "HT  & GW ONLY"
   },
@@ -3604,9 +3648,6 @@
   },
   "03013": {
     "desc": "TP  & HT ONLY"
-  },
-  "03014": {
-    "desc": "TP HT & FCC ONLY"
   },
   "03015": {
     "desc": "TP AW & GW ONLY"
@@ -3626,9 +3667,6 @@
   "03021": {
     "desc": "GW AW ONLY"
   },
-  "03022": {
-    "desc": "AW TP HT&FC ONLY"
-  },
   "03023": {
     "desc": "TP AW GW ONLY"
   },
@@ -3637,9 +3675,6 @@
   },
   "03025": {
     "desc": "TP  & AW ONLY"
-  },
-  "03026": {
-    "desc": "TP HT FCC ONLY"
   },
   "03027": {
     "desc": "TP HT GW ONLY"
@@ -3655,9 +3690,6 @@
   },
   "03031": {
     "desc": "AW  & TP ONLY"
-  },
-  "03032": {
-    "desc": "TP HT FC GW ONLY"
   },
   "03033": {
     "desc": "GW AW & TP ONLY"
