@@ -14,7 +14,10 @@ from rq import Queue, Worker
 from rq.job import Job
 
 def get_job_id(context):
-    return '%(from)s/%(to)s/%(day)s/%(time)s/%(time_ret)s/%(via)s/%(exclude)s/%(all)s' % context
+    id = '%(from)s/%(to)s/%(day)s/%(time)s/%(time_ret)s/%(via)s/%(exclude)s/%(all)s' % context
+    if context.get('avoid'):
+        id += '/%(avoid)s' % context
+    return id
 
 class MyJob(Job):
     @classmethod
@@ -95,6 +98,8 @@ def home():
             path += '/%(time_ret)s' % request.query
         if request.query.get('via'):
             path += '?via=' + urllib.quote(request.query['via'])
+        if request.query.get('avoid'):
+            path += '?avoid=' + urllib.quote(request.query['avoid'])
         bottle.redirect(path)
     return form(request.query)
 
@@ -144,7 +149,7 @@ def make_url(fr=None, to=None):
     return path + qs
 
 def context_init(fr, to, day, time, time_ret):
-    return {
+    ctx = {
         'from': fr,
         'to': to,
         'day': day,
@@ -154,6 +159,9 @@ def context_init(fr, to, day, time, time_ret):
         'exclude': request.query.exclude,
         'all': request.query.all,
     }
+    if request.query.avoid:
+        ctx['avoid'] = request.query.avoid
+    return ctx
 
 @bottle.route('/ajax-job/<fr>/<to>/<day>/<time>')
 def split_ajax_no_ret(fr, to, day, time):

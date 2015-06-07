@@ -66,6 +66,8 @@ def find_stopping_points(context, ret=False):
         url += '/next-tuesday'
     if context['via']:
         url += '?via=' + urllib.quote(context['via'])
+    if context.get('avoid'):
+        url += '?avd=' + urllib.quote(context['avoid'])
     for i in range(0,2):
         stops = utils.fetch(url)
         if 'result0' in stops:
