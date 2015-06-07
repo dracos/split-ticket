@@ -131,10 +131,12 @@ class Fares(object):
                 'O': set([ i.code for i in self.inbetween_stops('O', include_from=True) ]),
                 'R': set([ i.code for i in self.inbetween_stops('R', include_from=True) ]),
             }
-            ibs_both = ibs['O'] & ibs['R'] if dir_split == 'B' else ibs[dir_split]
             ibs_either = ibs['O'] | ibs['R'] if dir_split == 'B' else ibs[dir_split]
-            if ('E' in s['route'] and set(s['route']['E']) & ibs_either) or \
-               ('I' in s['route'] and not set(s['route']['I']) & ibs_both):
+            exclude_set = set(s['route'].get('E', []))
+            include_set = set(s['route'].get('I', []))
+            if (exclude_set & ibs_either) or \
+               (dir_split != 'B' and include_set and not include_set & ibs[dir_split]) or \
+               (dir_split == 'B' and include_set and not include_set & ibs['O'] and not include_set & ibs['R']):
                 rte = '<strong>' + rte + '</strong> (station requirement may not be met<sup><a href="/about#passing-through">*</a></sup>)'
                 s['route']['problem'] = dir_split
             o += ', ' + rte
