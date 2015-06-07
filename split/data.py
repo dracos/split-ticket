@@ -12,6 +12,9 @@ for d in data_files:
         data[d] = json.load(fp)
 
 for k,v in data['routes.extra'].items():
-    data['routes'][k].update(v)
+    if k in data['routes']:
+        data['routes'][k].update(v)
+    else:
+        data['routes'][k] = v
 
 del data['routes.extra']

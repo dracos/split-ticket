@@ -21,6 +21,8 @@ TICKET_BY_TYPE = {
     'Super off-peak Single': [ 'SSS', 'OPS', 'CBB' ],
     'Super off-peak Day Return': [ 'GDR', 'PDR', 'SOB', 'AM2', 'EGF', 'SRR', 'SWS', 'SCO', 'C1R', 'CBA' ],
     'Super off-peak Day Single': [ 'GDS', 'PDS', 'SOA', 'AM1', 'EGS', 'OPD' ],
+
+    'Derbyshire Wayfarer': [ 'MSDW' ],
 }
 TICKET_NAMES = {}
 for name, types in TICKET_BY_TYPE.items():
@@ -42,15 +44,19 @@ class Fares(object):
         s = re.sub('\w\S*', lambda txt: txt.group().title(), s)
         return s
 
-    def get_codes(self, stn):
+    def get_codes(self, stn_code):
         # Return in this order so that override will function
-        if stn not in data['stations']: return []
-        stn = data['stations'][stn]
+        if stn_code not in data['stations']: return []
+        stn = data['stations'][stn_code]
         stn_codes = []
         stn_codes += data['clusters'].get(stn.get('fare_group'), [])
         stn_codes += data['clusters'].get(stn['code'], [])
         stn_codes += [ stn['fare_group'] ] if 'fare_group' in stn else []
         stn_codes += [ stn['code'] ]
+        if stn_code in ('ALF AMB BAM BLP BUT BUX CEF CHD CLY CWD CMF DBY DOR DVH DRO DFI EDL FNV GRN HSG HOP LGM LAG LGE MAT MTB NMC NMN PEA SHF SHB SPO TUT UTT WBR WTS WWL WIL'):
+            stn_codes += [ 'derbyshire-wayfarer' ]
+        if stn_code in ('NOT', 'BEE'):
+            stn_codes += [ 'derbyshire-wayfarer-notts' ]
         return stn_codes
 
     def get_fare_entry(self, code):
@@ -161,6 +167,8 @@ class Fares(object):
         ret = re.search('SOR|GTR|SVR|G2R|SSR|OPR|SOP', s['ticket']['code'])
         if self.store['day'] == 'y':
             ret = ret or re.search('SDR|GPR|CDR|GDR|PDR|SOB|AM2|EGF|SCO|C1R|CBA|SRR|SWS', s['ticket']['code'])
+            if self.split_singles:
+                ret = ret or re.search('MSDW', s['ticket']['code'])
         ret = ret and self.is_valid_journey(s, 'B')
         ret = ret and self.is_valid_route(s, 'B')
         return ret
@@ -173,6 +181,8 @@ class Fares(object):
 
     def _match_singles(self, s, dir):
         ret = re.search('SOS|SDS|GTS|CDS|SVS|G2S|SSS|OPS|CBB|GDS|PDS|SOA|AM1|EGS|OPD', s['ticket']['code'])
+        if self.split_singles:
+            ret = ret or re.search('MSDW', s['ticket']['code'])
         ret = ret and self.is_valid_journey(s, dir)
         ret = ret and self.is_valid_route(s, dir)
         return ret
