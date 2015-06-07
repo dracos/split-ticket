@@ -46,6 +46,10 @@ lookups = {
         ('nlc_code', 4), ('crs_code', 3), ('incl_excl', 1) ),
 }
 
+NICER_DESC = {
+    "WARMSTER-SALSBRY": "VIA WARMINSTER-SALISBURY",
+}
+
 data = {}
 for row in loop(fare_file('RTE')):
     record_type = row[0]
@@ -56,7 +60,7 @@ for row in loop(fare_file('RTE')):
     if record_type == 'L':
         data.setdefault(row['route_code'], {}).setdefault(row['incl_excl'], []).append(row['crs_code'])
     else:
-        data.setdefault(row['route_code'], {})['desc'] = row['description']
+        data.setdefault(row['route_code'], {})['desc'] = NICER_DESC.get(row['description'], row['description'])
 
 json.dump(data, open('data/routes.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)
 
