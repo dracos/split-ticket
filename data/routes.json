@@ -130,13 +130,13 @@
     "desc": "VIA SELLAFIELD"
   },
   "00027": {
-    "desc": "EC ONLY"
+    "desc": "VTEC ONLY"
   },
   "00028": {
     "desc": "GT NORTHERN ONLY"
   },
   "00029": {
-    "desc": "EC TRAINS ONLY"
+    "desc": "VTEC TRAINS ONLY"
   },
   "00030": {
     "desc": "GTNORTHRN&CONCTS"
@@ -171,9 +171,6 @@
     ],
     "desc": "NOT STANSTED APT"
   },
-  "00039": {
-    "desc": "FOR RE-USE"
-  },
   "00040": {
     "desc": "ONE TKT RAIL+BUS"
   },
@@ -184,7 +181,7 @@
     "desc": "LDN MIDLAND ONLY"
   },
   "00043": {
-    "desc": "VIRGIN TRNSONLY"
+    "desc": "VTWC TRAINSONLY"
   },
   "00044": {
     "desc": "ARRIVA TRN WALES"
@@ -211,9 +208,6 @@
   },
   "00047": {
     "desc": "LDN MIDLAND.ONLY"
-  },
-  "00048": {
-    "desc": "EC SCOTRL ONLY"
   },
   "00049": {
     "desc": "GRAND CTRL ONLY"
@@ -270,7 +264,7 @@
     "desc": "VIA HERTFORD"
   },
   "00060": {
-    "desc": "VWC & TPE ONLY"
+    "desc": "VTWC & TPE ONLY"
   },
   "00061": {
     "I": [
@@ -355,6 +349,12 @@
       "DON"
     ],
     "desc": "VIA RETFORD"
+  },
+  "00078": {
+    "I": [
+      "LDS"
+    ],
+    "desc": "VIA LDS TPE ONLY"
   },
   "00079": {
     "I": [
@@ -656,6 +656,9 @@
       "MKM"
     ],
     "desc": "VIA MELKSHAM"
+  },
+  "00137": {
+    "desc": "EARLYBIRD SEASON"
   },
   "00140": {
     "desc": "MO TU WE &WKND"
@@ -1273,6 +1276,12 @@
   "00335": {
     "desc": "VALLEY MASTER"
   },
+  "00336": {
+    "I": [
+      "BMC"
+    ],
+    "desc": "VIA BROMLEY X"
+  },
   "00339": {
     "desc": "SEE NOTES"
   },
@@ -1366,9 +1375,17 @@
     "desc": "RAILR WF VT ONLY"
   },
   "00362": {
+    "I": [
+      "HWY",
+      "SHR"
+    ],
     "desc": "VIA HIGH WYC&SHR"
   },
   "00363": {
+    "I": [
+      "HWY",
+      "BMO"
+    ],
     "desc": "VIA H WYC & BIRM"
   },
   "00364": {
@@ -1617,10 +1634,10 @@
     "I": [
       "PBO"
     ],
-    "desc": "PETERBORO & EC"
+    "desc": "PETERBORO & VTEC"
   },
   "00423": {
-    "desc": "EC  &CONNECTNS"
+    "desc": "VTEC &CONNECTNS"
   },
   "00424": {
     "E": [
@@ -1659,12 +1676,19 @@
       "BSE",
       "TTF"
     ],
-    "desc": "EC  & CONNECTNS"
+    "desc": "VTEC & CONNECTNS"
   },
   "00431": {
+    "E": [
+      "WRK",
+      "LDS"
+    ],
     "desc": "AP HULTRNS & TPE"
   },
   "00432": {
+    "I": [
+      "SHR"
+    ],
     "desc": "CH  &CON VIA SHR"
   },
   "00433": {
@@ -1805,7 +1829,7 @@
       "PBO",
       "BWK"
     ],
-    "desc": "VWC & CONNECTNS"
+    "desc": "VTWC &CONNECTNS"
   },
   "00453": {
     "E": [
@@ -1958,7 +1982,7 @@
       "CLJ",
       "PBO"
     ],
-    "desc": "VIRGIN TRNS ONLY"
+    "desc": "VTWC TRAINS ONLY"
   },
   "00475": {
     "desc": "AP HULLTRNS ONLY"
@@ -2013,7 +2037,7 @@
       "LEI",
       "SHF"
     ],
-    "desc": "AP EC TRNS ONLY"
+    "desc": "VT E COAST ONLY"
   },
   "00482": {
     "desc": "AP CHESTER"
@@ -2451,6 +2475,10 @@
     "desc": "VIA BECKENHAM JN"
   },
   "00631": {
+    "E": [
+      "WRK",
+      "LDS"
+    ],
     "desc": "HULLTRNS & TPE"
   },
   "00632": {
@@ -2649,6 +2677,9 @@
     "desc": "VIA EPSOM"
   },
   "00719": {
+    "E": [
+      "SEV"
+    ],
     "I": [
       "ECR"
     ],
@@ -4404,7 +4435,10 @@
     "desc": "AAA PENGE STNS"
   },
   "40100": {
-    "desc": "AAA CATERHAM"
+    "E": [
+      "TON"
+    ],
+    "desc": "AAA CATHM EX TON"
   },
   "40101": {
     "desc": "AAA ASHURST"

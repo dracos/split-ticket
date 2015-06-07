@@ -953,6 +953,10 @@
     "code": "9764",
     "description": "Bargeddie"
   },
+  "BGK": {
+    "code": "K870",
+    "description": "Baguley Mtlk"
+  },
   "BGL": {
     "code": "3502",
     "description": "Bugle"
@@ -1072,7 +1076,7 @@
   },
   "BIT": {
     "code": "3104",
-    "description": "Bicester Town"
+    "description": "Bicester Village"
   },
   "BIW": {
     "code": "6170",
@@ -1266,6 +1270,10 @@
     "code": "2944",
     "description": "Bramhall"
   },
+  "BMM": {
+    "code": "K865",
+    "description": "Barlow M Rd Mtlk"
+  },
   "BMN": {
     "code": "5096",
     "description": "Bromley North"
@@ -1330,6 +1338,10 @@
   "BNI": {
     "code": "5580",
     "description": "Barnes Bridge"
+  },
+  "BNK": {
+    "code": "K874",
+    "description": "Benchill Mtlk"
   },
   "BNL": {
     "code": "9973",
@@ -2436,6 +2448,10 @@
     "code": "M330",
     "description": "Claremorris (Civ)"
   },
+  "CMK": {
+    "code": "K875",
+    "description": "Crossacres Mtlk"
+  },
   "CML": {
     "code": "9769",
     "description": "Carmyle"
@@ -2623,7 +2639,7 @@
   },
   "CPR": {
     "code": "I756",
-    "description": "Ec Executive Car Parking"
+    "description": "Vtec Exec C Park"
   },
   "CPT": {
     "code": "6926",
@@ -3544,7 +3560,7 @@
   },
   "EBB": {
     "code": "3628",
-    "description": "Ebbw Vale"
+    "description": "Ebbw Vale Town"
   },
   "EBD": {
     "code": "5566",
@@ -6849,6 +6865,10 @@
     "code": "7725",
     "description": "Metrocentre Gateshead"
   },
+  "MCF": {
+    "code": "K873",
+    "description": "Martinsctft Mtlk"
+  },
   "MCH": {
     "code": "7166",
     "description": "March"
@@ -6892,6 +6912,10 @@
   "MDL": {
     "code": "2971",
     "description": "Middlewood"
+  },
+  "MDM": {
+    "code": "K869",
+    "description": "Moor Road Mtlk"
   },
   "MDN": {
     "code": "5853",
@@ -7105,6 +7129,10 @@
   "MMO": {
     "code": "1851",
     "description": "Melton Mowbray"
+  },
+  "MNA": {
+    "code": "K880",
+    "description": "Man Airport Mtlk"
   },
   "MNC": {
     "code": "9160",
@@ -7433,6 +7461,10 @@
     "code": "5636",
     "description": "North Camp"
   },
+  "NCO": {
+    "code": "9589",
+    "description": "Newcourt"
+  },
   "NCT": {
     "code": "6498",
     "description": "Newark Castle",
@@ -7569,6 +7601,10 @@
   "NMP": {
     "code": "1069",
     "description": "Northampton"
+  },
+  "NMR": {
+    "code": "K867",
+    "description": "Northern Mr Mtlk"
   },
   "NMT": {
     "code": "7354",
@@ -7904,6 +7940,10 @@
     "code": "2090",
     "description": "Oxenholme Lake District"
   },
+  "OXP": {
+    "code": "3121",
+    "description": "Oxford Parkway"
+  },
   "OXS": {
     "code": "5602",
     "description": "Oxshott"
@@ -8058,6 +8098,10 @@
   "PHG": {
     "code": "4335",
     "description": "Penhelig"
+  },
+  "PHM": {
+    "code": "K878",
+    "description": "Peel Hall Mtlk"
   },
   "PHR": {
     "code": "5477",
@@ -8523,6 +8567,10 @@
     "code": "I060",
     "description": "Fairford Air"
   },
+  "QHC": {
+    "code": "K681",
+    "description": "Hamptn Ct Flower"
+  },
   "QPK": {
     "code": "9822",
     "description": "Queens Park (Glasgow)"
@@ -8546,6 +8594,10 @@
   "QUI": {
     "code": "3531",
     "description": "Quintrell Downs"
+  },
+  "QWE": {
+    "code": "K804",
+    "description": "Wypte Zns1234&5"
   },
   "QWU": {
     "code": "I057",
@@ -8897,6 +8949,10 @@
     "code": "2977",
     "description": "Ryder Brow"
   },
+  "RRM": {
+    "code": "K877",
+    "description": "Robinswd Rd Mtlk"
+  },
   "RSB": {
     "code": "N010",
     "description": "Rosslare Harbour (Civ)"
@@ -8916,6 +8972,10 @@
   "RTC": {
     "code": "K737",
     "description": "Rochdale Tc Mtlk"
+  },
+  "RTH": {
+    "code": "K871",
+    "description": "Roundthorn Mtlk"
   },
   "RTN": {
     "code": "9867",
@@ -9629,6 +9689,10 @@
     "code": "3254",
     "description": "Sea Mills"
   },
+  "SMM": {
+    "code": "K879",
+    "description": "Shadowmoss Mtlk"
+  },
   "SMN": {
     "code": "6890",
     "description": "Southminster"
@@ -9826,6 +9890,10 @@
   "SPK": {
     "code": "1861",
     "description": "Sutton Parkway"
+  },
+  "SPM": {
+    "code": "K866",
+    "description": "Sale W Park Mtlk"
   },
   "SPN": {
     "code": "7379",
@@ -10340,6 +10408,10 @@
   "TFC": {
     "code": "4691",
     "description": "Telford"
+  },
+  "TGG": {
+    "code": "6546",
+    "description": "Stone Crown Street"
   },
   "TGM": {
     "code": "3430",
@@ -10905,10 +10977,6 @@
     "code": "9777",
     "description": "Whitecraigs"
   },
-  "WCS": {
-    "code": "9129",
-    "description": "Nx Wembley Bus"
-  },
   "WCT": {
     "code": "H127",
     "description": "Watchet Bus"
@@ -11104,6 +11172,10 @@
   "WHI": {
     "code": "5196",
     "description": "Whitstable"
+  },
+  "WHK": {
+    "code": "K876",
+    "description": "Wythnshw Tc Mtlk"
   },
   "WHL": {
     "code": "6956",
@@ -11457,6 +11529,10 @@
   "WPL": {
     "code": "5686",
     "description": "Worplesdon"
+  },
+  "WPM": {
+    "code": "K868",
+    "description": "Wythnshw Pk Mtlk"
   },
   "WPT": {
     "code": "N130",

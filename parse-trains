@@ -1,8 +1,18 @@
 #!/usr/bin/env python
 
 import json
+import sys
 
 from split.parse import unpack, loop, fare_file
+
+
+try:
+    id = int(sys.argv[2])
+    timetable_file = 'timetable-data-%d/ttisf%d.mca' % (id, id)
+except IndexError:
+    print >>sys.stderr, "Specify the timetable ID as the second parameter"
+    sys.exit(1)
+
 
 lookups = {
     "SR": ( ('code', 2), ('id', 6), ('dir', 1), ('quota', 1), ('sleeping_ind', 1) ),
@@ -31,7 +41,7 @@ for row in loop(fare_file('RST')):
 stations = {}
 started = None
 data = {}
-for line in open('timetable-data-730/ttisf730.mca'):
+for line in open(timetable_file):
     if line.startswith('TI'):
         tiploc = line[2:9].strip()
         crs = line[53:56].strip()

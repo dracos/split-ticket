@@ -29,8 +29,9 @@ for row in loop(fare_file('FSC')):
         ('cluster_id', 4), ('member_id', 4),
         ('date_to', 8, cnv_full_date), ('date_from', 8, cnv_full_date)
     )
-    assert row['date_to'] == date(2999, 12, 31)
-    assert row['date_from'] <= date(2015, 1, 2)
+    # Not needed for May 2015 update
+    #assert row['date_to'] == date(2999, 12, 31)
+    #assert row['date_from'] <= date(2015, 6, 7)
     del row['date_to'], row['date_from']
     data.setdefault(row['member_id'], []).append(row['cluster_id'])
 
