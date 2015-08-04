@@ -2,3 +2,5 @@ node_modules
 bower_components
 *.pyc
 split.sqlite
+fare-data-*
+timetable-data-*
