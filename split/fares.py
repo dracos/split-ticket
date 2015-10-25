@@ -94,7 +94,7 @@ class Fares(object):
                     else:
                         desc = 'Out: %s, Return: %s' % (desc_out, desc_rtn)
                     restriction = { 'id': p[1], 'desc': desc, 'desc_out': desc_out, 'desc_rtn': desc_rtn }
-                route = data['routes'][f['route']]
+                route = data['routes'][f['route']].copy()
                 route['id'] = f['route']
                 fares_data.append({
                     'toc': f.get('toc'),
