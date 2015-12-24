@@ -8,7 +8,7 @@ from split.parse import unpack, loop, fare_file
 
 try:
     id = int(sys.argv[2])
-    timetable_file = 'timetable-data-%d/ttisf%d.mca' % (id, id)
+    timetable_file = 'timetable-data-%03d/ttisf%03d.mca' % (id, id)
 except IndexError:
     print >>sys.stderr, "Specify the timetable ID as the second parameter"
     sys.exit(1)

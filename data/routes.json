@@ -135,9 +135,6 @@
   "00028": {
     "desc": "GT NORTHERN ONLY"
   },
-  "00029": {
-    "desc": "VTEC TRAINS ONLY"
-  },
   "00030": {
     "desc": "GTNORTHRN&CONCTS"
   },
@@ -369,7 +366,7 @@
     "desc": "LM ONLY MON-THUR"
   },
   "00082": {
-    "desc": "FGW FIRSTUPGRADE"
+    "desc": "GWR FIRSTUPGRADE"
   },
   "00083": {
     "desc": "NORTHERN TRAINS"
@@ -524,7 +521,7 @@
     "desc": "SUFFOLK"
   },
   "00109": {
-    "desc": "NORFLK & SUFFLK"
+    "desc": "SUFFLK & NORFLK"
   },
   "00110": {
     "desc": "CAMBS & SUFFOLK"
@@ -628,7 +625,7 @@
   },
   "00133": {
     "E": [
-      "STP",
+      "EUS",
       "SFA"
     ],
     "I": [
@@ -659,6 +656,12 @@
   },
   "00137": {
     "desc": "EARLYBIRD SEASON"
+  },
+  "00138": {
+    "desc": "GWR SURFBOARD"
+  },
+  "00139": {
+    "desc": "GWR CORPORATE"
   },
   "00140": {
     "desc": "MO TU WE &WKND"
@@ -1389,6 +1392,10 @@
     "desc": "VIA H WYC & BIRM"
   },
   "00364": {
+    "E": [
+      "WFJ",
+      "RDG"
+    ],
     "desc": "CH  & ATW ONLY"
   },
   "00366": {
@@ -2504,6 +2511,9 @@
     "desc": "VIA ELMERS END"
   },
   "00637": {
+    "E": [
+      "SHV"
+    ],
     "I": [
       "SOU"
     ],
@@ -2606,6 +2616,9 @@
     "desc": "BATTLE NOT HS1"
   },
   "00703": {
+    "E": [
+      "SFA"
+    ],
     "desc": "LONDON NOT UND"
   },
   "00704": {
@@ -3452,9 +3465,6 @@
     "desc": "BLAENAU FFEST FR"
   },
   "00962": {
-    "I": [
-      ""
-    ],
     "desc": "MINFFORDD FR"
   },
   "00965": {
@@ -3545,7 +3555,6 @@
   },
   "00989": {
     "E": [
-      "",
       "HHD",
       "PDK",
       "FGH",

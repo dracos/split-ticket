@@ -113,6 +113,6 @@ for row in loop(fare_file('LOC')):
             data[row['crs_code']]['fare_group'] = row['fare_group']
 
 del data['SPX']
-del data['RMZ']
+#del data['RMZ']
 del data['MCZ']
 json.dump(data, open('data/stations.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)

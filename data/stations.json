@@ -745,7 +745,8 @@
   },
   "BCS": {
     "code": "3048",
-    "description": "Bicester North"
+    "description": "Bicester North",
+    "fare_group": "7934"
   },
   "BCU": {
     "code": "5886",
@@ -869,6 +870,10 @@
   "BEO": {
     "code": "0281",
     "description": "Brecon"
+  },
+  "BEP": {
+    "code": "6543",
+    "description": "Bermuda Park"
   },
   "BER": {
     "code": "2420",
@@ -1076,7 +1081,8 @@
   },
   "BIT": {
     "code": "3104",
-    "description": "Bicester Village"
+    "description": "Bicester Village",
+    "fare_group": "7934"
   },
   "BIW": {
     "code": "6170",
@@ -1899,6 +1905,10 @@
     "code": "N330",
     "description": "Bray        (Civ"
   },
+  "CAA": {
+    "code": "7416",
+    "description": "Coventry Arena"
+  },
   "CAC": {
     "code": "0992",
     "description": "Caldercruix"
@@ -1958,10 +1968,6 @@
   "CAY": {
     "code": "9897",
     "description": "Carntyne"
-  },
-  "CAZ": {
-    "code": "K181",
-    "description": "Catterick Darlington Bus"
   },
   "CBB": {
     "code": "3542",
@@ -2186,6 +2192,10 @@
   "CGN": {
     "code": "3828",
     "description": "Cogan"
+  },
+  "CGT": {
+    "code": "K181",
+    "description": "Catterick Darlington Bus"
   },
   "CGW": {
     "code": "2536",
@@ -3086,10 +3096,6 @@
     "code": "7371",
     "description": "Dereham Market Place"
   },
-  "DED": {
-    "code": "0388",
-    "description": "Dover East Docks"
-  },
   "DEE": {
     "code": "9039",
     "description": "Dundee"
@@ -3713,6 +3719,10 @@
     "code": "9055",
     "description": "Eigg (Isle Of)"
   },
+  "EKB": {
+    "code": "3776",
+    "description": "Eskbank"
+  },
   "EKL": {
     "code": "9793",
     "description": "East Kilbride"
@@ -4280,8 +4290,8 @@
     "description": "Fitzwilliam"
   },
   "GAL": {
-    "code": "J423",
-    "description": "Galashiels Via Berwick And Bus"
+    "code": "9329",
+    "description": "Galashiels"
   },
   "GAR": {
     "code": "9904",
@@ -4290,6 +4300,10 @@
   "GBD": {
     "code": "8117",
     "description": "Gilberdyke"
+  },
+  "GBG": {
+    "code": "6391",
+    "description": "Gorebridge"
   },
   "GBK": {
     "code": "2325",
@@ -5703,7 +5717,7 @@
   },
   "JCH": {
     "code": "9507",
-    "description": "James Cook Hospl"
+    "description": "James Cook"
   },
   "JEQ": {
     "code": "1097",
@@ -6682,8 +6696,8 @@
     "description": "Lichfield Trent Valley"
   },
   "LUA": {
-    "code": "1570",
-    "description": "Luton Airprt Bus"
+    "code": "3667",
+    "description": "Luton Airport"
   },
   "LUB": {
     "code": "0836",
@@ -7304,6 +7318,10 @@
     "code": "5069",
     "description": "Mitcham Eastflds"
   },
+  "MTE": {
+    "code": "K926",
+    "description": "Mira Tech Park"
+  },
   "MTG": {
     "code": "5118",
     "description": "Mottingham"
@@ -7478,6 +7496,10 @@
     "code": "5429",
     "description": "North Dulwich"
   },
+  "NEG": {
+    "code": "6929",
+    "description": "Newtongrange"
+  },
   "NEH": {
     "code": "5119",
     "description": "New Eltham"
@@ -7614,6 +7636,10 @@
     "code": "6499",
     "description": "Newark North Gate",
     "fare_group": "0441"
+  },
+  "NNN": {
+    "code": "7966",
+    "description": "Nuneaton Bus Stn"
   },
   "NNP": {
     "code": "3895",
@@ -8567,6 +8593,10 @@
     "code": "I060",
     "description": "Fairford Air"
   },
+  "QGL": {
+    "code": "K175",
+    "description": "Golflink 2015"
+  },
   "QHC": {
     "code": "K681",
     "description": "Hamptn Ct Flower"
@@ -9217,6 +9247,10 @@
     "code": "K750",
     "description": "Sth Chadtn Mtlk"
   },
+  "SCN": {
+    "code": "6546",
+    "description": "Stone Crown Street"
+  },
   "SCR": {
     "code": "3536",
     "description": "St Columb Road"
@@ -9381,6 +9415,10 @@
     "code": "K821",
     "description": "Saffron Wldn Bus"
   },
+  "SFI": {
+    "code": "6963",
+    "description": "Shawfair"
+  },
   "SFL": {
     "code": "2250",
     "description": "Seaforth And Litherland"
@@ -9396,6 +9434,10 @@
   "SFR": {
     "code": "5638",
     "description": "Shalford Surrey"
+  },
+  "SFS": {
+    "code": "0705",
+    "description": "Southfields Underground"
   },
   "SGB": {
     "code": "1114",
@@ -9813,6 +9855,10 @@
   "SOH": {
     "code": "1451",
     "description": "South Hampstead"
+  },
+  "SOI": {
+    "code": "9396",
+    "description": "Stow"
   },
   "SOK": {
     "code": "1453",
@@ -10356,6 +10402,10 @@
     "code": "5491",
     "description": "Three Bridges"
   },
+  "TBM": {
+    "code": "G209",
+    "description": "Traffrd Bar Mtlk"
+  },
   "TBR": {
     "code": "7461",
     "description": "Tilbury River",
@@ -10408,10 +10458,6 @@
   "TFC": {
     "code": "4691",
     "description": "Telford"
-  },
-  "TGG": {
-    "code": "6546",
-    "description": "Stone Crown Street"
   },
   "TGM": {
     "code": "3430",
@@ -10712,6 +10758,10 @@
   "TVP": {
     "code": "3474",
     "description": "Tiverton Parkway"
+  },
+  "TWB": {
+    "code": "9500",
+    "description": "Tweedbank"
   },
   "TWI": {
     "code": "5574",
@@ -11072,7 +11122,7 @@
   },
   "WER": {
     "code": "9865",
-    "description": "Wedgwood,Wedgwood Lane"
+    "description": "Wedgwood - Wedgwood Lane"
   },
   "WES": {
     "code": "9998",
@@ -11525,6 +11575,10 @@
   "WPE": {
     "code": "1085",
     "description": "Wapping"
+  },
+  "WPK": {
+    "code": "0768",
+    "description": "Wimbledon Park Underground"
   },
   "WPL": {
     "code": "5686",
