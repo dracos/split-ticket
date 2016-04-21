@@ -13,7 +13,7 @@
     <input class='ac' id="via" type="text" name="via" value="{{ get('via', '') }}">
 </p>
 <p{{ !' class="error"' if errors.get('time') else '' }}>
-    <label for="time">{{ errors.get('time', 'Leave at') }}:</label>
+    <label for="time">{{ errors.get('time', 'Leave at (hh:mm)') }}:</label>
     <input id="time" type="text" name="time" placeholder="hh:mm" value="{{ get('time', '') }}">
 </p>
 <p{{ !' class="error"' if errors.get('day') else '' }}>
@@ -23,7 +23,7 @@
     <label class="n"><input type="radio" class="day_ret" name="day" value="n"{{ ' checked' if get('day')=='n' else '' }}> Return</label>
 </p>
 <p id="time_ret_row"{{ !' class="error"' if errors.get('time_ret') else '' }}>
-    <label for="time_ret">{{ errors.get('time_ret', 'Return at') }}: (optional)</label>
+    <label for="time_ret">{{ errors.get('time_ret', 'Return at (hh:mm)') }}: (optional)</label>
     <input id="time_ret" type="text" name="time_ret" placeholder="hh:mm" value="{{ get('time_ret', '') }}">
 <br><small>(Providing a return time means I will take account of the time
 restrictions and stations of the found return journey, for better or

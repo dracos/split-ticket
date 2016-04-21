@@ -93,8 +93,10 @@ def ajax():
 @cache(60*15)
 def home():
     if all(x in request.query and request.query[x] for x in ['from', 'to', 'time', 'day']):
+        request.query['time'] = re.sub('^(\d\d)(\d\d)$', r'\1:\2', request.query['time'])
         path = '/%(from)s/%(to)s/%(day)s/%(time)s' % request.query
         if request.query.get('time_ret'):
+            request.query['time_ret'] = re.sub('^(\d\d)(\d\d)$', r'\1:\2', request.query['time_ret'])
             path += '/%(time_ret)s' % request.query
         if request.query.get('via'):
             path += '?via=' + urllib.quote(request.query['via'])
