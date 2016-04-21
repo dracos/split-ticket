@@ -23,6 +23,10 @@
     "code": "3813",
     "description": "Aber"
   },
+  "ABF": {
+    "code": "7771",
+    "description": "Ashurst Bald Face Stag Ph"
+  },
   "ABH": {
     "code": "4440",
     "description": "Abererch"
@@ -350,6 +354,10 @@
   "APS": {
     "code": "1430",
     "description": "Apsley"
+  },
+  "APY": {
+    "code": "8562",
+    "description": "Apperley Bridge"
   },
   "ARA": {
     "code": "H334",
@@ -870,10 +878,6 @@
   "BEO": {
     "code": "0281",
     "description": "Brecon"
-  },
-  "BEP": {
-    "code": "6543",
-    "description": "Bermuda Park"
   },
   "BER": {
     "code": "2420",
@@ -1905,10 +1909,6 @@
     "code": "N330",
     "description": "Bray        (Civ"
   },
-  "CAA": {
-    "code": "7416",
-    "description": "Coventry Arena"
-  },
   "CAC": {
     "code": "0992",
     "description": "Caldercruix"
@@ -1993,6 +1993,10 @@
   "CBH": {
     "code": "6962",
     "description": "Cambridge Heath"
+  },
+  "CBK": {
+    "code": "9850",
+    "description": "Cranbrook(Devon)"
   },
   "CBL": {
     "code": "9768",
@@ -3498,7 +3502,8 @@
   },
   "DVP": {
     "code": "5033",
-    "description": "Dover Priory"
+    "description": "Dover Priory",
+    "fare_group": "0414"
   },
   "DVR": {
     "code": "K268",
@@ -3766,6 +3771,10 @@
   "ELY": {
     "code": "7068",
     "description": "Ely"
+  },
+  "EMA": {
+    "code": "6548",
+    "description": "East Mids Aptbus"
   },
   "EMD": {
     "code": "1901",
@@ -5787,6 +5796,10 @@
     "code": "9145",
     "description": "Kirkcaldy"
   },
+  "KEB": {
+    "code": "7885",
+    "description": "Kenley (A22)"
+  },
   "KEH": {
     "code": "8925",
     "description": "Keith"
@@ -6228,6 +6241,10 @@
   "LEA": {
     "code": "1534",
     "description": "Leagrave"
+  },
+  "LEB": {
+    "code": "6927",
+    "description": "Lea Bridge"
   },
   "LED": {
     "code": "4784",
@@ -8617,6 +8634,10 @@
     "code": "J263",
     "description": "Quainton Road"
   },
+  "QRF": {
+    "code": "4443",
+    "description": "Red Funnel Terminal Two"
+  },
   "QRP": {
     "code": "5424",
     "description": "Queens Road (Peckham)"
@@ -8627,7 +8648,7 @@
   },
   "QWE": {
     "code": "K804",
-    "description": "Wypte Zns1234&5"
+    "description": "Mcard Z 1234&5"
   },
   "QWU": {
     "code": "I057",
