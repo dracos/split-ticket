@@ -40,3 +40,22 @@ You start a backend worker with:
 
 (I’m running multiple ones via supervisor, there is an example config.)
 And you can monitor the workers with rqinfo.
+
+Updating data
+-------------
+
+Get some fares and timetable data from http://data.atoc.org/ and unzip each
+into their own directories, called fares-data-NNN and timetable-data-NNN (with
+NNN being their respective ID).
+
+Run:
+
+    parse-tocs <fares-directory>
+    parse-stations <fares-directory>
+    parse-restrictions <fares-directory>
+    parse-fares <fares-directory>
+    parse-ndf <fares-directory>
+    parse-trains <fares-directory> <timetable ID>
+    merge-fares-ndf <fares-directory>
+
+And that should update all the JSON files.
