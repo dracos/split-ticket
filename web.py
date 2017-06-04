@@ -218,7 +218,8 @@ def _split(fr, to, day, time, time_ret):
     if job:
         include_me = 1
     else:
-        if 'bot' not in request.headers.get('User-Agent', ''):
+        ua = request.headers.get('User-Agent', '')
+        if 'bot' not in ua and 'spider' not in ua:
             job = q.enqueue('split.work.do_split', context)
 
     bottle.response.set_header('Cache-Control', 'max-age=0')
