@@ -31,10 +31,6 @@
     "code": "4440",
     "description": "Abererch"
   },
-  "ABO": {
-    "code": "0275",
-    "description": "Aboyne"
-  },
   "ABW": {
     "code": "5131",
     "description": "Abbey Wood"
@@ -122,10 +118,6 @@
   "ADW": {
     "code": "9310",
     "description": "Addiewell"
-  },
-  "AER": {
-    "code": "0274",
-    "description": "Aberaeron"
   },
   "AFK": {
     "code": "5004",
@@ -227,10 +219,6 @@
     "code": "6847",
     "description": "Alresford (Essex)"
   },
-  "ALS": {
-    "code": "0276",
-    "description": "Alston"
-  },
   "ALT": {
     "code": "2806",
     "description": "Altrincham"
@@ -250,10 +238,6 @@
   "AMB": {
     "code": "1678",
     "description": "Ambergate"
-  },
-  "AMD": {
-    "code": "3940",
-    "description": "Ampfield"
   },
   "AMF": {
     "code": "4236",
@@ -563,6 +547,10 @@
     "code": "6083",
     "description": "Ashwell And Morden"
   },
+  "AWP": {
+    "code": "K948",
+    "description": "Alpamare"
+  },
   "AWT": {
     "code": "2054",
     "description": "Armathwaite"
@@ -614,10 +602,6 @@
   "BAD": {
     "code": "5348",
     "description": "Banstead"
-  },
-  "BAE": {
-    "code": "0280",
-    "description": "Braemar"
   },
   "BAG": {
     "code": "5681",
@@ -780,10 +764,6 @@
     "code": "J407",
     "description": "Brodick"
   },
-  "BDD": {
-    "code": "6258",
-    "description": "Broadford"
-  },
   "BDG": {
     "code": "9789",
     "description": "Bridgeton"
@@ -875,9 +855,9 @@
     "code": "2676",
     "description": "Bentham"
   },
-  "BEO": {
-    "code": "0281",
-    "description": "Brecon"
+  "BEP": {
+    "code": "6543",
+    "description": "Bermuda Park"
   },
   "BER": {
     "code": "2420",
@@ -1216,10 +1196,6 @@
     "code": "1679",
     "description": "Belper"
   },
-  "BLR": {
-    "code": "0277",
-    "description": "Ballater"
-  },
   "BLT": {
     "code": "9716",
     "description": "Blantyre"
@@ -1271,10 +1247,6 @@
   "BMH": {
     "code": "5876",
     "description": "Bournemouth"
-  },
-  "BMK": {
-    "code": "K567",
-    "description": "Burnham Mkt Bus"
   },
   "BML": {
     "code": "2944",
@@ -1909,6 +1881,10 @@
     "code": "N330",
     "description": "Bray        (Civ"
   },
+  "CAA": {
+    "code": "7416",
+    "description": "Coventry Arena"
+  },
   "CAC": {
     "code": "0992",
     "description": "Caldercruix"
@@ -1924,10 +1900,6 @@
   "CAH": {
     "code": "M230",
     "description": "Cahir       (Civ)"
-  },
-  "CAI": {
-    "code": "0284",
-    "description": "Cardigan"
   },
   "CAK": {
     "code": "1964",
@@ -2017,6 +1989,10 @@
   "CBS": {
     "code": "9752",
     "description": "Coatbridge Sunnyside"
+  },
+  "CBT": {
+    "code": "K944",
+    "description": "Campbeltown"
   },
   "CBW": {
     "code": "5007",
@@ -2394,10 +2370,6 @@
     "code": "6664",
     "description": "Chapeltown (Yorks)"
   },
-  "CLO": {
-    "code": "9051",
-    "description": "Coll (Isle Of)"
-  },
   "CLP": {
     "code": "5301",
     "description": "Clapham High Street"
@@ -2442,6 +2414,10 @@
     "code": "M400",
     "description": "Cloughjordan  (Civ)"
   },
+  "CMB": {
+    "code": "8001",
+    "description": "Cambridge North"
+  },
   "CMD": {
     "code": "1440",
     "description": "Camden Road"
@@ -2482,17 +2458,9 @@
     "code": "7295",
     "description": "Cromer"
   },
-  "CMT": {
-    "code": "0279",
-    "description": "Charmouth"
-  },
   "CMY": {
     "code": "9796",
     "description": "Crossmyloof"
-  },
-  "CNA": {
-    "code": "9050",
-    "description": "Canna (Isle Of)"
   },
   "CNE": {
     "code": "2562",
@@ -2815,10 +2783,6 @@
     "code": "2313",
     "description": "Croston"
   },
-  "CSQ": {
-    "code": "L221",
-    "description": "Caerau   (Bus)"
-  },
   "CSR": {
     "code": "2947",
     "description": "Chassen Road"
@@ -2911,8 +2875,8 @@
     "description": "Curriehill"
   },
   "CUL": {
-    "code": "9053",
-    "description": "Cumbrae (Isle Of)"
+    "code": "K945",
+    "description": "Cumbrae"
   },
   "CUM": {
     "code": "3107",
@@ -2969,10 +2933,6 @@
   "CWU": {
     "code": "5233",
     "description": "Crowhurst"
-  },
-  "CYA": {
-    "code": "9052",
-    "description": "Colonsay (Isle Of)"
   },
   "CYB": {
     "code": "2425",
@@ -3080,6 +3040,10 @@
     "description": "Dorchester West",
     "fare_group": "0429"
   },
+  "DDB": {
+    "code": "M510",
+    "description": "Dun Laoghaire (Civ)"
+  },
   "DDG": {
     "code": "4525",
     "description": "Dorridge"
@@ -3161,10 +3125,6 @@
     "code": "2480",
     "description": "Deganwy"
   },
-  "DHC": {
-    "code": "4559",
-    "description": "Den Haag Cs"
-  },
   "DHM": {
     "code": "7745",
     "description": "Durham"
@@ -3238,10 +3198,6 @@
   "DLM": {
     "code": "2306",
     "description": "Delamere"
-  },
-  "DLO": {
-    "code": "M510",
-    "description": "Dun Laoghaire (Civ)"
   },
   "DLR": {
     "code": "9864",
@@ -3640,6 +3596,10 @@
     "code": "K280",
     "description": "Cowes East By Red Funnel Ship"
   },
+  "EDA": {
+    "code": "K563",
+    "description": "Edb Apt Bus/Tram"
+  },
   "EDB": {
     "code": "9328",
     "description": "Edinburgh"
@@ -3716,13 +3676,13 @@
     "code": "7918",
     "description": "Egton"
   },
+  "EGY": {
+    "code": "6545",
+    "description": "Edinburgh Gateway"
+  },
   "EHC": {
     "code": "K755",
     "description": "Etihad Camp Mtlk"
-  },
-  "EIG": {
-    "code": "9055",
-    "description": "Eigg (Isle Of)"
   },
   "EKB": {
     "code": "3776",
@@ -4177,10 +4137,6 @@
     "code": "6119",
     "description": "Finsbury Park"
   },
-  "FPX": {
-    "code": "6789",
-    "description": "X Finsbury  Park"
-  },
   "FRB": {
     "code": "4416",
     "description": "Fairbourne"
@@ -4378,6 +4334,10 @@
   "GFN": {
     "code": "9794",
     "description": "Giffnock"
+  },
+  "GFY": {
+    "code": "0880",
+    "description": "Gravesend Piers"
   },
   "GGJ": {
     "code": "8641",
@@ -5009,10 +4969,6 @@
     "code": "6009",
     "description": "Highbury And Islington"
   },
-  "HHZ": {
-    "code": "6739",
-    "description": "X High & Is 4Tg"
-  },
   "HIA": {
     "code": "1033",
     "description": "Hampton In Arden"
@@ -5380,10 +5336,6 @@
     "code": "1145",
     "description": "Hamstead (Birmingham)"
   },
-  "HSE": {
-    "code": "3941",
-    "description": "Hursley"
-  },
   "HSG": {
     "code": "2826",
     "description": "Hathersage"
@@ -5648,9 +5600,9 @@
     "code": "8568",
     "description": "Ilkley"
   },
-  "ILM": {
-    "code": "3585",
-    "description": "Ilminster"
+  "ILN": {
+    "code": "7783",
+    "description": "Ilkeston"
   },
   "IMW": {
     "code": "9586",
@@ -5929,6 +5881,10 @@
     "code": "7516",
     "description": "Kildale"
   },
+  "KLF": {
+    "code": "6544",
+    "description": "Kirkstall Forge"
+  },
   "KLL": {
     "code": "M720",
     "description": "Killarney   (Civ)"
@@ -5940,6 +5896,10 @@
   "KLN": {
     "code": "7115",
     "description": "Kings Lynn"
+  },
+  "KLS": {
+    "code": "6549",
+    "description": "Kings Lynn Bus Station Gn"
   },
   "KLY": {
     "code": "5419",
@@ -6089,10 +6049,6 @@
     "code": "9517",
     "description": "Kilwinning"
   },
-  "KYK": {
-    "code": "9069",
-    "description": "Kyleakin (Skye)"
-  },
   "KYL": {
     "code": "8657",
     "description": "Kyle Of Lochalsh"
@@ -6197,10 +6153,6 @@
   "LCG": {
     "code": "9156",
     "description": "Lochgelly"
-  },
-  "LCH": {
-    "code": "9074",
-    "description": "Lochmaddy (Nu)"
   },
   "LCK": {
     "code": "8443",
@@ -6515,6 +6467,10 @@
     "code": "3852",
     "description": "Llwynypia"
   },
+  "LMR": {
+    "code": "8416",
+    "description": "Low Moor"
+  },
   "LMS": {
     "code": "4597",
     "description": "Leamington Spa"
@@ -6530,10 +6486,6 @@
   "LNE": {
     "code": "5470",
     "description": "London International (Civ)"
-  },
-  "LNF": {
-    "code": "3942",
-    "description": "Lindford"
   },
   "LNG": {
     "code": "5674",
@@ -6646,10 +6598,6 @@
   "LSK": {
     "code": "3573",
     "description": "Liskeard"
-  },
-  "LSM": {
-    "code": "9058",
-    "description": "Lismore(Isle Of)"
   },
   "LSN": {
     "code": "9371",
@@ -7387,10 +7335,6 @@
     "code": "9608",
     "description": "Muirend"
   },
-  "MUK": {
-    "code": "9061",
-    "description": "Muck (Isle Of)"
-  },
   "MUL": {
     "code": "M920",
     "description": "Mullingar   (Civ)"
@@ -7419,10 +7363,6 @@
   "MZH": {
     "code": "5149",
     "description": "Maze Hill"
-  },
-  "MZZ": {
-    "code": "6737",
-    "description": "X Maze Hill 4Tg"
   },
   "NAN": {
     "code": "1247",
@@ -7548,10 +7488,6 @@
   "NEW": {
     "code": "8808",
     "description": "Newcraighall"
-  },
-  "NEY": {
-    "code": "0298",
-    "description": "Newcastle Emlyn"
   },
   "NFA": {
     "code": "6875",
@@ -7850,10 +7786,6 @@
     "code": "5345",
     "description": "New Cross Gate"
   },
-  "NXZ": {
-    "code": "6738",
-    "description": "X Nxg 4Tg"
-  },
   "OBN": {
     "code": "8725",
     "description": "Oban"
@@ -7915,10 +7847,6 @@
     "code": "2281",
     "description": "Ormskirk"
   },
-  "ONZ": {
-    "code": "K277",
-    "description": "Onley Bus"
-  },
   "OPK": {
     "code": "2247",
     "description": "Orrell Park"
@@ -7938,10 +7866,6 @@
   "ORR": {
     "code": "2259",
     "description": "Orrell"
-  },
-  "OSM": {
-    "code": "0346",
-    "description": "Ottery St Mary"
   },
   "OTF": {
     "code": "5071",
@@ -8844,10 +8768,6 @@
     "code": "2106",
     "description": "Ribblehead"
   },
-  "RHG": {
-    "code": "3835",
-    "description": "Rhigos"
-  },
   "RHI": {
     "code": "3906",
     "description": "Rhiwbina"
@@ -8863,10 +8783,6 @@
   "RHO": {
     "code": "2544",
     "description": "Rhosneigr"
-  },
-  "RHU": {
-    "code": "9066",
-    "description": "Rhum (Isle Of)"
   },
   "RHY": {
     "code": "4027",
@@ -8903,10 +8819,6 @@
   "RLN": {
     "code": "5658",
     "description": "Rowlands Castle"
-  },
-  "RLZ": {
-    "code": "6741",
-    "description": "X Rayleigh 4Tg"
   },
   "RMB": {
     "code": "2444",
@@ -10070,10 +9982,6 @@
     "code": "3057",
     "description": "South Ruislip"
   },
-  "SRW": {
-    "code": "4560",
-    "description": "Schiedam-Rotterdam West"
-  },
   "SRY": {
     "code": "7455",
     "description": "Shoeburyness"
@@ -10432,10 +10340,6 @@
     "description": "Tilbury River",
     "fare_group": "7468"
   },
-  "TBT": {
-    "code": "9057",
-    "description": "Tarbert (Harris)"
-  },
   "TBW": {
     "code": "5230",
     "description": "Tunbridge Wells"
@@ -10455,10 +10359,6 @@
   "TED": {
     "code": "5572",
     "description": "Teddington"
-  },
-  "TEE": {
-    "code": "9073",
-    "description": "Tiree (Isle Of)"
   },
   "TEM": {
     "code": "N080",
@@ -10610,10 +10510,6 @@
     "code": "6531",
     "description": "Thorne South",
     "fare_group": "0271"
-  },
-  "TNW": {
-    "code": "0367",
-    "description": "Tynewydd"
   },
   "TOD": {
     "code": "2677",
@@ -10820,10 +10716,6 @@
   "TYW": {
     "code": "4433",
     "description": "Tywyn"
-  },
-  "TZZ": {
-    "code": "6788",
-    "description": "Q Brands Hatch"
   },
   "UCK": {
     "code": "5334",
@@ -11137,10 +11029,6 @@
     "code": "1347",
     "description": "Wem"
   },
-  "WEN": {
-    "code": "K568",
-    "description": "Wells Nxt Seabus"
-  },
   "WER": {
     "code": "9865",
     "description": "Wedgwood - Wedgwood Lane"
@@ -11235,10 +11123,6 @@
   "WHG": {
     "code": "2619",
     "description": "Westhoughton"
-  },
-  "WHH": {
-    "code": "3943",
-    "description": "Whitehill"
   },
   "WHI": {
     "code": "5196",
