@@ -81,12 +81,12 @@ def find_stopping_points(context, ret=False):
         if m:
             station_times[fr] = [ None, m.group(1) ]
             station_times[to] = [ m.group(2), None ]
-        m = re.findall('<td>(\d\d:\d\d)</td>\s*<td class="origin">.*?<abbr>([A-Z]{3})[\s\S]*?<td class="destination">.*?<abbr>([A-Z]{3})[\s\S]*?<td>(\d\d:\d\d)', res1)
+        m = re.findall('<td>(\d\d:\d\d)&ndash;(\d\d:\d\d)[\s\S]*?</td>\s*<td class="origin">.*?<abbr>([A-Z]{3})[\s\S]*?<td class="destination">.*?<abbr>([A-Z]{3})', res1)
         for q in m:
+            if q[3] not in station_times: station_times[q[3]] = [ None, None ]
+            station_times[q[3]][0] = q[1]
             if q[2] not in station_times: station_times[q[2]] = [ None, None ]
-            station_times[q[2]][0] = q[3]
-            if q[1] not in station_times: station_times[q[1]] = [ None, None ]
-            station_times[q[1]][1] = q[0]
+            station_times[q[2]][1] = q[0]
 
     m = re.search('<a[^>]*href="(/ajax-stoppingpoints[^"]*)">stops(?i)', stops)
     if not m:
