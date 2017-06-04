@@ -19,16 +19,6 @@ def get_job_id(context):
         id += '/%(avoid)s' % context
     return id
 
-class MyJob(Job):
-    @classmethod
-    def create(cls, *args, **kwargs):
-        job = super(MyJob, cls).create(*args, **kwargs)
-        job.id = get_job_id(args[1][0])
-        return job
-
-class MyQueue(Queue):
-    job_class = MyJob
-
 import bottle
 from bottle import request
 
@@ -61,8 +51,6 @@ def auth_basic(check):
             return orig(func)(*a, **ka)
         return wrapper
     return decorator
-
-THIS_DIR = os.path.abspath(os.path.dirname(__file__))
 
 @bottle.route('/robots.txt')
 def robots():
@@ -174,7 +162,7 @@ def split_ajax(fr, to, day, time, time_ret):
     bottle.response.set_header('Cache-Control', 'max-age=0')
     context = context_init(fr, to, day, time, time_ret)
 
-    q = MyQueue(connection=R)
+    q = Queue(connection=R)
     job = q.fetch_job(get_job_id(context))
 
     done = job and (job.is_finished or job.is_failed)
@@ -208,19 +196,21 @@ def _split(fr, to, day, time, time_ret):
         if to in data['stations_by_name']: to = data['stations_by_name'][to]['code']
         bottle.redirect(make_url(fr=fr, to=to))
 
-    q = MyQueue(connection=R)
-    job = q.fetch_job(get_job_id(context))
+    q = Queue(connection=R)
+    job_id = get_job_id(context)
+    job = q.fetch_job(job_id)
     include_me = 0
 
     if job and (job.is_finished or job.is_failed):
         if 'error' in job.result: return error(job.result)
         return split_finished(job.result)
+
     if job:
         include_me = 1
     else:
         ua = request.headers.get('User-Agent', '')
         if 'bot' not in ua and 'spider' not in ua:
-            job = q.enqueue('split.work.do_split', context)
+            job = q.enqueue('split.work.do_split', context, job_id=job_id)
 
     bottle.response.set_header('Cache-Control', 'max-age=0')
 

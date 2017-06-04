@@ -1,5 +1,5 @@
-bottle==0.12.7
-redis==2.10.1
-requests==2.2.1
-requests-cache==0.4.4
-rq==0.4.6
+bottle==0.12.13
+redis==2.10.5
+requests==2.17.3
+requests-cache==0.4.13
+rq==0.8.0
