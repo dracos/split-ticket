@@ -55,7 +55,7 @@ Run:
     parse-restrictions <fares-directory>
     parse-fares <fares-directory>
     parse-ndf <fares-directory>
-    parse-trains <fares-directory> <timetable ID>
+    parse-trains <fares-directory> <timetable-directory>
     merge-fares-ndf <fares-directory>
 
 And that should update all the JSON files.

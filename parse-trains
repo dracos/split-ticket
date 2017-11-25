@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 
 import json
+import re
 import sys
 
 from split.parse import unpack, loop, fare_file
 
 
 try:
-    id = int(sys.argv[2])
-    timetable_file = 'timetable-data-%03d/ttisf%03d.mca' % (id, id)
+    timetable_dir = sys.argv[2]
+    id = re.match('timetable-data-(\d+)', timetable_dir).group(1)
+    timetable_file = '%s/ttisf%s.mca' % (timetable_dir, id)
 except IndexError:
     print >>sys.stderr, "Specify the timetable ID as the second parameter"
     sys.exit(1)
