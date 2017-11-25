@@ -2,8 +2,13 @@
   "Q992": [
     {
       "prices": {},
+      "route": "00345",
+      "toc": "SCS"
+    },
+    {
+      "prices": {},
       "route": "00347",
-      "toc": "CAL"
+      "toc": "SCS"
     }
   ]
 }

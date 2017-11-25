@@ -45,7 +45,7 @@ Updating data
 -------------
 
 Get some fares and timetable data from http://data.atoc.org/ and unzip each
-into their own directories, called fares-data-NNN and timetable-data-NNN (with
+into their own directories, called fare-data-NNN and timetable-data-NNN (with
 NNN being their respective ID).
 
 Run:

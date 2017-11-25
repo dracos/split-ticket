@@ -46,6 +46,9 @@
     "desc": "AS ADVERTISED"
   },
   "00010": {
+    "I": [
+      "APP"
+    ],
     "desc": "VIA APPLEBY"
   },
   "00011": {
@@ -61,7 +64,8 @@
       "SFA"
     ],
     "I": [
-      "GRV"
+      "GRV",
+      "TIL"
     ],
     "desc": "TILBRY&GRAVESND"
   },
@@ -81,13 +85,16 @@
     "desc": "ANY TRAIN"
   },
   "00019": {
+    "I": [
+      "HGT"
+    ],
     "desc": "VIA HARROGATE"
   },
   "00020": {
-    "desc": "GREATER ANG ONLY"
+    "desc": "LIV ST. ONLY"
   },
   "00021": {
-    "desc": "GRT ANG PROMO"
+    "desc": "GREATER ANG ONLY"
   },
   "00022": {
     "desc": "SCOTRAIL ONLY"
@@ -110,6 +117,9 @@
     "desc": "EMIDSTRAINS ONLY"
   },
   "00026": {
+    "I": [
+      "SEL"
+    ],
     "desc": "VIA SELLAFIELD"
   },
   "00027": {
@@ -134,6 +144,9 @@
     "E": [
       "EDG"
     ],
+    "I": [
+      "LPY"
+    ],
     "desc": "LIVERPOOL S PWAY"
   },
   "00035": {
@@ -143,6 +156,9 @@
     "desc": "NW TRAINS PROMO"
   },
   "00037": {
+    "I": [
+      "SVG"
+    ],
     "desc": "VIA STEVENAGE"
   },
   "00038": {
@@ -196,6 +212,9 @@
     "E": [
       "HPL"
     ],
+    "I": [
+      "DHM"
+    ],
     "desc": "VIA DURHAM"
   },
   "00051": {
@@ -205,6 +224,9 @@
     "desc": "VIA SHENFIELD"
   },
   "00052": {
+    "I": [
+      "PNS"
+    ],
     "desc": "VIA PENISTONE"
   },
   "00053": {
@@ -220,6 +242,9 @@
     "desc": "VIA ELY"
   },
   "00055": {
+    "I": [
+      "FPK"
+    ],
     "desc": "VIA FINSBURY PK"
   },
   "00056": {
@@ -242,6 +267,7 @@
   },
   "00059": {
     "I": [
+      "HFN",
       "HFE"
     ],
     "desc": "VIA HERTFORD"
@@ -256,6 +282,9 @@
     "desc": "VIA HULL"
   },
   "00062": {
+    "I": [
+      "IPS"
+    ],
     "desc": "VIA IPSWICH"
   },
   "00063": {
@@ -274,12 +303,21 @@
     "desc": "GC TPE ONLY"
   },
   "00066": {
+    "I": [
+      "LDS"
+    ],
     "desc": "LEEDS COACH"
   },
   "00067": {
+    "I": [
+      "HUN"
+    ],
     "desc": "VIA HUN BUSWAY"
   },
   "00068": {
+    "I": [
+      "CBG"
+    ],
     "desc": "VIA CBG BUSWAY"
   },
   "00069": {
@@ -310,6 +348,9 @@
     "desc": "VIA BROUGH"
   },
   "00074": {
+    "I": [
+      "NRW"
+    ],
     "desc": "VIA NORWICH"
   },
   "00075": {
@@ -325,6 +366,9 @@
     "desc": "VIA PETERBOROUGH"
   },
   "00077": {
+    "I": [
+      "RET"
+    ],
     "desc": "VIA RETFORD"
   },
   "00078": {
@@ -340,6 +384,9 @@
     "desc": "VIA SHEFFIELD"
   },
   "00080": {
+    "I": [
+      "PBO"
+    ],
     "desc": "PETERBORO COACH"
   },
   "00081": {
@@ -361,6 +408,12 @@
     "desc": "TPE ONLY"
   },
   "00086": {
+    "E": [
+      "LDS"
+    ],
+    "I": [
+      "YRK"
+    ],
     "desc": "VIA YRK TPE ONLY"
   },
   "00087": {
@@ -370,6 +423,10 @@
     "desc": "VIA BRIGHOUSE"
   },
   "00088": {
+    "I": [
+      "APP",
+      "DMF"
+    ],
     "desc": "APPLEBY DUMFRIES"
   },
   "00089": {
@@ -377,7 +434,8 @@
       "EUS"
     ],
     "I": [
-      "RDG"
+      "RDG",
+      "DMF"
     ],
     "desc": "DMF RAILAIR RDNG"
   },
@@ -388,6 +446,9 @@
       "DVP",
       "CBE"
     ],
+    "I": [
+      "FAV"
+    ],
     "desc": "HS1 VIA HERNEBAY"
   },
   "00091": {
@@ -395,9 +456,15 @@
       "WFJ",
       "EUS"
     ],
+    "I": [
+      "DMF"
+    ],
     "desc": "DUMFRIES NOT LDN"
   },
   "00092": {
+    "I": [
+      "HUD"
+    ],
     "desc": "VIA HUDDERSFIELD"
   },
   "00093": {
@@ -444,12 +511,17 @@
   },
   "00100": {
     "E": [
-      "NCL",
-      "DAR"
+      "RET"
     ],
     "desc": "LDN NOT DARLNGTN"
   },
   "00101": {
+    "E": [
+      "BTB"
+    ],
+    "I": [
+      "BAU"
+    ],
     "desc": "HUMBRLNK NOT BUS"
   },
   "00102": {
@@ -465,6 +537,9 @@
     "E": [
       "MAN"
     ],
+    "I": [
+      "BYM"
+    ],
     "desc": "VIA BURNLEY"
   },
   "00105": {
@@ -474,6 +549,9 @@
     "desc": "ALTRINCHAM MTLK"
   },
   "00106": {
+    "I": [
+      "HBD"
+    ],
     "desc": "VIA HEBDENBRIDGE"
   },
   "00107": {
@@ -516,6 +594,9 @@
     "E": [
       "UPM"
     ],
+    "I": [
+      "SFO"
+    ],
     "desc": "VIA STANFORD L H"
   },
   "00118": {
@@ -525,6 +606,9 @@
     "desc": "VIA UPMINSTER"
   },
   "00119": {
+    "I": [
+      "AAP"
+    ],
     "desc": "VIA ALEXANDRA P"
   },
   "00120": {
@@ -555,7 +639,7 @@
     "desc": "VIA HARTLEPOOL"
   },
   "00127": {
-    "desc": "SW TRAINS ONLY"
+    "desc": "SW RAILWAY ONLY."
   },
   "00128": {
     "I": [
@@ -564,6 +648,9 @@
     "desc": "NOT HEATHROW EXP"
   },
   "00129": {
+    "I": [
+      "CHD"
+    ],
     "desc": "VIA CHESTERFIELD"
   },
   "00130": {
@@ -696,7 +783,8 @@
   },
   "00158": {
     "I": [
-      "HKC"
+      "HKC",
+      "HKW"
     ],
     "desc": "VIA HACKNEY WICK"
   },
@@ -750,7 +838,7 @@
   },
   "00167": {
     "I": [
-      "XTH"
+      "STP"
     ],
     "desc": "STANSTEDCITYLINK"
   },
@@ -817,7 +905,7 @@
     "I": [
       "YVJ"
     ],
-    "desc": "SWT VIA YEOVIL"
+    "desc": "SWR VIA YEOVIL"
   },
   "00182": {
     "E": [
@@ -830,10 +918,13 @@
     "desc": "NOT VIA COV/BHM"
   },
   "00183": {
-    "I": [
-      "SNS"
+    "E": [
+      "RYP"
     ],
-    "desc": "AP STAINES"
+    "I": [
+      "SHV"
+    ],
+    "desc": "SWR +HOVERTRAVEL"
   },
   "00184": {
     "I": [
@@ -842,6 +933,10 @@
     "desc": "A6 VIA PADDINGTN"
   },
   "00185": {
+    "I": [
+      "GDP",
+      "RMF"
+    ],
     "desc": "VIA ROMFORD"
   },
   "00186": {
@@ -876,6 +971,7 @@
   },
   "00192": {
     "I": [
+      "HAC",
       "HKC"
     ],
     "desc": "HACKNEY CTL DOWN"
@@ -887,9 +983,15 @@
     "desc": "VIA KIRKBY"
   },
   "00194": {
+    "I": [
+      "WNP"
+    ],
     "desc": "VIA WANSTEAD PK"
   },
   "00195": {
+    "I": [
+      "CPT"
+    ],
     "desc": "VIA CLAPTON"
   },
   "00196": {
@@ -921,13 +1023,18 @@
   },
   "00201": {
     "E": [
-      "BHM"
+      "BSW",
+      "BHM",
+      "BMO"
     ],
     "desc": "NOT VIA BIRMNGHM"
   },
   "00202": {
     "E": [
       "EUS"
+    ],
+    "I": [
+      "WFJ"
     ],
     "desc": "WATFORD NOT LOND"
   },
@@ -941,9 +1048,6 @@
     "desc": "VIA INK"
   },
   "00206": {
-    "I": [
-      "HHY"
-    ],
     "desc": "VIA HIGHBURY & I"
   },
   "00207": {
@@ -960,33 +1064,18 @@
     "desc": "VIA INK/KDY"
   },
   "00210": {
-    "I": [
-      "BLY"
-    ],
     "desc": "VIA BLETCHLEY"
   },
   "00211": {
-    "I": [
-      "COV"
-    ],
     "desc": "VIA COVENTRY"
   },
   "00212": {
-    "E": [
-      "BLY"
-    ],
     "desc": "VIA LUTON"
   },
   "00213": {
-    "I": [
-      "BDM"
-    ],
     "desc": "VIA BEDFORD"
   },
   "00214": {
-    "E": [
-      "MKC"
-    ],
     "desc": "VIA LONG BUCKBY"
   },
   "00216": {
@@ -1108,6 +1197,21 @@
     ],
     "desc": "NOT VIA MTHR"
   },
+  "00240": {
+    "desc": "HEATHROW EXPRESS"
+  },
+  "00241": {
+    "desc": "HEATHROW EXP"
+  },
+  "00242": {
+    "E": [
+      "SHV"
+    ],
+    "I": [
+      "RYP"
+    ],
+    "desc": "SWR +WIGHTLINK"
+  },
   "00250": {
     "E": [
       "EUS"
@@ -1132,9 +1236,17 @@
     ],
     "desc": "VIA TRAMLINK 4"
   },
+  "00254": {
+    "E": [
+      "MCO",
+      "MAN",
+      "MCV"
+    ],
+    "desc": "NOT VIA MANCHEST"
+  },
   "00264": {
     "I": [
-      "AMR"
+      "CFO"
     ],
     "desc": "CHALFONT & LATMR"
   },
@@ -1151,6 +1263,9 @@
     "E": [
       "RMD",
       "WIM"
+    ],
+    "I": [
+      "BAN"
     ],
     "desc": "VIA BANBURY"
   },
@@ -1186,6 +1301,9 @@
       "HNX",
       "NCL"
     ],
+    "I": [
+      "CRE"
+    ],
     "desc": "VIA CREWE"
   },
   "00288": {
@@ -1214,17 +1332,24 @@
       "WOK",
       "PBO"
     ],
+    "I": [
+      "DBY"
+    ],
     "desc": "VIA DERBY"
   },
   "00293": {
     "I": [
-      "DBY"
+      "DBY",
+      "YRK"
     ],
     "desc": "DERBY YORK"
   },
   "00294": {
     "E": [
       "BHM"
+    ],
+    "I": [
+      "DBY"
     ],
     "desc": "LONDON DERBY"
   },
@@ -1252,12 +1377,19 @@
       "CRE",
       "WBQ"
     ],
+    "I": [
+      "ALT"
+    ],
     "desc": "VIA ALTRINCHAM"
   },
   "00302": {
     "E": [
       "EUS",
       "SHF"
+    ],
+    "I": [
+      "PRE",
+      "BAN"
     ],
     "desc": "BANBURY PRESTON"
   },
@@ -1271,13 +1403,14 @@
     "E": [
       "WOS"
     ],
+    "I": [
+      "HWY"
+    ],
     "desc": "VIA HIGH WYCOMBE"
   },
   "00307": {
-    "E": [
-      "BDM",
-      "PBO",
-      "NCL"
+    "I": [
+      "LAN"
     ],
     "desc": "VIA LANCASTER"
   },
@@ -1288,18 +1421,12 @@
     "desc": "VIA LEICESTER"
   },
   "00309": {
+    "I": [
+      "LTV"
+    ],
     "desc": "VIA LICHFIELD"
   },
   "00310": {
-    "E": [
-      "NUN",
-      "SOT",
-      "EUS",
-      "GCR",
-      "RMD",
-      "SUR",
-      "WIM"
-    ],
     "desc": "DERBY OXFORD"
   },
   "00311": {
@@ -1313,6 +1440,9 @@
       "DBY",
       "SWI",
       "DON"
+    ],
+    "I": [
+      "MAN"
     ],
     "desc": "VIA MANCHESTER"
   },
@@ -1329,14 +1459,23 @@
     "desc": "VIA BLACKBURN"
   },
   "00315": {
+    "I": [
+      "KDG"
+    ],
     "desc": "VIA KIDSGROVE"
   },
   "00316": {
+    "I": [
+      "LMS"
+    ],
     "desc": "VIA LEAMINGTON"
   },
   "00317": {
     "E": [
       "NCL"
+    ],
+    "I": [
+      "PRE"
     ],
     "desc": "VIA PRESTON"
   },
@@ -1370,6 +1509,9 @@
     "desc": "NW TRAINS PROMO"
   },
   "00323": {
+    "I": [
+      "STA"
+    ],
     "desc": "VIA STAFFORD"
   },
   "00325": {
@@ -1394,11 +1536,15 @@
     "E": [
       "BHM"
     ],
+    "I": [
+      "TAM"
+    ],
     "desc": "VIA TAMWORTH"
   },
   "00329": {
     "I": [
-      "WBQ"
+      "WBQ",
+      "WAC"
     ],
     "desc": "VIA WARRINGTON"
   },
@@ -1412,9 +1558,16 @@
     "E": [
       "EUS"
     ],
+    "I": [
+      "STA",
+      "OXF"
+    ],
     "desc": "STAFFORD OXFORD"
   },
   "00333": {
+    "I": [
+      "KTN"
+    ],
     "desc": "VIA KENTISH TOWN"
   },
   "00334": {
@@ -1482,6 +1635,9 @@
     "desc": "NOT VIA SWINDON"
   },
   "00349": {
+    "E": [
+      "WVH"
+    ],
     "desc": "NOT WOLVERHAMPTN"
   },
   "00350": {
@@ -1500,15 +1656,27 @@
     "desc": "NOT VIA GLASGOW"
   },
   "00353": {
+    "I": [
+      "AVM"
+    ],
     "desc": "VIA AVIEMORE"
   },
   "00354": {
+    "I": [
+      "HAT"
+    ],
     "desc": "RAILAIR HATFIELD"
   },
   "00355": {
+    "I": [
+      "SAC"
+    ],
     "desc": "RAILAIR STALBANS"
   },
   "00356": {
+    "E": [
+      "STP"
+    ],
     "desc": "HATFLD/ALBNS BUS"
   },
   "00357": {
@@ -1520,12 +1688,14 @@
   "00360": {
     "E": [
       "HRW",
+      "EUS",
       "RDG"
     ],
     "desc": "RAILAIR WTFD JCT"
   },
   "00361": {
     "E": [
+      "EUS",
       "RDG"
     ],
     "desc": "RAILR WF VT ONLY"
@@ -1564,6 +1734,9 @@
     "desc": "VIA HELSBY"
   },
   "00369": {
+    "I": [
+      "BKQ"
+    ],
     "desc": "VIA BIRKENHEAD"
   },
   "00370": {
@@ -1615,8 +1788,21 @@
     ],
     "desc": "VIA DARWEN"
   },
+  "00383": {
+    "I": [
+      "BID"
+    ],
+    "desc": "VIA BIDSTON"
+  },
+  "00384": {
+    "I": [
+      "HOO"
+    ],
+    "desc": "VIA HOOTON"
+  },
   "00390": {
     "I": [
+      "GPO",
       "WHD"
     ],
     "desc": "VIA WEST HAMPSTD"
@@ -1641,9 +1827,15 @@
       "PBO",
       "HUD"
     ],
+    "I": [
+      "CAR"
+    ],
     "desc": "AP CARLISLE"
   },
   "00404": {
+    "I": [
+      "RUG"
+    ],
     "desc": "AP RUGBY"
   },
   "00405": {
@@ -1651,12 +1843,18 @@
       "EUS",
       "WOK"
     ],
+    "I": [
+      "OXF"
+    ],
     "desc": "AP OXFORD"
   },
   "00406": {
     "desc": "AP GC ONLY"
   },
   "00407": {
+    "I": [
+      "CHD"
+    ],
     "desc": "CHESTFLD&EMT&CON"
   },
   "00408": {
@@ -1697,9 +1895,17 @@
       "SHR",
       "BSK"
     ],
+    "I": [
+      "SLO",
+      "NWP"
+    ],
     "desc": "AP SLOUGH NEWPRT"
   },
   "00414": {
+    "I": [
+      "SWI",
+      "WSB"
+    ],
     "desc": "AP SWINDN/NEWBRY"
   },
   "00415": {
@@ -1719,15 +1925,23 @@
     "E": [
       "EUS"
     ],
+    "I": [
+      "KEM"
+    ],
     "desc": "AP KEMBL NOT LDN"
   },
   "00418": {
     "I": [
+      "SLO",
       "KEM"
     ],
     "desc": "AP KEMBLE SLOUGH"
   },
   "00419": {
+    "I": [
+      "BWT",
+      "TAU"
+    ],
     "desc": "AP BRIDGWATER"
   },
   "00420": {
@@ -1741,13 +1955,15 @@
       "MAN",
       "SRA"
     ],
+    "I": [
+      "BWK"
+    ],
     "desc": "AP BERWICK"
   },
   "00422": {
     "E": [
       "EUS",
-      "FPK",
-      "KGX"
+      "FPK"
     ],
     "I": [
       "PBO"
@@ -1780,6 +1996,7 @@
   },
   "00430": {
     "E": [
+      "WEL",
       "BSE",
       "TTF"
     ],
@@ -1808,6 +2025,10 @@
     "desc": "AP EVESHAM"
   },
   "00434": {
+    "I": [
+      "RUG",
+      "TFC"
+    ],
     "desc": "AP TELFORD RUGBY"
   },
   "00435": {
@@ -1838,14 +2059,20 @@
     ],
     "desc": "XC  &CONNECTIONS"
   },
+  "00440": {
+    "desc": "AP HONITON"
+  },
+  "00441": {
+    "desc": "AP LONDN HONITON"
+  },
   "00442": {
-    "desc": "AP SWT ONLY"
+    "desc": "SW RAILWAY ONLY"
   },
   "00443": {
     "I": [
       "WOK"
     ],
-    "desc": "AP SWT & RAILAIR"
+    "desc": "SWR & RAILAIR"
   },
   "00444": {
     "E": [
@@ -1853,7 +2080,7 @@
       "CCH",
       "BTO"
     ],
-    "desc": "AP SWT & CONNECT"
+    "desc": "SWR & CONNECTION"
   },
   "00446": {
     "desc": "AP SCOTRAIL ONLY"
@@ -1883,7 +2110,9 @@
   "00452": {
     "E": [
       "BDM",
+      "DID",
       "BAN",
+      "WSB",
       "PBO",
       "BWK"
     ],
@@ -1893,6 +2122,9 @@
     "E": [
       "DON",
       "SHF"
+    ],
+    "I": [
+      "MAN"
     ],
     "desc": "AP MANCHESTER"
   },
@@ -1909,11 +2141,18 @@
     "desc": "AP TPE & CONNECT"
   },
   "00457": {
+    "I": [
+      "BDM",
+      "KET"
+    ],
     "desc": "AP KETTERING"
   },
   "00458": {
     "E": [
       "GRA"
+    ],
+    "I": [
+      "CHD"
     ],
     "desc": "AP CHESTERFIELD"
   },
@@ -1921,6 +2160,9 @@
     "desc": "AP ATW & LM ONLY"
   },
   "00460": {
+    "I": [
+      "TAM"
+    ],
     "desc": "AP LM/XC ONLY"
   },
   "00462": {
@@ -1933,6 +2175,10 @@
     "E": [
       "RDG"
     ],
+    "I": [
+      "BHM",
+      "DMF"
+    ],
     "desc": "AP DUMFRIES BHAM"
   },
   "00464": {
@@ -1940,12 +2186,20 @@
       "SHF",
       "YRK"
     ],
+    "I": [
+      "CAR",
+      "DMF"
+    ],
     "desc": "AP DUMFRIES CARL"
   },
   "00468": {
     "E": [
       "SHR",
       "GLC"
+    ],
+    "I": [
+      "OXF",
+      "DMF"
     ],
     "desc": "AP DUMFRIES OXFD"
   },
@@ -1955,7 +2209,8 @@
       "GLC"
     ],
     "I": [
-      "RDG"
+      "RDG",
+      "DMF"
     ],
     "desc": "AP DMF RLAIR RDG"
   },
@@ -2020,6 +2275,9 @@
     "desc": "VT E COAST ONLY"
   },
   "00482": {
+    "I": [
+      "CTR"
+    ],
     "desc": "AP CHESTER"
   },
   "00483": {
@@ -2039,15 +2297,27 @@
     "desc": "AP EMT& CONNECT"
   },
   "00487": {
+    "I": [
+      "CNM"
+    ],
     "desc": "AP XC ONLY CNM"
   },
   "00488": {
+    "I": [
+      "DBY"
+    ],
     "desc": "AP XC ONLY DBY"
   },
   "00489": {
+    "I": [
+      "LMS"
+    ],
     "desc": "AP XC ONLY LMS"
   },
   "00490": {
+    "I": [
+      "WVH"
+    ],
     "desc": "AP XC ONLY WVH"
   },
   "00492": {
@@ -2094,6 +2364,9 @@
     "desc": "VIA ORPINGTON"
   },
   "00502": {
+    "I": [
+      "DKG"
+    ],
     "desc": "VIA DORKING"
   },
   "00503": {
@@ -2103,6 +2376,9 @@
     "desc": "PAR BUS"
   },
   "00504": {
+    "I": [
+      "SQE"
+    ],
     "desc": "VIA SURREY QUAYS"
   },
   "00505": {
@@ -2114,6 +2390,7 @@
   "00506": {
     "I": [
       "CLA",
+      "EFF",
       "WOK"
     ],
     "desc": "CLANDON/WOKING"
@@ -2151,13 +2428,24 @@
     ],
     "desc": "VIA LEATHERHEAD"
   },
+  "00515": {
+    "desc": "VT WEST COAST"
+  },
+  "00516": {
+    "desc": "WEST COAST VT"
+  },
   "00518": {
     "I": [
+      "TUH",
       "WNW"
     ],
     "desc": "TULSE H/WEST NOR"
   },
   "00522": {
+    "I": [
+      "RMD",
+      "GUN"
+    ],
     "desc": "VIA GUNNERSBURY"
   },
   "00524": {
@@ -2176,23 +2464,38 @@
     "desc": "VIA NUNHEAD"
   },
   "00541": {
+    "I": [
+      "SRT"
+    ],
     "desc": "VIA SHORTLANDS"
   },
   "00550": {
+    "I": [
+      "LIP"
+    ],
     "desc": "LIPHOOK BUS"
   },
   "00551": {
+    "I": [
+      "WIN"
+    ],
     "desc": "WINCHESTER BUS"
   },
   "00552": {
     "E": [
       "EUS"
     ],
+    "I": [
+      "CLJ"
+    ],
     "desc": "WINBS-CLJ NT LDN"
   },
   "00555": {
     "E": [
       "EUS"
+    ],
+    "I": [
+      "CLJ"
     ],
     "desc": "LIPBS-CLJ NT LDN"
   },
@@ -2206,15 +2509,24 @@
     "desc": "STALBANS UNO BUS"
   },
   "00561": {
+    "I": [
+      "BAW",
+      "FNN"
+    ],
     "desc": "VIA FARNBORO NTH"
   },
   "00564": {
     "E": [
+      "EUS",
       "CLJ"
     ],
     "desc": "NOT VIA CLAPHM J"
   },
   "00574": {
+    "I": [
+      "UWL",
+      "WHY"
+    ],
     "desc": "UPPER WARL WLEAF"
   },
   "00581": {
@@ -2222,6 +2534,12 @@
       "TED"
     ],
     "desc": "VIA TEDDINGTON"
+  },
+  "00582": {
+    "E": [
+      "DBY"
+    ],
+    "desc": "NOT VIA DERBY"
   },
   "00586": {
     "E": [
@@ -2257,6 +2575,9 @@
       "CCH",
       "DKG"
     ],
+    "I": [
+      "CLJ"
+    ],
     "desc": "CLAPHM J NOT LDN"
   },
   "00603": {
@@ -2275,9 +2596,15 @@
     "desc": "VIA DOVER"
   },
   "00605": {
+    "I": [
+      "FRM"
+    ],
     "desc": "VIA FAREHAM"
   },
   "00606": {
+    "I": [
+      "HNH"
+    ],
     "desc": "VIA HERNE HILL"
   },
   "00607": {
@@ -2329,8 +2656,12 @@
     "desc": "VIA REDHILL"
   },
   "00615": {
+    "E": [
+      "CLJ"
+    ],
     "I": [
-      "GOM"
+      "GOM",
+      "GLD"
     ],
     "desc": "VIA GOMSHALL"
   },
@@ -2339,10 +2670,15 @@
       "EUS",
       "SWI"
     ],
+    "I": [
+      "SAL"
+    ],
     "desc": "SALISY NOT LONDN"
   },
   "00617": {
     "I": [
+      "OXF",
+      "RDG",
       "GLD"
     ],
     "desc": "GUILDFORD OXFORD"
@@ -2351,15 +2687,25 @@
     "E": [
       "RDG"
     ],
+    "I": [
+      "SAL"
+    ],
     "desc": "VIA SALISBURY"
   },
   "00619": {
     "E": [
       "EUS"
     ],
+    "I": [
+      "RDG",
+      "GLD"
+    ],
     "desc": "GUILDFORD READNG"
   },
   "00620": {
+    "I": [
+      "BSK"
+    ],
     "desc": "VIA BASINGSTOKE"
   },
   "00621": {
@@ -2376,22 +2722,33 @@
   },
   "00624": {
     "I": [
-      "BSK"
+      "BSK",
+      "HON"
     ],
     "desc": "HONITON BASINGST"
   },
   "00625": {
     "I": [
-      "CLJ"
+      "CLJ",
+      "HON"
     ],
     "desc": "HONITON CLAPM JN"
   },
   "00626": {
+    "I": [
+      "HON",
+      "THO",
+      "YVP"
+    ],
     "desc": "THORNFRD HONITON"
   },
   "00627": {
     "E": [
       "BSK"
+    ],
+    "I": [
+      "SAL",
+      "YVP"
     ],
     "desc": "SALISBURY/YEOVIL"
   },
@@ -2421,11 +2778,18 @@
     "desc": "HULLTRNS & TPE"
   },
   "00632": {
+    "I": [
+      "CFB",
+      "CTF"
+    ],
     "desc": "VIA CATFORD"
   },
   "00633": {
     "E": [
       "RDG"
+    ],
+    "I": [
+      "HON"
     ],
     "desc": "LONDON HONITON"
   },
@@ -2468,7 +2832,9 @@
   },
   "00655": {
     "I": [
-      "MDE"
+      "MDE",
+      "MDW",
+      "MDB"
     ],
     "desc": "VIA MAIDSTONE"
   },
@@ -2498,6 +2864,7 @@
   },
   "00686": {
     "I": [
+      "CBW",
       "CBE"
     ],
     "desc": "VIA CANTERBURY"
@@ -2518,6 +2885,10 @@
     "E": [
       "MAR"
     ],
+    "I": [
+      "CBE",
+      "SEG"
+    ],
     "desc": "VIA SELLING"
   },
   "00696": {
@@ -2535,8 +2906,7 @@
   },
   "00700": {
     "E": [
-      "EUS",
-      "EBD"
+      "EUS"
     ],
     "desc": "NOT VIA LONDON"
   },
@@ -2546,6 +2916,9 @@
       "HHE",
       "EBD",
       "SFA"
+    ],
+    "I": [
+      "BAT"
     ],
     "desc": "BATTLE NOT HS1"
   },
@@ -2562,13 +2935,17 @@
     "desc": "LDN NOT GATWKEXP"
   },
   "00707": {
-    "E": [
-      "FAV",
-      "PDW"
+    "I": [
+      "MDE",
+      "HRM"
     ],
     "desc": "VIA HARRIETSHAM"
   },
   "00708": {
+    "I": [
+      "KSN",
+      "SPH"
+    ],
     "desc": "VIA KEARSNEY"
   },
   "00710": {
@@ -2581,8 +2958,8 @@
     "desc": "VIA FAVERSHAM"
   },
   "00714": {
-    "E": [
-      "BTN"
+    "I": [
+      "PMP"
     ],
     "desc": "VIA PLUMPTON"
   },
@@ -2680,6 +3057,9 @@
     "desc": "VIA HORSHAM"
   },
   "00730": {
+    "I": [
+      "BAT"
+    ],
     "desc": "LONDON BATTLE"
   },
   "00732": {
@@ -2695,10 +3075,14 @@
     "desc": "VIA VIRGINIA WTR"
   },
   "00735": {
+    "I": [
+      "SNS"
+    ],
     "desc": "VIA STAINES"
   },
   "00738": {
     "I": [
+      "WDO",
       "WCY"
     ],
     "desc": "VIA WADDON"
@@ -2706,6 +3090,9 @@
   "00739": {
     "E": [
       "TON"
+    ],
+    "I": [
+      "AFK"
     ],
     "desc": "VIA ASHFORD KENT"
   },
@@ -2728,11 +3115,15 @@
   "00752": {
     "I": [
       "NWX",
-      "NXG"
+      "NXG",
+      "SYD"
     ],
     "desc": "NEW CROSS N X GT"
   },
   "00754": {
+    "I": [
+      "BAL"
+    ],
     "desc": "VIA BALHAM"
   },
   "00756": {
@@ -2743,7 +3134,8 @@
   },
   "00758": {
     "I": [
-      "CTM"
+      "CTM",
+      "RTR"
     ],
     "desc": "VIA CHATHAM"
   },
@@ -2823,33 +3215,46 @@
     "desc": "VIA CITY THAMESL"
   },
   "00793": {
+    "I": [
+      "RDH",
+      "GLD"
+    ],
     "desc": "GUILDFORD REDHL"
   },
   "00799": {
+    "I": [
+      "EVE"
+    ],
     "desc": "LONDON EVESHAM"
   },
   "00800": {
     "E": [
-      "SWI",
-      "GCR"
+      "SWI"
     ],
     "I": [
-      "WMN"
+      "WMN",
+      "SAL"
     ],
     "desc": "VIA WARMINSTER-SALISBURY"
   },
   "00801": {
+    "I": [
+      "SLO"
+    ],
     "desc": "VIA SLOUGH"
   },
   "00802": {
     "I": [
-      "WNC"
+      "WNC",
+      "WNR"
     ],
     "desc": "VIA WINDSOR"
   },
   "00803": {
     "I": [
-      "EVE"
+      "EVE",
+      "STD",
+      "MIM"
     ],
     "desc": "EVESHAM/STROUD"
   },
@@ -2857,6 +3262,9 @@
     "E": [
       "NWP",
       "CNM"
+    ],
+    "I": [
+      "WOF"
     ],
     "desc": "VIA WORCESTER"
   },
@@ -2867,17 +3275,24 @@
     "desc": "VIA EVESHAM"
   },
   "00806": {
+    "I": [
+      "QPW"
+    ],
     "desc": "VIA QUEENS PK LN"
   },
   "00807": {
     "I": [
-      "KEM"
+      "STD"
     ],
     "desc": "VIA STROUD"
   },
   "00808": {
     "E": [
       "WOS"
+    ],
+    "I": [
+      "RDG",
+      "STD"
     ],
     "desc": "RDG STRD INC LDN"
   },
@@ -2897,9 +3312,16 @@
     "E": [
       "EUS"
     ],
+    "I": [
+      "ZEC",
+      "ZWE"
+    ],
     "desc": "EALING CM/W ACTN"
   },
   "00812": {
+    "I": [
+      "KWG"
+    ],
     "desc": "VIA KEW GARDENS"
   },
   "00813": {
@@ -2916,7 +3338,8 @@
       "EUS"
     ],
     "I": [
-      "SAL"
+      "SAL",
+      "HON"
     ],
     "desc": "HONITON NOT LDN"
   },
@@ -2932,10 +3355,14 @@
       "EUS",
       "RDG"
     ],
+    "I": [
+      "BPW"
+    ],
     "desc": "VIA BRISTOL"
   },
   "00818": {
     "E": [
+      "BPW",
       "BRI"
     ],
     "desc": "NOT VIA BRISTOL"
@@ -2954,11 +3381,14 @@
       "EUS",
       "RDG"
     ],
+    "I": [
+      "GCR"
+    ],
     "desc": "VIA GLOUCESTER"
   },
   "00822": {
-    "E": [
-      "GCR"
+    "I": [
+      "HFD"
     ],
     "desc": "VIA HEREFORD"
   },
@@ -2974,6 +3404,9 @@
       "EUS",
       "OXF"
     ],
+    "I": [
+      "NWP"
+    ],
     "desc": "VIA NEWPORT"
   },
   "00825": {
@@ -2984,18 +3417,25 @@
       "DON",
       "SHF"
     ],
+    "I": [
+      "OXF"
+    ],
     "desc": "VIA OXFORD"
   },
   "00826": {
     "E": [
       "WNC"
     ],
+    "I": [
+      "RDG"
+    ],
     "desc": "VIA READING"
   },
   "00827": {
     "I": [
       "KEM",
-      "EVE"
+      "EVE",
+      "STD"
     ],
     "desc": "LONDN STRD/EVSHM"
   },
@@ -3005,11 +3445,16 @@
       "WSB"
     ],
     "I": [
+      "HON",
       "SOU"
     ],
     "desc": "HONITON SHAMPTON"
   },
   "00829": {
+    "I": [
+      "YVJ",
+      "YVP"
+    ],
     "desc": "VIA YEOVIL"
   },
   "00830": {
@@ -3028,17 +3473,29 @@
     "desc": "VIA BATH SPA"
   },
   "00832": {
+    "I": [
+      "SAL",
+      "HON"
+    ],
     "desc": "HONITON SALISBRY"
   },
   "00833": {
+    "I": [
+      "DCW"
+    ],
     "desc": "VIA DORCHSTR WST"
   },
   "00834": {
+    "I": [
+      "EXC"
+    ],
     "desc": "VIA EXETER"
   },
   "00835": {
     "I": [
-      "DCH"
+      "HON",
+      "DCH",
+      "DCW"
     ],
     "desc": "DORCHSTR HONITON"
   },
@@ -3073,7 +3530,6 @@
   },
   "00840": {
     "E": [
-      "TAU",
       "CLC"
     ],
     "I": [
@@ -3088,9 +3544,15 @@
     "desc": "LONDON/READING"
   },
   "00842": {
+    "I": [
+      "TAU"
+    ],
     "desc": "VIA TAUNTON"
   },
   "00843": {
+    "I": [
+      "STJ"
+    ],
     "desc": "SEVERN TUNNEL JN"
   },
   "00845": {
@@ -3104,6 +3566,10 @@
       "RDG",
       "HON",
       "SOU"
+    ],
+    "I": [
+      "WSB",
+      "YVP"
     ],
     "desc": "YEOVIL WESTBURY"
   },
@@ -3123,27 +3589,46 @@
     "desc": "P AND O NOT HS"
   },
   "00851": {
+    "I": [
+      "HIT"
+    ],
     "desc": "STANSTED AIR_BUS"
   },
   "00853": {
+    "E": [
+      "FGH",
+      "DPS"
+    ],
     "I": [
       "BKI"
     ],
     "desc": "LIVPL STENA DAY"
   },
   "00854": {
+    "E": [
+      "FGH",
+      "DPS"
+    ],
     "I": [
       "BKI"
     ],
     "desc": "LVPL STENA NIGHT"
   },
   "00855": {
+    "E": [
+      "FGH",
+      "DPS"
+    ],
     "I": [
       "BKI"
     ],
     "desc": "STENA LIVPL DAY"
   },
   "00856": {
+    "E": [
+      "FGH",
+      "DPS"
+    ],
     "I": [
       "BKI"
     ],
@@ -3167,7 +3652,18 @@
   "00902": {
     "E": [
       "EUS",
-      "SFA"
+      "SFA",
+      "ZFD",
+      "EUS",
+      "STP",
+      "BFR",
+      "CST",
+      "CHX",
+      "LBG",
+      "WAE",
+      "LST",
+      "SFA",
+      "FST"
     ],
     "desc": "DLR NOT LONDON"
   },
@@ -3182,6 +3678,9 @@
   },
   "00910": {
     "E": [
+      "GDP"
+    ],
+    "I": [
       "CBG"
     ],
     "desc": "FIRST X22/X30"
@@ -3226,9 +3725,12 @@
   },
   "00947": {
     "E": [
+      "EUS",
       "BMS",
       "DFD",
-      "ORP"
+      "ORP",
+      "EBD",
+      "SFA"
     ],
     "I": [
       "BAA"
@@ -3240,17 +3742,31 @@
       "RDG",
       "WOK"
     ],
+    "I": [
+      "FEL"
+    ],
     "desc": "FELTHAM TFL BUS"
   },
   "00949": {
+    "I": [
+      "WOK"
+    ],
     "desc": "WINBS-RLAIR WOKG"
   },
   "00950": {
+    "I": [
+      "WOK"
+    ],
     "desc": "LIPBS-RLAIR WOKG"
   },
   "00951": {
     "E": [
-      "EUS"
+      "EUS",
+      "FEL",
+      "WOK"
+    ],
+    "I": [
+      "RDG"
     ],
     "desc": "AP RAILAIR READG"
   },
@@ -3261,19 +3777,24 @@
     "E": [
       "WFJ",
       "EUS",
-      "SNS",
+      "FEL",
       "WOK"
+    ],
+    "I": [
+      "RDG"
     ],
     "desc": "RAILAIR READING"
   },
   "00954": {
     "E": [
       "EUS",
-      "RDG",
       "FEL",
       "KNG",
       "RMD",
       "VIR"
+    ],
+    "I": [
+      "WOK"
     ],
     "desc": "RAILAIR WOKING"
   },
@@ -3286,6 +3807,9 @@
     "desc": "GW BUSINESSFIRST"
   },
   "00958": {
+    "I": [
+      "PYG"
+    ],
     "desc": "PAISLEY COACH"
   },
   "00960": {
@@ -3313,16 +3837,26 @@
     "desc": "SCOTTISH EXEC"
   },
   "00976": {
+    "I": [
+      "LDS"
+    ],
     "desc": "COACH RTE LEEDS"
   },
   "00980": {
     "E": [
       "FGH",
-      "DDB"
+      "DPS"
+    ],
+    "I": [
+      "HHD",
+      "DFP"
     ],
     "desc": "HLYHD IRISHF CIV"
   },
   "00981": {
+    "E": [
+      "SHV"
+    ],
     "I": [
       "RYP"
     ],
@@ -3332,46 +3866,65 @@
     "E": [
       "RYP"
     ],
+    "I": [
+      "SHV"
+    ],
     "desc": "ANY PERM+HOVRTVL"
   },
   "00983": {
     "E": [
       "FGH",
+      "DPS"
+    ],
+    "I": [
+      "HHD",
       "DFP"
     ],
     "desc": "HLYHD STENA CIV"
   },
   "00984": {
-    "E": [
+    "I": [
+      "HHD",
       "DFP"
     ],
     "desc": "HOLYHD STENA SHP"
   },
   "00985": {
+    "I": [
+      "FGH"
+    ],
     "desc": "FSHGRD STENA CIV"
   },
   "00989": {
     "E": [
       "HHD",
-      "PDK",
       "FGH",
       "DFP",
-      "DDB",
       "RSB"
+    ],
+    "I": [
+      "CRP"
     ],
     "desc": "CAIRNRYAN STENA"
   },
   "00990": {
     "E": [
       "FGH",
-      "DDB"
+      "DPS"
+    ],
+    "I": [
+      "HHD"
     ],
     "desc": "HLHD IF SHIP CIV"
   },
   "00991": {
     "E": [
       "FGH",
-      "DFP"
+      "DFP",
+      "DPS"
+    ],
+    "I": [
+      "HHD"
     ],
     "desc": "HLHD SL DLO CIV"
   },
@@ -3379,9 +3932,19 @@
     "E": [
       "DFP"
     ],
+    "I": [
+      "HHD"
+    ],
     "desc": "HLHD SL SHIP CIV"
   },
   "00993": {
+    "E": [
+      "DPS"
+    ],
+    "I": [
+      "HHD",
+      "DFP"
+    ],
     "desc": "HLHD IF SWFT CIV"
   },
   "00996": {
@@ -3396,12 +3959,14 @@
     "desc": "VIA UNDERGRD/DLR"
   },
   "01000": {
+    "E": [
+      "SHV"
+    ],
     "desc": "ANY - PERMITTED"
   },
   "01002": {
     "I": [
       "EGY",
-      "EDB",
       "EDP",
       "HYM"
     ],
@@ -3414,7 +3979,50 @@
     "desc": "JET747 EDI BUS"
   },
   "01004": {
+    "E": [
+      "DPS"
+    ],
+    "I": [
+      "HHD",
+      "DFP"
+    ],
     "desc": "HLYHD SWIFT CIV"
+  },
+  "01409": {
+    "desc": "HULTRNS&NORTHERN"
+  },
+  "01410": {
+    "desc": "HULTRNS&NORTHERN"
+  },
+  "01411": {
+    "desc": "HULTRNS&NORTHERN"
+  },
+  "01412": {
+    "desc": "HULTRNS&NORTHERN"
+  },
+  "01413": {
+    "desc": "HULTRNS&NORTHERN"
+  },
+  "01414": {
+    "desc": "HULTRNS&NORTHERN"
+  },
+  "01509": {
+    "desc": "HULTRNS&NORTHERN"
+  },
+  "01510": {
+    "desc": "HULTRNS&NORTHERN"
+  },
+  "01511": {
+    "desc": "HULTRNS&NORTHERN"
+  },
+  "01512": {
+    "desc": "HULTRNS&NORTHERN"
+  },
+  "01513": {
+    "desc": "HULTRNS&NORTHERN"
+  },
+  "01514": {
+    "desc": "HULTRNS&NORTHERN"
   },
   "02005": {
     "desc": "EASYJET STAFF"
@@ -3520,7 +4128,7 @@
     "desc": "LONDON TWO"
   },
   "07770": {
-    "desc": "SN SWT & LM ONLY"
+    "desc": "SN SWR & LM ONLY"
   },
   "07773": {
     "E": [
@@ -3540,9 +4148,15 @@
     "desc": "AP SOUTHERN ONLY"
   },
   "07778": {
-    "desc": "SOUTHERN & SWT"
+    "desc": "SOUTHERN & SWR"
   },
   "07779": {
+    "E": [
+      "EUS"
+    ],
+    "I": [
+      "KPA"
+    ],
     "desc": "SOUTHERN &LONMID"
   },
   "07780": {
@@ -4556,7 +5170,25 @@
   "40240": {
     "desc": "AAA NETHERFIELD"
   },
+  "49999": {
+    "desc": "FARES AGREEMENT"
+  },
   "50000": {
     "desc": "ANY PERMITTED SG"
+  },
+  "50001": {
+    "desc": "TC UPLOAD JOINT"
+  },
+  "50002": {
+    "desc": "TC UPLOAD NONJT"
+  },
+  "50003": {
+    "desc": "TC UPLOAD OB"
+  },
+  "88887": {
+    "desc": "OCM ATV PAYMENTS"
+  },
+  "88888": {
+    "desc": "OYSTER"
   }
 }

@@ -191,6 +191,10 @@
     "code": "2760",
     "description": "Alderley Edge"
   },
+  "ALE": {
+    "code": "2214",
+    "description": "Lpool S Pway Hl"
+  },
   "ALF": {
     "code": "1805",
     "description": "Alfreton"
@@ -391,10 +395,6 @@
     "code": "M030",
     "description": "Arklow      (Civ)"
   },
-  "ARZ": {
-    "code": "0948",
-    "description": "Arundel Lon Rd"
-  },
   "ASB": {
     "code": "9569",
     "description": "Ardrossan South Beach"
@@ -479,10 +479,6 @@
     "code": "8608",
     "description": "Attadale"
   },
-  "ATW": {
-    "code": "1269",
-    "description": "Alton Towers"
-  },
   "ATY": {
     "code": "M060",
     "description": "Athy        (Civ)"
@@ -548,8 +544,8 @@
     "description": "Ashwell And Morden"
   },
   "AWP": {
-    "code": "K948",
-    "description": "Alpamare"
+    "code": "6550",
+    "description": "Alpamare Water Park"
   },
   "AWT": {
     "code": "2054",
@@ -638,6 +634,10 @@
   "BAO": {
     "code": "M140",
     "description": "Ballymote   (Civ)"
+  },
+  "BAQ": {
+    "code": "N280",
+    "description": "Ballycullane(Civ"
   },
   "BAR": {
     "code": "2690",
@@ -764,6 +764,10 @@
     "code": "J407",
     "description": "Brodick"
   },
+  "BDF": {
+    "code": "0336",
+    "description": "Bodmin Mount Fll"
+  },
   "BDG": {
     "code": "9789",
     "description": "Bridgeton"
@@ -826,6 +830,10 @@
   "BEC": {
     "code": "5076",
     "description": "Beckenham Hill"
+  },
+  "BED": {
+    "code": "5349",
+    "description": "Beddington Lane"
   },
   "BEE": {
     "code": "1625",
@@ -958,13 +966,13 @@
     "code": "3809",
     "description": "Bridgend"
   },
-  "BGR": {
-    "code": "9031",
-    "description": "Boat Of Garten"
-  },
   "BGS": {
     "code": "9668",
     "description": "Bogston"
+  },
+  "BHA": {
+    "code": "J345",
+    "description": "Bournmth Air Bus"
   },
   "BHC": {
     "code": "9862",
@@ -1361,10 +1369,6 @@
     "code": "2195",
     "description": "Bootle New Strand",
     "fare_group": "1780"
-  },
-  "BNX": {
-    "code": "8854",
-    "description": "Barnsley Intrchg"
   },
   "BNY": {
     "code": "6774",
@@ -2181,10 +2185,6 @@
     "code": "2536",
     "description": "Caergwrle"
   },
-  "CHA": {
-    "code": "0285",
-    "description": "Chard"
-  },
   "CHB": {
     "code": "K757",
     "description": "Clayton Hal Mtlk"
@@ -2521,6 +2521,10 @@
   "COB": {
     "code": "5458",
     "description": "Cooden Beach"
+  },
+  "COC": {
+    "code": "7785",
+    "description": "Cowden Crossroads"
   },
   "COE": {
     "code": "3570",
@@ -3133,10 +3137,6 @@
     "code": "8441",
     "description": "Deighton"
   },
-  "DHS": {
-    "code": "0149",
-    "description": "Den Haag Hs"
-  },
   "DHT": {
     "code": "M495",
     "description": "Dublin Heuston (Civ)"
@@ -3243,6 +3243,10 @@
     "code": "5421",
     "description": "Denmark Hill"
   },
+  "DML": {
+    "code": "6389",
+    "description": "Droylesden Mtlk"
+  },
   "DMP": {
     "code": "5034",
     "description": "Dumpton Park"
@@ -3309,7 +3313,7 @@
   },
   "DOR": {
     "code": "6690",
-    "description": "Dore"
+    "description": "Dore & Totley"
   },
   "DOT": {
     "code": "7744",
@@ -3318,10 +3322,6 @@
   "DOW": {
     "code": "7055",
     "description": "Downham Market"
-  },
-  "DOZ": {
-    "code": "8851",
-    "description": "Doncaster Intchn"
   },
   "DPD": {
     "code": "5412",
@@ -3554,10 +3554,6 @@
     "description": "Edenbridge",
     "fare_group": "0259"
   },
-  "EBS": {
-    "code": "9337",
-    "description": "Edinburgh Bus Station"
-  },
   "EBT": {
     "code": "5359",
     "description": "Edenbridge Town",
@@ -3597,8 +3593,8 @@
     "description": "Cowes East By Red Funnel Ship"
   },
   "EDA": {
-    "code": "K563",
-    "description": "Edb Apt Bus/Tram"
+    "code": "6317",
+    "description": "Edinburgh Airport"
   },
   "EDB": {
     "code": "9328",
@@ -3635,10 +3631,6 @@
   "EDY": {
     "code": "2949",
     "description": "East Didsbury"
-  },
-  "EDZ": {
-    "code": "K292",
-    "description": "Eden Camp Bus"
   },
   "EFD": {
     "code": "M037",
@@ -4129,6 +4121,10 @@
     "code": "8638",
     "description": "Forres"
   },
+  "FOT": {
+    "code": "M590",
+    "description": "Fota        (Civ"
+  },
   "FOX": {
     "code": "2046",
     "description": "Foxfield"
@@ -4286,6 +4282,11 @@
   "GCH": {
     "code": "9971",
     "description": "Garelochhead"
+  },
+  "GCL": {
+    "code": "9922",
+    "description": "Glasgow Cent Ll",
+    "fare_group": "0433"
   },
   "GCR": {
     "code": "4760",
@@ -4542,6 +4543,10 @@
     "code": "1409",
     "description": "Gospel Oak"
   },
+  "GQL": {
+    "code": "9912",
+    "description": "Glasgow Qs Ll"
+  },
   "GRA": {
     "code": "6469",
     "description": "Grantham"
@@ -4613,10 +4618,6 @@
   "GSO": {
     "code": "M640",
     "description": "Greystones  (Civ"
-  },
-  "GSP": {
-    "code": "0290",
-    "description": "Grantown-On-Spey"
   },
   "GST": {
     "code": "2397",
@@ -4984,6 +4985,10 @@
   "HIG": {
     "code": "3314",
     "description": "Highbridge"
+  },
+  "HII": {
+    "code": "6866",
+    "description": "Hbry&Islngtn Stn"
   },
   "HIL": {
     "code": "2231",
@@ -5496,15 +5501,6 @@
     "code": "6827",
     "description": "Harlow Town"
   },
-  "HWO": {
-    "code": "3181",
-    "description": "Heathrow Terminal 1",
-    "fare_group": "5564"
-  },
-  "HWT": {
-    "code": "0339",
-    "description": "Haworth"
-  },
   "HWV": {
     "code": "9846",
     "description": "Heathrow Term 5",
@@ -5603,6 +5599,10 @@
   "ILN": {
     "code": "7783",
     "description": "Ilkeston"
+  },
+  "IMP": {
+    "code": "3040",
+    "description": "Implant British Council"
   },
   "IMW": {
     "code": "9586",
@@ -5772,10 +5772,6 @@
     "code": "1976",
     "description": "Kendal"
   },
-  "KES": {
-    "code": "0292",
-    "description": "Kelso"
-  },
   "KET": {
     "code": "1857",
     "description": "Kettering"
@@ -5919,7 +5915,7 @@
   },
   "KMP": {
     "code": "5678",
-    "description": "Kempton Park Racecourse"
+    "description": "Kempton Park"
   },
   "KMS": {
     "code": "5079",
@@ -5976,6 +5972,10 @@
   "KNU": {
     "code": "4228",
     "description": "Knucklas"
+  },
+  "KNW": {
+    "code": "7985",
+    "description": "Kenilworth"
   },
   "KNY": {
     "code": "M700",
@@ -6129,10 +6129,6 @@
   "LBR": {
     "code": "4356",
     "description": "Llanbedr"
-  },
-  "LBS": {
-    "code": "9852",
-    "description": "Lincoln Bus Station"
   },
   "LBT": {
     "code": "9876",
@@ -6353,6 +6349,10 @@
   "LID": {
     "code": "1579",
     "description": "Lidlington"
+  },
+  "LIF": {
+    "code": "1292",
+    "description": "Lchfldtrt Hi Lvl"
   },
   "LIH": {
     "code": "5294",
@@ -6771,9 +6771,17 @@
     "code": "2871",
     "description": "Macclesfield"
   },
+  "MAE": {
+    "code": "N530",
+    "description": "Maynooth    (Civ"
+  },
   "MAG": {
     "code": "2155",
     "description": "Maghull"
+  },
+  "MAH": {
+    "code": "N520",
+    "description": "Malahide    (Civ"
   },
   "MAI": {
     "code": "3147",
@@ -6909,10 +6917,6 @@
     "description": "Maidstone West",
     "fare_group": "0437"
   },
-  "MDY": {
-    "code": "0296",
-    "description": "Maerdy"
-  },
   "MEC": {
     "code": "2357",
     "description": "Meols Cop"
@@ -7040,6 +7044,10 @@
   "MIS": {
     "code": "6906",
     "description": "Mistley"
+  },
+  "MIT": {
+    "code": "5374",
+    "description": "Mitcham"
   },
   "MKC": {
     "code": "1378",
@@ -7445,6 +7453,10 @@
     "description": "Newark Castle",
     "fare_group": "0441"
   },
+  "NCX": {
+    "code": "6094",
+    "description": "Not Used"
+  },
   "NCZ": {
     "code": "9144",
     "description": "Newcastle(Metro)"
@@ -7617,14 +7629,6 @@
   "NPD": {
     "code": "8506",
     "description": "New Pudsey"
-  },
-  "NPP": {
-    "code": "3035",
-    "description": "Nottingham Phoenix Park"
-  },
-  "NQC": {
-    "code": "0387",
-    "description": "New Quay (Cardiganshire)"
   },
   "NQU": {
     "code": "9189",
@@ -7964,10 +7968,6 @@
     "code": "3851",
     "description": "Pencoed"
   },
-  "PCF": {
-    "code": "0892",
-    "description": "Portsmouth Cft"
-  },
   "PCN": {
     "code": "9657",
     "description": "Paisley Canal"
@@ -7975,10 +7975,6 @@
   "PDG": {
     "code": "2387",
     "description": "Padgate"
-  },
-  "PDK": {
-    "code": "2505",
-    "description": "Pembroke Dock Fy"
   },
   "PDT": {
     "code": "H553",
@@ -8162,10 +8158,6 @@
     "code": "4102",
     "description": "Pembroke Dock"
   },
-  "PMG": {
-    "code": "2503",
-    "description": "Porthmadog Fr"
-  },
   "PMH": {
     "code": "5540",
     "description": "Portsmouth Harbour",
@@ -8301,10 +8293,6 @@
   "PRE": {
     "code": "2753",
     "description": "Preston (Lancs)"
-  },
-  "PRF": {
-    "code": "2502",
-    "description": "Penrhyn Fr"
   },
   "PRH": {
     "code": "4473",
@@ -8469,10 +8457,6 @@
   "PWL": {
     "code": "4314",
     "description": "Pwllheli"
-  },
-  "PWN": {
-    "code": "0301",
-    "description": "Penywaun"
   },
   "PWW": {
     "code": "9804",
@@ -8761,8 +8745,8 @@
     "description": "Ramsgreave And Wilpshire"
   },
   "RHA": {
-    "code": "9839",
-    "description": "Robin Hood Airport"
+    "code": "K969",
+    "description": "Doncaster Airport  Bus"
   },
   "RHD": {
     "code": "2106",
@@ -8899,10 +8883,6 @@
   "ROS": {
     "code": "9190",
     "description": "Rosyth"
-  },
-  "ROT": {
-    "code": "0148",
-    "description": "Rotterdam Cs"
   },
   "ROW": {
     "code": "4606",
@@ -9232,6 +9212,10 @@
     "code": "1484",
     "description": "Sudbury Hill"
   },
+  "SDI": {
+    "code": "1541",
+    "description": "Stratford International (Civ)"
+  },
   "SDK": {
     "code": "5979",
     "description": "Southampton Docks"
@@ -9299,10 +9283,6 @@
   "SEH": {
     "code": "5074",
     "description": "Shoreham Kent"
-  },
-  "SEK": {
-    "code": "0360",
-    "description": "Soton East Docks"
   },
   "SEL": {
     "code": "2004",
@@ -9423,10 +9403,6 @@
   "SHF": {
     "code": "6691",
     "description": "Sheffield"
-  },
-  "SHG": {
-    "code": "5653",
-    "description": "Stonehenge"
   },
   "SHH": {
     "code": "3206",
@@ -9556,6 +9532,10 @@
     "code": "3572",
     "description": "St Keyne"
   },
+  "SKR": {
+    "code": "N730",
+    "description": "Skerries    (Civ"
+  },
   "SKS": {
     "code": "7513",
     "description": "Stocksfield"
@@ -9676,10 +9656,6 @@
     "code": "5292",
     "description": "South Merton"
   },
-  "SMP": {
-    "code": "5931",
-    "description": "Soton Royal Pier"
-  },
   "SMQ": {
     "code": "0269",
     "description": "St Mary'S Quay"
@@ -9739,6 +9715,10 @@
   "SNO": {
     "code": "6110",
     "description": "St Neots"
+  },
+  "SNP": {
+    "code": "7839",
+    "description": "Stanhope"
   },
   "SNR": {
     "code": "5433",
@@ -9870,6 +9850,10 @@
     "code": "1861",
     "description": "Sutton Parkway"
   },
+  "SPL": {
+    "code": "9933",
+    "description": "Lndn St Pncrs"
+  },
   "SPM": {
     "code": "K866",
     "description": "Sale W Park Mtlk"
@@ -9902,10 +9886,6 @@
     "code": "5228",
     "description": "Staplehurst"
   },
-  "SPW": {
-    "code": "0361",
-    "description": "Soton West Docks"
-  },
   "SPY": {
     "code": "8448",
     "description": "Shepley"
@@ -9925,10 +9905,6 @@
   "SRA": {
     "code": "6969",
     "description": "Stratford London"
-  },
-  "SRB": {
-    "code": "0993",
-    "description": "Severn Tunnel Jn Rogiet Pool"
   },
   "SRC": {
     "code": "5384",
@@ -9997,10 +9973,6 @@
   "SSE": {
     "code": "5277",
     "description": "Shoreham By Sea"
-  },
-  "SSF": {
-    "code": "0356",
-    "description": "Seaton Sea Front"
   },
   "SSM": {
     "code": "8451",
@@ -10195,17 +10167,9 @@
     "code": "6228",
     "description": "Swineshead"
   },
-  "SWF": {
-    "code": "4221",
-    "description": "Swansea Docks"
-  },
   "SWG": {
     "code": "5933",
     "description": "Swaythling"
-  },
-  "SWH": {
-    "code": "0357",
-    "description": "Shaftesbury T H"
   },
   "SWI": {
     "code": "3333",
@@ -10298,6 +10262,10 @@
   "TAF": {
     "code": "3880",
     "description": "Taffs Well"
+  },
+  "TAH": {
+    "code": "1323",
+    "description": "Tmwth Hi Lvl Stn"
   },
   "TAI": {
     "code": "8676",
@@ -10668,10 +10636,6 @@
     "code": "1783",
     "description": "Tutbury And Hatton"
   },
-  "TVA": {
-    "code": "9836",
-    "description": "Tees Valley Airport"
-  },
   "TVP": {
     "code": "3474",
     "description": "Tiverton Parkway"
@@ -10691,10 +10655,6 @@
   "TWY": {
     "code": "3155",
     "description": "Twyford"
-  },
-  "TYB": {
-    "code": "2501",
-    "description": "Tan-Y-Bwlch Fr"
   },
   "TYC": {
     "code": "2439",
@@ -10953,6 +10913,10 @@
     "description": "West Croydon",
     "fare_group": "0449"
   },
+  "WDA": {
+    "code": "5393",
+    "description": "Waddon Marsh"
+  },
   "WDB": {
     "code": "7228",
     "description": "Woodbridge"
@@ -11009,6 +10973,10 @@
     "code": "3188",
     "description": "West Ealing"
   },
+  "WEB": {
+    "code": "N110",
+    "description": "Wellngtn Bg (Civ"
+  },
   "WED": {
     "code": "1357",
     "description": "Wedgwood"
@@ -11028,6 +10996,10 @@
   "WEM": {
     "code": "1347",
     "description": "Wem"
+  },
+  "WEO": {
+    "code": "7973",
+    "description": "Wedgwood Old Rd"
   },
   "WER": {
     "code": "9865",
@@ -11201,10 +11173,6 @@
     "code": "L061",
     "description": "Wisbech (Coach)"
   },
-  "WIT": {
-    "code": "5465",
-    "description": "London Waterloo International"
-  },
   "WIV": {
     "code": "6860",
     "description": "Wivenhoe"
@@ -11274,10 +11242,6 @@
   "WLI": {
     "code": "5128",
     "description": "Welling"
-  },
-  "WLL": {
-    "code": "0370",
-    "description": "Wallsend"
   },
   "WLM": {
     "code": "9781",

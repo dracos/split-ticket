@@ -19,11 +19,11 @@
           "XC"
         ],
         "SVR": [
-          "00005810",
+          "00006100",
           "LC"
         ],
         "SVS": [
-          "00003510",
+          "00003690",
           "LC"
         ]
       },
@@ -32,31 +32,6 @@
     }
   ],
   "3267": [
-    {
-      "prices": {},
-      "route": "00140",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00142",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00144",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00146",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00148",
-      "toc": "GWR"
-    },
     {
       "prices": {
         "CDR": [
@@ -126,58 +101,6 @@
       },
       "route": "00000",
       "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00140",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00142",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00144",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00146",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00148",
-      "toc": "GWR"
-    }
-  ],
-  "3348": [
-    {
-      "prices": {},
-      "route": "00156",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00160",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00162",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00164",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00166",
-      "toc": "GWR"
     }
   ],
   "4770": [
@@ -229,33 +152,6 @@
         ]
       },
       "route": "00000",
-      "toc": "GWR"
-    }
-  ],
-  "5712": [
-    {
-      "prices": {},
-      "route": "00156",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00160",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00162",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00164",
-      "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00166",
       "toc": "GWR"
     }
   ],
@@ -510,11 +406,11 @@
           "XC"
         ],
         "SVR": [
-          "00009510",
+          "00009800",
           "LC"
         ],
         "SVS": [
-          "00006010",
+          "00006190",
           "LC"
         ]
       },

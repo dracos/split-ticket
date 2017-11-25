@@ -2,15 +2,25 @@
   "Q990": [
     {
       "prices": {},
+      "route": "00345",
+      "toc": "SCS"
+    },
+    {
+      "prices": {},
       "route": "00347",
-      "toc": "CAL"
+      "toc": "SCS"
     }
   ],
   "Q991": [
     {
       "prices": {},
+      "route": "00345",
+      "toc": "SCS"
+    },
+    {
+      "prices": {},
       "route": "00347",
-      "toc": "CAL"
+      "toc": "SCS"
     }
   ]
 }
