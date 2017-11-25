@@ -27,24 +27,11 @@ def parse_file(file, type):
 # ---
 
 data = {}
-for key, row in parse_file(fare_file('NDF'), 'N'):
+for key, row in parse_file(fare_file('NFO'), 'O'):
     assert row['suppress'] == 'N'
     del row['suppress']
     data[key] = row
 
-print >>sys.stderr, "%d rows from NDF file" % len(data)
-
-removed = 0
-for key, row in parse_file(fare_file('NFO'), 'O'):
-    if row['suppress'] == 'Y':
-        if key in data:
-            del data[key]
-            removed += 1
-    else:
-        assert row['suppress'] == 'N'
-        del row['suppress']
-        data[key] = row
-
-print >>sys.stderr, "%d rows after NFO file, %d removed" % (len(data), removed)
+print >>sys.stderr, "%d rows from NFO file" % len(data)
 
 json.dump(data, open('data/ndf.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)
