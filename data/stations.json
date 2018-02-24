@@ -1007,6 +1007,10 @@
     "code": "7400",
     "description": "Blackhorse Road"
   },
+  "BHP": {
+    "code": "K850",
+    "description": "Blenheim Palace"
+  },
   "BHR": {
     "code": "4317",
     "description": "Builth Road"
@@ -1062,10 +1066,6 @@
   "BIP": {
     "code": "5402",
     "description": "Bishopstone (Sussex)"
-  },
-  "BIR": {
-    "code": "7784",
-    "description": "Bishopstone (Hill Rise)"
   },
   "BIS": {
     "code": "6800",
@@ -1620,6 +1620,10 @@
     "code": "9466",
     "description": "Barassie"
   },
+  "BST": {
+    "code": "7784",
+    "description": "Bishopstone (Hill Rise)"
+  },
   "BSU": {
     "code": "8807",
     "description": "Brunstane"
@@ -1964,7 +1968,8 @@
   },
   "CBG": {
     "code": "7022",
-    "description": "Cambridge"
+    "description": "Cambridge",
+    "fare_group": "8384"
   },
   "CBH": {
     "code": "6962",
@@ -2416,7 +2421,8 @@
   },
   "CMB": {
     "code": "8001",
-    "description": "Cambridge North"
+    "description": "Cambridge North",
+    "fare_group": "8384"
   },
   "CMD": {
     "code": "1440",
@@ -3593,8 +3599,8 @@
     "description": "Cowes East By Red Funnel Ship"
   },
   "EDA": {
-    "code": "6317",
-    "description": "Edinburgh Airport"
+    "code": "K563",
+    "description": "Edb Apt Bus/Tram"
   },
   "EDB": {
     "code": "9328",

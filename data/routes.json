@@ -36,6 +36,12 @@
     ],
     "desc": "VIA TOTTENHM HLE"
   },
+  "00007": {
+    "E": [
+      "CNM"
+    ],
+    "desc": "NOT VIA CHELTNHM"
+  },
   "00008": {
     "I": [
       "WEH"
@@ -91,7 +97,7 @@
     "desc": "VIA HARROGATE"
   },
   "00020": {
-    "desc": "LIV ST. ONLY"
+    "desc": "GREATER ANG ONLY"
   },
   "00021": {
     "desc": "GREATER ANG ONLY"
@@ -103,7 +109,7 @@
     "E": [
       "BAN"
     ],
-    "desc": "LDN MIDLND.ONLY"
+    "desc": "WMTRAINS. ONLY"
   },
   "00024": {
     "desc": "XC ONLY"
@@ -174,7 +180,7 @@
     "desc": "HT DIV RTE ONLY"
   },
   "00042": {
-    "desc": "LDN MIDLAND ONLY"
+    "desc": "WMTRAINS ONLY"
   },
   "00043": {
     "desc": "VIRGIN WESTCOAST"
@@ -203,7 +209,7 @@
     "desc": "CHILTERN ONLY"
   },
   "00047": {
-    "desc": "LDN MIDLAND.ONLY"
+    "desc": "WMTRAINS ONLY."
   },
   "00049": {
     "desc": "GRAND CTRL ONLY"
@@ -390,7 +396,7 @@
     "desc": "PETERBORO COACH"
   },
   "00081": {
-    "desc": "LM ONLY MON-THUR"
+    "desc": "WMT ONLY MON-THU"
   },
   "00082": {
     "desc": "GWR FIRSTUPGRADE"
@@ -540,7 +546,7 @@
     "I": [
       "BYM"
     ],
-    "desc": "VIA BURNLEY"
+    "desc": "VIA BURNLEY M RD"
   },
   "00105": {
     "I": [
@@ -1079,7 +1085,7 @@
     "desc": "VIA LONG BUCKBY"
   },
   "00216": {
-    "desc": "ATW &LM&NCH ONLY"
+    "desc": "ATW&WMT&NCH ONLY"
   },
   "00217": {
     "desc": "ATW & XC ONLY"
@@ -1244,6 +1250,49 @@
     ],
     "desc": "NOT VIA MANCHEST"
   },
+  "00255": {
+    "I": [
+      "WKG"
+    ],
+    "desc": "VIA WORKINGTON"
+  },
+  "00256": {
+    "I": [
+      "MLM"
+    ],
+    "desc": "VIA MILLOM"
+  },
+  "00257": {
+    "I": [
+      "CNF"
+    ],
+    "desc": "VIA CARNFORTH"
+  },
+  "00258": {
+    "E": [
+      "HUD"
+    ],
+    "desc": "NOT HUDDERSFIELD"
+  },
+  "00259": {
+    "E": [
+      "BBN"
+    ],
+    "desc": "NOT VIA BLACKBRN"
+  },
+  "00260": {
+    "E": [
+      "HBD"
+    ],
+    "desc": "NOT HEBDEN BRIDG"
+  },
+  "00263": {
+    "E": [
+      "YRK",
+      "LDS"
+    ],
+    "desc": "NOT LEEDS / YORK"
+  },
   "00264": {
     "I": [
       "CFO"
@@ -1258,6 +1307,13 @@
       "PAD"
     ],
     "desc": "VIA NORTHOLT UND"
+  },
+  "00266": {
+    "E": [
+      "DON",
+      "LDS"
+    ],
+    "desc": "NOT LEEDS / DONC"
   },
   "00267": {
     "E": [
@@ -1289,6 +1345,24 @@
       "CAR"
     ],
     "desc": "VIA CARLISLE"
+  },
+  "00276": {
+    "desc": "VIA BARNSLEY"
+  },
+  "00277": {
+    "desc": "VIA MIDDLESBRO"
+  },
+  "00278": {
+    "desc": "VIA ROMILEY"
+  },
+  "00279": {
+    "desc": "VIA WILMSLOW"
+  },
+  "00281": {
+    "desc": "VIA ROCHDALE"
+  },
+  "00282": {
+    "desc": "VIA MACCLESFIELD"
   },
   "00285": {
     "I": [
@@ -1392,6 +1466,9 @@
       "BAN"
     ],
     "desc": "BANBURY PRESTON"
+  },
+  "00303": {
+    "desc": "VIA HUYTON"
   },
   "00304": {
     "I": [
@@ -1728,6 +1805,9 @@
     "desc": "VIA PERTH"
   },
   "00367": {
+    "I": [
+      "SOP"
+    ],
     "desc": "VIA SOUTHPORT"
   },
   "00368": {
@@ -1744,10 +1824,10 @@
       "NUN",
       "TAM"
     ],
-    "desc": "LM AND XC ONLY"
+    "desc": "WMT AND XC ONLY"
   },
   "00371": {
-    "desc": "ATW AND LM ONLY"
+    "desc": "WMT & ATW ONLY"
   },
   "00372": {
     "desc": "HIGHBRIDGE BUS"
@@ -1768,7 +1848,7 @@
     "desc": "ATW & GWR ONLY"
   },
   "00378": {
-    "desc": "ATW & LM ONLY"
+    "desc": "ATW & WMT ONLY"
   },
   "00379": {
     "desc": "ATW & NTH ONLY"
@@ -2157,13 +2237,13 @@
     "desc": "AP CHESTERFIELD"
   },
   "00459": {
-    "desc": "AP ATW & LM ONLY"
+    "desc": "AP WMT &ATW ONLY"
   },
   "00460": {
     "I": [
       "TAM"
     ],
-    "desc": "AP LM/XC ONLY"
+    "desc": "AP WMT & XC ONLY"
   },
   "00462": {
     "I": [
@@ -2264,7 +2344,7 @@
     "E": [
       "DON"
     ],
-    "desc": "AP LDN MID ONLY"
+    "desc": "AP WMTRAINS ONLY"
   },
   "00481": {
     "E": [
@@ -2522,6 +2602,58 @@
     ],
     "desc": "NOT VIA CLAPHM J"
   },
+  "00565": {
+    "I": [
+      "DON"
+    ],
+    "desc": "GC & NTH VIA DON"
+  },
+  "00566": {
+    "I": [
+      "DON"
+    ],
+    "desc": "GC&NTH VIA DON"
+  },
+  "00567": {
+    "I": [
+      "DON"
+    ],
+    "desc": "GC&NRTHN VIA DON"
+  },
+  "00568": {
+    "I": [
+      "DON"
+    ],
+    "desc": "GC&NTHN VIA DON"
+  },
+  "00569": {
+    "I": [
+      "EAG",
+      "YRK"
+    ],
+    "desc": "GC & NTH VIA YRK"
+  },
+  "00570": {
+    "I": [
+      "EAG",
+      "YRK"
+    ],
+    "desc": "GC&NTH VIA YRK"
+  },
+  "00571": {
+    "I": [
+      "EAG",
+      "YRK"
+    ],
+    "desc": "GC&NRTHN VIA YRK"
+  },
+  "00572": {
+    "I": [
+      "EAG",
+      "YRK"
+    ],
+    "desc": "GC&NTHN VIA YRK"
+  },
   "00574": {
     "I": [
       "UWL",
@@ -2571,9 +2703,7 @@
   },
   "00602": {
     "E": [
-      "EUS",
-      "CCH",
-      "DKG"
+      "EUS"
     ],
     "I": [
       "CLJ"
@@ -2829,6 +2959,63 @@
       "ACT"
     ],
     "desc": "ASCOT/GUILDFORD"
+  },
+  "00641": {
+    "desc": "MOORSBUS ROVER"
+  },
+  "00642": {
+    "I": [
+      "STD"
+    ],
+    "desc": "GWR ONLY STROUD"
+  },
+  "00643": {
+    "I": [
+      "EVE"
+    ],
+    "desc": "GWR ONLY EVESHAM"
+  },
+  "00644": {
+    "I": [
+      "NBY"
+    ],
+    "desc": "GWR ONLY NEWBURY"
+  },
+  "00645": {
+    "E": [
+      "RDG"
+    ],
+    "desc": "GWR ONLY NOT RDG"
+  },
+  "00646": {
+    "I": [
+      "RDG"
+    ],
+    "desc": "GWR ONLY READING"
+  },
+  "00647": {
+    "I": [
+      "CNM"
+    ],
+    "desc": "GWR ONLY CNM SPA"
+  },
+  "00648": {
+    "I": [
+      "SWI"
+    ],
+    "desc": "GWR ONLY SWINDON"
+  },
+  "00649": {
+    "I": [
+      "YAT"
+    ],
+    "desc": "GWR ONLY YATTON"
+  },
+  "00650": {
+    "I": [
+      "TAU"
+    ],
+    "desc": "GWR ONLY TAUNTON"
   },
   "00655": {
     "I": [
@@ -3177,7 +3364,7 @@
     "desc": "SOUTHERN&ISLANDL"
   },
   "00774": {
-    "desc": "SOUTHERN&LON MID"
+    "desc": "SOUTHERN & WMT"
   },
   "00775": {
     "desc": "SOUTHERN & TLINK"
@@ -3651,10 +3838,7 @@
   },
   "00902": {
     "E": [
-      "EUS",
-      "SFA",
       "ZFD",
-      "EUS",
       "STP",
       "BFR",
       "CST",
@@ -3683,7 +3867,7 @@
     "I": [
       "CBG"
     ],
-    "desc": "FIRST X22/X30"
+    "desc": "FIRST X10/X30"
   },
   "00921": {
     "I": [
@@ -4128,7 +4312,7 @@
     "desc": "LONDON TWO"
   },
   "07770": {
-    "desc": "SN SWR & LM ONLY"
+    "desc": "SN SWR&WMT ONLY"
   },
   "07773": {
     "E": [
@@ -5169,6 +5353,48 @@
   },
   "40240": {
     "desc": "AAA NETHERFIELD"
+  },
+  "40901": {
+    "desc": "GA VIA WIGHTLINK"
+  },
+  "40902": {
+    "desc": "GA VIA HOVRTRAVL"
+  },
+  "40903": {
+    "desc": "EC VIA WIGHTLINK"
+  },
+  "40904": {
+    "desc": "EC VIA HOVRTRAVL"
+  },
+  "40905": {
+    "desc": "TL VIA WIGHTLINK"
+  },
+  "40906": {
+    "desc": "TL VIA HOVRTRAVL"
+  },
+  "40907": {
+    "desc": "VT VIA WIGHTLINK"
+  },
+  "40908": {
+    "desc": "VT VIA HOVRTRAVL"
+  },
+  "40909": {
+    "desc": "XC VIA WIGHTLINK"
+  },
+  "40910": {
+    "desc": "XC VIA HOVETRAVL"
+  },
+  "40981": {
+    "desc": "ANY P+WIGHTLINK"
+  },
+  "40982": {
+    "desc": "ANY P+HOVERTRVL"
+  },
+  "40983": {
+    "desc": "ANY P+RED FUNNEL"
+  },
+  "49998": {
+    "desc": "SWR AGREEMENTS"
   },
   "49999": {
     "desc": "FARES AGREEMENT"
