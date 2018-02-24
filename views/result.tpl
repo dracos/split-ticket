@@ -104,7 +104,7 @@ to be valid. Check your tickets and their restrictions!
 <hr>
 
 <p>I considered the following journey
-(<a href="http://traintimes.org.uk/{{ get('from') }}/{{ to }}/{{ time }}/next-tuesday{{ '?via=' + via if via else '' }}">check
+(<a href="https://traintimes.org.uk/{{ get('from') }}/{{ to }}/{{ time }}/next-tuesday{{ '?via=' + via if via else '' }}">check
 on traintimes.org.uk</a> to adjust search time):</p>
 % for stop in stops:
 <div class="stop{{ ' chg' if stop.change else '' }}">
@@ -122,7 +122,7 @@ on traintimes.org.uk</a> to adjust search time):</p>
 % if time_ret:
 <br clear="both">
 And the following return journey
-(<a href="http://traintimes.org.uk/{{ to }}/{{ get('from') }}/{{ time_ret }}/{{ 'next-tuesday' if day == 'y' else 'next-wednesday' }}{{ '?via=' + via if via else '' }}">check
+(<a href="https://traintimes.org.uk/{{ to }}/{{ get('from') }}/{{ time_ret }}/{{ 'next-tuesday' if day == 'y' else 'next-wednesday' }}{{ '?via=' + via if via else '' }}">check
 on traintimes.org.uk</a>):</p>
 %   for stop in stops_ret:
 <div class="stop{{ ' chg' if stop.change else '' }}">

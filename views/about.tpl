@@ -14,7 +14,7 @@ conditions. This means that it is easily possible for two or more tickets to
 act identically to one through ticket, but be substantially cheaper.
 
 <p><a
-href="http://www.railforums.co.uk/showpost.php?p=1179633&postcount=10">The
+href="https://www.railforums.co.uk/showpost.php?p=1179633&postcount=10">The
 post on split ticketing in the RailUK Fares &amp; Ticketing Guide</a> is very
 informative. Note there that using multiple tickets is explicitly permitted by
 Section 19 of the National Rail Conditions of Carriage.
@@ -48,9 +48,9 @@ split at the boundary of the railcard to utilise its benefits.
 available, will probably be cheaper. But note you can try splitting Advance
 tickets too! Try looking up between major stations rather than your entire route;
 again, RailUK has <a
-href="http://www.railforums.co.uk/showpost.php?p=1179552&postcount=7">more
+href="https://www.railforums.co.uk/showpost.php?p=1179552&postcount=7">more
 information on Advance quotas</a>. Also consider special tickets such as
-<a href="http://megatrain.com/">MegaTrain</a>.
+<a href="https://uk.megabus.com/products/megatrain">MegaTrain</a>.
 
 <li>Journeys other than the ones given for the time specified. You may well need to
 tweak the time to get the journey you want (e.g. from Birmingham to Edinburgh

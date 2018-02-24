@@ -143,7 +143,7 @@ class Fares(object):
         if s['restriction_code']:
             desc = 'desc_out' if n>1 else 'desc'
             o += ', ' + s['restriction_code'][desc]
-            o += ' (code <a href="http://traintimes.org.uk/code/{code}">{code}</a>)'.format(
+            o += ' (code <a href="https://traintimes.org.uk/code/{code}">{code}</a>)'.format(
                 code=s['restriction_code']['id'])
         if 'Single' in o and n>1:
             o += u', ' + price(s['adult']['fare'])

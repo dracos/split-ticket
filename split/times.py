@@ -59,7 +59,7 @@ def find_stopping_points(context, ret=False):
     station_times = {
         fr: [ None, time ]
     }
-    url = 'http://traintimes.org.uk/' + urllib.quote(fr) + '/' + urllib.quote(to) + '/' + time
+    url = 'https://traintimes.org.uk/' + urllib.quote(fr) + '/' + urllib.quote(to) + '/' + time
     if ret and context['day'] == 'n':
         url += '/next-wednesday'
     else:
@@ -92,7 +92,7 @@ def find_stopping_points(context, ret=False):
     if not m:
         return None
 
-    url = 'http://traintimes.org.uk' + m.group(1).replace('stage=', '') + ';ajax=2'
+    url = 'https://traintimes.org.uk' + m.group(1).replace('stage=', '') + ';ajax=2'
     for i in range(0,2):
         ints = utils.fetch(url)
         if ints['tables']:

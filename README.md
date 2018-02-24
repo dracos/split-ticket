@@ -2,7 +2,7 @@ split.traintimes.org.uk
 =======================
 
 This app calculates split ticket possibilities. It is running at
-http://split.traintimes.org.uk/ but should run locally without much issue.
+https://split.traintimes.org.uk/ but should run locally without much issue.
 
 Requirements
 ------------
@@ -21,9 +21,9 @@ Installation
 
 I used bower to install the JavaScript required, so you can either install
 bower and then run bower install, or if that’s too much effort stick
-http://split.traintimes.org.uk/bower_components/jquery/dist/jquery.min.js in
+https://split.traintimes.org.uk/bower_components/jquery/dist/jquery.min.js in
 bower_components/jquery/dist/ and
-http://split.traintimes.org.uk/bower_components/devbridge-autocomplete/dist/jquery.autocomplete.min.js
+https://split.traintimes.org.uk/bower_components/devbridge-autocomplete/dist/jquery.autocomplete.min.js
 in bower_components/devbridge-autocomplete/dist/ :)
 
 web.py is the WSGI application, you can run this directly with:

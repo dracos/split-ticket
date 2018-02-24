@@ -251,13 +251,13 @@ h2 span.n, h2 a {
 }
 
 .pdf {
-    background: url("http://traintimes.org.uk/file_acrobat.gif") no-repeat;
+    background: url("https://traintimes.org.uk/file_acrobat.gif") no-repeat;
     padding-left: 20px;
 }
 
 .ical {
     font-size: 83%;
-    background: url("http://traintimes.org.uk/calendar.gif") no-repeat;
+    background: url("https://traintimes.org.uk/calendar.gif") no-repeat;
     padding-left: 20px;
 }
 
