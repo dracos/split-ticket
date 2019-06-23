@@ -42,6 +42,7 @@ class Fares(object):
 
     def prettify(self, s):
         s = re.sub('\w\S*', lambda txt: txt.group().title(), s)
+        s = re.sub('London Not Und', 'London Not Underground', s)
         return s
 
     def get_codes(self, stn_code):
