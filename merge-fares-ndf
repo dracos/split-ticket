@@ -2,10 +2,11 @@
 
 import json
 import os
+from tqdm import tqdm
 
 data = json.load(open('data/ndf.json'))
 
-for key, row in data.items():
+for key, row in tqdm(data.items()):
     fil = 'data/fares/%s.json' % row['from']
 
     new_row = [ row['adult'], row['restriction'] ]

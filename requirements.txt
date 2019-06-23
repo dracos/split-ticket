@@ -3,3 +3,4 @@ redis==2.10.5
 requests==2.15.1
 requests-cache==0.4.13
 rq==0.8.0
+tqdm

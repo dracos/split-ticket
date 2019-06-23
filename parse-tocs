@@ -2,10 +2,10 @@
 
 import json
 
-from split.parse import unpack, loop, fare_file
+from split.parse import unpack, loop, fare_file, progress
 
 data = {}
-for row in open(fare_file('TOC')):
+for row in progress(fare_file('TOC')):
     row = unpack(row, ('record_type', 1), ('toc_id', 2), ('toc_name', 30), ('dummy', 8), ('active', 1) )
     if row['record_type'] != 'T' or row['active'] == 'N': continue
     name = row['toc_name']

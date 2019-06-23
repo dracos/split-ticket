@@ -1,6 +1,7 @@
 from datetime import date
 import glob
 import sys
+from tqdm import tqdm
 
 cnv_full_date = lambda x: date(int(x[4:8]), int(x[2:4]), int(x[0:2]))
 cnv_str = lambda x: x.rstrip()
@@ -17,7 +18,7 @@ def unpack(row, *fields):
 
 def loop(f):
     started = False
-    for row in open(f):
+    for row in progress(f):
         update_marker, row = row[0], row[1:].strip()
 
         if update_marker == '/':
@@ -40,3 +41,16 @@ def fare_file(ext):
     match = filter(lambda x: ext in x, fares_files)
     assert len(match) == 1
     return match[0]
+
+
+def progress(f):
+    with open(f, "r") as fp:
+        lines = sum(bl.count("\n") for bl in blocks(fp))
+    return tqdm(open(f), total=lines)
+
+
+def blocks(files, size=65536):
+    while True:
+        b = files.read(size)
+        if not b: break
+        yield b
