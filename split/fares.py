@@ -210,13 +210,14 @@ class Fares(object):
                 if not best or r['adult']['fare'] < best[0]['adult']['fare']:
                     best = (r,)
 
-            match = self.match_singles_ret if split_singles else self.match_singles_out
-            singles_ret = filter(match, price_data_ret)
-            for i in singles:
-                for j in singles_ret:
-                    curr_best_fare = sum( f['adult']['fare'] for f in best )
-                    if not best or i['adult']['fare']+j['adult']['fare'] < curr_best_fare:
-                        best = (i,j)
+            if split_singles or not best:
+                match = self.match_singles_ret
+                singles_ret = filter(match, price_data_ret)
+                for i in singles:
+                    for j in singles_ret:
+                        curr_best_fare = sum( f['adult']['fare'] for f in best )
+                        if not best or i['adult']['fare']+j['adult']['fare'] < curr_best_fare:
+                            best = (i,j)
 
         if not best:
             return { 'fare': '-', 'obj': None, 'desc': '-' }
