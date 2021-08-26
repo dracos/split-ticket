@@ -37,7 +37,7 @@
   },
   "ABX": {
     "code": "7733",
-    "description": "Abbey Wood Crossrail"
+    "description": "Abbey Wood Mtr"
   },
   "ABY": {
     "code": "2941",
@@ -138,10 +138,6 @@
   "AGL": {
     "code": "2448",
     "description": "Abergele And Pensarn"
-  },
-  "AGR": {
-    "code": "6909",
-    "description": "Angel Road"
   },
   "AGS": {
     "code": "9961",
@@ -811,6 +807,10 @@
     "description": "Bradford Forster Square",
     "fare_group": "0424"
   },
+  "BDS": {
+    "code": "6553",
+    "description": "Bond Street Crossrail"
+  },
   "BDT": {
     "code": "8049",
     "description": "Bridlington"
@@ -838,10 +838,6 @@
   "BEC": {
     "code": "5076",
     "description": "Beckenham Hill"
-  },
-  "BED": {
-    "code": "5349",
-    "description": "Beddington Lane"
   },
   "BEE": {
     "code": "1625",
@@ -1443,6 +1439,10 @@
     "description": "Bootle Oriel Road",
     "fare_group": "1780"
   },
+  "BOW": {
+    "code": "4219",
+    "description": "Bow Street"
+  },
   "BPB": {
     "code": "2738",
     "description": "Blackpool Pleasure Beach"
@@ -1460,8 +1460,8 @@
     "description": "Blackpool North"
   },
   "BPO": {
-    "code": "0282",
-    "description": "Bridport"
+    "code": "J471",
+    "description": "Bridport Bus X51"
   },
   "BPS": {
     "code": "2740",
@@ -1652,10 +1652,6 @@
   "BSY": {
     "code": "1437",
     "description": "Brondesbury"
-  },
-  "BSZ": {
-    "code": "6553",
-    "description": "Bond Street Crossrail"
   },
   "BTB": {
     "code": "6406",
@@ -2043,6 +2039,10 @@
   "CCH": {
     "code": "5255",
     "description": "Chichester"
+  },
+  "CCK": {
+    "code": "L057",
+    "description": "Chinnor & Princes Risborough Railway"
   },
   "CCN": {
     "code": "M036",
@@ -2948,10 +2948,6 @@
     "code": "6524",
     "description": "Crowle"
   },
-  "CWF": {
-    "code": "6560",
-    "description": "Canary Wharf Crossrail"
-  },
   "CWH": {
     "code": "6007",
     "description": "Crews Hill"
@@ -2975,6 +2971,10 @@
   "CWU": {
     "code": "5233",
     "description": "Crowhurst"
+  },
+  "CWX": {
+    "code": "6560",
+    "description": "Canary Wharf Crossrail"
   },
   "CYB": {
     "code": "2425",
@@ -3496,8 +3496,7 @@
   },
   "DVP": {
     "code": "5033",
-    "description": "Dover Priory",
-    "fare_group": "0414"
+    "description": "Dover Priory"
   },
   "DVR": {
     "code": "K268",
@@ -3573,7 +3572,7 @@
   },
   "EBF": {
     "code": "1544",
-    "description": "Ebbsfleet International Civ"
+    "description": "Ebbsfleet Intciv-Not In Use"
   },
   "EBK": {
     "code": "3795",
@@ -3632,7 +3631,7 @@
   },
   "EDA": {
     "code": "K563",
-    "description": "Edb Apt Bus/Tram"
+    "description": "Edinburgh Airport Bus/Tram"
   },
   "EDB": {
     "code": "9328",
@@ -3770,9 +3769,9 @@
     "code": "L049",
     "description": "East Midlands Airport Via Dby"
   },
-  "EMB": {
-    "code": "H273",
-    "description": "East Midlands Airport Via Nott"
+  "EMC": {
+    "code": "L047",
+    "description": "East Midlands Airport Via Emd"
   },
   "EMD": {
     "code": "1901",
@@ -3945,10 +3944,6 @@
     "code": "5065",
     "description": "Eynsford"
   },
-  "FAC": {
-    "code": "6595",
-    "description": "Farringdon Crossrail"
-  },
   "FAL": {
     "code": "3508",
     "description": "Falmouth Docks"
@@ -3976,6 +3971,10 @@
   "FCN": {
     "code": "5137",
     "description": "Falconwood"
+  },
+  "FDX": {
+    "code": "6595",
+    "description": "Farringdon Mtr"
   },
   "FEA": {
     "code": "8544",
@@ -4717,10 +4716,6 @@
     "code": "5588",
     "description": "Gunnersbury"
   },
-  "GUS": {
-    "code": "5972",
-    "description": "Guernsey (Channel Islands)"
-  },
   "GVE": {
     "code": "8640",
     "description": "Garve"
@@ -5240,8 +5235,7 @@
   },
   "HNY": {
     "code": "9857",
-    "description": "Hanley Bus Stn",
-    "fare_group": "1314"
+    "description": "Hanley Bus Stn"
   },
   "HOC": {
     "code": "6880",
@@ -5342,6 +5336,10 @@
   "HRD": {
     "code": "7374",
     "description": "Harling Road"
+  },
+  "HRE": {
+    "code": "6604",
+    "description": "Horden"
   },
   "HRH": {
     "code": "5309",
@@ -5742,10 +5740,6 @@
     "code": "9995",
     "description": "Jordanhill"
   },
-  "JSY": {
-    "code": "5971",
-    "description": "Jersey (Channel Islands)"
-  },
   "KBC": {
     "code": "8653",
     "description": "Kinbrace"
@@ -6063,6 +6057,10 @@
     "code": "1553",
     "description": "Kentish Town"
   },
+  "KTR": {
+    "code": "6597",
+    "description": "Kintore"
+  },
   "KTW": {
     "code": "1449",
     "description": "Kentish Town West"
@@ -6187,6 +6185,10 @@
   "LBZ": {
     "code": "1373",
     "description": "Leighton Buzzard"
+  },
+  "LCA": {
+    "code": "L069",
+    "description": "Leeds Castle"
   },
   "LCB": {
     "code": "H336",
@@ -6433,10 +6435,6 @@
     "description": "Liverpool Lime Street",
     "fare_group": "0435"
   },
-  "LIX": {
-    "code": "6594",
-    "description": "London Liverpool Street Xrail"
-  },
   "LJL": {
     "code": "J684",
     "description": "Liverpool Airport Bus"
@@ -6615,7 +6613,7 @@
   },
   "LPO": {
     "code": "J472",
-    "description": "Lyme Regis Bus X51/X53"
+    "description": "Lyme Regis Bus X53"
   },
   "LPR": {
     "code": "2657",
@@ -6673,6 +6671,10 @@
   "LSW": {
     "code": "2237",
     "description": "Leasowe"
+  },
+  "LSX": {
+    "code": "6594",
+    "description": "Liverpool Street Mtr"
   },
   "LSY": {
     "code": "5053",
@@ -7013,7 +7015,7 @@
   },
   "MEW": {
     "code": "3962",
-    "description": "Maesteg Ewenny Road"
+    "description": "Maesteg (Ewenny Road)"
   },
   "MEX": {
     "code": "6707",
@@ -7744,10 +7746,6 @@
     "code": "3426",
     "description": "Newton Abbot"
   },
-  "NTB": {
-    "code": "1356",
-    "description": "Norton Bridge"
-  },
   "NTC": {
     "code": "5828",
     "description": "Newton St Cyres"
@@ -7787,10 +7785,6 @@
   "NVH": {
     "code": "5330",
     "description": "Newhaven Harbour"
-  },
-  "NVM": {
-    "code": "5335",
-    "description": "Newhaven Marine"
   },
   "NVN": {
     "code": "5331",
@@ -7985,10 +7979,6 @@
     "code": "5377",
     "description": "Oxted"
   },
-  "PAA": {
-    "code": "6552",
-    "description": "London Paddington Crossrl"
-  },
   "PAD": {
     "code": "3087",
     "description": "London Paddington",
@@ -8050,6 +8040,10 @@
     "code": "5224",
     "description": "Paddock Wood"
   },
+  "PDX": {
+    "code": "6552",
+    "description": "London Paddington Crossrl"
+  },
   "PEA": {
     "code": "1687",
     "description": "Peartree"
@@ -8105,12 +8099,7 @@
   },
   "PFR": {
     "code": "8540",
-    "description": "Pontefract Baghill",
-    "fare_group": "0268"
-  },
-  "PFT": {
-    "code": "5891",
-    "description": "Poole Quay"
+    "description": "Pontefract Baghill"
   },
   "PFY": {
     "code": "2671",
@@ -8330,7 +8319,8 @@
   },
   "POT": {
     "code": "8541",
-    "description": "Pontefract Tanshelf"
+    "description": "Pontefract Tanshelf",
+    "fare_group": "0268"
   },
   "PPD": {
     "code": "3904",
@@ -8584,6 +8574,10 @@
     "code": "K994",
     "description": "Countryfile Live"
   },
+  "QCW": {
+    "code": "I617",
+    "description": "Frinton-On-Sea / Walton-On-The-Naze"
+  },
   "QDF": {
     "code": "K706",
     "description": "Dean Forest Rly"
@@ -8600,6 +8594,14 @@
     "code": "K959",
     "description": "Edb Bus Tour"
   },
+  "QED": {
+    "code": "I675",
+    "description": "Emr Destination"
+  },
+  "QEO": {
+    "code": "I674",
+    "description": "Emr Origin"
+  },
   "QFA": {
     "code": "I060",
     "description": "Fairford Air"
@@ -8615,6 +8617,46 @@
   "QHC": {
     "code": "K681",
     "description": "Hamptn Ct Flower"
+  },
+  "QMA": {
+    "code": "L002",
+    "description": "Gm Metrolnk Z1"
+  },
+  "QMB": {
+    "code": "L003",
+    "description": "Gm Metrolnk Z1-2"
+  },
+  "QMC": {
+    "code": "L004",
+    "description": "Gm Metrolnk Z1-3"
+  },
+  "QMD": {
+    "code": "L005",
+    "description": "Gm Metrolnk Z1-4"
+  },
+  "QME": {
+    "code": "L006",
+    "description": "Metrolink Z4"
+  },
+  "QMF": {
+    "code": "L007",
+    "description": "Metrolink Z3-4"
+  },
+  "QMG": {
+    "code": "L008",
+    "description": "Metrolink Z2-4"
+  },
+  "QMH": {
+    "code": "L009",
+    "description": "Metrolink Z1-2"
+  },
+  "QMI": {
+    "code": "L013",
+    "description": "Metrolink Z1-3"
+  },
+  "QMJ": {
+    "code": "L014",
+    "description": "Metrolink Z1-4"
   },
   "QPK": {
     "code": "9822",
@@ -8686,7 +8728,7 @@
   },
   "RAV": {
     "code": "1999",
-    "description": "Ravenglass"
+    "description": "Ravenglass For Eskdale"
   },
   "RAY": {
     "code": "5569",
@@ -8698,7 +8740,7 @@
   },
   "RBS": {
     "code": "7932",
-    "description": "Redcar British Steel"
+    "description": "Redcar British Steel (Closed)"
   },
   "RBU": {
     "code": "6392",
@@ -8706,7 +8748,7 @@
   },
   "RCA": {
     "code": "9920",
-    "description": "Risca Pontymistr"
+    "description": "Risca & Pontymister"
   },
   "RCC": {
     "code": "7950",
@@ -8829,6 +8871,10 @@
   "RGL": {
     "code": "1084",
     "description": "Rugeley Trent Valley"
+  },
+  "RGP": {
+    "code": "0996",
+    "description": "Reading Green Park"
   },
   "RGT": {
     "code": "1135",
@@ -8993,6 +9039,10 @@
   "RRM": {
     "code": "K877",
     "description": "Robinswd Rd Mtlk"
+  },
+  "RRN": {
+    "code": "7780",
+    "description": "Robroyston"
   },
   "RSB": {
     "code": "N010",
@@ -9312,7 +9362,7 @@
   },
   "SDI": {
     "code": "1541",
-    "description": "Stratford International (Civ)"
+    "description": "Stratfrd Int-Not In Use"
   },
   "SDL": {
     "code": "2249",
@@ -9553,6 +9603,10 @@
   "SHW": {
     "code": "5929",
     "description": "Shawford"
+  },
+  "SHX": {
+    "code": "K770",
+    "description": "Shottle"
   },
   "SHY": {
     "code": "8347",
@@ -10595,8 +10649,7 @@
   },
   "TOM": {
     "code": "6951",
-    "description": "Tottenham Hale",
-    "fare_group": "0729"
+    "description": "Tottenham Hale"
   },
   "TON": {
     "code": "5229",
@@ -10974,10 +11027,6 @@
     "code": "5151",
     "description": "Westcombe Park"
   },
-  "WCC": {
-    "code": "6557",
-    "description": "Whitechapel Crossrail"
-  },
   "WCF": {
     "code": "7476",
     "description": "Westcliff"
@@ -11018,10 +11067,6 @@
     "code": "5411",
     "description": "West Croydon",
     "fare_group": "0449"
-  },
-  "WDA": {
-    "code": "5393",
-    "description": "Waddon Marsh"
   },
   "WDB": {
     "code": "7228",
@@ -11238,6 +11283,10 @@
   "WHT": {
     "code": "3896",
     "description": "Whitchurch (Cardiff)"
+  },
+  "WHX": {
+    "code": "6557",
+    "description": "Whitechapel Mtr"
   },
   "WHY": {
     "code": "5396",
@@ -11547,13 +11596,13 @@
     "description": "Worcester Shrub Hill",
     "fare_group": "0447"
   },
-  "WOW": {
-    "code": "6562",
-    "description": "Woolwich Crossrail"
-  },
   "WPE": {
     "code": "1085",
     "description": "Wapping"
+  },
+  "WPH": {
+    "code": "9423",
+    "description": "Worcestershire Parkway Hl"
   },
   "WPK": {
     "code": "0768",
@@ -11755,6 +11804,10 @@
     "code": "5152",
     "description": "Woolwich Arsenal"
   },
+  "WWC": {
+    "code": "6562",
+    "description": "Woolwich Crossrail"
+  },
   "WWD": {
     "code": "5153",
     "description": "Woolwich Dockyard"
@@ -11806,10 +11859,6 @@
   "WYM": {
     "code": "7514",
     "description": "Wylam"
-  },
-  "WYQ": {
-    "code": "5966",
-    "description": "Weymouth Quay"
   },
   "WYT": {
     "code": "4532",

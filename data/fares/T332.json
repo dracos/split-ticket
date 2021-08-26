@@ -18,6 +18,11 @@
       "prices": {},
       "route": "00820",
       "toc": "GWA"
+    },
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
     }
   ],
   "T305": [
@@ -32,12 +37,120 @@
       "prices": {},
       "route": "00820",
       "toc": "GWA"
+    },
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
     }
   ],
   "T307": [
     {
       "prices": {},
       "route": "00820",
+      "toc": "GWA"
+    },
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
+    }
+  ],
+  "T315": [
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
+    }
+  ],
+  "T316": [
+    {
+      "prices": {},
+      "route": "00955",
+      "toc": "GWA"
+    }
+  ],
+  "T317": [
+    {
+      "prices": {},
+      "route": "00955",
+      "toc": "GWA"
+    }
+  ],
+  "T318": [
+    {
+      "prices": {},
+      "route": "00955",
+      "toc": "GWA"
+    }
+  ],
+  "T319": [
+    {
+      "prices": {},
+      "route": "00955",
+      "toc": "GWA"
+    }
+  ],
+  "T321": [
+    {
+      "prices": {},
+      "route": "00955",
+      "toc": "GWA"
+    }
+  ],
+  "T324": [
+    {
+      "prices": {},
+      "route": "00955",
+      "toc": "GWA"
+    }
+  ],
+  "T326": [
+    {
+      "prices": {},
+      "route": "00955",
+      "toc": "GWA"
+    }
+  ],
+  "T327": [
+    {
+      "prices": {},
+      "route": "00955",
+      "toc": "GWA"
+    }
+  ],
+  "T328": [
+    {
+      "prices": {},
+      "route": "00955",
+      "toc": "GWA"
+    }
+  ],
+  "T336": [
+    {
+      "prices": {},
+      "route": "00955",
+      "toc": "GWA"
+    }
+  ],
+  "T337": [
+    {
+      "prices": {},
+      "route": "00955",
+      "toc": "GWA"
+    }
+  ],
+  "T338": [
+    {
+      "prices": {},
+      "route": "00955",
+      "toc": "GWA"
+    }
+  ],
+  "T349": [
+    {
+      "prices": {},
+      "route": "00955",
       "toc": "GWA"
     }
   ],
@@ -101,6 +214,13 @@
     {
       "prices": {},
       "route": "00820",
+      "toc": "GWA"
+    }
+  ],
+  "T364": [
+    {
+      "prices": {},
+      "route": "00955",
       "toc": "GWA"
     }
   ]

@@ -97,6 +97,13 @@
       "toc": "GWA"
     }
   ],
+  "T359": [
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
+    }
+  ],
   "T360": [
     {
       "prices": {},
@@ -136,6 +143,41 @@
     {
       "prices": {},
       "route": "00820",
+      "toc": "GWA"
+    }
+  ],
+  "T368": [
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
+    }
+  ],
+  "T369": [
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
+    }
+  ],
+  "T370": [
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
+    }
+  ],
+  "T371": [
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
+    }
+  ],
+  "T386": [
+    {
+      "prices": {},
+      "route": "00956",
       "toc": "GWA"
     }
   ]

@@ -46,6 +46,11 @@
       "prices": {},
       "route": "00820",
       "toc": "GWA"
+    },
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
     }
   ],
   "T333": [
@@ -87,6 +92,13 @@
     {
       "prices": {},
       "route": "00820",
+      "toc": "GWA"
+    }
+  ],
+  "T340": [
+    {
+      "prices": {},
+      "route": "00955",
       "toc": "GWA"
     }
   ],
