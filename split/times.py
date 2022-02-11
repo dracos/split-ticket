@@ -77,7 +77,7 @@ def find_stopping_points(context, ret=False):
     m = re.search('<li id="result0">[\s\S]*?(?:<li id="result1">|</ul>)', stops)
     if m:
         res1 = m.group()
-        m = re.search('<strong>.*?(\d\d:\d\d) &ndash; (\d\d:\d\d)', res1)
+        m = re.search('<strong>.*?(\d\d:\d\d)\s+&ndash; (\d\d:\d\d)', res1)
         if m:
             station_times[fr] = [ None, m.group(1) ]
             station_times[to] = [ m.group(2), None ]
