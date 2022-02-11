@@ -79,7 +79,7 @@ with traintimes.org.uk.
 Timetable and Fares data available<br>
 under a Creative Commons Attribution<br>
 licence from RSP (thanks <a href="https://www.raildeliverygroup.com/">Rail Delivery Group</a>).<br>
-Kindly hosted by <a href="https://www.bytemark.co.uk/">Bytemark</a>.
+Kindly hosted by <a href="https://www.mythic-beasts.com/">Mythic Beasts</a>.
 
 </p>
 

@@ -262,4 +262,6 @@ def error(context):
 
 if __name__ == "__main__":
     bottle.run(host='localhost', port=8080, debug=True, reloader=True)
-app = bottle.default_app()
+
+os.chdir(os.path.dirname(__file__))
+application = bottle.default_app()
