@@ -60,7 +60,6 @@ and returning around {{ time_ret }}
 <body bgcolor="#ffffff" text="#000066" link="#0000ff" alink="#ff0000" vlink="#660066">
 
 <div id="heading"><a id="home" href="/">sp<i>l</i>it.traintimes.org.uk</a>
-<em>Beta</em>
 <p id="credit"><i>by</i> <a href="http://dracos.co.uk/">Matthew</a>
 &middot;&nbsp; <a id="donate" href="https://traintimes.org.uk/donate">Donate</a></p>
 </div>
