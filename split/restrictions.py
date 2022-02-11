@@ -77,8 +77,8 @@ class Restriction(object):
                 stop_arr = self.get_time(stop, 0)
                 stop_dep = self.get_time(stop, 1)
                 for a in restriction.lookup(stop.code) + all_restriction:
-                    if a['adv'] == 'D' and stop_dep >= a['f'] and stop_dep <= a['t'] and ('tocs' not in a or stop_next.operator in a['tocs']): return False
-                    if a['adv'] == 'A' and stop_arr >= a['f'] and stop_arr <= a['t'] and ('tocs' not in a or stop.operator in a['tocs']): return False
+                    if a['adv'] == 'D' and stop_dep and stop_dep >= a['f'] and stop_dep <= a['t'] and ('tocs' not in a or stop_next.operator in a['tocs']): return False
+                    if a['adv'] == 'A' and stop_arr and stop_arr >= a['f'] and stop_arr <= a['t'] and ('tocs' not in a or stop.operator in a['tocs']): return False
 
         if 'trains' in restrictions[code] and restrictions[code]['info']['type_out'] == 'N':
             trains = restrictions[code]['trains']

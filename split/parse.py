@@ -38,7 +38,7 @@ except IndexError:
 
 def fare_file(ext):
     ext = '.%s' % ext
-    match = filter(lambda x: ext in x, fares_files)
+    match = list(filter(lambda x: ext in x, fares_files))
     assert len(match) == 1
     return match[0]
 

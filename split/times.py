@@ -1,5 +1,5 @@
 import re
-import urllib
+import urllib.parse
 
 import requests
 
@@ -59,15 +59,15 @@ def find_stopping_points(context, ret=False):
     station_times = {
         fr: [ None, time ]
     }
-    url = 'https://traintimes.org.uk/' + urllib.quote(fr) + '/' + urllib.quote(to) + '/' + time
+    url = 'https://traintimes.org.uk/' + urllib.parse.quote(fr) + '/' + urllib.parse.quote(to) + '/' + time
     if ret and context['day'] == 'n':
         url += '/next-wednesday'
     else:
         url += '/next-tuesday'
     if context['via']:
-        url += '?via=' + urllib.quote(context['via'])
+        url += '?via=' + urllib.parse.quote(context['via'])
     if context.get('avoid'):
-        url += '?avd=' + urllib.quote(context['avoid'])
+        url += '?avd=' + urllib.parse.quote(context['avoid'])
     for i in range(0,2):
         stops = utils.fetch(url)
         if 'result0' in stops:
@@ -105,7 +105,7 @@ def find_stopping_points(context, ret=False):
 
     for x in ints['tables']:
         op = ints['operators'][c]
-        stops += map(lambda x: (x, False, op), re.findall('<abbr>([A-Z]{3})', x))
+        stops += list(map(lambda x: (x, False, op), re.findall('<abbr>([A-Z]{3})', x)))
         stops.append( (re.search('[A-Z]{3}', ints['destination'][c]).group(), True, op) )
         c += 1
 

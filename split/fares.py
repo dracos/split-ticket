@@ -73,12 +73,12 @@ class Fares(object):
         codes_fr = self.get_codes(fro)
         codes_to = self.get_codes(to)
 
-        froms = filter(None, map(lambda x: self.get_fare_entry(x), codes_fr))
+        froms = list(filter(None, map(lambda x: self.get_fare_entry(x), codes_fr)))
         # Fares by ROUTE because for the same route, individual flow overrides
         # fare_group which overrides cluster
         fares = {}
         for f in froms:
-            matches = filter(None, map(lambda x: f.get(x), codes_to))
+            matches = list(filter(None, map(lambda x: f.get(x), codes_to)))
             for m in matches:
                 for p in m:
                     fares[p['route']] = p
@@ -200,20 +200,20 @@ class Fares(object):
             price_data_ret = self.get_fares(to, fro)
 
         best = ()
-        singles = filter(self.match_singles_out, price_data)
+        singles = list(filter(self.match_singles_out, price_data))
         if self.store['day'] == 's':
             for r in singles:
                 if not best or r['adult']['fare'] < best[0]['adult']['fare']:
                     best = (r,)
         else:
-            returns = filter(self.match_returns, price_data)
+            returns = list(filter(self.match_returns, price_data))
             for r in returns:
                 if not best or r['adult']['fare'] < best[0]['adult']['fare']:
                     best = (r,)
 
             if split_singles or not best:
                 match = self.match_singles_ret
-                singles_ret = filter(match, price_data_ret)
+                singles_ret = list(filter(match, price_data_ret))
                 for i in singles:
                     for j in singles_ret:
                         curr_best_fare = sum( f['adult']['fare'] for f in best )

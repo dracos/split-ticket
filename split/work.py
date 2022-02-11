@@ -26,7 +26,7 @@ def do_split(context):
     else:
         stops_ret = None
 
-    context['exclude'] = filter(None, context['exclude'].split(','))
+    context['exclude'] = list(filter(None, context['exclude'].split(',')))
 
     # Make a copy of the stops, to potentially exclude some
     stops_joint = [ s for s in stops if not context['time_ret'] or s in stops_ret ]
@@ -35,7 +35,7 @@ def do_split(context):
     context['stops_joint'] = stops_joint
 
     stop_pairs = itertools.combinations([ s.code for s in stops_joint ], 2)
-    stop_pairs = filter(lambda x: x[0] != store['from'] or x[1] != store['to'], stop_pairs)
+    stop_pairs = list(filter(lambda x: x[0] != store['from'] or x[1] != store['to'], stop_pairs))
     Fares = fares.Fares(store, stops, stops_ret)
 
     for ex in context['exclude']:

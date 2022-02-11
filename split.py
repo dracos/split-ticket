@@ -3,7 +3,7 @@
 import argparse
 import itertools
 import re
-import urllib
+import urllib.parse
 import os, json
 
 import codecs
@@ -47,8 +47,8 @@ ans = prompt.pretty_prompt([
 
 store['day'] = ans['day']
 store['time'] = ans['time']
-from_stns = utils.fetch('http://api.brfares.com/ac_loc?term=' + urllib.quote(ans['from']))
-to_stns = utils.fetch('http://api.brfares.com/ac_loc?term=' + urllib.quote(ans['to']))
+from_stns = utils.fetch('http://api.brfares.com/ac_loc?term=' + urllib.parse.quote(ans['from']))
+to_stns = utils.fetch('http://api.brfares.com/ac_loc?term=' + urllib.parse.quote(ans['to']))
 
 def modify(x):
     x['name'], x['value'] = x['value'], x['code']
@@ -67,8 +67,8 @@ if len(to_stns) > 1:
 else:
     to_stn = { 'to': to_stns[0]['code'] }
 
-store['from'] = urllib.quote(from_stn['from'])
-store['to'] = urllib.quote(to_stn['to'])
+store['from'] = urllib.parse.quote(from_stn['from'])
+store['to'] = urllib.parse.quote(to_stn['to'])
 store['station_times'][store['from']] = [ None, store['time'] ]
 
 # ---

@@ -6,7 +6,7 @@ import json
 import os
 import re
 from time import time as unix_time
-import urllib
+import urllib.parse
 
 import redis
 R = redis.Redis()
@@ -30,7 +30,7 @@ data = {}
 for d in [ 'stations' ]:
     with open(os.path.join(THIS_DIR, 'data', d + '.json')) as fp:
         data[d] = json.load(fp)
-data['stations_by_name'] = dict( (v['description'], dict(v.items()+[('code',k)])) for k, v in data['stations'].items() )
+data['stations_by_name'] = dict( (v['description'], dict(list(v.items())+[('code',k)])) for k, v in data['stations'].items() )
 
 def cache(s):
     """Decorator to set a cache-control header."""
@@ -70,9 +70,9 @@ def about():
 @cache(60*15)
 def ajax():
     q = request.query.query.lower()
-    matches = filter(lambda x: x.lower().startswith(q), data['stations'])
-    matches += filter(lambda x: x not in matches and data['stations'][x]['description'].lower().startswith(q), data['stations'])
-    matches += filter(lambda x: x not in matches and q in data['stations'][x]['description'].lower(), data['stations'])
+    matches = list(filter(lambda x: x.lower().startswith(q), data['stations']))
+    matches += list(filter(lambda x: x not in matches and data['stations'][x]['description'].lower().startswith(q), data['stations']))
+    matches += list(filter(lambda x: x not in matches and q in data['stations'][x]['description'].lower(), data['stations']))
     return {
         'suggestions': [ data['stations'][m]['description'] for m in matches ]
     }
@@ -87,15 +87,16 @@ def home():
             request.query['time_ret'] = re.sub('^(\d\d)(\d\d)$', r'\1:\2', request.query['time_ret'])
             path += '/%(time_ret)s' % request.query
         if request.query.get('via'):
-            path += '?via=' + urllib.quote(request.query['via'])
+            path += '?via=' + urllib.parse.quote(request.query['via'])
         if request.query.get('avoid'):
-            path += '?avoid=' + urllib.quote(request.query['avoid'])
+            path += '?avoid=' + urllib.parse.quote(request.query['avoid'])
         bottle.redirect(path)
     return form(request.query)
 
 def get_latest():
     latest = R.zrevrange('split-ticket-latest', 0, -1)
-    latest = filter(None, R.hmget('split-ticket-lines', latest))
+    if not latest: return []
+    latest = list(filter(None, R.hmget('split-ticket-lines', latest)))
     return latest
 
 @bottle.route('/ajax-latest')
@@ -202,7 +203,7 @@ def _split(fr, to, day, time, time_ret):
     include_me = 0
 
     if job and (job.is_finished or job.is_failed):
-        if 'error' in job.result: return error(job.result)
+        if not job.result or 'error' in job.result: return error(job.result)
         return split_finished(job.result)
 
     if job:
@@ -245,7 +246,7 @@ def split_finished(context):
         key = '%s%s' % (context['from'], context['to'])
         pipe = R.pipeline()
         pipe.hset( 'split-ticket-lines', key, line )
-        pipe.zadd( 'split-ticket-latest', key, unix_time() )
+        pipe.zadd( 'split-ticket-latest', {key: unix_time()} )
         pipe.zremrangebyrank( 'split-ticket-latest', 0, -11 )
         pipe.incrby( 'split-ticket-total-saved', int(fare_total['fare'] - total) )
         pipe.incrby( 'split-ticket-total-orig', int(fare_total['fare']) )
