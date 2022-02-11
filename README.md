@@ -19,13 +19,6 @@ Installation
     $ source venv/bin/activate
     $ pip install -r requirements.txt
 
-I used bower to install the JavaScript required, so you can either install
-bower and then run bower install, or if that’s too much effort stick
-https://split.traintimes.org.uk/bower_components/jquery/dist/jquery.min.js in
-bower_components/jquery/dist/ and
-https://split.traintimes.org.uk/bower_components/devbridge-autocomplete/dist/jquery.autocomplete.min.js
-in bower_components/devbridge-autocomplete/dist/ :)
-
 web.py is the WSGI application, you can run this directly with:
 
     python web.py
