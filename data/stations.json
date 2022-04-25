@@ -123,6 +123,10 @@
     "code": "9310",
     "description": "Addiewell"
   },
+  "AER": {
+    "code": "0274",
+    "description": "Aberaeron"
+  },
   "AFK": {
     "code": "5004",
     "description": "Ashford International"
@@ -756,6 +760,10 @@
     "code": "5404",
     "description": "Brockley"
   },
+  "BCZ": {
+    "code": "7777",
+    "description": "Brent Cross West"
+  },
   "BDA": {
     "code": "7289",
     "description": "Brundall"
@@ -767,10 +775,6 @@
   "BDC": {
     "code": "J407",
     "description": "Brodick"
-  },
-  "BDF": {
-    "code": "0336",
-    "description": "Bodmin Mount Fll"
   },
   "BDG": {
     "code": "9789",
@@ -977,6 +981,10 @@
   "BGS": {
     "code": "9668",
     "description": "Bogston"
+  },
+  "BGV": {
+    "code": "1335",
+    "description": "Barking Rivrside"
   },
   "BHA": {
     "code": "J345",
@@ -1821,10 +1829,6 @@
     "code": "3449",
     "description": "Bridgwater"
   },
-  "BWY": {
-    "code": "0283",
-    "description": "Broadway"
-  },
   "BXB": {
     "code": "6812",
     "description": "Broxbourne"
@@ -2047,10 +2051,6 @@
   "CCN": {
     "code": "M036",
     "description": "Castleconni (Cie"
-  },
-  "CCR": {
-    "code": "0286",
-    "description": "Cirencester"
   },
   "CCT": {
     "code": "9795",
@@ -3757,6 +3757,10 @@
     "code": "1542",
     "description": "Elstree And Borehamwood"
   },
+  "ELT": {
+    "code": "0365",
+    "description": "East Linton"
+  },
   "ELW": {
     "code": "5103",
     "description": "Eltham"
@@ -5299,7 +5303,7 @@
   },
   "HOZ": {
     "code": "1734",
-    "description": "Howwood Strathclyde"
+    "description": "Howwood (Renfrew)"
   },
   "HPA": {
     "code": "5418",
@@ -6386,6 +6390,10 @@
     "code": "2735",
     "description": "Langho"
   },
+  "LHR": {
+    "code": "5564",
+    "description": "Heathrow Bus"
+  },
   "LHS": {
     "code": "7491",
     "description": "Limehouse Lts"
@@ -6607,6 +6615,10 @@
     "code": "6202",
     "description": "Lowdham"
   },
+  "LPD": {
+    "code": "9227",
+    "description": "Luton Airport Parkway Dart"
+  },
   "LPG": {
     "code": "2467",
     "description": "Llanfairpwll"
@@ -6727,10 +6739,6 @@
   "LUA": {
     "code": "3667",
     "description": "Luton Airport"
-  },
-  "LUB": {
-    "code": "0836",
-    "description": "Luton Bus"
   },
   "LUD": {
     "code": "3635",
@@ -6907,6 +6915,10 @@
   "MBR": {
     "code": "7929",
     "description": "Middlesbrough"
+  },
+  "MBT": {
+    "code": "7779",
+    "description": "Marsh Barton"
   },
   "MCB": {
     "code": "5312",
@@ -7663,7 +7675,7 @@
   },
   "NNG": {
     "code": "6499",
-    "description": "Newark North Gate",
+    "description": "Newark Northgate",
     "fare_group": "0441"
   },
   "NNN": {
@@ -7772,7 +7784,7 @@
   },
   "NUM": {
     "code": "6971",
-    "description": "Northumberland Park"
+    "description": "Northumberland Park (London)"
   },
   "NUN": {
     "code": "1077",
@@ -8125,6 +8137,10 @@
     "code": "5477",
     "description": "Penshurst"
   },
+  "PIA": {
+    "code": "0471",
+    "description": "Pill"
+  },
   "PIL": {
     "code": "3214",
     "description": "Pilning"
@@ -8293,6 +8309,10 @@
     "code": "3526",
     "description": "Penzance"
   },
+  "POH": {
+    "code": "3241",
+    "description": "Portishead"
+  },
   "POK": {
     "code": "5885",
     "description": "Pokesdown"
@@ -8353,6 +8373,10 @@
   "PRH": {
     "code": "4473",
     "description": "Penrhyndeudraeth"
+  },
+  "PRI": {
+    "code": "1123",
+    "description": "Portway Park & Ride"
   },
   "PRL": {
     "code": "7419",
@@ -8618,6 +8642,10 @@
     "code": "K681",
     "description": "Hamptn Ct Flower"
   },
+  "QLE": {
+    "code": "J004",
+    "description": "Lands End Visitor Centre"
+  },
   "QMA": {
     "code": "L002",
     "description": "Gm Metrolnk Z1"
@@ -8657,6 +8685,14 @@
   "QMJ": {
     "code": "L014",
     "description": "Metrolink Z1-4"
+  },
+  "QND": {
+    "code": "I678",
+    "description": "Nth Destination"
+  },
+  "QNO": {
+    "code": "I677",
+    "description": "Nth Origin"
   },
   "QPK": {
     "code": "9822",
@@ -9055,6 +9091,10 @@
   "RSH": {
     "code": "2873",
     "description": "Rose Hill"
+  },
+  "RSN": {
+    "code": "8634",
+    "description": "Reston"
   },
   "RSS": {
     "code": "N020",
@@ -9920,6 +9960,10 @@
   "SOI": {
     "code": "9396",
     "description": "Stow"
+  },
+  "SOJ": {
+    "code": "5247",
+    "description": "Soham"
   },
   "SOK": {
     "code": "1453",
