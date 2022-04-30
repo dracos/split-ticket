@@ -9,6 +9,7 @@ from .data import data
 
 TICKET_BY_TYPE = {
     'Anytime Return': [ 'SOR', 'GTR' ],
+    'Anytime Short Return': [ 'SHR' ],
     'Anytime Day Return': [ 'SDR', 'GPR' ],
     'Anytime Single': [ 'SOS', 'GTS' ],
     'Anytime Day Single': [ 'SDS' ],
@@ -168,7 +169,7 @@ class Fares(object):
         return s['route']['id'] not in routes
 
     def match_returns(self, s):
-        ret = re.search('SOR|GTR|SVR|G2R|SSR|OPR|SOP', s['ticket']['code'])
+        ret = re.search('SOR|SHR|GTR|SVR|G2R|SSR|OPR|SOP', s['ticket']['code'])
         if self.store['day'] == 'y':
             ret = ret or re.search('SDR|GPR|CDR|GDR|PDR|SOB|AM2|EGF|SCO|C1R|CBA|SRR|SWS', s['ticket']['code'])
             if self.split_singles:

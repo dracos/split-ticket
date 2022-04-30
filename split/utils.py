@@ -17,6 +17,7 @@ def price(n):
 
 ticket_types = (
     'SOS', 'SOR', # Anytime single/return
+    'SHR', # Anytime short return
     'SDS', 'SDR', # Anytime day
     'GTS', 'GTR', # Anytime single/return
     'GPR', # Anytime day return
