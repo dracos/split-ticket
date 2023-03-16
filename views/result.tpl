@@ -8,7 +8,7 @@
 % if get('skipped_problem_routes') and not exclude and total >= fare_total['fare']:
 <p class="info">I also found cheaper options, that <em>might</em> (but might
 not) involve you taking a different route.
-<a href="?{{ 'via=' + via + ';' if via else '' }}all=1">See all options</a>,
+<a href="?{{ 'via=' + via + '&' if via else '' }}all=1">See all options</a>,
 starting with the cheapest.</p>
 % end
 
@@ -31,7 +31,7 @@ starting with the cheapest.</p>
 % if get('skipped_problem_routes') and not exclude:
 <p class="info">I also found cheaper options, that <em>might</em> (but might
 not) involve you taking a different route.
-<a href="?{{ 'via=' + via + ';' if via else '' }}all=1">See all options</a>,
+<a href="?{{ 'via=' + via + '&' if via else '' }}all=1">See all options</a>,
 starting with the cheapest.</p>
 % end
 
@@ -67,7 +67,7 @@ below:</p>
 
 <ul>
 % for route in routes:
-<li><a href="?{{ 'all=1;' if all else '' }}{{ 'via=' + via + ';' if via else '' }}exclude={{ ','.join(set(exclude + [ route['id'] ])) }}">Exclude {{ route['desc'].title() }}</a>
+<li><a href="?{{ 'all=1&' if all else '' }}{{ 'via=' + via + '&' if via else '' }}exclude={{ ','.join(set(exclude + [ route['id'] ])) }}">Exclude {{ route['desc'].title() }}</a>
 % end
 </ul>
 % end
@@ -76,7 +76,7 @@ below:</p>
 <p>Ignore tickets with time restriction:
 <ul>
 % for id, text in restrictions.items():
-<li><a href="?{{ 'all=1;' if all else '' }}{{ 'via=' + via + ';' if via else '' }}exclude={{ ','.join(set(exclude + [ id ])) }}">(code {{ id }}) {{ text }}</a>
+<li><a href="?{{ 'all=1&' if all else '' }}{{ 'via=' + via + '&' if via else '' }}exclude={{ ','.join(set(exclude + [ id ])) }}">(code {{ id }}) {{ text }}</a>
 % end
 </ul>
 % end
@@ -88,7 +88,7 @@ know return trains are unlikely to stop there):
 %   if i == 0 or i == len(stops_joint)-1:
 %     continue
 %   end
-<li><a href="?{{ 'all=1;' if all else '' }}{{ 'via=' + via + ';' if via else '' }}exclude={{ ','.join(set(exclude + [ stop.code ])) }}">Exclude {{ stop.desc }}</a>
+<li><a href="?{{ 'all=1&' if all else '' }}{{ 'via=' + via + '&' if via else '' }}exclude={{ ','.join(set(exclude + [ stop.code ])) }}">Exclude {{ stop.desc }}</a>
 % end
 </ul>
 
