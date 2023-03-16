@@ -19,7 +19,7 @@
 <script>
 $(function(){
     function checkDone() {
-        $.get('/ajax-job{{ url_job }}', function(data) {
+        $.get('/ajax-job{{! url_job }}', function(data) {
             if (data.done) {
                 window.location.reload();
                 return;
