@@ -37,7 +37,7 @@
   },
   "ABX": {
     "code": "7733",
-    "description": "Abbey Wood Mtr"
+    "description": "Abbey Wood El"
   },
   "ABY": {
     "code": "2941",
@@ -431,6 +431,10 @@
     "code": "1953",
     "description": "Askam"
   },
+  "ASL": {
+    "code": "7608",
+    "description": "Ashington"
+  },
   "ASM": {
     "code": "K761",
     "description": "Audenshaw Mtlk"
@@ -550,10 +554,6 @@
   "AWM": {
     "code": "6083",
     "description": "Ashwell And Morden"
-  },
-  "AWP": {
-    "code": "6550",
-    "description": "Alpamare Water Park"
   },
   "AWT": {
     "code": "2054",
@@ -813,7 +813,7 @@
   },
   "BDS": {
     "code": "6553",
-    "description": "Bond Street Crossrail"
+    "description": "Bond Street El"
   },
   "BDT": {
     "code": "8049",
@@ -858,6 +858,10 @@
   "BEH": {
     "code": "1165",
     "description": "Bedworth"
+  },
+  "BEJ": {
+    "code": "7666",
+    "description": "Bedlington"
   },
   "BEL": {
     "code": "8877",
@@ -1195,6 +1199,10 @@
   "BLH": {
     "code": "9714",
     "description": "Bellshill"
+  },
+  "BLI": {
+    "code": "7669",
+    "description": "Blyth Bebside"
   },
   "BLK": {
     "code": "2732",
@@ -2918,7 +2926,7 @@
   },
   "CUS": {
     "code": "6561",
-    "description": "Custom House Crossrail"
+    "description": "Custom House El"
   },
   "CUW": {
     "code": "4070",
@@ -2974,7 +2982,7 @@
   },
   "CWX": {
     "code": "6560",
-    "description": "Canary Wharf Crossrail"
+    "description": "Canary Wharf El"
   },
   "CYB": {
     "code": "2425",
@@ -3414,10 +3422,6 @@
     "code": "9757",
     "description": "Drumgelloch"
   },
-  "DRY": {
-    "code": "K405",
-    "description": "Draytonmanor Bus"
-  },
   "DSL": {
     "code": "2765",
     "description": "Disley"
@@ -3741,6 +3745,10 @@
     "code": "K758",
     "description": "Edge Lane Mtlk"
   },
+  "ELN": {
+    "code": "8515",
+    "description": "Elland"
+  },
   "ELO": {
     "code": "6238",
     "description": "Elton And Orston"
@@ -3978,7 +3986,7 @@
   },
   "FDX": {
     "code": "6595",
-    "description": "Farringdon Mtr"
+    "description": "Farringdon El"
   },
   "FEA": {
     "code": "8544",
@@ -4384,10 +4392,6 @@
   "GFN": {
     "code": "9794",
     "description": "Giffnock"
-  },
-  "GFY": {
-    "code": "0880",
-    "description": "Gravesend Piers"
   },
   "GGJ": {
     "code": "8641",
@@ -4828,6 +4832,10 @@
   "HBF": {
     "code": "7884",
     "description": "Hever (Brocas Farm)"
+  },
+  "HBL": {
+    "code": "0425",
+    "description": "Headbolt Lane"
   },
   "HBN": {
     "code": "5141",
@@ -5503,7 +5511,7 @@
     "description": "Haverfordwest"
   },
   "HVH": {
-    "code": "0808",
+    "code": "H499",
     "description": "Hoek Van Holland"
   },
   "HVN": {
@@ -5628,6 +5636,10 @@
     "code": "5591",
     "description": "Hinchley Wood"
   },
+  "IBS": {
+    "code": "0273",
+    "description": "Inverness Bus Station"
+  },
   "IFD": {
     "code": "6881",
     "description": "Ilford"
@@ -5655,6 +5667,10 @@
   "IMW": {
     "code": "9586",
     "description": "Imperial Wharf"
+  },
+  "INB": {
+    "code": "M061",
+    "description": "Inverness Airport Bus Stance"
   },
   "INC": {
     "code": "2236",
@@ -5715,6 +5731,10 @@
   "ISP": {
     "code": "3110",
     "description": "Islip"
+  },
+  "IVA": {
+    "code": "0455",
+    "description": "Inverness Airport"
   },
   "IVR": {
     "code": "3170",
@@ -6099,7 +6119,7 @@
   },
   "KWR": {
     "code": "L052",
-    "description": "Kingswear"
+    "description": "Kingswear (For Dartmouth)"
   },
   "KYL": {
     "code": "8657",
@@ -6686,7 +6706,7 @@
   },
   "LSX": {
     "code": "6594",
-    "description": "Liverpool Street Mtr"
+    "description": "Liverpool Street El"
   },
   "LSY": {
     "code": "5053",
@@ -7694,6 +7714,10 @@
     "code": "9571",
     "description": "Newton On Ayr"
   },
+  "NOP": {
+    "code": "9234",
+    "description": "Northumberland Park (T&W)"
+  },
   "NOR": {
     "code": "8528",
     "description": "Normanton"
@@ -7821,6 +7845,10 @@
   "NWE": {
     "code": "7039",
     "description": "Newport Essex"
+  },
+  "NWH": {
+    "code": "7668",
+    "description": "Newsham"
   },
   "NWI": {
     "code": "2326",
@@ -8054,7 +8082,7 @@
   },
   "PDX": {
     "code": "6552",
-    "description": "London Paddington Crossrl"
+    "description": "Paddington El"
   },
   "PEA": {
     "code": "1687",
@@ -8578,13 +8606,37 @@
     "code": "2874",
     "description": "Poynton"
   },
+  "QAA": {
+    "code": "H986",
+    "description": "Weston-S-M+Bus"
+  },
+  "QAB": {
+    "code": "H109",
+    "description": "Bath+Bus"
+  },
+  "QAC": {
+    "code": "J904",
+    "description": "Bristolpwy+Bus"
+  },
+  "QAD": {
+    "code": "J905",
+    "description": "Bristol Tm+Bus"
+  },
   "QAS": {
     "code": "I444",
     "description": "Any Southern Train"
   },
+  "QBN": {
+    "code": "H058",
+    "description": "Blackpool North Bus/Tram"
+  },
   "QBR": {
     "code": "5176",
     "description": "Queenborough"
+  },
+  "QBS": {
+    "code": "H059",
+    "description": "Blackpool South Bus/Tram"
   },
   "QBU": {
     "code": "I058",
@@ -8632,7 +8684,7 @@
   },
   "QGL": {
     "code": "K175",
-    "description": "Golflink 2015"
+    "description": "Golflink"
   },
   "QGS": {
     "code": "H973",
@@ -8724,7 +8776,7 @@
   },
   "QWE": {
     "code": "K804",
-    "description": "Mcard Z 1234&5"
+    "description": "Mcard Zones 1234&5"
   },
   "QWU": {
     "code": "I057",
@@ -8773,10 +8825,6 @@
   "RBR": {
     "code": "5226",
     "description": "Robertsbridge"
-  },
-  "RBS": {
-    "code": "7932",
-    "description": "Redcar British Steel (Closed)"
   },
   "RBU": {
     "code": "6392",
@@ -8891,6 +8939,10 @@
   "REI": {
     "code": "5480",
     "description": "Reigate"
+  },
+  "RER": {
+    "code": "H045",
+    "description": "Raveng/Esk Rlwy"
   },
   "RET": {
     "code": "6511",
@@ -9467,6 +9519,10 @@
   "SEH": {
     "code": "5074",
     "description": "Shoreham Kent"
+  },
+  "SEJ": {
+    "code": "9235",
+    "description": "Seaton Delaval"
   },
   "SEL": {
     "code": "2004",
@@ -10514,7 +10570,7 @@
   },
   "TCR": {
     "code": "6556",
-    "description": "Tottenham Court Road Crossrail"
+    "description": "Tottenham Court Road El"
   },
   "TDU": {
     "code": "4271",
@@ -10595,6 +10651,10 @@
   "THO": {
     "code": "5849",
     "description": "Thornford"
+  },
+  "THP": {
+    "code": "2041",
+    "description": "Thanet Parkway"
   },
   "THS": {
     "code": "8677",
@@ -11330,7 +11390,7 @@
   },
   "WHX": {
     "code": "6557",
-    "description": "Whitechapel Mtr"
+    "description": "Whitechapel El"
   },
   "WHY": {
     "code": "5396",
@@ -11692,6 +11752,10 @@
     "code": "7329",
     "description": "West Runton"
   },
+  "WRO": {
+    "code": "0246",
+    "description": "White Rose (Leeds)"
+  },
   "WRP": {
     "code": "8530",
     "description": "Warwick Parkway"
@@ -11850,7 +11914,7 @@
   },
   "WWC": {
     "code": "6562",
-    "description": "Woolwich Crossrail"
+    "description": "Woolwich El"
   },
   "WWD": {
     "code": "5153",

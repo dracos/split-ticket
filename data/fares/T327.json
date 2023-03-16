@@ -1,127 +1,50 @@
 {
-  "T302": [
+  "T311": [
     {
       "prices": {},
-      "route": "00820",
+      "route": "00956",
       "toc": "GWA"
     }
   ],
-  "T303": [
+  "T312": [
     {
       "prices": {},
-      "route": "00820",
+      "route": "00956",
       "toc": "GWA"
     }
   ],
-  "T304": [
+  "T317": [
     {
       "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T305": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T306": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T307": [
-    {
-      "prices": {},
-      "route": "00820",
+      "route": "00956",
       "toc": "GWA"
     }
   ],
   "T318": [
     {
       "prices": {},
-      "route": "00955",
+      "route": "00956",
       "toc": "GWA"
     }
   ],
   "T319": [
     {
       "prices": {},
-      "route": "00955",
+      "route": "00956",
       "toc": "GWA"
     }
   ],
   "T332": [
     {
       "prices": {},
-      "route": "00955",
+      "route": "00956",
       "toc": "GWA"
     }
   ],
-  "T350": [
+  "T340": [
     {
       "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T351": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T352": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T353": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T354": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T355": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T356": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T357": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T358": [
-    {
-      "prices": {},
-      "route": "00820",
+      "route": "00956",
       "toc": "GWA"
     }
   ]

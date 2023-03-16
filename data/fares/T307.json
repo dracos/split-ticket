@@ -2,7 +2,7 @@
   "T316": [
     {
       "prices": {},
-      "route": "00955",
+      "route": "00956",
       "toc": "GWA"
     }
   ],
@@ -37,102 +37,27 @@
   "T326": [
     {
       "prices": {},
-      "route": "00820",
+      "route": "00955",
       "toc": "GWA"
     },
     {
       "prices": {},
-      "route": "00956",
-      "toc": "GWA"
-    }
-  ],
-  "T327": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T328": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T329": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T330": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T331": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
+      "route": "00972",
+      "toc": "GWR"
     }
   ],
   "T332": [
     {
       "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    },
-    {
-      "prices": {},
-      "route": "00956",
-      "toc": "GWA"
-    }
-  ],
-  "T333": [
-    {
-      "prices": {},
-      "route": "00820",
+      "route": "00955",
       "toc": "GWA"
     }
   ],
   "T334": [
     {
       "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T335": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T336": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T337": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T338": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
+      "route": "00972",
+      "toc": "GWR"
     }
   ],
   "T339": [
@@ -153,48 +78,6 @@
     {
       "prices": {},
       "route": "00955",
-      "toc": "GWA"
-    }
-  ],
-  "T349": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T360": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T362": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T363": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T364": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T365": [
-    {
-      "prices": {},
-      "route": "00820",
       "toc": "GWA"
     }
   ]

@@ -1,57 +1,22 @@
 {
+  "T329": [
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
+    }
+  ],
   "T350": [
     {
       "prices": {},
-      "route": "00820",
+      "route": "00956",
       "toc": "GWA"
     }
   ],
   "T351": [
     {
       "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T353": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T354": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T355": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T356": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T357": [
-    {
-      "prices": {},
-      "route": "00820",
-      "toc": "GWA"
-    }
-  ],
-  "T358": [
-    {
-      "prices": {},
-      "route": "00820",
+      "route": "00956",
       "toc": "GWA"
     }
   ]

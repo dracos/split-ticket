@@ -63,10 +63,17 @@
   },
   "00013": {
     "E": [
+      "BFR",
       "NFL",
+      "CST",
+      "LBG",
+      "WAE",
+      "VIC",
       "EBD",
+      "LST",
       "SRA",
-      "SFA"
+      "SFA",
+      "FST"
     ],
     "I": [
       "GRV",
@@ -1151,10 +1158,10 @@
     "desc": "TFW&WMT&NCH ONLY"
   },
   "00217": {
-    "desc": "TFW & XC ONLY"
+    "desc": "TFW ONLY CDF-MAN"
   },
   "00218": {
-    "desc": "TFW AND ME ONLY"
+    "desc": "TFW 1ST CDF-MAN"
   },
   "00219": {
     "I": [
@@ -2789,9 +2796,6 @@
   "00498": {
     "desc": "AP TFW ONLY"
   },
-  "00499": {
-    "desc": "CAL SLEEPER ADV"
-  },
   "00500": {
     "desc": "NOT GATWICK EXP"
   },
@@ -2954,6 +2958,10 @@
     "desc": "WINCHESTER BUS"
   },
   "00553": {
+    "E": [
+      "RDG",
+      "FEL"
+    ],
     "I": [
       "WOK"
     ],
@@ -3432,7 +3440,7 @@
   },
   "00648": {
     "E": [
-      "SHR"
+      "CRV"
     ],
     "I": [
       "CMN"
@@ -3441,7 +3449,7 @@
   },
   "00649": {
     "E": [
-      "SHR"
+      "CRV"
     ],
     "I": [
       "AYW"
@@ -3545,6 +3553,7 @@
   },
   "00703": {
     "E": [
+      "SLO",
       "SFA"
     ],
     "desc": "LONDON NOT UND"
@@ -3830,6 +3839,9 @@
   },
   "00781": {
     "desc": "SOUTHERN & HEX"
+  },
+  "00783": {
+    "desc": "LUTON AIRPT DART"
   },
   "00788": {
     "I": [
@@ -4428,7 +4440,9 @@
       "CHX",
       "LBG",
       "WAE",
+      "VIC",
       "EBD",
+      "WAT",
       "LST",
       "SFA",
       "FST"
@@ -4604,13 +4618,13 @@
     "E": [
       "RDG",
       "FEL",
-      "CLJ"
-    ],
-    "I": [
-      "GLD",
+      "CLJ",
       "WOK"
     ],
-    "desc": "RA2 - RAILAIR"
+    "I": [
+      "GLD"
+    ],
+    "desc": "VIA GLDFRD & RA2"
   },
   "00960": {
     "desc": "LONDON DAY OUT"
@@ -4816,6 +4830,12 @@
   "01400": {
     "desc": "HULLTRAINS & SWR"
   },
+  "01407": {
+    "desc": "HULLTRS&NORTHERN"
+  },
+  "01408": {
+    "desc": "HULTRNS &NRTHN"
+  },
   "01409": {
     "desc": "HULTRNS&NORTHERN"
   },
@@ -4912,11 +4932,29 @@
   "02008": {
     "desc": "C2C RAIL ONLY"
   },
+  "02010": {
+    "desc": "LUMOFLEX"
+  },
+  "02014": {
+    "desc": "HULL&SOUTHEASTAP"
+  },
+  "02015": {
+    "desc": "HULL&SOUTHEASTWU"
+  },
+  "02017": {
+    "desc": "LUMO&XCAP"
+  },
   "02018": {
     "desc": "NWM CORP SCHEME"
   },
   "02052": {
     "desc": "PLUSBUS OFFER"
+  },
+  "03000": {
+    "E": [
+      "SHV"
+    ],
+    "desc": "PAYG / CPAY"
   },
   "03001": {
     "desc": "GW  & AW ONLY"
@@ -5014,7 +5052,7 @@
   },
   "07772": {
     "E": [
-      "SHR"
+      "CRV"
     ],
     "I": [
       "CMN"
@@ -5034,7 +5072,7 @@
   },
   "07775": {
     "E": [
-      "SHR"
+      "CRV"
     ],
     "I": [
       "AYW"

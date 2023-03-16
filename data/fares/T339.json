@@ -6,10 +6,38 @@
       "toc": "GWA"
     }
   ],
+  "T311": [
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
+    }
+  ],
+  "T312": [
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
+    }
+  ],
+  "T317": [
+    {
+      "prices": {},
+      "route": "00956",
+      "toc": "GWA"
+    }
+  ],
   "T318": [
     {
       "prices": {},
-      "route": "00955",
+      "route": "00956",
+      "toc": "GWA"
+    }
+  ],
+  "T319": [
+    {
+      "prices": {},
+      "route": "00956",
       "toc": "GWA"
     }
   ]
