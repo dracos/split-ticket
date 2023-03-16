@@ -6,8 +6,8 @@
 
 <p>Say you&rsquo;re travelling from Bournville to Reading for the day, leaving
 around 8am. If you just turned up and bought a ticket for that journey, it
-would cost you &pound;128.30. Following this website,
-<a href='/BRV/RDG/y/08:00?exclude=00046'>it would only cost you <strong>&pound;38.60</strong></a>,
+would cost you &pound;133.20. Following this website,
+<a href='/BRV/RDG/y/08:00?exclude=00046'>it would only cost you <strong>&pound;39.50</strong></a>,
 for the <em>same</em> journey on the <em>same</em> trains.
 <a href="/about">More information...</a>
 
