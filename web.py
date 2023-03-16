@@ -96,7 +96,7 @@ def home():
 def get_latest():
     latest = R.zrevrange('split-ticket-latest', 0, -1)
     if not latest: return []
-    latest = list(filter(None, R.hmget('split-ticket-lines', latest)))
+    latest = list(map(lambda x: x.decode(), filter(None, R.hmget('split-ticket-lines', latest))))
     return latest
 
 @bottle.route('/ajax-latest')
