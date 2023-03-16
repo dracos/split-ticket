@@ -12,7 +12,7 @@ try:
     id = re.match('timetable-data-(\d+)', timetable_dir).group(1)
     timetable_file = '%s/ttisf%s.mca' % (timetable_dir, id)
 except IndexError:
-    print >>sys.stderr, "Specify the timetable ID as the second parameter"
+    print("Specify the timetable ID as the second parameter", file=sys.stderr)
     sys.exit(1)
 
 

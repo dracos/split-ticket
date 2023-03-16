@@ -32,6 +32,6 @@ for key, row in parse_file(fare_file('NFO'), 'O'):
     del row['suppress']
     data[key] = row
 
-print >>sys.stderr, "%d rows from NFO file" % len(data)
+print("%d rows from NFO file" % len(data), file=sys.stderr)
 
 json.dump(data, open('data/ndf.json', 'w'), separators=(',', ': '), indent=2, sort_keys=True)

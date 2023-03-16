@@ -41,8 +41,8 @@ for row in loop(fare_file('FFL')):
         data_by_id[row['id']] = d
         #print row['id'], row['from'], row['to'], d
 
-for fr, d1 in data.items():
-    for to, d2 in d1.items():
+for fr, d1 in list(data.items()):
+    for to, d2 in list(d1.items()):
         for i, d in enumerate(d2):
             if not d['prices']:
                 del d2[i]

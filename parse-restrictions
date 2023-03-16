@@ -68,7 +68,7 @@ for row in loop(fare_file('RST')):
         del row['sleeping_ind'], row['quota']
         data[code].setdefault('trains', []).append(row)
     else:
-        raise Exception, record_type
+        raise Exception(record_type)
 
 for code, types in data.items():
     if 'times' not in types: continue
