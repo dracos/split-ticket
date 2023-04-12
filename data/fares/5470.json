@@ -1,4 +1,11 @@
 {
+  "0254": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
   "0447": [
     {
       "prices": {},
@@ -9,12 +16,7 @@
   "1030": [
     {
       "prices": {},
-      "route": "00469",
-      "toc": "IWC"
-    },
-    {
-      "prices": {},
-      "route": "00516",
+      "route": "00515",
       "toc": "IWC"
     }
   ],
@@ -26,7 +28,7 @@
     },
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
@@ -47,12 +49,7 @@
   "1215": [
     {
       "prices": {},
-      "route": "00469",
-      "toc": "IWC"
-    },
-    {
-      "prices": {},
-      "route": "00516",
+      "route": "00515",
       "toc": "IWC"
     }
   ],
@@ -66,24 +63,14 @@
   "1243": [
     {
       "prices": {},
-      "route": "00469",
-      "toc": "IWC"
-    },
-    {
-      "prices": {},
-      "route": "00516",
+      "route": "00515",
       "toc": "IWC"
     }
   ],
   "1268": [
     {
       "prices": {},
-      "route": "00469",
-      "toc": "IWC"
-    },
-    {
-      "prices": {},
-      "route": "00516",
+      "route": "00515",
       "toc": "IWC"
     }
   ],
@@ -95,7 +82,7 @@
     },
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
@@ -114,7 +101,7 @@
     },
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
@@ -338,33 +325,28 @@
   "2246": [
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
   "2291": [
     {
       "prices": {},
-      "route": "00469",
-      "toc": "IWC"
-    },
-    {
-      "prices": {},
-      "route": "00516",
+      "route": "00515",
       "toc": "IWC"
     }
   ],
   "2363": [
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
   "2384": [
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
@@ -385,55 +367,35 @@
   "2685": [
     {
       "prices": {},
-      "route": "00469",
-      "toc": "IWC"
-    },
-    {
-      "prices": {},
-      "route": "00516",
+      "route": "00515",
       "toc": "IWC"
     }
   ],
   "2771": [
     {
       "prices": {},
-      "route": "00469",
-      "toc": "IWC"
-    },
-    {
-      "prices": {},
-      "route": "00516",
+      "route": "00515",
       "toc": "IWC"
     }
   ],
   "2774": [
     {
       "prices": {},
-      "route": "00469",
-      "toc": "IWC"
-    },
-    {
-      "prices": {},
-      "route": "00516",
+      "route": "00515",
       "toc": "IWC"
     }
   ],
   "2871": [
     {
       "prices": {},
-      "route": "00469",
-      "toc": "IWC"
-    },
-    {
-      "prices": {},
-      "route": "00516",
+      "route": "00515",
       "toc": "IWC"
     }
   ],
   "2968": [
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
@@ -1030,6 +992,118 @@
       "toc": "SMA"
     }
   ],
+  "6847": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6850": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6851": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6854": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6855": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6856": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6857": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6858": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6859": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6860": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6862": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6901": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6902": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6905": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6906": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
+  "6907": [
+    {
+      "prices": {},
+      "route": "00428",
+      "toc": "LER"
+    }
+  ],
   "7783": [
     {
       "prices": {},
@@ -1152,56 +1226,56 @@
   "T118": [
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
   "T119": [
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
   "T120": [
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
   "T121": [
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
   "T122": [
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
   "T123": [
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
   "T124": [
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],
   "T125": [
     {
       "prices": {},
-      "route": "00515",
+      "route": "00516",
       "toc": "IWC"
     }
   ],

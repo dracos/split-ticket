@@ -411,6 +411,10 @@
     "code": "4700",
     "description": "Ashchurch"
   },
+  "ASD": {
+    "code": "5548",
+    "description": "Ashley Down"
+  },
   "ASF": {
     "code": "9953",
     "description": "Ashfield"
@@ -2032,6 +2036,10 @@
     "description": "Canterbury West",
     "fare_group": "0428"
   },
+  "CBX": {
+    "code": "0244",
+    "description": "Cameron Bridge"
+  },
   "CBY": {
     "code": "3004",
     "description": "Charlbury"
@@ -2403,6 +2411,10 @@
     "code": "6664",
     "description": "Chapeltown (Yorks)"
   },
+  "CLO": {
+    "code": "9051",
+    "description": "Coll (Isle Of)"
+  },
   "CLP": {
     "code": "5301",
     "description": "Clapham High Street"
@@ -2495,6 +2507,10 @@
   "CMY": {
     "code": "9796",
     "description": "Crossmyloof"
+  },
+  "CNA": {
+    "code": "9050",
+    "description": "Canna (Isle Of)"
   },
   "CNE": {
     "code": "2562",
@@ -2938,7 +2954,7 @@
   },
   "CVG": {
     "code": "6587",
-    "description": "Charlbury Village"
+    "description": "Charlbury Nine Acres Lane"
   },
   "CWB": {
     "code": "2451",
@@ -3136,7 +3152,7 @@
   },
   "DFE": {
     "code": "9186",
-    "description": "Dunfermline Town"
+    "description": "Dunfermline City"
   },
   "DFI": {
     "code": "1691",
@@ -3716,6 +3732,10 @@
   "EHC": {
     "code": "K755",
     "description": "Etihad Camp Mtlk"
+  },
+  "EIG": {
+    "code": "9055",
+    "description": "Eigg (Isle Of)"
   },
   "EKB": {
     "code": "3776",
@@ -6322,6 +6342,10 @@
     "code": "9188",
     "description": "Leuchars"
   },
+  "LEV": {
+    "code": "0442",
+    "description": "Leven"
+  },
   "LEW": {
     "code": "5051",
     "description": "Lewisham"
@@ -7442,6 +7466,10 @@
   "MUI": {
     "code": "9608",
     "description": "Muirend"
+  },
+  "MUK": {
+    "code": "9061",
+    "description": "Muck (Isle Of)"
   },
   "MUL": {
     "code": "M920",
@@ -9000,6 +9028,10 @@
     "code": "2544",
     "description": "Rhosneigr"
   },
+  "RHU": {
+    "code": "9066",
+    "description": "Rhum (Isle Of)"
+  },
   "RHY": {
     "code": "4027",
     "description": "Rhymney"
@@ -9868,10 +9900,6 @@
     "code": "2660",
     "description": "Smithy Bridge"
   },
-  "SMC": {
-    "code": "8724",
-    "description": "Sampfrd Courtny"
-  },
   "SMD": {
     "code": "6140",
     "description": "Stamford (Lincs)"
@@ -10583,6 +10611,10 @@
   "TED": {
     "code": "5572",
     "description": "Teddington"
+  },
+  "TEE": {
+    "code": "9073",
+    "description": "Tiree (Isle Of)"
   },
   "TEM": {
     "code": "N080",

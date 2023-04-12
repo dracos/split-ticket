@@ -16,7 +16,12 @@
   "T307": [
     {
       "prices": {},
-      "route": "00955",
+      "route": "00820",
+      "toc": "GWA"
+    },
+    {
+      "prices": {},
+      "route": "00956",
       "toc": "GWA"
     }
   ],

@@ -1374,6 +1374,9 @@
       "MAN",
       "MCV"
     ],
+    "I": [
+      "DGT"
+    ],
     "desc": "NOT VIA MANCHEST"
   },
   "00255": {
@@ -1420,6 +1423,15 @@
       "HUD"
     ],
     "desc": "HUDFD NOT LEEDS"
+  },
+  "00262": {
+    "E": [
+      "DEW"
+    ],
+    "I": [
+      "BGH"
+    ],
+    "desc": "BRIGHSE NOT DEWS"
   },
   "00263": {
     "E": [
@@ -3872,6 +3884,7 @@
       "SFA"
     ],
     "I": [
+      "LEI",
       "CTK"
     ],
     "desc": "LEI & CITY TLINK"
@@ -4923,6 +4936,12 @@
   "01514": {
     "desc": "HULTRNS&NORTHERN"
   },
+  "02001": {
+    "desc": "HT&GREATANGAP"
+  },
+  "02004": {
+    "desc": "HT&GREATANGWU"
+  },
   "02005": {
     "desc": "EASYJET STAFF"
   },
@@ -4946,6 +4965,27 @@
   },
   "02018": {
     "desc": "NWM CORP SCHEME"
+  },
+  "02019": {
+    "desc": "LUMO&XCWU"
+  },
+  "02020": {
+    "desc": "AP LUMO & GWR"
+  },
+  "02021": {
+    "desc": "LUMO & GWR"
+  },
+  "02022": {
+    "desc": "AP LUMO & GTR"
+  },
+  "02023": {
+    "desc": "LUMO & GTR"
+  },
+  "02024": {
+    "desc": "AP LUMO & SOUTHE"
+  },
+  "02025": {
+    "desc": "LUMO & SOUTHEAST"
   },
   "02052": {
     "desc": "PLUSBUS OFFER"
