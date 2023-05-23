@@ -1,6 +1,6 @@
 bottle==0.12.20
 redis==4.4.4
-requests==2.27.1
+requests==2.31.0
 requests-cache==0.9.1
 rq==1.10.1
 supervisor==4.2.4
