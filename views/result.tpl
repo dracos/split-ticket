@@ -23,11 +23,6 @@ starting with the cheapest.</p>
 % if total < fare_total['fare']:
 <p class="imp">But I&rsquo;ve found the same journey for&hellip; <strong>{{ price(total) }}</strong></p>
 
-% if fare_total['fare'] != '-':
-<div style="float:right;"><a data-text="I just saved {{ price(fare_total['fare']-total) }} using @dracos’ split.traintimes.org.uk!" data-dnt="true" data-count="none" href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a></div>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-% end
-
 % if get('skipped_problem_routes') and not exclude:
 <p class="info">I also found cheaper options, that <em>might</em> (but might
 not) involve you taking a different route.
