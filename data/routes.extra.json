@@ -1,5 +1,6 @@
 {
   "99999": { "desc": "Special" },
+  "01000": { "desc": "ANY PERMITTED" },
   "00019": { "I": [ "HGT" ] },
   "00020": { "operator": [ "LE" ] },
   "00022": { "operator": [ "SR" ] },
