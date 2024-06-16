@@ -1370,12 +1370,10 @@
   },
   "00254": {
     "E": [
+      "DGT",
       "MCO",
       "MAN",
       "MCV"
-    ],
-    "I": [
-      "DGT"
     ],
     "desc": "NOT VIA MANCHEST"
   },
