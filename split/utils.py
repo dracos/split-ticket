@@ -5,7 +5,9 @@ import requests_cache
 requests_cache.install_cache('split', expires_after=3600)
 
 def fetch(url):
-    r = requests.get(url)
+    r = requests.get(url, headers={
+        'user-agent': 'split.traintimes.org.uk',
+    })
     try:
         return r.json()
     except:
