@@ -5,6 +5,10 @@
 
 <div class="results">
 
+% if fare_total['fare'] == '-':
+<p><span class="imp">I couldn’t find a valid through ticket for this journey; perhaps try a different time?</span></p>
+% else:
+
 % if get('skipped_problem_routes') and not exclude and total >= fare_total['fare']:
 <p class="info">I also found cheaper options, that <em>might</em> (but might
 not) involve you taking a different route.
@@ -12,15 +16,12 @@ not) involve you taking a different route.
 starting with the cheapest.</p>
 % end
 
-% if fare_total['fare'] == '-':
-<p><span class="imp">I couldn’t find a valid through ticket for this journey; perhaps try a different time?</span></p>
-% else:
 <div><span class="imp">The normal weekday fare is <strong>{{ price(fare_total['fare']) }}</strong></span>
 <div class="faded">{{ !fare_total['desc'] }}</div>
 </div>
 % end
 
-% if total < fare_total['fare']:
+% if fare_total['fare'] == '-' or total < fare_total['fare']:
 <p class="imp">But I&rsquo;ve found the same journey for&hellip; <strong>{{ price(total) }}</strong></p>
 
 % if get('skipped_problem_routes') and not exclude:
