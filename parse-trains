@@ -10,7 +10,7 @@ from split.parse import unpack, loop, fare_file
 try:
     timetable_dir = sys.argv[2]
     id = re.match('timetable-data-(\d+)', timetable_dir).group(1)
-    timetable_file = '%s/ttisf%s.mca' % (timetable_dir, id)
+    timetable_file = '%s/RJTTF%s.MCA' % (timetable_dir, id)
 except IndexError:
     print("Specify the timetable ID as the second parameter", file=sys.stderr)
     sys.exit(1)
