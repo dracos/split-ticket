@@ -831,10 +831,6 @@
     "code": "2779",
     "description": "Bredbury"
   },
-  "BDZ": {
-    "code": "2540",
-    "description": "Bordon"
-  },
   "BEA": {
     "code": "9889",
     "description": "Bridge Of Allan"
@@ -1047,10 +1043,6 @@
     "code": "7835",
     "description": "Bishop Auckland"
   },
-  "BIB": {
-    "code": "3446",
-    "description": "Bishops Lyrd Wsr"
-  },
   "BIC": {
     "code": "6871",
     "description": "Billericay"
@@ -1235,6 +1227,10 @@
   "BLT": {
     "code": "9716",
     "description": "Blantyre"
+  },
+  "BLU": {
+    "code": "0125",
+    "description": "Bletchley High Level"
   },
   "BLV": {
     "code": "2785",
@@ -2411,10 +2407,6 @@
     "code": "6664",
     "description": "Chapeltown (Yorks)"
   },
-  "CLO": {
-    "code": "9051",
-    "description": "Coll (Isle Of)"
-  },
   "CLP": {
     "code": "5301",
     "description": "Clapham High Street"
@@ -2507,10 +2499,6 @@
   "CMY": {
     "code": "9796",
     "description": "Crossmyloof"
-  },
-  "CNA": {
-    "code": "9050",
-    "description": "Canna (Isle Of)"
   },
   "CNE": {
     "code": "2562",
@@ -2672,10 +2660,6 @@
   "CPN": {
     "code": "5820",
     "description": "Chapelton Devon"
-  },
-  "CPR": {
-    "code": "I756",
-    "description": "Lner Exec C Park"
   },
   "CPT": {
     "code": "6926",
@@ -3048,6 +3032,10 @@
     "code": "7877",
     "description": "Darlington"
   },
+  "DAS": {
+    "code": "0454",
+    "description": "Darlaston"
+  },
   "DAT": {
     "code": "5668",
     "description": "Datchet"
@@ -3099,7 +3087,7 @@
   },
   "DCT": {
     "code": "3797",
-    "description": "Danes Court"
+    "description": "Danescourt"
   },
   "DCW": {
     "code": "5962",
@@ -3184,7 +3172,7 @@
   },
   "DGT": {
     "code": "2963",
-    "description": "Deansgate G-Mex",
+    "description": "Deansgate",
     "fare_group": "0438"
   },
   "DGY": {
@@ -3306,8 +3294,8 @@
     "description": "Denmark Hill"
   },
   "DML": {
-    "code": "6389",
-    "description": "Droylesden Mtlk"
+    "code": "K760",
+    "description": "Droylsden Mtlk"
   },
   "DMP": {
     "code": "5034",
@@ -3517,10 +3505,6 @@
   "DVP": {
     "code": "5033",
     "description": "Dover Priory"
-  },
-  "DVR": {
-    "code": "K268",
-    "description": "Daventry Bus"
   },
   "DVY": {
     "code": "4436",
@@ -3733,10 +3717,6 @@
     "code": "K755",
     "description": "Etihad Camp Mtlk"
   },
-  "EIG": {
-    "code": "9055",
-    "description": "Eigg (Isle Of)"
-  },
   "EKB": {
     "code": "3776",
     "description": "Eskbank"
@@ -3800,10 +3780,6 @@
   "EMA": {
     "code": "L049",
     "description": "East Midlands Airport Via Dby"
-  },
-  "EMC": {
-    "code": "L047",
-    "description": "East Midlands Airport Via Emd"
   },
   "EMD": {
     "code": "1901",
@@ -5540,7 +5516,7 @@
   },
   "HWA": {
     "code": "3179",
-    "description": "Heathrow Terminal 2",
+    "description": "Heathrow Terminal 2 Bus",
     "fare_group": "5564"
   },
   "HWB": {
@@ -5557,12 +5533,12 @@
   },
   "HWE": {
     "code": "3180",
-    "description": "Heathrow Terminal 3",
+    "description": "Heathrow Terminal 3 Bus",
     "fare_group": "5564"
   },
   "HWF": {
     "code": "3182",
-    "description": "Heathrow Terminal 4 Buses Only",
+    "description": "Heathrow Terminal 4 Bus",
     "fare_group": "5564"
   },
   "HWH": {
@@ -5592,7 +5568,7 @@
   },
   "HWX": {
     "code": "3234",
-    "description": "Heathrow T5 Bus",
+    "description": "Heathrow Terminal 5 Bus",
     "fare_group": "5564"
   },
   "HWY": {
@@ -5679,10 +5655,6 @@
   "ILN": {
     "code": "7783",
     "description": "Ilkeston"
-  },
-  "IMP": {
-    "code": "3040",
-    "description": "Implant British Council"
   },
   "IMW": {
     "code": "9586",
@@ -5909,6 +5881,10 @@
     "code": "4581",
     "description": "Kidderminster"
   },
+  "KIH": {
+    "code": "3447",
+    "description": "Kings Heath"
+  },
   "KIL": {
     "code": "8652",
     "description": "Kildonan"
@@ -6128,6 +6104,10 @@
   "KWG": {
     "code": "5594",
     "description": "Kew Gardens"
+  },
+  "KWK": {
+    "code": "2055",
+    "description": "Keswick Bus"
   },
   "KWL": {
     "code": "4132",
@@ -6766,7 +6746,7 @@
   },
   "LTR": {
     "code": "0295",
-    "description": "Lampeter"
+    "description": "Lampeter Black Lion"
   },
   "LTS": {
     "code": "3498",
@@ -6881,7 +6861,7 @@
   },
   "LZB": {
     "code": "2059",
-    "description": "Lazonby"
+    "description": "Lazonby & Kirkoswald"
   },
   "MAC": {
     "code": "2871",
@@ -7298,13 +7278,13 @@
     "code": "5645",
     "description": "Motspur Park"
   },
+  "MOV": {
+    "code": "8516",
+    "description": "Moseley Village"
+  },
   "MOY": {
     "code": "M900",
     "description": "Mosney     (Civ)"
-  },
-  "MOZ": {
-    "code": "K276",
-    "description": "Mold Bus"
   },
   "MPK": {
     "code": "9632",
@@ -7466,10 +7446,6 @@
   "MUI": {
     "code": "9608",
     "description": "Muirend"
-  },
-  "MUK": {
-    "code": "9061",
-    "description": "Muck (Isle Of)"
   },
   "MUL": {
     "code": "M920",
@@ -8205,6 +8181,10 @@
     "code": "5757",
     "description": "Pinhoe"
   },
+  "PIR": {
+    "code": "9228",
+    "description": "Pineapple Road"
+  },
   "PIT": {
     "code": "8801",
     "description": "Pitlochry"
@@ -8650,9 +8630,41 @@
     "code": "J905",
     "description": "Bristol Tm+Bus"
   },
+  "QAE": {
+    "code": "H712",
+    "description": "Bristol Airport Bus A1"
+  },
+  "QAF": {
+    "code": "L080",
+    "description": "Bristol Airport Bus A3"
+  },
+  "QAG": {
+    "code": "0042",
+    "description": "Boundary Zone 3"
+  },
+  "QAH": {
+    "code": "0043",
+    "description": "Boundary Zone 4"
+  },
+  "QAI": {
+    "code": "0044",
+    "description": "Boundary Zone 5"
+  },
+  "QAJ": {
+    "code": "0072",
+    "description": "Boundary Zone 6"
+  },
+  "QAK": {
+    "code": "0041",
+    "description": "Boundary Zone 2"
+  },
   "QAS": {
     "code": "I444",
     "description": "Any Southern Train"
+  },
+  "QBM": {
+    "code": "H451",
+    "description": "Maerdy Bus"
   },
   "QBN": {
     "code": "H058",
@@ -8674,9 +8686,13 @@
     "code": "J344",
     "description": "Tfw Club 55"
   },
-  "QCF": {
-    "code": "K994",
-    "description": "Countryfile Live"
+  "QCD": {
+    "code": "Z035",
+    "description": "Chiltern Destination"
+  },
+  "QCO": {
+    "code": "Z034",
+    "description": "Chiltern Origin"
   },
   "QCW": {
     "code": "I617",
@@ -8694,6 +8710,10 @@
     "code": "L064",
     "description": "Dereham (Coach)"
   },
+  "QDR": {
+    "code": "L096",
+    "description": "Didcot Railway Centre"
+  },
   "QEB": {
     "code": "K959",
     "description": "Edb Bus Tour"
@@ -8706,9 +8726,9 @@
     "code": "I674",
     "description": "Emr Origin"
   },
-  "QFA": {
-    "code": "I060",
-    "description": "Fairford Air"
+  "QGA": {
+    "code": "H789",
+    "description": "Glasgow Air Xbus"
   },
   "QGL": {
     "code": "K175",
@@ -8721,6 +8741,10 @@
   "QHC": {
     "code": "K681",
     "description": "Hamptn Ct Flower"
+  },
+  "QKB": {
+    "code": "J507",
+    "description": "Keswick Bus Rdnt"
   },
   "QLE": {
     "code": "J004",
@@ -8786,10 +8810,6 @@
     "code": "5596",
     "description": "Queenstown Road (Battersea)"
   },
-  "QRD": {
-    "code": "J263",
-    "description": "Quainton Road"
-  },
   "QRF": {
     "code": "4443",
     "description": "Red Funnel Terminal Two"
@@ -8797,6 +8817,18 @@
   "QRP": {
     "code": "5424",
     "description": "Queens Road (Peckham)"
+  },
+  "QTD": {
+    "code": "Z032",
+    "description": "Transpennine Destination"
+  },
+  "QTO": {
+    "code": "Z031",
+    "description": "Transpennine Origin"
+  },
+  "QTR": {
+    "code": "3228",
+    "description": "Patchway Titan Rd Bus Stop"
   },
   "QUI": {
     "code": "3531",
@@ -8948,10 +8980,6 @@
     "code": "3128",
     "description": "Reading 4/5/6"
   },
-  "REB": {
-    "code": "2541",
-    "description": "Romsey Bus"
-  },
   "REC": {
     "code": "6967",
     "description": "Rectory Road"
@@ -9027,10 +9055,6 @@
   "RHO": {
     "code": "2544",
     "description": "Rhosneigr"
-  },
-  "RHU": {
-    "code": "9066",
-    "description": "Rhum (Isle Of)"
   },
   "RHY": {
     "code": "4027",
@@ -9792,6 +9816,10 @@
     "code": "6973",
     "description": "St James St Walthamstow"
   },
+  "SKD": {
+    "code": "L081",
+    "description": "Skelmersdale Bus Link"
+  },
   "SKE": {
     "code": "4217",
     "description": "Skewen"
@@ -10078,8 +10106,8 @@
     "description": "Sole Street"
   },
   "SOS": {
-    "code": "9034",
-    "description": "Stromness Orkney"
+    "code": "J206",
+    "description": "Stromness"
   },
   "SOT": {
     "code": "1314",
@@ -10611,10 +10639,6 @@
   "TED": {
     "code": "5572",
     "description": "Teddington"
-  },
-  "TEE": {
-    "code": "9073",
-    "description": "Tiree (Isle Of)"
   },
   "TEM": {
     "code": "N080",
@@ -11428,6 +11452,10 @@
     "code": "5396",
     "description": "Whyteleafe"
   },
+  "WIA": {
+    "code": "8413",
+    "description": "Willenhall"
+  },
   "WIC": {
     "code": "6891",
     "description": "Wickford"
@@ -11545,6 +11573,10 @@
   "WLP": {
     "code": "4434",
     "description": "Welshpool"
+  },
+  "WLQ": {
+    "code": "3441",
+    "description": "Wellington (Somerset)"
   },
   "WLS": {
     "code": "5925",

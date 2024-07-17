@@ -621,7 +621,7 @@
     "desc": "VIA GRAYS"
   },
   "00115": {
-    "desc": "TFW & PATHFINDER"
+    "desc": "TFW ONLY HHD-CDF"
   },
   "00116": {
     "E": [
@@ -1155,7 +1155,7 @@
     "desc": "BUSINESS ZONE"
   },
   "00216": {
-    "desc": "TFW&WMT&NCH ONLY"
+    "desc": "TFW ONLY HHD-MAN"
   },
   "00217": {
     "desc": "TFW ONLY CDF-MAN"
@@ -1440,6 +1440,7 @@
   },
   "00264": {
     "I": [
+      "AMR",
       "CFO"
     ],
     "desc": "CHALFONT & LATMR"
@@ -1462,6 +1463,7 @@
   },
   "00267": {
     "E": [
+      "MKC",
       "RMD",
       "WIM"
     ],
@@ -1705,6 +1707,7 @@
   },
   "00305": {
     "E": [
+      "MKC",
       "WOS"
     ],
     "I": [
@@ -2106,16 +2109,16 @@
     "desc": "CLEETHORPES HALF"
   },
   "00377": {
-    "desc": "TFW & GWR ONLY"
+    "desc": "TFW ONLY AYW-BHI"
   },
   "00378": {
-    "desc": "TFW & WMT ONLY"
+    "desc": "TFW ONLY MFH-MAN"
   },
   "00379": {
-    "desc": "TFW & NTH ONLY"
+    "desc": "TFW ONLY MFH-HHD"
   },
   "00380": {
-    "desc": "TFW & RMS ONLY"
+    "desc": "TFW ONLY HHD-BHI"
   },
   "00381": {
     "I": [
@@ -2934,6 +2937,40 @@
   "00526": {
     "desc": "ECTL & CONNECT."
   },
+  "00527": {
+    "desc": "SWR WKNDFIRSTUPG"
+  },
+  "00528": {
+    "E": [
+      "YRK"
+    ],
+    "I": [
+      "MIR"
+    ],
+    "desc": "GC &TPE VIA MIR"
+  },
+  "00529": {
+    "I": [
+      "LTR"
+    ],
+    "desc": "VIA LAMPETER"
+  },
+  "00530": {
+    "I": [
+      "HBL"
+    ],
+    "desc": "VIA HEADBOLT LN"
+  },
+  "00531": {
+    "desc": "WMT & NTH ONLY"
+  },
+  "00532": {
+    "I": [
+      "CFD",
+      "LDS"
+    ],
+    "desc": "VIA CAS/LEEDS"
+  },
   "00533": {
     "E": [
       "DVP"
@@ -3477,6 +3514,15 @@
   "00666": {
     "desc": "SC TERMTIME ONLY"
   },
+  "00670": {
+    "E": [
+      "LST"
+    ],
+    "I": [
+      "SRA"
+    ],
+    "desc": "STRATFD NOT LDN"
+  },
   "00678": {
     "I": [
       "MRP"
@@ -3846,6 +3892,9 @@
   },
   "00779": {
     "desc": "SOUTHERN & C2C"
+  },
+  "00780": {
+    "desc": "ON LNER ONLY"
   },
   "00781": {
     "desc": "SOUTHERN & HEX"
@@ -4385,14 +4434,10 @@
     "desc": "VIA PAR"
   },
   "00864": {
-    "I": [
-      "CDI",
-      "COP",
-      "MRD",
-      "YEO",
-      "NTC"
+    "E": [
+      ""
     ],
-    "desc": "VIA CREDITON"
+    "desc": "CPAY EXC ZONE 12"
   },
   "00865": {
     "I": [
@@ -4523,6 +4568,9 @@
   "00930": {
     "desc": "ZONE U1 LONDN"
   },
+  "00931": {
+    "desc": "SCR & TPE ONLY"
+  },
   "00932": {
     "desc": "ZONE U12*  LONDN"
   },
@@ -4629,8 +4677,7 @@
     "E": [
       "RDG",
       "FEL",
-      "CLJ",
-      "WOK"
+      "CLJ"
     ],
     "I": [
       "GLD"
@@ -4790,7 +4837,6 @@
   "00996": {
     "I": [
       "BKI",
-      "LVS",
       "HHB"
     ],
     "desc": "ISLE OF MAN SPC"
@@ -4837,6 +4883,34 @@
       "SHV"
     ],
     "desc": "PSEUDO TSA"
+  },
+  "01264": {
+    "I": [
+      "AMR",
+      "CFO"
+    ],
+    "desc": "CHALFONT + LATMR"
+  },
+  "01267": {
+    "E": [
+      "MKC",
+      "RMD",
+      "WIM"
+    ],
+    "I": [
+      "BAN"
+    ],
+    "desc": "VIA BANBURY."
+  },
+  "01305": {
+    "E": [
+      "MKC",
+      "WOS"
+    ],
+    "I": [
+      "HWY"
+    ],
+    "desc": "VIA H WYCOMBE"
   },
   "01400": {
     "desc": "HULLTRAINS & SWR"
@@ -4959,13 +5033,13 @@
     "desc": "HULL&SOUTHEASTWU"
   },
   "02017": {
-    "desc": "LUMO&XCAP"
+    "desc": "AP LUMO & XC"
   },
   "02018": {
     "desc": "NWM CORP SCHEME"
   },
   "02019": {
-    "desc": "LUMO&XCWU"
+    "desc": "LUMO & XC ONLY"
   },
   "02020": {
     "desc": "AP LUMO & GWR"
@@ -4985,6 +5059,15 @@
   "02025": {
     "desc": "LUMO & SOUTHEAST"
   },
+  "02026": {
+    "desc": "AP LUMO & GA"
+  },
+  "02027": {
+    "desc": "LUMO & GA ONLY"
+  },
+  "02030": {
+    "desc": "AP WMT&NTH ONLY"
+  },
   "02052": {
     "desc": "PLUSBUS OFFER"
   },
@@ -4995,7 +5078,7 @@
     "desc": "PAYG / CPAY"
   },
   "03001": {
-    "desc": "GW  & AW ONLY"
+    "desc": "GWR & TFW ONLY"
   },
   "03010": {
     "desc": "HT  & GW ONLY"
@@ -5025,7 +5108,7 @@
     "desc": "HT TP & AW ONLY"
   },
   "03021": {
-    "desc": "GW AW ONLY"
+    "desc": "GWR & TFW ONLY"
   },
   "03023": {
     "desc": "TP AW GW ONLY"

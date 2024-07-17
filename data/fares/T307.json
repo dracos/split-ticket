@@ -2,7 +2,7 @@
   "T316": [
     {
       "prices": {},
-      "route": "00956",
+      "route": "00955",
       "toc": "GWA"
     }
   ],
@@ -42,8 +42,8 @@
     },
     {
       "prices": {},
-      "route": "00956",
-      "toc": "GWA"
+      "route": "00972",
+      "toc": "GWR"
     }
   ],
   "T327": [
@@ -71,11 +71,6 @@
     {
       "prices": {},
       "route": "00820",
-      "toc": "GWA"
-    },
-    {
-      "prices": {},
-      "route": "00956",
       "toc": "GWA"
     }
   ],
