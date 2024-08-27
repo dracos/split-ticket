@@ -216,17 +216,6 @@
     "desc": "NOT VIA NORWICH"
   },
   "00046": {
-    "E": [
-      "WFJ",
-      "WHD",
-      "BDM",
-      "RDG",
-      "GCR",
-      "WOS",
-      "HHY",
-      "PBO",
-      "SRA"
-    ],
     "desc": "CHILTERN ONLY"
   },
   "00047": {
@@ -1161,7 +1150,7 @@
     "desc": "TFW ONLY CDF-MAN"
   },
   "00218": {
-    "desc": "TFW 1ST CDF-MAN"
+    "desc": "TFW UPG CDF-MAN"
   },
   "00219": {
     "I": [
@@ -2040,16 +2029,14 @@
   },
   "00363": {
     "I": [
+      "BSW",
+      "BHM",
       "HWY",
       "BMO"
     ],
     "desc": "VIA H WYC & BIRM"
   },
   "00364": {
-    "E": [
-      "WFJ",
-      "RDG"
-    ],
     "desc": "CH  & TFW ONLY"
   },
   "00365": {
@@ -5238,6 +5225,9 @@
   },
   "07786": {
     "desc": "AP GN ONLY"
+  },
+  "07787": {
+    "desc": "TFW ONLY MFH-CNM"
   },
   "13000": {
     "desc": "ANGLIA-STENA HVH"
