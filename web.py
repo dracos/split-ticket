@@ -197,13 +197,21 @@ def _split(fr, to, day, time, time_ret):
         if to in data['stations_by_name']: to = data['stations_by_name'][to]['code']
         bottle.redirect(make_url(fr=fr, to=to))
 
+    context.update({
+        'fr_desc': data['stations'][fr]['description'],
+        'to_desc': data['stations'][to]['description'],
+        'url_job': make_url(),
+    })
+
     q = Queue(connection=R)
     job_id = get_job_id(context)
     job = q.fetch_job(job_id)
     include_me = 0
 
     if job and (job.is_finished or job.is_failed):
-        if not job.result or 'error' in job.result: return error(job.result)
+        if not job.result or 'error' in job.result:
+            context.update(job.result or {})
+            return error(context)
         return split_finished(job.result)
 
     if job:
@@ -218,9 +226,6 @@ def _split(fr, to, day, time, time_ret):
     busy_workers = len([ w for w in Worker.all(connection=R) if w.get_state() == 'busy' ]) - include_me
     busy_workers += q.count
     context.update({
-        'fr_desc': data['stations'][fr]['description'],
-        'to_desc': data['stations'][to]['description'],
-        'url_job': make_url(),
         'refresh': max(1, busy_workers),
         'queue_size': max(0, busy_workers),
     })
