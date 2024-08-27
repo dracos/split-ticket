@@ -76,11 +76,8 @@ with traintimes.org.uk.
 </div>
 <div style='clear:both'></div>
 <p id="footer">
-Timetable and Fares data available<br>
-under a Creative Commons Attribution<br>
-licence from RSP (thanks <a href="https://www.raildeliverygroup.com/">Rail Delivery Group</a>).<br>
 Kindly hosted by <a href="https://www.mythic-beasts.com/">Mythic Beasts</a>.
-
+<br><a href="https://opendata.nationalrail.co.uk/"><img src="/static/nre.png" alt="Powered by National Rail Enquiries"></a>
 </p>
 
 </body>
