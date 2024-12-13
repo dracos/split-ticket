@@ -79,8 +79,6 @@ def split_journey(store, Fares, context, stop_pairs):
         d = store['data'][store['from']][store['to']]
         add_opts(d['obj'], routes, restrictions)
 
-    # Just in case there's a better variant on the whole journey, e.g. a wayfarer
-    Fares.parse_fare(store['from'], store['to'])
     for pair in stop_pairs:
         Fares.parse_fare(pair[0], pair[1])
 
