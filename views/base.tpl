@@ -32,20 +32,20 @@
 <meta property="twitter:card" content="summary">
 <meta property="twitter:site" content="@dracos">
 <meta property="twitter:title" content="Split ticket finder, {{ fr_desc }} to {{ to_desc }}">
-<meta property="twitter:description" content="The normal weekday fare is {{ price(fare_total['fare']) }} ({{ re.sub('<[^>]*>', '', fare_total['desc']) }}), but I’ve found the same journey for {{ price(total) }}.
+<meta property="twitter:description" content="The normal weekday fare is {{ price(fare_total['fare']) }} ({{ re.sub('<[^>]*>', '', fare_total['desc']) }}), but I’ve found the same journey for {{ price(total) }}. \\
 % if day == 's':
-One way,
+One way,\\
 % elif day == 'y':
-Going for the day,
+Going for the day,\\
 % elif day == 'n':
-Return,
+Return,\\
 % end
 % if via:
-via {{ via }},
+ via {{ via }},\\
 % end
-leaving around {{ time }}
+ leaving around {{ time }}\\
 % if time_ret and day != 's':
-and returning around {{ time_ret }}
+ and returning around {{ time_ret }}
 % end
 ">
 % elif get('latest'):
