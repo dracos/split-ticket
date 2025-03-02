@@ -67,17 +67,17 @@ label.n { display: inline; white-space: nowrap; }
 
 .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
 .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; cursor: pointer; }
-.autocomplete-selected { background: #eeeeff; }
+.autocomplete-selected { background: var(--theme-background); }
 
 .hero {
     line-height: 1.4;
     font-size: 120%;
     padding: 1em;
     background-color: #006;
-    color: #eef;
+    color: var(--theme-background);
 }
 .hero a {
-    color: #ccf;
+    color: #fff;
 }
 
 form {
@@ -85,7 +85,7 @@ form {
     border: solid 0px #006;
     border-top: none;
     padding: 1em;
-    background-color: #eef;
+    background-color: var(--theme-background);
 }
 
 input[type=text] {
@@ -94,8 +94,8 @@ input[type=text] {
 
 input[type=submit] {
     font-size: 1.5em;
-    color: #000;
-    background-color: #eee;
+    color: #fff;
+    background-color: var(--theme-button);
 }
 
 /* Results */
@@ -127,12 +127,13 @@ input[type=submit] {
     width: 4em;
     height: 4em;
     text-align: center;
-    background-color: #eeeeff;
+    background-color: var(--theme-background);
     margin: 0.25em;
     padding: 0.25em;
 }
 .stop.chg {
-    background-color: #ccccff;
+    color: var(--theme-background);
+    background-color: #006;
 }
 .stop-arrow {
     float: left;

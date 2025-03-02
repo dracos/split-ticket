@@ -59,10 +59,11 @@ and returning around {{ time_ret }}
 
 <body bgcolor="#ffffff" text="#000066" link="#0000ff" alink="#ff0000" vlink="#660066">
 
-<div id="heading"><a id="home" href="/">sp<i>l</i>it.traintimes.org.uk</a>
-<p id="credit"><i>by</i> <a href="http://dracos.co.uk/">Matthew</a>
-&middot;&nbsp; <a id="donate" href="https://traintimes.org.uk/donate">Donate</a></p>
-</div>
+<header class="inversed">
+<a id="home" href="/">sp<i>l</i>it.traintimes.org.uk</a>
+<p id="credit">by <a href="https://dracos.co.uk/">Matthew</a>
+&middot; <a id="donate" href="https://traintimes.org.uk/donate">Donate</a></p>
+</header>
 
 <!--
 <div id="advert">
@@ -75,7 +76,7 @@ with traintimes.org.uk.
 {{ !base }}
 </div>
 <div style='clear:both'></div>
-<p id="footer">
+<p id="footer" class="not-tiny">
 Kindly hosted by <a href="https://www.mythic-beasts.com/">Mythic Beasts</a>.
 <br><a href="https://opendata.nationalrail.co.uk/"><img src="/static/nre.png" alt="Powered by National Rail Enquiries"></a>
 </p>
