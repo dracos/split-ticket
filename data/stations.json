@@ -683,6 +683,10 @@
     "code": "6006",
     "description": "Bayford"
   },
+  "BAZ": {
+    "code": "4478",
+    "description": "Bala Bulls Head Inn Bus"
+  },
   "BBG": {
     "code": "9940",
     "description": "Bishopbriggs"
@@ -780,6 +784,10 @@
     "code": "J407",
     "description": "Brodick"
   },
+  "BDF": {
+    "code": "0336",
+    "description": "Bodmin Mount Fll"
+  },
   "BDG": {
     "code": "9789",
     "description": "Bridgeton"
@@ -874,6 +882,10 @@
   "BEN": {
     "code": "2676",
     "description": "Bentham"
+  },
+  "BEO": {
+    "code": "0281",
+    "description": "Brecon Bus Interchange"
   },
   "BEP": {
     "code": "6543",
@@ -989,6 +1001,10 @@
   "BGV": {
     "code": "1335",
     "description": "Barking Rivrside"
+  },
+  "BGY": {
+    "code": "1470",
+    "description": "Balgray"
   },
   "BHA": {
     "code": "J345",
@@ -1224,6 +1240,10 @@
     "code": "1679",
     "description": "Belper"
   },
+  "BLS": {
+    "code": "6390",
+    "description": "Bishops Lydeard Bus"
+  },
   "BLT": {
     "code": "9716",
     "description": "Blantyre"
@@ -1458,6 +1478,10 @@
   "BOW": {
     "code": "4219",
     "description": "Bow Street"
+  },
+  "BPA": {
+    "code": "0344",
+    "description": "Beaulieu Park"
   },
   "BPB": {
     "code": "2738",
@@ -1721,6 +1745,10 @@
     "code": "7909",
     "description": "Battersby"
   },
+  "BTW": {
+    "code": "9280",
+    "description": "Builth Wells Groe 1 Strand"
+  },
   "BTY": {
     "code": "5624",
     "description": "Bentley (Hants)"
@@ -1849,6 +1877,10 @@
     "code": "5094",
     "description": "Bexleyheath"
   },
+  "BXT": {
+    "code": "5014",
+    "description": "Brixham Town Square"
+  },
   "BXW": {
     "code": "5403",
     "description": "Box Hill & Westhumble"
@@ -1933,6 +1965,10 @@
     "code": "M230",
     "description": "Cahir       (Civ)"
   },
+  "CAI": {
+    "code": "0284",
+    "description": "Cardigan Finches Square"
+  },
   "CAK": {
     "code": "1964",
     "description": "Cark And Cartmel"
@@ -1948,6 +1984,10 @@
   "CAO": {
     "code": "1016",
     "description": "Cannock"
+  },
+  "CAP": {
+    "code": "0106",
+    "description": "Capel Curig Siabod Cafe"
   },
   "CAR": {
     "code": "2118",
@@ -2144,6 +2184,10 @@
     "code": "G070",
     "description": "Centrl Park Mtlk"
   },
+  "CEN": {
+    "code": "9506",
+    "description": "Corwen The Square"
+  },
   "CES": {
     "code": "6837",
     "description": "Cressing (Essex)"
@@ -2193,6 +2237,10 @@
   "CFR": {
     "code": "5836",
     "description": "Chandlers Ford"
+  },
+  "CFS": {
+    "code": "9377",
+    "description": "Caernarfon Bus Station"
   },
   "CFT": {
     "code": "5078",
@@ -2451,6 +2499,10 @@
     "code": "M400",
     "description": "Cloughjordan  (Civ)"
   },
+  "CMA": {
+    "code": "0495",
+    "description": "Combe Martin Seaside Bus"
+  },
   "CMB": {
     "code": "8001",
     "description": "Cambridge North",
@@ -2495,6 +2547,10 @@
   "CMR": {
     "code": "7295",
     "description": "Cromer"
+  },
+  "CMS": {
+    "code": "3181",
+    "description": "Cambridge South"
   },
   "CMY": {
     "code": "9796",
@@ -3353,6 +3409,10 @@
     "code": "6781",
     "description": "Dodworth"
   },
+  "DOG": {
+    "code": "9542",
+    "description": "Dolgellau Eldon Square"
+  },
   "DOL": {
     "code": "4188",
     "description": "Dolau"
@@ -3664,6 +3724,10 @@
   "EDR": {
     "code": "6941",
     "description": "Edmonton Green"
+  },
+  "EDS": {
+    "code": "1661",
+    "description": "Edginswell"
   },
   "EDW": {
     "code": "5358",
@@ -5557,6 +5621,10 @@
     "code": "6827",
     "description": "Harlow Town"
   },
+  "HWS": {
+    "code": "1266",
+    "description": "High Wycome High Street"
+  },
   "HWV": {
     "code": "9846",
     "description": "Heathrow Term 5",
@@ -5616,6 +5684,10 @@
     "code": "9845",
     "description": "Hyndland"
   },
+  "HYO": {
+    "code": "9545",
+    "description": "Hay On Wye Hay Castle"
+  },
   "HYR": {
     "code": "5289",
     "description": "Haydons Road"
@@ -5647,6 +5719,10 @@
   "IGD": {
     "code": "8648",
     "description": "Invergordon"
+  },
+  "IHS": {
+    "code": "L087",
+    "description": "Ilfracombe High St"
   },
   "ILK": {
     "code": "8568",
@@ -5775,6 +5851,10 @@
   "KBN": {
     "code": "1415",
     "description": "Kilburn High Road"
+  },
+  "KBS": {
+    "code": "H558",
+    "description": "Kingsbridge Bus"
   },
   "KBW": {
     "code": "6088",
@@ -6129,6 +6209,10 @@
     "code": "3237",
     "description": "Keynsham"
   },
+  "LAA": {
+    "code": "0301",
+    "description": "Lifton Arundell Arms Hotel"
+  },
   "LAC": {
     "code": "5275",
     "description": "Lancing"
@@ -6237,6 +6321,10 @@
   "LCN": {
     "code": "6340",
     "description": "Lincoln"
+  },
+  "LCP": {
+    "code": "2039",
+    "description": "Lynton Castle Hill Car Park"
   },
   "LCS": {
     "code": "8830",
@@ -6531,6 +6619,10 @@
     "code": "4227",
     "description": "Llandrindod"
   },
+  "LLP": {
+    "code": "2068",
+    "description": "Lynmouth Lyndale Coach Park"
+  },
   "LLR": {
     "code": "9925",
     "description": "Llanharan"
@@ -6586,6 +6678,10 @@
   "LNK": {
     "code": "9710",
     "description": "Lanark"
+  },
+  "LNP": {
+    "code": "9858",
+    "description": "Llangollen Parade Street"
   },
   "LNR": {
     "code": "4061",
@@ -7254,6 +7350,10 @@
     "description": "Moorgate",
     "fare_group": "1072"
   },
+  "MOL": {
+    "code": "0107",
+    "description": "Mold Bus Station"
+  },
   "MOM": {
     "code": "M910",
     "description": "Edgewtown   (Cie"
@@ -7600,6 +7700,10 @@
   "NEW": {
     "code": "8808",
     "description": "Newcraighall"
+  },
+  "NEY": {
+    "code": "0298",
+    "description": "Newcastle Emlyn Cattle Mkt"
   },
   "NFA": {
     "code": "6875",
@@ -7971,6 +8075,10 @@
     "code": "2259",
     "description": "Orrell"
   },
+  "OSW": {
+    "code": "6909",
+    "description": "Oswestry Bus Station"
+  },
   "OTF": {
     "code": "5071",
     "description": "Otford"
@@ -8156,6 +8264,10 @@
   "PGN": {
     "code": "3427",
     "description": "Paignton"
+  },
+  "PGR": {
+    "code": "7699",
+    "description": "Pen-Y-Gros Poveys Garage"
   },
   "PHG": {
     "code": "4335",
@@ -8632,11 +8744,11 @@
   },
   "QAE": {
     "code": "H712",
-    "description": "Bristol Airport Bus A1"
+    "description": "Bristol Airport (A1 Bristol)"
   },
   "QAF": {
     "code": "L080",
-    "description": "Bristol Airport Bus A3"
+    "description": "Bristol Airport (A3 Weston)"
   },
   "QAG": {
     "code": "0042",
@@ -8661,6 +8773,14 @@
   "QAS": {
     "code": "I444",
     "description": "Any Southern Train"
+  },
+  "QBA": {
+    "code": "L098",
+    "description": "Anstruther Bus"
+  },
+  "QBL": {
+    "code": "0296",
+    "description": "Maerdy Via Porth Interchange"
   },
   "QBM": {
     "code": "H451",
@@ -8697,6 +8817,10 @@
   "QCW": {
     "code": "I617",
     "description": "Frinton-On-Sea / Walton-On-The-Naze"
+  },
+  "QDC": {
+    "code": "4209",
+    "description": "Doleham - Doleham Close"
   },
   "QDF": {
     "code": "K706",
@@ -8749,6 +8873,10 @@
   "QLE": {
     "code": "J004",
     "description": "Lands End Visitor Centre"
+  },
+  "QLV": {
+    "code": "0300",
+    "description": "Lydford Village"
   },
   "QMA": {
     "code": "L002",
@@ -8817,6 +8945,10 @@
   "QRP": {
     "code": "5424",
     "description": "Queens Road (Peckham)"
+  },
+  "QTA": {
+    "code": "7071",
+    "description": "Three Oaks - Maxfield Lane"
   },
   "QTD": {
     "code": "Z032",
@@ -9216,6 +9348,10 @@
     "code": "K871",
     "description": "Roundthorn Mtlk"
   },
+  "RTI": {
+    "code": "0108",
+    "description": "Ruthin Market Street"
+  },
   "RTN": {
     "code": "9867",
     "description": "Renton"
@@ -9491,6 +9627,10 @@
   "SDC": {
     "code": "1024",
     "description": "Shoreditch High Street"
+  },
+  "SDD": {
+    "code": "0386",
+    "description": "St Davids City Hall"
   },
   "SDE": {
     "code": "1082",
@@ -12091,6 +12231,10 @@
   "YSR": {
     "code": "3871",
     "description": "Ystrad Rhondda"
+  },
+  "YST": {
+    "code": "9495",
+    "description": "Ystradgynlais Bus Station"
   },
   "YVJ": {
     "code": "5838",

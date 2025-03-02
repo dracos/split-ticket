@@ -2382,6 +2382,10 @@
     "desc": "PETERBORO & LNER"
   },
   "00423": {
+    "E": [
+      "OXN",
+      "SHF"
+    ],
     "desc": "LNER &CONNECTNS"
   },
   "00424": {
@@ -2796,6 +2800,12 @@
   "00498": {
     "desc": "AP TFW ONLY"
   },
+  "00499": {
+    "I": [
+      "PBO"
+    ],
+    "desc": "PETERBORO &LNER"
+  },
   "00500": {
     "desc": "NOT GATWICK EXP"
   },
@@ -2979,6 +2989,27 @@
     ],
     "desc": "VIA SHORTLANDS"
   },
+  "00542": {
+    "E": [
+      "WRX"
+    ],
+    "I": [
+      "CFS"
+    ],
+    "desc": "VIA BANGOR"
+  },
+  "00543": {
+    "I": [
+      "CFS"
+    ],
+    "desc": "VIA CAERNARFON"
+  },
+  "00544": {
+    "I": [
+      "PSE"
+    ],
+    "desc": "VIA PITSEA"
+  },
   "00545": {
     "desc": "CAL SLEEPER GRPS"
   },
@@ -3151,6 +3182,30 @@
     ],
     "desc": "NOT VIA SUTTON"
   },
+  "00587": {
+    "desc": "CAL SLPR+SCOT"
+  },
+  "00588": {
+    "desc": "CAL SLPR+SCOT."
+  },
+  "00589": {
+    "desc": "CAL SLPR+SCOT.."
+  },
+  "00590": {
+    "desc": "CAL SLPR+SCOT..."
+  },
+  "00591": {
+    "desc": "CS + SRT SEATS"
+  },
+  "00592": {
+    "desc": "CS + SRT"
+  },
+  "00593": {
+    "desc": "CS + SRT."
+  },
+  "00594": {
+    "desc": "CS + SRT.."
+  },
   "00595": {
     "desc": "HULLTRNS & TLGN"
   },
@@ -3287,7 +3342,8 @@
   },
   "00618": {
     "E": [
-      "RDG"
+      "RDG",
+      "BFR"
     ],
     "I": [
       "SAL"
@@ -3493,6 +3549,18 @@
     ],
     "desc": "VIA ABERYSTWYTH"
   },
+  "00651": {
+    "desc": "AVANTI ONLY"
+  },
+  "00652": {
+    "desc": "AVANTI  ONLY"
+  },
+  "00653": {
+    "desc": "AVANTI   ONLY"
+  },
+  "00654": {
+    "desc": "AWC STD PREM"
+  },
   "00655": {
     "I": [
       "MDE",
@@ -3500,6 +3568,27 @@
       "MDB"
     ],
     "desc": "VIA MAIDSTONE"
+  },
+  "00656": {
+    "desc": "AWC STD PREM."
+  },
+  "00657": {
+    "desc": "AP WCML"
+  },
+  "00658": {
+    "desc": "AP WCML."
+  },
+  "00659": {
+    "desc": "AP WCML.."
+  },
+  "00660": {
+    "desc": "AVANTI ONLY."
+  },
+  "00661": {
+    "desc": "AVANTI ONLY.."
+  },
+  "00662": {
+    "desc": "AWC STD PREM.."
   },
   "00666": {
     "desc": "SC TERMTIME ONLY"
@@ -3891,6 +3980,9 @@
   },
   "00783": {
     "desc": "LUTON AIRPT DART"
+  },
+  "00787": {
+    "desc": "SOUTHERN&GEX"
   },
   "00788": {
     "I": [
@@ -4493,7 +4585,7 @@
       "SFA",
       "FST"
     ],
-    "desc": "NOT HS1/LONDON"
+    "desc": "DLR/NOT LONDON"
   },
   "00908": {
     "desc": "M TO F 0400-0930"
@@ -4874,6 +4966,12 @@
     ],
     "desc": "PSEUDO TSA"
   },
+  "01056": {
+    "I": [
+      "SHV"
+    ],
+    "desc": "PSEUDO TSA 2"
+  },
   "01264": {
     "I": [
       "AMR",
@@ -4901,6 +4999,39 @@
       "HWY"
     ],
     "desc": "VIA H WYCOMBE"
+  },
+  "01372": {
+    "E": [
+      "BDM",
+      "DID",
+      "BAN",
+      "WSB",
+      "PBO",
+      "BWK"
+    ],
+    "desc": "AWC+CONNECTIONS"
+  },
+  "01373": {
+    "E": [
+      "BDM",
+      "DID",
+      "BAN",
+      "WSB",
+      "PBO",
+      "BWK"
+    ],
+    "desc": "AWC& CONNECTIONS"
+  },
+  "01374": {
+    "E": [
+      "BDM",
+      "DID",
+      "BAN",
+      "WSB",
+      "PBO",
+      "BWK"
+    ],
+    "desc": "AWC&CONNECTIONS"
   },
   "01400": {
     "desc": "HULLTRAINS & SWR"
@@ -5231,6 +5362,21 @@
   },
   "07787": {
     "desc": "TFW ONLY MFH-CNM"
+  },
+  "07788": {
+    "E": [
+      "WRX"
+    ],
+    "I": [
+      "CFS"
+    ],
+    "desc": "AP BANGOR"
+  },
+  "07789": {
+    "I": [
+      "LLO"
+    ],
+    "desc": "TFW ONLY VIA HOW"
   },
   "13000": {
     "desc": "ANGLIA-STENA HVH"
