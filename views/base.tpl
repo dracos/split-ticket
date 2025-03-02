@@ -52,7 +52,7 @@ Return,\\
 <meta property="twitter:card" content="summary">
 <meta property="twitter:site" content="@dracos">
 <meta property="twitter:title" content="Split ticket finder">
-<meta property="twitter:description" content="Bournville to Reading for the day, leaving at 8am, costs £147.80 on the day. Buy two tickets, still on the day, and it’s only £44 – same journey, same trains.">
+<meta property="twitter:description" content="Bournville to Reading for the day, leaving at 8am, costs £154.60 on the day. Buy two tickets, still on the day, and it’s only £46.10 – same journey, same trains.">
 % end
 
 </head>
