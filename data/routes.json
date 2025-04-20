@@ -2801,6 +2801,9 @@
     "desc": "AP TFW ONLY"
   },
   "00499": {
+    "E": [
+      "EUS"
+    ],
     "I": [
       "PBO"
     ],
@@ -3013,6 +3016,12 @@
   "00545": {
     "desc": "CAL SLEEPER GRPS"
   },
+  "00548": {
+    "desc": "LUMO & C2C ONLY"
+  },
+  "00549": {
+    "desc": "LUMO & C2C AP"
+  },
   "00550": {
     "I": [
       "LIP"
@@ -3208,6 +3217,12 @@
   },
   "00595": {
     "desc": "HULLTRNS & TLGN"
+  },
+  "00596": {
+    "desc": "HT & C2C ONLY"
+  },
+  "00597": {
+    "desc": "HT & C2C AP"
   },
   "00598": {
     "I": [
@@ -3589,6 +3604,15 @@
   },
   "00662": {
     "desc": "AWC STD PREM.."
+  },
+  "00663": {
+    "desc": "AVANTI WC ONLY"
+  },
+  "00664": {
+    "desc": "AVANTI WC ONLY."
+  },
+  "00665": {
+    "desc": "AVANTI WC ONLY.."
   },
   "00666": {
     "desc": "SC TERMTIME ONLY"
@@ -4972,6 +4996,18 @@
     ],
     "desc": "PSEUDO TSA 2"
   },
+  "01057": {
+    "I": [
+      "SHV"
+    ],
+    "desc": "PSEUDO TSA 3"
+  },
+  "01058": {
+    "I": [
+      "SHV"
+    ],
+    "desc": "PSEUDO TSA 4"
+  },
   "01264": {
     "I": [
       "AMR",
@@ -5185,6 +5221,12 @@
   },
   "02027": {
     "desc": "LUMO & GA ONLY"
+  },
+  "02028": {
+    "desc": "LUMO & NRTH AP"
+  },
+  "02029": {
+    "desc": "LUMO & NRTH ONLY"
   },
   "02030": {
     "desc": "AP WMT&NTH ONLY"

@@ -32,5 +32,29 @@
       "route": "00545",
       "toc": "SCS"
     }
+  ],
+  "Q993": [
+    {
+      "prices": {},
+      "route": "00588",
+      "toc": "SCS"
+    },
+    {
+      "prices": {},
+      "route": "00590",
+      "toc": "SCS"
+    }
+  ],
+  "Q994": [
+    {
+      "prices": {},
+      "route": "00592",
+      "toc": "SCS"
+    },
+    {
+      "prices": {},
+      "route": "00594",
+      "toc": "SCS"
+    }
   ]
 }

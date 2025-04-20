@@ -1480,7 +1480,7 @@
     "description": "Bow Street"
   },
   "BPA": {
-    "code": "0344",
+    "code": "6334",
     "description": "Beaulieu Park"
   },
   "BPB": {
@@ -1606,6 +1606,10 @@
   "BRZ": {
     "code": "K766",
     "description": "Burton Road Mtlk"
+  },
+  "BSA": {
+    "code": "H712",
+    "description": "Bristol Airport (A1 Bristol)"
   },
   "BSB": {
     "code": "6204",
@@ -1840,6 +1844,10 @@
   "BWD": {
     "code": "2304",
     "description": "Birchwood"
+  },
+  "BWE": {
+    "code": "L080",
+    "description": "Bristol Airport (A3 Weston)"
   },
   "BWG": {
     "code": "9968",
@@ -5623,7 +5631,7 @@
   },
   "HWS": {
     "code": "1266",
-    "description": "High Wycome High Street"
+    "description": "High Wycombe High St (Bus)"
   },
   "HWV": {
     "code": "9846",
@@ -6211,7 +6219,7 @@
   },
   "LAA": {
     "code": "0301",
-    "description": "Lifton Arundell Arms Hotel"
+    "description": "Lifton (Bus)"
   },
   "LAC": {
     "code": "5275",
@@ -8014,6 +8022,10 @@
     "code": "5786",
     "description": "Okehampton"
   },
+  "OKI": {
+    "code": "9238",
+    "description": "Okehampton Interchange"
+  },
   "OKL": {
     "code": "6020",
     "description": "Oakleigh Park"
@@ -8742,14 +8754,6 @@
     "code": "J905",
     "description": "Bristol Tm+Bus"
   },
-  "QAE": {
-    "code": "H712",
-    "description": "Bristol Airport (A1 Bristol)"
-  },
-  "QAF": {
-    "code": "L080",
-    "description": "Bristol Airport (A3 Weston)"
-  },
   "QAG": {
     "code": "0042",
     "description": "Boundary Zone 3"
@@ -8837,6 +8841,10 @@
   "QDR": {
     "code": "L096",
     "description": "Didcot Railway Centre"
+  },
+  "QEA": {
+    "code": "H272",
+    "description": "East Midlands Airport Via Derb"
   },
   "QEB": {
     "code": "K959",
