@@ -512,11 +512,6 @@
       "toc": "GWR"
     },
     {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
-    },
-    {
       "prices": {
         "SDS": [
           "00013310",
@@ -577,11 +572,6 @@
       },
       "route": "00000",
       "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
     },
     {
       "prices": {
@@ -1466,11 +1456,6 @@
       "toc": "GWR"
     },
     {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
-    },
-    {
       "prices": {
         "SDS": [
           "00014950",
@@ -2167,8 +2152,8 @@
     },
     {
       "prices": {},
-      "route": "00444",
-      "toc": "SWT"
+      "route": "00462",
+      "toc": "GWA"
     },
     {
       "prices": {
@@ -2270,8 +2255,8 @@
     },
     {
       "prices": {},
-      "route": "00444",
-      "toc": "SWT"
+      "route": "00462",
+      "toc": "GWA"
     },
     {
       "prices": {
@@ -4218,11 +4203,6 @@
       },
       "route": "00000",
       "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
     },
     {
       "prices": {

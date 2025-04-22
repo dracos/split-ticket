@@ -124,7 +124,7 @@
     "E": [
       "BAN"
     ],
-    "desc": "LON NWESTRN ONLY"
+    "desc": "LNR ONLY"
   },
   "00024": {
     "desc": "XC ONLY"
@@ -201,7 +201,7 @@
     "desc": "HT DIV RTE ONLY"
   },
   "00042": {
-    "desc": "WMR & LNR ONLY"
+    "desc": "LNR & WMR ONLY"
   },
   "00043": {
     "desc": "AVANTI"
@@ -409,7 +409,7 @@
     "desc": "PETERBORO COACH"
   },
   "00081": {
-    "desc": "WMR/LNR MON-THU"
+    "desc": "LNR/WMR MON-THU"
   },
   "00082": {
     "desc": "GWR FIRSTUPGRADE"
@@ -2075,10 +2075,10 @@
       "NUN",
       "TAM"
     ],
-    "desc": "LNR AND XC ONLY"
+    "desc": "LNR/WMR &XC ONLY"
   },
   "00371": {
-    "desc": "WMR/LNR/TFW ONLY"
+    "desc": "LNR/WMR&TFW ONLY"
   },
   "00372": {
     "desc": "HIGHBRIDGE BUS"
@@ -2505,7 +2505,7 @@
     "desc": "SWR & CONNECTION"
   },
   "00445": {
-    "desc": "AP WMT & MRAIL"
+    "desc": "AP LNR/WMR&MRAIL"
   },
   "00446": {
     "desc": "AP SCOTRAIL ONLY"
@@ -2588,13 +2588,13 @@
     "desc": "AP CHESTERFIELD"
   },
   "00459": {
-    "desc": "AP WMR/LNR/TFW"
+    "desc": "AP LNR/WMR & TFW"
   },
   "00460": {
     "I": [
       "TAM"
     ],
-    "desc": "AP LNR & XC ONLY"
+    "desc": "AP LNR/WMR & XC"
   },
   "00461": {
     "desc": "AVANTI &NORTHERN"
@@ -2713,7 +2713,7 @@
     "E": [
       "DON"
     ],
-    "desc": "AP WMR/LNR ONLY"
+    "desc": "AP LNR&WMR ONLY"
   },
   "00481": {
     "E": [
@@ -2962,7 +2962,7 @@
     "desc": "VIA HEADBOLT LN"
   },
   "00531": {
-    "desc": "WMT & NTH ONLY"
+    "desc": "LNR & NTHN ONLY"
   },
   "00532": {
     "I": [
@@ -3323,6 +3323,7 @@
   },
   "00614": {
     "I": [
+      "RDH",
       "RDH"
     ],
     "desc": "VIA REDHILL"
@@ -4056,6 +4057,8 @@
   },
   "00793": {
     "I": [
+      "RDH",
+      "GLD",
       "RDH",
       "GLD"
     ],
@@ -5229,7 +5232,7 @@
     "desc": "LUMO & NRTH ONLY"
   },
   "02030": {
-    "desc": "AP WMT&NTH ONLY"
+    "desc": "AP LNR&NTHN ONLY"
   },
   "02052": {
     "desc": "PLUSBUS OFFER"

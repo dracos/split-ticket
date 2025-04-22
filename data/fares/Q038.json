@@ -275,8 +275,8 @@
     },
     {
       "prices": {},
-      "route": "00444",
-      "toc": "SWT"
+      "route": "00462",
+      "toc": "GWA"
     },
     {
       "prices": {
@@ -554,11 +554,6 @@
       },
       "route": "00000",
       "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
     },
     {
       "prices": {
@@ -2229,8 +2224,8 @@
     },
     {
       "prices": {},
-      "route": "00444",
-      "toc": "SWT"
+      "route": "00462",
+      "toc": "GWA"
     },
     {
       "prices": {
@@ -8026,13 +8021,8 @@
     },
     {
       "prices": {},
-      "route": "00411",
-      "toc": "GWA"
-    },
-    {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
+      "route": "00444",
+      "toc": "SWT"
     },
     {
       "prices": {
@@ -8175,11 +8165,6 @@
       },
       "route": "00000",
       "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
     },
     {
       "prices": {
@@ -10984,12 +10969,7 @@
     },
     {
       "prices": {},
-      "route": "00444",
-      "toc": "SWT"
-    },
-    {
-      "prices": {},
-      "route": "00494",
+      "route": "00462",
       "toc": "GWA"
     },
     {
@@ -11317,11 +11297,6 @@
       },
       "route": "00000",
       "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
     },
     {
       "prices": {
@@ -11713,11 +11688,6 @@
       "toc": "GWR"
     },
     {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
-    },
-    {
       "prices": {
         "SDS": [
           "00014950",
@@ -11778,11 +11748,6 @@
       },
       "route": "00000",
       "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
     },
     {
       "prices": {
@@ -13038,11 +13003,6 @@
       "toc": "GWR"
     },
     {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
-    },
-    {
       "prices": {
         "SDS": [
           "00014950",
@@ -13331,11 +13291,6 @@
       },
       "route": "00000",
       "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
     },
     {
       "prices": {

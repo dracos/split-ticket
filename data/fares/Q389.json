@@ -2067,13 +2067,8 @@
   "Q038": [
     {
       "prices": {},
-      "route": "00411",
-      "toc": "GWA"
-    },
-    {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
+      "route": "00444",
+      "toc": "SWT"
     },
     {
       "prices": {
@@ -8971,11 +8966,6 @@
   ],
   "Q291": [
     {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
-    },
-    {
       "prices": {
         "SDS": [
           "00013740",
@@ -11632,7 +11622,7 @@
     },
     {
       "prices": {},
-      "route": "00411",
+      "route": "00462",
       "toc": "GWA"
     },
     {
@@ -11833,8 +11823,8 @@
     },
     {
       "prices": {},
-      "route": "00411",
-      "toc": "GWA"
+      "route": "00444",
+      "toc": "SWT"
     },
     {
       "prices": {
@@ -11986,11 +11976,6 @@
       },
       "route": "00000",
       "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00411",
-      "toc": "GWA"
     },
     {
       "prices": {

@@ -9628,11 +9628,6 @@
       "toc": "GWR"
     },
     {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
-    },
-    {
       "prices": {
         "SDS": [
           "00014950",
@@ -13404,11 +13399,6 @@
       },
       "route": "00000",
       "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
     },
     {
       "prices": {

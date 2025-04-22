@@ -1887,7 +1887,7 @@
   },
   "BXT": {
     "code": "5014",
-    "description": "Brixham Town Square"
+    "description": "Brixham (Bus)"
   },
   "BXW": {
     "code": "5403",
@@ -5730,7 +5730,7 @@
   },
   "IHS": {
     "code": "L087",
-    "description": "Ilfracombe High St"
+    "description": "Ilfracombe (Bus)"
   },
   "ILK": {
     "code": "8568",
@@ -6332,7 +6332,7 @@
   },
   "LCP": {
     "code": "2039",
-    "description": "Lynton Castle Hill Car Park"
+    "description": "Lynton (Bus)"
   },
   "LCS": {
     "code": "8830",
@@ -6629,7 +6629,7 @@
   },
   "LLP": {
     "code": "2068",
-    "description": "Lynmouth Lyndale Coach Park"
+    "description": "Lynmouth (Bus)"
   },
   "LLR": {
     "code": "9925",
@@ -8884,7 +8884,7 @@
   },
   "QLV": {
     "code": "0300",
-    "description": "Lydford Village"
+    "description": "Lydford (Bus)"
   },
   "QMA": {
     "code": "L002",
@@ -8925,6 +8925,10 @@
   "QMJ": {
     "code": "L014",
     "description": "Metrolink Z1-4"
+  },
+  "QMZ": {
+    "code": "H638",
+    "description": "Metro T&W Zone A"
   },
   "QND": {
     "code": "I678",
@@ -11841,6 +11845,10 @@
   "WNN": {
     "code": "2681",
     "description": "Wennington"
+  },
+  "WNO": {
+    "code": "9404",
+    "description": "Winslow"
   },
   "WNP": {
     "code": "7408",

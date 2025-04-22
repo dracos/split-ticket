@@ -1895,8 +1895,8 @@
   "Q038": [
     {
       "prices": {},
-      "route": "00444",
-      "toc": "SWT"
+      "route": "00462",
+      "toc": "GWA"
     },
     {
       "prices": {
@@ -14266,11 +14266,6 @@
       },
       "route": "00000",
       "toc": "GWR"
-    },
-    {
-      "prices": {},
-      "route": "00462",
-      "toc": "GWA"
     },
     {
       "prices": {
