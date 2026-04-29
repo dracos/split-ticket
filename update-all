@@ -2,16 +2,6 @@
 
 set -e
 
-read -p "Username: " USERNAME
-read -s -p "Password: " PASSWORD
-
-TOKEN=$(curl 'https://opendata.nationalrail.co.uk/authenticate' \
-     --data-urlencode "username=$USERNAME" \
-     --data-urlencode "password=$PASSWORD" | jq -r .token)
-
-curl 'https://opendata.nationalrail.co.uk/api/staticfeeds/2.0/fares' -H "X-Auth-Token: $TOKEN" --output fares.zip
-curl 'https://opendata.nationalrail.co.uk/api/staticfeeds/3.0/timetable' -H "X-Auth-Token: $TOKEN" --output timetable.zip
-
 FARE_DIR=fare-data-$(unzip -l fares.zip | grep TOC | perl -pe's/.*FAF(\d+).*/$1/')
 TIMETABLE_DIR=timetable-data-$(unzip -l timetable.zip | grep MCA | perl -pe's/.*TTF(\d+).*/$1/')
 
