@@ -2,7 +2,7 @@
   "0433-K959-00000-CDR": {
     "adult": "00003160",
     "from": "0433",
-    "restriction": "H1",
+    "restriction": "",
     "route": "00000",
     "ticket": "CDR",
     "to": "K959"
@@ -112,7 +112,7 @@
     "to": "6965"
   },
   "1826-K845-00000-SDR": {
-    "adult": "00000550",
+    "adult": "00000580",
     "from": "1826",
     "restriction": "",
     "route": "00000",
@@ -2506,7 +2506,7 @@
   "9328-K980-00000-CDR": {
     "adult": "00002150",
     "from": "9328",
-    "restriction": "H1",
+    "restriction": "",
     "route": "00000",
     "ticket": "CDR",
     "to": "K980"
@@ -2552,7 +2552,7 @@
     "to": "5459"
   },
   "K845-1826-00000-SDR": {
-    "adult": "00000550",
+    "adult": "00000580",
     "from": "K845",
     "restriction": "",
     "route": "00000",

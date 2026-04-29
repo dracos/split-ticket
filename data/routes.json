@@ -1858,6 +1858,7 @@
   },
   "00331": {
     "E": [
+      "EBD",
       "SFA"
     ],
     "desc": "NOT HS1 NOT UND"
@@ -2087,7 +2088,7 @@
     "desc": "WESTON SM BUS"
   },
   "00374": {
-    "desc": "EXETER BUS"
+    "desc": "SLOU-HTRW BUS A4"
   },
   "00375": {
     "desc": "PLYMOUTH BUS"
@@ -2373,8 +2374,7 @@
   },
   "00422": {
     "E": [
-      "EUS",
-      "FPK"
+      "EUS"
     ],
     "I": [
       "PBO"
@@ -2988,9 +2988,9 @@
   },
   "00541": {
     "I": [
-      "SRT"
+      "SOO"
     ],
-    "desc": "VIA SHORTLANDS"
+    "desc": "VIA STROOD"
   },
   "00542": {
     "E": [
@@ -3080,6 +3080,9 @@
   },
   "00562": {
     "desc": "LUMO ONLY"
+  },
+  "00563": {
+    "desc": "TPE ONLY."
   },
   "00564": {
     "E": [
@@ -3173,6 +3176,9 @@
     ],
     "desc": "GC & TPE VIA MIR"
   },
+  "00580": {
+    "desc": "WC STD PREM"
+  },
   "00581": {
     "I": [
       "TED"
@@ -3184,6 +3190,15 @@
       "DBY"
     ],
     "desc": "NOT VIA DERBY"
+  },
+  "00583": {
+    "desc": "AP WMR ONLY"
+  },
+  "00584": {
+    "desc": "LUMO & CHLTRN"
+  },
+  "00585": {
+    "desc": "LUMO & CHLTRN AP"
   },
   "00586": {
     "E": [
@@ -3565,6 +3580,13 @@
     ],
     "desc": "VIA ABERYSTWYTH"
   },
+  "00650": {
+    "E": [
+      "LCN",
+      "DON"
+    ],
+    "desc": "NOT VIA DON/LINC"
+  },
   "00651": {
     "desc": "AVANTI ONLY"
   },
@@ -3627,6 +3649,42 @@
     ],
     "desc": "STRATFD NOT LDN"
   },
+  "00671": {
+    "I": [
+      "YST"
+    ],
+    "desc": "VIA NEATH"
+  },
+  "00672": {
+    "I": [
+      "YST"
+    ],
+    "desc": "AP NEATH"
+  },
+  "00673": {
+    "E": [
+      "LLJ"
+    ],
+    "I": [
+      "CAP"
+    ],
+    "desc": "VIA BETWS-Y-COED"
+  },
+  "00674": {
+    "E": [
+      "LLJ"
+    ],
+    "I": [
+      "CAP"
+    ],
+    "desc": "AP BETWS-Y-COED"
+  },
+  "00675": {
+    "I": [
+      "CAP"
+    ],
+    "desc": "VIA CAPEL CURIG"
+  },
   "00678": {
     "I": [
       "MRP"
@@ -3638,6 +3696,18 @@
       "MHS"
     ],
     "desc": "VIA MEADOWHALL"
+  },
+  "00680": {
+    "I": [
+      "BCS"
+    ],
+    "desc": "VIA BICESTER NTH"
+  },
+  "00681": {
+    "I": [
+      "WNO"
+    ],
+    "desc": "VIA WINSLOW"
   },
   "00684": {
     "I": [
@@ -3663,6 +3733,12 @@
       "PDW"
     ],
     "desc": "VIA PADDOCK WOOD"
+  },
+  "00689": {
+    "I": [
+      "NNG"
+    ],
+    "desc": "VIA NEWARK NGATE"
   },
   "00694": {
     "E": [
@@ -3877,6 +3953,12 @@
     ],
     "desc": "VIA STAINES"
   },
+  "00736": {
+    "I": [
+      "SNS"
+    ],
+    "desc": "STAINES & LONDON"
+  },
   "00738": {
     "I": [
       "WDO",
@@ -3899,6 +3981,12 @@
     ],
     "desc": "VIA LEWISHAM"
   },
+  "00750": {
+    "E": [
+      "EUS"
+    ],
+    "desc": "NOT VIA  LONDON."
+  },
   "00751": {
     "E": [
       "EBD",
@@ -3918,10 +4006,13 @@
     "desc": "NEW CROSS N X GT"
   },
   "00754": {
+    "E": [
+      "CLJ"
+    ],
     "I": [
       "BAL"
     ],
-    "desc": "VIA BALHAM"
+    "desc": "BALHAM NOT CLJ"
   },
   "00756": {
     "I": [
@@ -3965,10 +4056,7 @@
     "desc": "VIA CROYDON"
   },
   "00771": {
-    "I": [
-      "SOO"
-    ],
-    "desc": "VIA STROOD"
+    "desc": "DO NOT USE"
   },
   "00772": {
     "I": [
@@ -4549,12 +4637,10 @@
     "desc": "CPAY EXC ZONE 12"
   },
   "00865": {
-    "I": [
-      "BPW",
-      "BRI",
-      "GCR"
+    "E": [
+      ""
     ],
-    "desc": "GLOUC/BRISTOL"
+    "desc": "CPAY EXC ZONE 16"
   },
   "00866": {
     "I": [
@@ -5039,6 +5125,12 @@
     ],
     "desc": "VIA H WYCOMBE"
   },
+  "01306": {
+    "desc": "EMR-ONLY"
+  },
+  "01307": {
+    "desc": "EMR-ONLY."
+  },
   "01372": {
     "E": [
       "BDM",
@@ -5072,8 +5164,31 @@
     ],
     "desc": "AWC&CONNECTIONS"
   },
+  "01375": {
+    "E": [
+      "BDM",
+      "DID",
+      "BAN",
+      "WSB",
+      "PBO",
+      "BWK"
+    ],
+    "desc": "STD PREM & CNXS"
+  },
   "01400": {
     "desc": "HULLTRAINS & SWR"
+  },
+  "01401": {
+    "desc": "HT & CHLTRN ONLY"
+  },
+  "01402": {
+    "desc": "HT & CHLTRN AP"
+  },
+  "01403": {
+    "desc": "HULLTRNS & LNWR"
+  },
+  "01404": {
+    "desc": "AP HULTRNS &LNWR"
   },
   "01407": {
     "desc": "HULLTRS&NORTHERN"
@@ -5146,6 +5261,84 @@
   },
   "01436": {
     "desc": "AP AVANTI"
+  },
+  "01450": {
+    "desc": "LUMO & T&W METRO"
+  },
+  "01451": {
+    "desc": "LUMO T&W METROAP"
+  },
+  "01452": {
+    "desc": "LUMO & LNWR ONLY"
+  },
+  "01453": {
+    "desc": "AP LUMO & LNWR"
+  },
+  "01454": {
+    "desc": "LUMO ST& NRTHN"
+  },
+  "01455": {
+    "desc": "AP LUMOST& NRTHN"
+  },
+  "01475": {
+    "desc": "LUMO STG FIXED"
+  },
+  "01476": {
+    "desc": "LUMO STG ONLY"
+  },
+  "01477": {
+    "desc": "LUMO ST& CH ONLY"
+  },
+  "01478": {
+    "desc": "AP LUMO ST& CH"
+  },
+  "01479": {
+    "desc": "LUMO ST& SR ONLY"
+  },
+  "01480": {
+    "desc": "AP LUMO ST& SR"
+  },
+  "01481": {
+    "desc": "LUMO ST& SE ONLY"
+  },
+  "01482": {
+    "desc": "AP LUMO ST& SE"
+  },
+  "01483": {
+    "desc": "LUMO ST&SWR ONLY"
+  },
+  "01484": {
+    "desc": "AP LUMO ST & SWR"
+  },
+  "01485": {
+    "desc": "LUMO ST& GA ONLY"
+  },
+  "01486": {
+    "desc": "AP LUMO ST & GA"
+  },
+  "01487": {
+    "desc": "LUMO ST&GWR ONLY"
+  },
+  "01488": {
+    "desc": "AP LUMO ST&GWR"
+  },
+  "01489": {
+    "desc": "LUMO ST&C2C ONLY"
+  },
+  "01490": {
+    "desc": "AP LUMO ST&C2C"
+  },
+  "01491": {
+    "desc": "LUMO ST&TFW ONLY"
+  },
+  "01492": {
+    "desc": "AP LUMO ST&TFW"
+  },
+  "01493": {
+    "desc": "LUMO S&TLGN ONLY"
+  },
+  "01494": {
+    "desc": "AP LUMO S&TLGN"
   },
   "01500": {
     "desc": "HULLTRAINS &SWR"
@@ -5418,9 +5611,6 @@
     "desc": "AP BANGOR"
   },
   "07789": {
-    "I": [
-      "LLO"
-    ],
     "desc": "TFW ONLY VIA HOW"
   },
   "13000": {
@@ -6159,7 +6349,7 @@
     "desc": "AAA MAZE HILL"
   },
   "40151": {
-    "desc": "AAA CHATHAM"
+    "desc": "AAA CHATM NOTHS"
   },
   "40152": {
     "desc": "AAA GILLINGHM KT"

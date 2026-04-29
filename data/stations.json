@@ -125,7 +125,7 @@
   },
   "AER": {
     "code": "0274",
-    "description": "Aberaeron"
+    "description": "Aberaeron Alban Square"
   },
   "AFK": {
     "code": "5004",
@@ -611,6 +611,10 @@
     "code": "5348",
     "description": "Banstead"
   },
+  "BAF": {
+    "code": "7815",
+    "description": "Bankfoot"
+  },
   "BAG": {
     "code": "5681",
     "description": "Bagshot"
@@ -685,7 +689,7 @@
   },
   "BAZ": {
     "code": "4478",
-    "description": "Bala Bulls Head Inn Bus"
+    "description": "Bala"
   },
   "BBG": {
     "code": "9940",
@@ -714,6 +718,10 @@
   "BBY": {
     "code": "N270",
     "description": "Ballybrophy (Civ)"
+  },
+  "BBZ": {
+    "code": "3329",
+    "description": "Brabazon"
   },
   "BCB": {
     "code": "2279",
@@ -779,10 +787,6 @@
   "BDB": {
     "code": "2892",
     "description": "Broadbottom"
-  },
-  "BDC": {
-    "code": "J407",
-    "description": "Brodick"
   },
   "BDF": {
     "code": "0336",
@@ -1241,7 +1245,7 @@
     "description": "Belper"
   },
   "BLS": {
-    "code": "6390",
+    "code": "L107",
     "description": "Bishops Lydeard Bus"
   },
   "BLT": {
@@ -1801,6 +1805,10 @@
     "code": "1179",
     "description": "Butlers Lane"
   },
+  "BUN": {
+    "code": "5465",
+    "description": "Butetown"
+  },
   "BUO": {
     "code": "5927",
     "description": "Bursledon"
@@ -1886,8 +1894,8 @@
     "description": "Bexleyheath"
   },
   "BXT": {
-    "code": "5014",
-    "description": "Brixham (Bus)"
+    "code": "L110",
+    "description": "Brixham Bus"
   },
   "BXW": {
     "code": "5403",
@@ -1995,7 +2003,7 @@
   },
   "CAP": {
     "code": "0106",
-    "description": "Capel Curig Siabod Cafe"
+    "description": "Capel Curig Bryn-Llys"
   },
   "CAR": {
     "code": "2118",
@@ -2194,7 +2202,11 @@
   },
   "CEN": {
     "code": "9506",
-    "description": "Corwen The Square"
+    "description": "Corwen Bus Station"
+  },
+  "CEP": {
+    "code": "6685",
+    "description": "Callerton Parkway"
   },
   "CES": {
     "code": "6837",
@@ -2508,8 +2520,8 @@
     "description": "Cloughjordan  (Civ)"
   },
   "CMA": {
-    "code": "0495",
-    "description": "Combe Martin Seaside Bus"
+    "code": "L088",
+    "description": "Combe Martin Bus"
   },
   "CMB": {
     "code": "8001",
@@ -3850,8 +3862,8 @@
     "description": "Ely"
   },
   "EMA": {
-    "code": "L049",
-    "description": "East Midlands Airport Via Dby"
+    "code": "H272",
+    "description": "East Mids Airport Via Dby Bus"
   },
   "EMD": {
     "code": "1901",
@@ -4036,6 +4048,10 @@
     "code": "5167",
     "description": "Faversham"
   },
+  "FAW": {
+    "code": "7979",
+    "description": "Fawdon"
+  },
   "FAX": {
     "code": "K345",
     "description": "Faringdon Bus"
@@ -4143,6 +4159,10 @@
   "FLF": {
     "code": "2786",
     "description": "Flowery Field"
+  },
+  "FLG": {
+    "code": "9568",
+    "description": "Felling"
   },
   "FLI": {
     "code": "2935",
@@ -4382,6 +4402,14 @@
   "GAR": {
     "code": "9904",
     "description": "Garrowhill"
+  },
+  "GAS": {
+    "code": "9567",
+    "description": "Gateshead Stadium"
+  },
+  "GAT": {
+    "code": "9566",
+    "description": "Gateshead"
   },
   "GBD": {
     "code": "8117",
@@ -5217,6 +5245,10 @@
     "code": "9738",
     "description": "Holytown"
   },
+  "HMA": {
+    "code": "9563",
+    "description": "Haymarket (Newcastle)"
+  },
   "HMC": {
     "code": "5561",
     "description": "Hampton Court"
@@ -5694,7 +5726,7 @@
   },
   "HYO": {
     "code": "9545",
-    "description": "Hay On Wye Hay Castle"
+    "description": "Hay On Wye Castle"
   },
   "HYR": {
     "code": "5289",
@@ -5723,6 +5755,10 @@
   "IFI": {
     "code": "5495",
     "description": "Ifield"
+  },
+  "IFR": {
+    "code": "9551",
+    "description": "Ilford Road"
   },
   "IGD": {
     "code": "8648",
@@ -5827,6 +5863,10 @@
   "JEQ": {
     "code": "1097",
     "description": "Jewellery Quarter"
+  },
+  "JES": {
+    "code": "9561",
+    "description": "Jesmond"
   },
   "JHN": {
     "code": "9648",
@@ -5980,6 +6020,10 @@
   "KIN": {
     "code": "8655",
     "description": "Kingussie"
+  },
+  "KIP": {
+    "code": "7562",
+    "description": "Kingston Park"
   },
   "KIR": {
     "code": "2124",
@@ -6218,7 +6262,7 @@
     "description": "Keynsham"
   },
   "LAA": {
-    "code": "0301",
+    "code": "L089",
     "description": "Lifton (Bus)"
   },
   "LAC": {
@@ -6331,8 +6375,8 @@
     "description": "Lincoln"
   },
   "LCP": {
-    "code": "2039",
-    "description": "Lynton (Bus)"
+    "code": "L093",
+    "description": "Lynton Bus"
   },
   "LCS": {
     "code": "8830",
@@ -6436,7 +6480,7 @@
   },
   "LFL": {
     "code": "0943",
-    "description": "Leigh Fleurdelis"
+    "description": "Leigh (Fleur Delis Pub)(Bus)"
   },
   "LFO": {
     "code": "M820",
@@ -6628,8 +6672,8 @@
     "description": "Llandrindod"
   },
   "LLP": {
-    "code": "2068",
-    "description": "Lynmouth (Bus)"
+    "code": "L094",
+    "description": "Lynmouth Bus"
   },
   "LLR": {
     "code": "9925",
@@ -6850,7 +6894,7 @@
   },
   "LTR": {
     "code": "0295",
-    "description": "Lampeter Black Lion"
+    "description": "Lampeter The Black Lion"
   },
   "LTS": {
     "code": "3498",
@@ -7316,6 +7360,10 @@
   "MMO": {
     "code": "1851",
     "description": "Melton Mowbray"
+  },
+  "MMS": {
+    "code": "9565",
+    "description": "Monument South"
   },
   "MNA": {
     "code": "K880",
@@ -8279,7 +8327,7 @@
   },
   "PGR": {
     "code": "7699",
-    "description": "Pen-Y-Gros Poveys Garage"
+    "description": "Penygroes Co-Op"
   },
   "PHG": {
     "code": "4335",
@@ -8842,10 +8890,6 @@
     "code": "L096",
     "description": "Didcot Railway Centre"
   },
-  "QEA": {
-    "code": "H272",
-    "description": "East Midlands Airport Via Derb"
-  },
   "QEB": {
     "code": "K959",
     "description": "Edb Bus Tour"
@@ -8874,6 +8918,10 @@
     "code": "K681",
     "description": "Hamptn Ct Flower"
   },
+  "QHW": {
+    "code": "L109",
+    "description": "High Wycombe High Street"
+  },
   "QKB": {
     "code": "J507",
     "description": "Keswick Bus Rdnt"
@@ -8883,7 +8931,7 @@
     "description": "Lands End Visitor Centre"
   },
   "QLV": {
-    "code": "0300",
+    "code": "L091",
     "description": "Lydford (Bus)"
   },
   "QMA": {
@@ -8926,6 +8974,10 @@
     "code": "L014",
     "description": "Metrolink Z1-4"
   },
+  "QMM": {
+    "code": "9225",
+    "description": "Marsden Bus A62"
+  },
   "QMZ": {
     "code": "H638",
     "description": "Metro T&W Zone A"
@@ -8957,6 +9009,18 @@
   "QRP": {
     "code": "5424",
     "description": "Queens Road (Peckham)"
+  },
+  "QSD": {
+    "code": "Z049",
+    "description": "Swr Destination"
+  },
+  "QSG": {
+    "code": "K960",
+    "description": "Gla Sightseeing"
+  },
+  "QSO": {
+    "code": "Z048",
+    "description": "Swr Origin"
   },
   "QTA": {
     "code": "7071",
@@ -9362,7 +9426,7 @@
   },
   "RTI": {
     "code": "0108",
-    "description": "Ruthin Market Street"
+    "description": "Ruthin War Memorial"
   },
   "RTN": {
     "code": "9867",
@@ -9642,7 +9706,7 @@
   },
   "SDD": {
     "code": "0386",
-    "description": "St Davids City Hall"
+    "description": "St Davids New Street"
   },
   "SDE": {
     "code": "1082",
@@ -10889,6 +10953,10 @@
     "code": "2985",
     "description": "Timperley"
   },
+  "TIN": {
+    "code": "7088",
+    "description": "Magna Tram Stop"
+  },
   "TIP": {
     "code": "1159",
     "description": "Tipton"
@@ -11452,6 +11520,10 @@
     "code": "7474",
     "description": "West Ham"
   },
+  "WEJ": {
+    "code": "9560",
+    "description": "West Jesmond"
+  },
   "WEL": {
     "code": "1940",
     "description": "Wellingborough"
@@ -11647,6 +11719,10 @@
   "WIV": {
     "code": "6860",
     "description": "Wivenhoe"
+  },
+  "WIX": {
+    "code": "1879",
+    "description": "Wixams"
   },
   "WKB": {
     "code": "9564",
@@ -11947,6 +12023,10 @@
   "WRB": {
     "code": "6907",
     "description": "Wrabness"
+  },
+  "WRD": {
+    "code": "9548",
+    "description": "Wansbeck Road"
   },
   "WRE": {
     "code": "1350",
