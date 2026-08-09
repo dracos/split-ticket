@@ -613,7 +613,7 @@
   },
   "BAF": {
     "code": "7815",
-    "description": "Bankfoot"
+    "description": "Bank Foot"
   },
   "BAG": {
     "code": "5681",
@@ -721,7 +721,7 @@
   },
   "BBZ": {
     "code": "3329",
-    "description": "Brabazon"
+    "description": "Bristol Brabazon"
   },
   "BCB": {
     "code": "2279",
@@ -1806,7 +1806,7 @@
     "description": "Butlers Lane"
   },
   "BUN": {
-    "code": "5465",
+    "code": "3808",
     "description": "Butetown"
   },
   "BUO": {
@@ -1872,6 +1872,10 @@
   "BWO": {
     "code": "1560",
     "description": "Bricket Wood"
+  },
+  "BWR": {
+    "code": "L108",
+    "description": "Bourton On The Water"
   },
   "BWS": {
     "code": "1903",
@@ -2242,6 +2246,10 @@
     "code": "7447",
     "description": "Chafford Hundred"
   },
+  "CFI": {
+    "code": "3373",
+    "description": "Charfield"
+  },
   "CFL": {
     "code": "8554",
     "description": "Crossflatts"
@@ -2570,7 +2578,8 @@
   },
   "CMS": {
     "code": "3181",
-    "description": "Cambridge South"
+    "description": "Cambridge South",
+    "fare_group": "8384"
   },
   "CMY": {
     "code": "9796",
@@ -4318,6 +4327,10 @@
     "code": "5707",
     "description": "Frome"
   },
+  "FRR": {
+    "code": "L135",
+    "description": "Frosterley"
+  },
   "FRS": {
     "code": "8639",
     "description": "Forsinard"
@@ -4940,6 +4953,10 @@
   "HBP": {
     "code": "8212",
     "description": "Hornbeam Park"
+  },
+  "HBR": {
+    "code": "3204",
+    "description": "Henbury"
   },
   "HBY": {
     "code": "4579",
@@ -8914,6 +8931,10 @@
     "code": "H973",
     "description": "Glasgow Subway"
   },
+  "QHA": {
+    "code": "L137",
+    "description": "Hawes"
+  },
   "QHC": {
     "code": "K681",
     "description": "Hamptn Ct Flower"
@@ -8922,9 +8943,17 @@
     "code": "L109",
     "description": "High Wycombe High Street"
   },
+  "QIN": {
+    "code": "L138",
+    "description": "Ingleton"
+  },
   "QKB": {
     "code": "J507",
     "description": "Keswick Bus Rdnt"
+  },
+  "QKH": {
+    "code": "L131",
+    "description": "Kingfisher Halt"
   },
   "QLE": {
     "code": "J004",
@@ -8994,6 +9023,10 @@
     "code": "9822",
     "description": "Queens Park (Glasgow)"
   },
+  "QPN": {
+    "code": "L136",
+    "description": "Peak Network Day Ticket"
+  },
   "QPW": {
     "code": "1419",
     "description": "Queens Park (London)"
@@ -9049,6 +9082,10 @@
   "QWU": {
     "code": "I057",
     "description": "Worthing Unizone"
+  },
+  "QWW": {
+    "code": "L133",
+    "description": "Witton-Le-Wear"
   },
   "QXD": {
     "code": "I231",
@@ -10236,6 +10273,10 @@
     "code": "6110",
     "description": "St Neots"
   },
+  "SNP": {
+    "code": "L134",
+    "description": "Stanhope"
+  },
   "SNR": {
     "code": "5433",
     "description": "Sanderstead"
@@ -10735,6 +10776,10 @@
     "code": "8450",
     "description": "Slaithwaite"
   },
+  "SWW": {
+    "code": "J647",
+    "description": "Stow On Wold Bus"
+  },
   "SWY": {
     "code": "5884",
     "description": "Sway"
@@ -11122,6 +11167,10 @@
   "TRU": {
     "code": "3540",
     "description": "Truro"
+  },
+  "TRW": {
+    "code": "2465",
+    "description": "Trawsfynydd"
   },
   "TRY": {
     "code": "3891",
@@ -11781,6 +11830,10 @@
   "WLG": {
     "code": "2154",
     "description": "Wallasey Grove Road"
+  },
+  "WLH": {
+    "code": "L132",
+    "description": "Wolsingham"
   },
   "WLI": {
     "code": "5128",

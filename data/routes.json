@@ -1470,16 +1470,16 @@
     "desc": "VIA BIRMINGHAM"
   },
   "00269": {
-    "desc": "TFWRS ONLY"
+    "desc": "TFW ONLY WU BHI"
   },
   "00270": {
-    "desc": "TFW RS ONLY"
+    "desc": "TFW ONLY WU LIV"
   },
   "00271": {
-    "desc": "TFWRS  ONLY"
+    "desc": "TFW ONLY WU CNM"
   },
   "00272": {
-    "desc": "TFW RS  ONLY"
+    "desc": "TFW ONLY WU MAN"
   },
   "00273": {
     "desc": "WELFARE TO WORK"
@@ -2273,9 +2273,9 @@
   },
   "00410": {
     "I": [
-      "PAD"
+      "WOK"
     ],
-    "desc": "AP A6 VIA PADDTN"
+    "desc": "LONDON & WOKING"
   },
   "00411": {
     "E": [
@@ -2414,6 +2414,11 @@
   },
   "00430": {
     "E": [
+      "WEL",
+      "BSE",
+      "TTF",
+      "BSE",
+      "TTF",
       "WEL",
       "BSE",
       "TTF"
@@ -3258,6 +3263,9 @@
     ],
     "desc": "KENSNGTN OLYMPIA"
   },
+  "00601": {
+    "desc": "LNR/WMR OFR ONLY"
+  },
   "00602": {
     "E": [
       "EUS"
@@ -3338,7 +3346,6 @@
   },
   "00614": {
     "I": [
-      "RDH",
       "RDH"
     ],
     "desc": "VIA REDHILL"
@@ -3685,6 +3692,18 @@
     ],
     "desc": "VIA CAPEL CURIG"
   },
+  "00676": {
+    "I": [
+      "STJ"
+    ],
+    "desc": "TFW ONLY AP BRI"
+  },
+  "00677": {
+    "I": [
+      "STJ"
+    ],
+    "desc": "TFW ONLY WU BRI"
+  },
   "00678": {
     "I": [
       "MRP"
@@ -3739,6 +3758,30 @@
       "NNG"
     ],
     "desc": "VIA NEWARK NGATE"
+  },
+  "00690": {
+    "I": [
+      "RHD"
+    ],
+    "desc": "VIA RIBBLEHEAD"
+  },
+  "00691": {
+    "I": [
+      "GSD"
+    ],
+    "desc": "VIA GARSDALE"
+  },
+  "00692": {
+    "I": [
+      "GIG"
+    ],
+    "desc": "VIA GIGGLESWICK"
+  },
+  "00693": {
+    "I": [
+      "BEN"
+    ],
+    "desc": "VIA BENTHAM"
   },
   "00694": {
     "E": [
@@ -3975,6 +4018,84 @@
     ],
     "desc": "VIA ASHFORD KENT"
   },
+  "00740": {
+    "E": [
+      "SHV"
+    ],
+    "I": [
+      "RYP"
+    ],
+    "desc": "SN ONLY+WIGHTLK"
+  },
+  "00741": {
+    "E": [
+      "RYP"
+    ],
+    "I": [
+      "SHV"
+    ],
+    "desc": "SN ONLY+HOVERTVL"
+  },
+  "00742": {
+    "E": [
+      "SHV",
+      "EUS"
+    ],
+    "I": [
+      "RYP"
+    ],
+    "desc": "NOT LDN+WIGHTLK"
+  },
+  "00743": {
+    "E": [
+      "EUS",
+      "RYP"
+    ],
+    "I": [
+      "SHV"
+    ],
+    "desc": "NOT LDN+HOVERTVL"
+  },
+  "00744": {
+    "E": [
+      "SHV"
+    ],
+    "I": [
+      "BAA",
+      "RYP"
+    ],
+    "desc": "BARNHAM+WIGHTLK"
+  },
+  "00745": {
+    "E": [
+      "RYP"
+    ],
+    "I": [
+      "SHV",
+      "BAA"
+    ],
+    "desc": "BARNHAM+HOVERTVL"
+  },
+  "00746": {
+    "E": [
+      "SHV"
+    ],
+    "I": [
+      "TBD",
+      "RYP"
+    ],
+    "desc": "THREE BR+WIGHTLK"
+  },
+  "00747": {
+    "E": [
+      "RYP"
+    ],
+    "I": [
+      "SHV",
+      "TBD"
+    ],
+    "desc": "THREE BR+HOVRTV"
+  },
   "00748": {
     "I": [
       "LEW"
@@ -4145,8 +4266,6 @@
   },
   "00793": {
     "I": [
-      "RDH",
-      "GLD",
       "RDH",
       "GLD"
     ],
@@ -4673,6 +4792,9 @@
   "00893": {
     "desc": "LAKES DY TRIPPER"
   },
+  "00897": {
+    "desc": "LNER & NORTHERN"
+  },
   "00899": {
     "I": [
       "CLH"
@@ -5051,7 +5173,7 @@
       "EDP",
       "HYM"
     ],
-    "desc": "VIA EGY TRAM"
+    "desc": "VIA EGY/HYM TRAM"
   },
   "01003": {
     "E": [
