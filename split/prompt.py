@@ -25,7 +25,7 @@ def pretty_prompt(qns):
             break
 
         if q.get('type') == 'confirm':
-            out[q['name']] = re.match('^y(es)?$(?i)', value)
+            out[q['name']] = re.match('(?i)^y(es)?$', value)
             value = 'Yes' if out[q['name']] else 'No'
         elif q.get('type') == 'list':
             choice = q['choices'][int(value)-1]

@@ -88,7 +88,7 @@ def find_stopping_points(context, ret=False):
             if q[2] not in station_times: station_times[q[2]] = [ None, None ]
             station_times[q[2]][1] = q[0]
 
-    m = re.search('<a[^>]*href="(/ajax-stoppingpoints[^"]*)">stops(?i)', stops)
+    m = re.search('(?i)<a[^>]*href="(/ajax-stoppingpoints[^"]*)">stops', stops)
     if not m:
         return None
 
