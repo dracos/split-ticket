@@ -3,6 +3,7 @@
 from __future__ import division
 
 import json
+import maxminddb
 import os
 import re
 from time import time as unix_time
@@ -184,6 +185,12 @@ def split(fr, to, day, time):
 @bottle.view('please_wait')
 def _split(fr, to, day, time, time_ret):
     context = context_init(fr, to, day, time, time_ret)
+
+    # Block continents :-/
+    with maxminddb.open_database('/var/lib/GeoIP/GeoLite2-City.mmdb') as reader:
+        country = reader.get(request.remote_addr)
+        if country['country']['iso_code'] == 'RU' or country['continent']['code'] in ['AF', 'AS', 'NA', 'OC', 'SA']:
+            bottle.abort(code=418, text='Unavailable')
 
     if (fr.upper() in data['stations'] and fr not in data['stations']) or (to.upper() in data['stations'] and to not in data['stations']):
         bottle.redirect(make_url(fr=fr.upper(), to=to.upper()))
