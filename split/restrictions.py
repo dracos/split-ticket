@@ -25,6 +25,7 @@ class Restriction(object):
         stops = []
         started = False
         for stop in self.stops[dir]:
+            #print(f'considering stop {stop}')
             chg = stop.change
             if stop.code == fro or stop.code == to:
                 started = chg = True
@@ -46,9 +47,12 @@ class Restriction(object):
         if not code.strip(): return True
         valid = True
         if dir in ('O', 'B') or not self.stops['R']:
+            #print(f" outward single {fro} {to} {code}")
             valid &= self._valid_journey(fro, to, code, 'O')
         if dir in ('R', 'B') and self.stops['R']:
+            #print(f" return single {to} {fro} {code}")
             valid &= self._valid_journey(to, fro, code, 'R')
+        #print(f'Valid? from={fro}, to={to}, code={code}, dir={dir}, valid={valid}')
         return valid
 
     def _valid_journey(self, fro, to, code, ret):
@@ -72,9 +76,17 @@ class Restriction(object):
             all_restriction = restriction.lookup("")
             for stop in self.considered_stops(fro, to, ret):
                 stop_next = self.next_stop(stop, ret)
+                #if stop_next and not stop_next.operator:  # Tube/walked
+                #    continue
+                #print(f"Stop {stop}, next {stop_next}")
                 stop_arr = self.get_time(stop, 0)
                 stop_dep = self.get_time(stop, 1)
+                #print('stop=', stop, stop.code, stop.operator, stop_next, stop_next.code if stop_next else '', stop_next.operator if stop_next else '')
                 for a in restriction.lookup(stop.code) + all_restriction:
+                    #if stop_dep:
+                    #    print('  A', a, stop_dep, stop_arr, stop_dep >= a['f'], stop_dep <= a['t'], 'tocs' not in a, stop_next.operator in a['tocs'] if 'tocs' in a else '-')
+                    #elif stop_arr:
+                    #    print('  AA', a, stop_arr, stop_arr >= a['f'], stop_arr <= a['t'], 'tocs' not in a, stop_next.operator in a['tocs'] if 'tocs' in a and stop_next else '-')
                     if a['adv'] == 'D' and stop_dep and stop_dep >= a['f'] and stop_dep <= a['t'] and ('tocs' not in a or stop_next.operator in a['tocs']): return False
                     if a['adv'] == 'A' and stop_arr and stop_arr >= a['f'] and stop_arr <= a['t'] and ('tocs' not in a or stop.operator in a['tocs']): return False
 
