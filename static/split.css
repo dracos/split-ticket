@@ -100,6 +100,25 @@ input[type=submit] {
 
 /* Results */
 
+.results-text form {
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+.results-text button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: var(--theme-link);
+    background-color: #fff;
+    vertical-align: top;
+    text-align: left;
+    text-decoration: underline;
+}
+.results-text button:hover {
+    color: #f00;
+}
+
 .results {
     margin-bottom: 1em;
     font-size: 120%;

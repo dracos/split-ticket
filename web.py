@@ -177,11 +177,11 @@ def split_ajax(fr, to, day, time, time_ret):
         'queue_size': max(0, busy_workers),
     }
 
-@bottle.route('/<fr>/<to>/<day>/<time>')
+@bottle.route('/<fr>/<to>/<day>/<time>', method=('GET','POST'))
 def split(fr, to, day, time):
     return _split(fr, to, day, time, '')
 
-@bottle.route('/<fr>/<to>/<day>/<time>/<time_ret>')
+@bottle.route('/<fr>/<to>/<day>/<time>/<time_ret>', method=('GET','POST'))
 @bottle.view('please_wait')
 def _split(fr, to, day, time, time_ret):
     context = context_init(fr, to, day, time, time_ret)
