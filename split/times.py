@@ -74,14 +74,14 @@ def find_stopping_points(context, ret=False):
             break
         else:
             requests.Session().cache.delete_url(url)
-    m = re.search('<li id="result1">[\s\S]*?(?:<li id="result2">|</ul>)', stops)
+    m = re.search(r'<li id="result1">[\s\S]*?(?:<li id="result2">|</ul>)', stops)
     if m:
         res1 = m.group()
-        m = re.search('<strong>.*?(\d\d:\d\d)\s+&ndash; (\d\d:\d\d)', res1)
+        m = re.search(r'<strong>.*?(\d\d:\d\d)\s+&ndash; (\d\d:\d\d)', res1)
         if m:
             station_times[fr] = [ None, m.group(1) ]
             station_times[to] = [ m.group(2), None ]
-        m = re.findall('<td><span class=\'times\'>(\d\d:\d\d)&ndash;<br>(\d\d:\d\d)[\s\S]*?</td>\s*<td class=\'origin\'>.*?/live/([A-Z]{3})[\s\S]*?<td class=\'destination\'>.*?/live/([A-Z]{3})', res1)
+        m = re.findall(r'<td><span class=\'times\'>(\d\d:\d\d)&ndash;<br>(\d\d:\d\d)[\s\S]*?</td>\s*<td class=\'origin\'>.*?/live/([A-Z]{3})[\s\S]*?<td class=\'destination\'>.*?/live/([A-Z]{3})', res1)
         for q in m:
             if q[3] not in station_times: station_times[q[3]] = [ None, None ]
             station_times[q[3]][0] = q[1]
