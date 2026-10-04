@@ -15,6 +15,7 @@ from rq.job import Job
 
 def get_job_id(context):
     id = '%(from)s/%(to)s/%(day)s/%(time)s/%(time_ret)s/%(via)s/%(exclude)s/%(all)s' % context
+    id = re.sub(':', '', id)
     if context.get('avoid'):
         id += '/%(avoid)s' % context
     return id
