@@ -81,10 +81,10 @@ def ajax():
 @cache(60*15)
 def home():
     if all(x in request.query and request.query[x] for x in ['from', 'to', 'time', 'day']):
-        request.query['time'] = re.sub('^(\d\d)(\d\d)$', r'\1:\2', request.query['time'])
+        request.query['time'] = re.sub(r'^(\d\d)(\d\d)$', r'\1:\2', request.query['time'])
         path = '/%(from)s/%(to)s/%(day)s/%(time)s' % request.query
         if request.query.get('time_ret'):
-            request.query['time_ret'] = re.sub('^(\d\d)(\d\d)$', r'\1:\2', request.query['time_ret'])
+            request.query['time_ret'] = re.sub(r'^(\d\d)(\d\d)$', r'\1:\2', request.query['time_ret'])
             path += '/%(time_ret)s' % request.query
         if request.query.get('via'):
             path += '?via=' + urllib.parse.quote(request.query['via'])
@@ -124,9 +124,9 @@ def clean(form):
         errors['via'] = 'Please select a valid via'
     if not form.get('day'):
         errors['day'] = 'Please say whether you want a single, day return, or return'
-    if not form.get('time') or not re.match('\d\d:\d\d', form['time']):
+    if not form.get('time') or not re.match(r'\d\d:\d\d', form['time']):
         errors['time'] = 'Please enter a time'
-    if form.get('time_ret') and not re.match('\d\d:\d\d', form['time_ret']):
+    if form.get('time_ret') and not re.match(r'\d\d:\d\d', form['time_ret']):
         errors['time_ret'] = 'Please enter a valid time'
     return errors
 
