@@ -76,7 +76,8 @@ class Fares(object):
             matches = list(filter(None, map(lambda x: f.get(x), codes_to)))
             for m in matches:
                 for p in m:
-                    fares[p['route']] = p
+                    if p['prices']:
+                        fares[p['route']] = p
 
         fares_data = []
         for f in fares.values():

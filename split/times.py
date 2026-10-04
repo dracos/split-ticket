@@ -81,7 +81,7 @@ def find_stopping_points(context, ret=False):
         if m:
             station_times[fr] = [ None, m.group(1) ]
             station_times[to] = [ m.group(2), None ]
-        m = re.findall('<td>(\d\d:\d\d)&ndash;<br>(\d\d:\d\d)[\s\S]*?</td>\s*<td class=\'origin\'>.*?/live/([A-Z]{3})[\s\S]*?<td class=\'destination\'>.*?/live/([A-Z]{3})', res1)
+        m = re.findall('<td><span class=\'times\'>(\d\d:\d\d)&ndash;<br>(\d\d:\d\d)[\s\S]*?</td>\s*<td class=\'origin\'>.*?/live/([A-Z]{3})[\s\S]*?<td class=\'destination\'>.*?/live/([A-Z]{3})', res1)
         for q in m:
             if q[3] not in station_times: station_times[q[3]] = [ None, None ]
             station_times[q[3]][0] = q[1]
