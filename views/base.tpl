@@ -72,14 +72,15 @@ with traintimes.org.uk.
 </div>
 -->
 
-<div id="content">
+<main id="content">
 {{ !base }}
-</div>
+</main>
+
 <div style='clear:both'></div>
-<p id="footer" class="not-tiny">
+<footer id="footer" class="not-tiny">
 Kindly hosted by <a href="https://www.mythic-beasts.com/">Mythic Beasts</a>.
 <br><a href="https://opendata.nationalrail.co.uk/"><img src="/static/nre.png" alt="Powered by National Rail Enquiries"></a>
-</p>
+</footer>
 
 </body>
 </html>

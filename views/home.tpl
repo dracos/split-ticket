@@ -1,6 +1,6 @@
 % rebase('base.tpl')
 
-<h2>Split ticket finder</h2>
+<h1>Split ticket finder</h1>
 
 <div class="hero">
 
