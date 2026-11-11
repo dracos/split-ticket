@@ -92,7 +92,7 @@ def find_stopping_points(context, ret=False):
     if not m:
         return None
 
-    url = 'https://traintimes.org.uk' + m.group(1).replace('stage=', '') + ';ajax=2'
+    url = 'https://traintimes.org.uk' + m.group(1).replace('stage=', '').replace('&amp;', '&') + '&ajax=2'
     for i in range(0,2):
         ints = utils.fetch(url)
         #print(ints)
